@@ -1,0 +1,112 @@
+{
+ "meta": {
+  "format": "design+derived (MBSE_FRAMEWORK.md \u00a74.2)",
+  "geometry": "A2 winner: 6deg washout, 25deg sweep, rectangular, MH60, 8 ribs",
+  "written_by": "build_cad.py",
+  "aero_basis": {
+   "x_np_vlm_aft_le_mm": 144.98,
+   "source": "aero_opt/cad_loop/cyc4_wash6/sim_SM6.json",
+   "sweep_deg": 25.0,
+   "washout_deg": 6.0,
+   "note": "wing-alone VLM neutral point for THIS geometry; verify_params.py fails if design sweep/washout diverge from it"
+  }
+ },
+ "design": {
+  "span": 900.0,
+  "chord": 200.0,
+  "taper": 1.0,
+  "sweep_deg": 25.0,
+  "washout_deg": 6.0,
+  "twist_stations": null,
+  "spar_x_frac": 0.3,
+  "spar_dia": 4.0,
+  "spar_slot_dia": 4.2,
+  "rib_t": 3.0,
+  "skin_t": 3.0,
+  "hinge_x_frac": 0.75,
+  "hinge_gap": 0.5,
+  "elevon_y0": 112.5,
+  "elevon_y1": 405.0,
+  "airfoil_dat": "mh60.dat",
+  "n_ribs": 8,
+  "hole_x_fracs": [
+   0.15,
+   0.42,
+   0.56,
+   0.68
+  ],
+  "hole_dia_frac": 0.55,
+  "hole_min_dia": 6.0,
+  "hole_min_wall": 2.0,
+  "battery_u": 0.205,
+  "battery_y": 0.0,
+  "battery_orientation": "spanwise",
+  "battery_mass_g": 62.0,
+  "battery_dims": [
+   28.0,
+   64.0,
+   20.0
+  ],
+  "hatch_margin_x": 3.0,
+  "hatch_margin_y": 4.0,
+  "hatch_top_clearance": 2.0
+ },
+ "derived": {
+  "rib_stations_y": [
+   -393.75,
+   -281.25,
+   -168.75,
+   -56.25,
+   56.25,
+   168.75,
+   281.25,
+   393.75
+  ],
+  "spar_centre_uv": [
+   60.0,
+   3.5944
+  ],
+  "holes_uvd": [
+   [
+    30.0,
+    2.8769,
+    10.0573
+   ],
+   [
+    84.0,
+    3.5627,
+    10.1819
+   ],
+   [
+    112.0,
+    2.9293,
+    8.1319
+   ],
+   [
+    136.0,
+    1.9011,
+    6.0
+   ]
+  ],
+  "hatch_rect": {
+   "u0": 0.12,
+   "u1": 0.29,
+   "y0": -36.0,
+   "y1": 36.0
+  },
+  "battery_zc_mm": -4.151,
+  "battery_box": {
+   "dims": [
+    28.0,
+    64.0,
+    20.0
+   ],
+   "center_sec": [
+    0.205,
+    -0.02075,
+    0.0
+   ],
+   "orientation": "spanwise"
+  }
+ }
+}
