@@ -31,6 +31,14 @@ Recommendation: A for phase 1 (no spend), then revisit B at Gate 3. Waiting on t
 | M4 | Coupon test procedure (RQ-04 / RQ-25) | Step-by-step card the CEO can run: weigh 1 Depron sheet, print 1 rib, glue-joint peel tests, carbon bend coupon | Results feed MATERIALS.md and the twin's assumption ledger |
 | M5 | As-built mass tracking sheet | One row per part: predicted g, weighed g, delta | Pre-maiden rule: no-fly above 250 g, review below 10 g margin |
 
+### M2 preliminary sizing (Claude, 2026-10-14, modeled, for MfgE to own)
+Printed PLA V-sleeve at the root, both tube halves bonded in 30 mm deep. Basis: PLA allowable 40 MPa ÷ 1.5 (assumed; to be confirmed by the coupon), bore 4.2 mm, uniform-lift root moment at 209 g.
+| Case | Root moment | Sleeve OD needed | Sleeve mass (60 mm) |
+|---|---|---|---|
+| 2.5 g | 0.58 N·m | 6.5 mm | 1.4 g |
+| 4.0 g | 0.92 N·m | 7.4 mm | 2.1 g |
+An 8 mm OD sleeve fits easily: the MH60 is about 19 mm thick at 30% chord. Expected AUW impact: about +2 g joiner and +0.8 g extra tube, inside the 41 g margin. Open: bond shear capacity (Depron-safe epoxy vs CA), and whether a carbon insert beats PLA on stiffness. The coupon test should include one joiner sample.
+
 ## 5. Phase 2 (after the Gate 1 baseline freeze, WS-22)
 - Bill of materials with supplier, cost, lead time, as-built weight
 - Prototype build procedure (sequence, cure times, inspection points)
