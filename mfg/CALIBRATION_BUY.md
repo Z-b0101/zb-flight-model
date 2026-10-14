@@ -46,4 +46,9 @@ A first estimate (assumed prop and motor constants, to be confirmed on the bench
 
 ## CEO answers (2026-10-14, 10:43 PT)
 1. **No 0.1 g scale on hand:** #10 stays in the cart.
-2. **RC transmitter and receiver on hand:** the CEO is sending a photo. Once the model is identified, #8 (the PWM→PPM encoder) is kept or dropped, depending on whether the receiver outputs PWM or a serial protocol (R-09).
+2. **RC radio on hand (photo, 10:44 PT): HotRC HT-8A transmitter (2.4 GHz FHSS, 8 ch) + F-08A receiver.** The receiver is labeled **PWM only**, 8 channels, 4–9 V input. So:
+   - **#8, the PWM→PPM encoder, stays in the cart.** The flight controller takes a single serial or PPM input, not eight PWM wires (R-09).
+   - Cleaner option for later: HotRC sells an **SBUS receiver for the HT-8A** ([listing](https://rcdrone.top/products/hotrc-ht-8a-2-4g-8ch-rc-transm)). It wires straight into the flight controller, needs no encoder, and is likely lighter. It isn't needed for the bench; consider it before the build if the encoder setup is fiddly.
+   - Elevon mixing is done in the autopilot (ArduPlane), so the transmitter's lack of a delta mode doesn't matter. Set the transmitter to a plain 4-channel airplane model.
+   - The listed radio range is about 800 m in the air. The 26 km mission is far beyond manual radio range, so the flight cards must make sure that loss of radio triggers the autopilot's return-home. This goes in the Gate 5 flight cards.
+   - Weigh the F-08A on arrival of the scale: the weight budget carries 8 g for receiver + encoder (estimate).
