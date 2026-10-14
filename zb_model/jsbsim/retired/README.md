@@ -2,6 +2,8 @@
 
 Retired, not deleted, so the history stays traceable. Do not use it for simulation.
 
+Findings were observed on the repo contents with JSBSim 1.2.1 built from source. The old README says the file "loads clean in JSBSim 1.3.2"; that was most likely with the engine files present in a workspace and never committed. Either way, the repo copy does not load.
+
 Findings (twin build, 2026-10-14; see program/reviews/JOINT_REPORT_GM_SECTIONS.md §4):
 1. Does not load: references engine/thruster files `zb_thrust` / `zb_nozzle` that were never committed.
 2. The placeholder fuel tank adds 50 g, so simulated AUW is 254.3 g, over the 250 g cap. Disqualifying on its own.
