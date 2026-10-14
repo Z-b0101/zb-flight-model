@@ -1,7 +1,7 @@
 # Prototype roadmap: from frozen design to a flying, sub-250 g prototype
 
 **Owner:** Claude (GM). **Reviewer:** Oubi (MBSE). **Decision authority:** CEO.  
-**Status:** DRAFT v0.1, 2026-10-14, for MBSE feedback.  
+**Status:** DRAFT v0.1.1, 2026-10-14 (CEO decisions folded in), for MBSE feedback.  
 **Asked for by:** CEO, 09:28 PT 2026-10-14, after the investor meeting ("investors are waiting for a prototype").  
 **Configuration:** `cad/params.json` design hash `7be168427b4d`; twin frozen at `freeze/report-2026-10-14` @1883c1c.  
 **Ground rules from the CEO (2026-10-14):** no date was given by investors, so this plans to the fastest *credible* date and shows what each week buys. **Gate 4 stays as is:** no flight article is built before Gate 4 authorization.  
@@ -10,7 +10,7 @@
 
 ## 1. The answer in one paragraph
 
-A flying prototype is about **four weeks** away if three things happen this week: the CEO approves a **$246 calibration buy** (bench and coupon hardware the gates themselves require), names **who does the physical work**, and closes the **TDR**. On that basis:
+A flying prototype is about **four weeks** away. The CEO took this week's decisions on Oct 14 (§6): the CEO builds and flies it, the TDR is closed, and the **$218 calibration buy** is inside the GM's $500 parts authority. The remaining condition is that the order is placed by Fri Oct 16. On that basis:
 
 - Gate 4 (build authorization) lands **Fri Oct 30**.
 - The prototype is built and weighed under 250 g by **Fri Nov 6**.
@@ -41,16 +41,16 @@ The calibration buy is a **CEO money decision**. This roadmap recommends it and 
 
 | Buy | Items | Cost | When |
 |---|---|---|---|
-| **A. Calibration buy** (needs CEO approval) | Airframe materials: Depron ×4, 4 mm carbon tube, filament, CA + hot glue, hinge tape, linkages ($53) · 1× 1404 motor, Bullet 20A ESC, Flash 7040 props ($36) · 1× 3S 650 mAh pack ($15) · balance charger ($28, skip if on hand) · wattmeter ($17) · 0.1 g scale ($12, skip if on hand) · FC SpeedyBee F405 WING MINI, M100-5883 GPS, PPM encoder, 2× ES9051 servos ($85) | **$246** (−$40 if charger and scale are on hand) | Order **by Fri Oct 16** |
+| **A. Calibration buy** (inside GM authority, D-23) | Airframe materials: Depron ×4, 4 mm carbon tube, filament, CA + hot glue, hinge tape, linkages ($53) · 1× 1404 motor, Bullet 20A ESC, Flash 7040 props ($36) · 1× 3S 650 mAh pack ($15) · ~~balance charger~~ (on hand) · wattmeter ($17) · 0.1 g scale ($12, skip if on hand) · FC SpeedyBee F405 WING MINI, M100-5883 GPS, PPM encoder, 2× ES9051 servos ($85) | **$218** (charger on hand); **$206** if a 0.1 g scale is on hand too | Order **by Fri Oct 16** |
 | **B. Flight-article top-up** (at Gate 4) | Spare motor ($17, pushers eat motors on belly landings) · second 3S pack ($15) | **$32** | Order **Fri Oct 30** |
 | Deferred | Payload placeholder ($50): PoC flies 0 g (D-05) | $0 now | Family-instance decision |
-| | **Total to a flying prototype** | **$278 + 10% contingency ≈ $306** | |
+| | **Total to a flying prototype** | **$250 + 10% contingency ≈ $275** | |
 
 Buy from reputable shops: there is one DOA report on the F405 WING MINI in the wild (BUDGET.md).
 
 ## 4. Phased plan with dates
 
-Dates assume the calibration buy is ordered by Fri Oct 16 and arrives in 3–5 days (domestic shipping; **assumption**, to be confirmed at order). They also assume a builder with about 2 bench days a week in Phase 1 and 4 days in the build week.
+Dates assume the calibration buy is ordered by Fri Oct 16 (CEO places the order from the GM's cart) and arrives in 3–5 days (domestic shipping; **assumption**, to be confirmed at order). They also assume a builder with about 2 bench days a week in Phase 1 and 4 days in the build week.
 
 ### Phase 0: Close the design and decide (Wed Oct 14 – Sat Oct 17), digital
 | Item | Owner | Due | Output |
@@ -103,17 +103,18 @@ Dates assume the calibration buy is ordered by Fri Oct 16 and arrives in 3–5 d
 | Nov 10–13 | **First flight** | Flight video + log |
 | ~Fri Nov 20 | **10 autonomous flights; twin calibrated against flight** | Flight logs; measured vs predicted range |
 
-## 6. Decisions needed from the CEO (this week)
+## 6. CEO decisions (taken 2026-10-14, 10:35 PT; DEV_TRACKER D-23 to D-28)
 
-1. **Approve the $246 calibration buy** (or the $206 version if the charger and scale are on hand), ordered by Fri Oct 16. Every day it slips moves the whole roadmap a day.
-2. **Name who does the physical work.** AI agents can write procedures and reduce data, but cannot weigh, print, glue or fly. The coupon test is already the CEO's open action (RQ-25). Options from mfg/ONBOARDING.md:
-    - A: the CEO executes with agent-written cards.
-    - B: hire a human technician. A local RC-club builder or a hobby-shop technician for about 2 weeks of part-time work is the fastest route; cost is not estimated here.
+| # | Decision | Effect on this plan |
+|---|---|---|
+| 1 | GM parts spend authority up to **$500**; above that, direct CEO approval. Charger on hand | Calibration buy drops to **$218** ($206 if a 0.1 g scale is on hand) and is inside GM authority. Orders are placed by the CEO from the GM's cart (agents cannot purchase) |
+| 2 | **The CEO does the hands-on work** with agent-written cards | Builder = CEO. Phase 1 needs about 2 days/week; the build week about 4 days |
+| 3 | **TDR closed: proceed** | CDR now waits only on the bench data |
+| 4 | P-11 sign-in was the CEO | Security item closed |
+| 5 | **The CEO flies the maiden** | Field and date set at the Gate 5 readiness review (Nov 9). Recommended: an RC simulator session and an experienced spotter before the maiden |
+| 6 | Share the investor board and twin viewer | CEO shares from each page's Share menu |
 
-    The dates above need roughly **2 bench days/week in Phase 1 and 4 days in the build week**.
-
-3. **Close the TDR (P-13)**: it is a CDR entry criterion. The recommendation on record is "proceed with actions".
-4. Confirm **who flies the maiden** and where (a field and an experienced RC pilot reduce R-02 risk).
+Still open: Gmail cutoff for Y3k, two-factor sign-in, GitHub Team upgrade (by Oct 23).
 
 ## 7. What could move the dates
 
