@@ -23,13 +23,14 @@ from stl import mesh as stl_mesh
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--params", default=None)
-ap.add_argument("--outdir", default="/home/hatch/workspace/uav-sub250g/cad")
+HERE = os.path.dirname(os.path.abspath(__file__))   # cad/ in the repo (was /home/hatch/workspace/uav-sub250g/cad)
+ap.add_argument("--outdir", default=HERE)
 a = ap.parse_args()
 D = a.outdir
-PY = "/home/hatch/workspace/uav-sub250g/cad/.venv/bin/python"
+PY = os.environ.get("ZIB_CAD_PYTHON", sys.executable)   # interpreter with cadquery (was a hard-coded venv)
 
 for script in ("build_cad.py", "build_systems.py"):
-    cmd = [PY, f"/home/hatch/workspace/uav-sub250g/cad/{script}", "--outdir", D]
+    cmd = [PY, os.path.join(HERE, script), "--outdir", D]
     if a.params:
         cmd += ["--params", a.params]
     print("+", " ".join(cmd))
@@ -165,7 +166,7 @@ print("wrote twin/manifest.json")
 # MBSE §4.2: the build fails if the file's "derived" section diverges from
 # what compute_derived(design) produces, or if the aero basis is stale.
 print("verify_params.py:")
-r = subprocess.run([PY, "/home/hatch/workspace/uav-sub250g/cad/verify_params.py",
+r = subprocess.run([PY, os.path.join(HERE, "verify_params.py"),
                     "--params", f"{D}/params.json"],
                    capture_output=True, text=True)
 sys.stdout.write(r.stdout)
