@@ -1,1 +1,297 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJQYXJhbWV0cmljIGNvcmUgZm9yIHRoZSBaIUIgUG9DIENBRCAoc2hhcmVkIGJ5IGFpcmZyYW1lICsgc3lzdGVtcyBidWlsZGVycykuCgpTaW5nbGUgc291cmNlIG9mIGdlb21ldHJ5IHRydXRoLiBBTEwgc3BhdGlhbCBkZWZpbml0aW9ucyAocmlicywgc3Bhciwgc2tpbnMsCmVsZXZvbnMsIExSVSBwbGFjZW1lbnRzLCB3aXJlIHJvdXRlcykgZGVyaXZlIGZyb20gdGhlc2UgZnVuY3Rpb25zLCBzbyBhCnR3aXN0L3dhc2hvdXQvc3dlZXAvdGFwZXIvYWlyZm9pbCBjaGFuZ2UgcHJvcGFnYXRlcyBldmVyeXdoZXJlIHdpdGggb25lCnJlZ2VuZXJhdGlvbi4KClBhcmFtZXRlciBzY2hlbWEgKHBhcmFtcy5qc29uKSDigJQgdGhlIG9wdGltaXplciBzdHJlYW0gcmV0dXJucyBUSElTIHNjaGVtYToKICBzcGFuLCBjaG9yZCAocm9vdCBjaG9yZCksIHRhcGVyLCBzd2VlcF9kZWcsIHdhc2hvdXRfZGVnLAogIHR3aXN0X3N0YXRpb25zIChvcHRpb25hbCBbW3lmcmFjLCBkZWddLC4uLl0gb3ZlcnJpZGluZyB3YXNob3V0X2RlZyksCiAgc3Bhcl94X2ZyYWMsIHNwYXJfZGlhLCBzcGFyX3Nsb3RfZGlhLCByaWJfdCwgc2tpbl90LAogIGhpbmdlX3hfZnJhYywgaGluZ2VfZ2FwLCBlbGV2b25feTAsIGVsZXZvbl95MSwKICBhaXJmb2lsX2RhdCwgbl9yaWJzLCBob2xlXyoKICBscnU6IHtuYW1lOiB7ZGltcywgbWFzc19nLCBzb3VyY2UsIGVzdGltYXRlZCwgcGxhY2U6IHsuLi59fX0KICB3aXJlczogW3tuYW1lLCByLCBwdHM6IFtbInNlYyIsIHVmLCB2ZiwgeV0sIC4uLl0gb3IgWyJ4eXoiLCB4LCB5LCB6XSwgY29ubmVjdG9yc31dCgpDb29yZGluYXRlIGZyYW1lcyAoZG9jdW1lbnRlZCBjb25zdW1wdGlvbiBjb250cmFjdCBmb3IgdGhlIHR3aW4pOgogIENBRCA6IHggPSBhZnQgKCsgdG93YXJkIHRyYWlsaW5nIGVkZ2UpLCB5ID0gc3Bhbndpc2UgKDAgPSB3aW5nIGNlbnRyZSwKICAgICAgICArID0gcmlnaHQgd2luZyksIHogPSB1cC4gVW5pdHMgPSBtaWxsaW1ldHJlcy4KICBSb290IGxlYWRpbmcgZWRnZSBpcyBhdCB4ID0gLTAuMjUqY2hvcmQgKHF1YXJ0ZXItY2hvcmQgc3dlZXAgcHV0cyB0aGUKICBxdWFydGVyLWNob3JkIGxpbmUgdGhyb3VnaCB4PTAgYXQgeT0wKS4KICB4X2FmdF9vZl9yb290X0xFID0geF9jYWQgKyAwLjI1KmNob3JkX3Jvb3QuCiIiIgppbXBvcnQganNvbgppbXBvcnQgbWF0aAppbXBvcnQgbnVtcHkgYXMgbnAKCk9VVCA9ICIvaG9tZS9oYXRjaC93b3Jrc3BhY2UvdWF2LXN1YjI1MGcvY2FkIgoKREVGQVVMVFMgPSBkaWN0KAogICAgc3Bhbj05MDAuMCwKICAgIGNob3JkPTIwMC4wLCAgICAgICAgICAjIHJvb3QgY2hvcmQsIG1tCiAgICB0YXBlcj0xLjAsICAgICAgICAgICAgIyB0aXAgY2hvcmQgLyByb290IGNob3JkCiAgICBzd2VlcF9kZWc9MjUuMCwgICAgICAgIyBxdWFydGVyLWNob3JkIHN3ZWVwIChBMiB3aW5uZXIpCiAgICB3YXNob3V0X2RlZz02LjAsICAgICAgIyBsaW5lYXIgcm9vdC0+dGlwIHdhc2hvdXQgKGRlZyBhdCB0aXApOyBpZ25vcmVkIGlmIHR3aXN0X3N0YXRpb25zIHNldCAoQTIgd2lubmVyKQogICAgdHdpc3Rfc3RhdGlvbnM9Tm9uZSwgICMgZS5nLiBbWzAuMCwwLjBdLFswLjUsLTEuMF0sWzEuMCwtMi4wXV0gKHlmcmFjLCBkZWcpCiAgICBzcGFyX3hfZnJhYz0wLjMwLAogICAgc3Bhcl9kaWE9NC4wLAogICAgc3Bhcl9zbG90X2RpYT00LjIsCiAgICByaWJfdD0zLjAsCiAgICBza2luX3Q9My4wLAogICAgaGluZ2VfeF9mcmFjPTAuNzUsCiAgICBoaW5nZV9nYXA9MC41LAogICAgZWxldm9uX3kwPTExMi41LAogICAgZWxldm9uX3kxPTQwNS4wLAogICAgYWlyZm9pbF9kYXQ9Im1oNjAuZGF0IiwKICAgIG5fcmlicz04LAogICAgaG9sZV94X2ZyYWNzPSgwLjE1LCAwLjQyLCAwLjU2LCAwLjY4KSwKICAgIGhvbGVfZGlhX2ZyYWM9MC41NSwKICAgIGhvbGVfbWluX2RpYT02LjAsCiAgICBob2xlX21pbl93YWxsPTIuMCwKICAgICMgLS0gYmF0dGVyeSAoQ0ctY3JpdGljYWwgTFJVOiBwbGFjZW1lbnQgaXMgYSBkZXNpZ24gcGFyYW1ldGVyKSAtLQogICAgYmF0dGVyeV91PTAuMjA1LCAgICAgICAgICAgICAjIHNlY3Rpb24gZnJhY3Rpb24gb2YgcGFjayBjZW50cmUgKHNwYW53aXNlIHBhY2spCiAgICBiYXR0ZXJ5X3k9MC4wLCAgICAgICAgICAgICAgICMgc3Bhbndpc2UgY2VudHJlICgwID0gY2VudHJlbGluZSkKICAgIGJhdHRlcnlfb3JpZW50YXRpb249InNwYW53aXNlIiwgICMgInNwYW53aXNlIiAoNjQgbW0gYWxvbmcgeSkgb3IgImNob3Jkd2lzZSIKICAgIGJhdHRlcnlfbWFzc19nPTYyLjAsCiAgICBiYXR0ZXJ5X2RpbXM9KDI4LjAsIDY0LjAsIDIwLjApLCAgIyBbZHgsIGR5LCBkel0gbW0gYm94IChHTkIgM1MgNjUwbUFoKQogICAgIyAtLSBiYXR0ZXJ5IGhhdGNoIEgxIChib3R0b20gYXBlcnR1cmUgKyB0cmF5ICsgbGlkKSAtLQogICAgaGF0Y2hfbWFyZ2luX3g9My4wLCAgICAgICAgICAjIGFwZXJ0dXJlIGNsZWFyYW5jZSBhcm91bmQgcGFjaywgY2hvcmR3aXNlIChtbS9zaWRlKQogICAgaGF0Y2hfbWFyZ2luX3k9NC4wLCAgICAgICAgICAjIGFwZXJ0dXJlIGNsZWFyYW5jZSBhcm91bmQgcGFjaywgc3Bhbndpc2UgKG1tL3NpZGUpCiAgICBoYXRjaF90b3BfY2xlYXJhbmNlPTIuMCwgICAgICMgcGFjayB0b3AgdG8gd2luZyBpbnRlcmlvciAobW0sIHNldHMgYmF0dGVyeSB6YykKKQoKIyBBdXRob3JpdGF0aXZlIGhhbmQtZWRpdGVkIGRlc2lnbiBwYXJhbWV0ZXJzIChNQlNFIMKnNC4yICJkZXNpZ24iIHNlY3Rpb24pLgojIEV2ZXJ5dGhpbmcgZWxzZSBpbiBwYXJhbXMuanNvbiBpcyAiZGVyaXZlZCIgKHJlY29tcHV0ZWQsIG5ldmVyIGhhbmQtZWRpdGVkKS4KREVTSUdOX0tFWVMgPSBbCiAgICAic3BhbiIsICJjaG9yZCIsICJ0YXBlciIsICJzd2VlcF9kZWciLCAid2FzaG91dF9kZWciLCAidHdpc3Rfc3RhdGlvbnMiLAogICAgImFpcmZvaWxfZGF0IiwKICAgICJzcGFyX3hfZnJhYyIsICJzcGFyX2RpYSIsICJzcGFyX3Nsb3RfZGlhIiwKICAgICJyaWJfdCIsICJuX3JpYnMiLAogICAgImhvbGVfeF9mcmFjcyIsICJob2xlX2RpYV9mcmFjIiwgImhvbGVfbWluX2RpYSIsICJob2xlX21pbl93YWxsIiwKICAgICJza2luX3QiLAogICAgImhpbmdlX3hfZnJhYyIsICJoaW5nZV9nYXAiLCAiZWxldm9uX3kwIiwgImVsZXZvbl95MSIsCiAgICAiYmF0dGVyeV91IiwgImJhdHRlcnlfeSIsICJiYXR0ZXJ5X29yaWVudGF0aW9uIiwgImJhdHRlcnlfbWFzc19nIiwKICAgICJiYXR0ZXJ5X2RpbXMiLAogICAgImhhdGNoX21hcmdpbl94IiwgImhhdGNoX21hcmdpbl95IiwgImhhdGNoX3RvcF9jbGVhcmFuY2UiLApdCgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KZnJvbSBjb2xsZWN0aW9ucyBpbXBvcnQgZGVmYXVsdGRpY3QKCgpkZWYgbWFrZV9jb25zaXN0ZW50KHRyaXMpOgogICAgIiIiT3JpZW50IGV2ZXJ5IHRyaWFuZ2xlIG9mIGEgY2xvc2VkIG1hbmlmb2xkIG1lc2ggY29uc2lzdGVudGx5IChzaGFyZWQKICAgIGVkZ2VzIHRyYXZlcnNlZCBpbiBvcHBvc2l0ZSBkaXJlY3Rpb25zKSBhbmQgb3V0d2FyZCAocG9zaXRpdmUgdm9sdW1lKS4KICAgIEJGUyBvdmVyIGZhY2VzOyBoYW5kbGVzIG11bHRpcGxlIGRpc2pvaW50IGNvbXBvbmVudHMuIiIiCiAgICB0ID0gbnAuYXNhcnJheSh0cmlzLCBkdHlwZT1ucC5mbG9hdDY0KS5yZXNoYXBlKC0xLCAzLCAzKS5jb3B5KCkKICAgIG4gPSBsZW4odCkKICAgIHZrID0gbnAucm91bmQodCwgNikKICAgIHVuZCA9IGRlZmF1bHRkaWN0KGxpc3QpCiAgICBmb3IgZmkgaW4gcmFuZ2Uobik6CiAgICAgICAgZm9yIGsgaW4gcmFuZ2UoMyk6CiAgICAgICAgICAgIGEgPSB0dXBsZSh2a1tmaSwga10pCiAgICAgICAgICAgIGIgPSB0dXBsZSh2a1tmaSwgKGsgKyAxKSAlIDNdKQogICAgICAgICAgICB1bmRbdHVwbGUoc29ydGVkKChhLCBiKSkpXS5hcHBlbmQoKGZpLCBhLCBiKSkKICAgIHNlZW4gPSBucC56ZXJvcyhuLCBib29sKQogICAgZm9yIHMgaW4gcmFuZ2Uobik6CiAgICAgICAgaWYgc2VlbltzXToKICAgICAgICAgICAgY29udGludWUKICAgICAgICBzZWVuW3NdID0gVHJ1ZQogICAgICAgIHN0YWNrID0gW3NdCiAgICAgICAgd2hpbGUgc3RhY2s6CiAgICAgICAgICAgIGZpID0gc3RhY2sucG9wKCkKICAgICAgICAgICAgZm9yIGsgaW4gcmFuZ2UoMyk6CiAgICAgICAgICAgICAgICBhID0gdHVwbGUodmtbZmksIGtdKQogICAgICAgICAgICAgICAgYiA9IHR1cGxlKHZrW2ZpLCAoayArIDEpICUgM10pCiAgICAgICAgICAgICAgICBmb3IgKGZqLCBmYSwgZmIpIGluIHVuZFt0dXBsZShzb3J0ZWQoKGEsIGIpKSldOgogICAgICAgICAgICAgICAgICAgIGlmIGZqID09IGZpIG9yIHNlZW5bZmpdOgogICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgICAgICAgIGlmIChmYSwgZmIpID09IChhLCBiKTogICAgICAjIHNhbWUgZGlyZWN0aW9uIC0+IGZsaXAKICAgICAgICAgICAgICAgICAgICAgICAgdmtbZmpdID0gdmtbZmpdWzo6LTFdCiAgICAgICAgICAgICAgICAgICAgICAgIHRbZmpdID0gdFtmal1bOjotMV0KICAgICAgICAgICAgICAgICAgICBzZWVuW2ZqXSA9IFRydWUKICAgICAgICAgICAgICAgICAgICBzdGFjay5hcHBlbmQoZmopCiAgICB2ID0gdC5yZXNoYXBlKC0xLCAzLCAzKQogICAgaWYgZmxvYXQobnAuZWluc3VtKCdpaixpai0+aScsIHZbOiwgMF0sIG5wLmNyb3NzKHZbOiwgMV0sIHZbOiwgMl0pKS5zdW0oKSkgPCAwOgogICAgICAgIHQgPSB0WzosIDo6LTEsIDpdCiAgICByZXR1cm4gdApkZWYgbG9hZF9wYXJhbXMocGF0aD1Ob25lKToKICAgICIiIkxvYWQgcGFyYW1ldGVycyBmcm9tIGEgZmlsZS4KCiAgICBBY2NlcHRzIFRXTyBmb3JtYXRzIChiYWNrd2FyZCBjb21wYXRpYmxlKToKICAgICAgLSBzcGxpdCBmb3JtYXQgKE1CU0Ugwqc0LjIpOiB7Im1ldGEiOi4uLiwgImRlc2lnbiI6IHsuLi59LCAiZGVyaXZlZCI6IHsuLi59fS4KICAgICAgICBPbmx5IHRoZSAiZGVzaWduIiBzZWN0aW9uIGlzIHVzZWQ7ICJkZXJpdmVkIiBpcyByZWNvbXB1dGVkLCBuZXZlciByZWFkLgogICAgICAtIGZsYXQgZm9ybWF0OiBsZWdhY3kgcGFyYW1zLmpzb24gT1Igb3B0aW1pemVyIHZhcmlhbnQgZmlsZXMKICAgICAgICAoYWVyb19vcHQgbG9vcCAtLXBhcmFtcyBwYXR0ZXJuOiBmbGF0IG92ZXJyaWRlcyBvdmVyIERFRkFVTFRTKS4KICAgICAgICBWYXJpYW50IGZpbGVzIGtlZXAgd29ya2luZyB1bmNoYW5nZWQuCiAgICAiIiIKICAgIFAgPSBkaWN0KERFRkFVTFRTKQogICAgaWYgcGF0aDoKICAgICAgICB3aXRoIG9wZW4ocGF0aCkgYXMgZjoKICAgICAgICAgICAgb3YgPSBqc29uLmxvYWQoZikKICAgICAgICBpZiBpc2luc3RhbmNlKG92LCBkaWN0KSBhbmQgaXNpbnN0YW5jZShvdi5nZXQoImRlc2lnbiIpLCBkaWN0KToKICAgICAgICAgICAgUC51cGRhdGUob3ZbImRlc2lnbiJdKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIFAudXBkYXRlKG92KQogICAgaWYgaXNpbnN0YW5jZShQLmdldCgiaG9sZV94X2ZyYWNzIiksIGxpc3QpOgogICAgICAgIFBbImhvbGVfeF9mcmFjcyJdID0gdHVwbGUoUFsiaG9sZV94X2ZyYWNzIl0pCiAgICBpZiBpc2luc3RhbmNlKFAuZ2V0KCJiYXR0ZXJ5X2RpbXMiKSwgdHVwbGUpOgogICAgICAgIFBbImJhdHRlcnlfZGltcyJdID0gbGlzdChQWyJiYXR0ZXJ5X2RpbXMiXSkKICAgIHJldHVybiBQCgoKZGVmIGhvbGVfbGF5b3V0KFAsIGFmKToKICAgICIiIkxpZ2h0ZW5pbmctaG9sZSAodSwgdiwgZGlhKSBpbiByb290LWNob3JkIG1tLiBQdXJlIGNvbXB1dGF0aW9uOwogICAgYnVpbGRfY2FkLnB5IGFzc2VydHMgdGhlIHdhbGwvc3BhciBjbGVhcmFuY2VzIG9uIHRvcC4iIiIKICAgIENIID0gUFsiY2hvcmQiXQogICAgaG9sZXMgPSBbXQogICAgZm9yIGZ4IGluIFBbImhvbGVfeF9mcmFjcyJdOgogICAgICAgIHUgPSBmeCAqIENICiAgICAgICAgZCA9IG1heChQWyJob2xlX21pbl9kaWEiXSwgUFsiaG9sZV9kaWFfZnJhYyJdICogYWYudGhpY2soZngpICogQ0gpCiAgICAgICAgdiA9IGFmLm1pZChmeCkgKiBDSAogICAgICAgIGhvbGVzLmFwcGVuZCgodSwgdiwgZCkpCiAgICByZXR1cm4gaG9sZXMKCgpkZWYgY29tcHV0ZV9kZXJpdmVkKFApOgogICAgIiIiUmVjb21wdXRlIEVWRVJZVEhJTkcgaW4gdGhlIHBhcmFtcy5qc29uICJkZXJpdmVkIiBzZWN0aW9uIGZyb20gZGVzaWduLgoKICAgIFNpbmdsZSBzb3VyY2UgdXNlZCBieSBidWlsZF9jYWQucHksIGJ1aWxkX3N5c3RlbXMucHksIGFuZCB2ZXJpZnlfcGFyYW1zLnB5LgogICAgQSBtaXNtYXRjaCBiZXR3ZWVuIHRoaXMgb3V0cHV0IGFuZCB0aGUgZmlsZSdzICJkZXJpdmVkIiBzZWN0aW9uIGlzIGEgZGVmZWN0LgogICAgIiIiCiAgICBXID0gV2luZ1BhcmFtKFApCiAgICBDSCA9IFBbImNob3JkIl0KICAgIGFmID0gVy5hZgogICAgU1QgPSBXLnJpYl9zdGF0aW9ucygpCiAgICBob2xlcyA9IGhvbGVfbGF5b3V0KFAsIGFmKQoKICAgICMgLS0gYmF0dGVyeSBwbGFjZW1lbnQgKHNwYW53aXNlIHBhY2s7IHpjIGZyb20gdGhlIHRvcC1jbGVhcmFuY2UgcnVsZSkgLS0KICAgICMgVGhlIHBhY2sgaXMgYW4gYXhpcy1hbGlnbmVkIGJveCBvbiBhIFNXRVBUIHdpbmc6IGl0cyBjb3JuZXJzIHNhbXBsZQogICAgIyBkaWZmZXJlbnQgc2VjdGlvbnMsIHNvIHRoZSBjbGVhcmFuY2UgcnVsZSB1c2VzIHRoZSBjb3JuZXJzJyBHTE9CQUwKICAgICMgKHgsIHkpIC0+IGxvY2FsIHNlY3Rpb24sIG5vdCB0aGUgY2VudHJlIHNlY3Rpb24uCiAgICBidSwgYnkgPSBQWyJiYXR0ZXJ5X3UiXSwgUFsiYmF0dGVyeV95Il0KICAgIGJkeCwgYmR5LCBiZHogPSBQWyJiYXR0ZXJ5X2RpbXMiXQogICAgaWYgUFsiYmF0dGVyeV9vcmllbnRhdGlvbiJdID09ICJzcGFud2lzZSI6CiAgICAgICAgaGR1LCBoZHcgPSBiZHggLyAyLCBiZHkgLyAyICAgICAgIyBjaG9yZHdpc2UgLyBzcGFud2lzZSBoYWxmLWV4dGVudHMKICAgIGVsc2U6CiAgICAgICAgaGR1LCBoZHcgPSBiZHkgLyAyLCBiZHggLyAyCiAgICBjeCA9IFcueGxlX2F0KDAuMCkgKyBidSAqIENICiAgICBjb3JuZXJzX3h5ID0gWyhjeCArIGhkdSwgYnkgKyBoZHcpLCAoY3ggKyBoZHUsIGJ5IC0gaGR3KSwKICAgICAgICAgICAgICAgICAgKGN4IC0gaGR1LCBieSArIGhkdyksIChjeCAtIGhkdSwgYnkgLSBoZHcpXQogICAgZGVmIF96dG9wKHgsIHkpOgogICAgICAgIHVmID0gKHggLSBXLnhsZV9hdCh5KSkgLyBXLmNob3JkX2F0KHkpCiAgICAgICAgcmV0dXJuIFcuc2VjdGlvbl90b19nbG9iYWwodWYsIGFmLnRvcCh1ZiksIHkpWzJdCiAgICB6dG9wX21pbiA9IG1pbihfenRvcCh4LCB5KSBmb3IgKHgsIHkpIGluIGNvcm5lcnNfeHkpCiAgICB6YyA9IHp0b3BfbWluIC0gYmR6IC8gMiAtIFBbImhhdGNoX3RvcF9jbGVhcmFuY2UiXQoKICAgICMgLS0gaGF0Y2ggSDEgYXBlcnR1cmUgcmVjdCAoc2VjdGlvbiBzcGFjZTsgYnVpbGRlcnMgdXNlIHVuaW9uIGdyaWRzLAogICAgIyAgICBzbyBubyBzbmFwcGluZyBpcyBuZWVkZWQgZm9yIHZlcnRleCBjb2luY2lkZW5jZSkgLS0KICAgIG14LCBteSA9IFBbImhhdGNoX21hcmdpbl94Il0sIFBbImhhdGNoX21hcmdpbl95Il0KICAgIGhhdGNoID0geyJ1MCI6IGJ1IC0gKGJkeCAvIDIgKyBteCkgLyBDSCwgInUxIjogYnUgKyAoYmR4IC8gMiArIG14KSAvIENILAogICAgICAgICAgICAgInkwIjogYnkgLSAoYmR5IC8gMiArIG15KSwgInkxIjogYnkgKyAoYmR5IC8gMiArIG15KX0KCiAgICByZXR1cm4gewogICAgICAgICJyaWJfc3RhdGlvbnNfeSI6IFtyb3VuZChzLCA0KSBmb3IgcyBpbiBTVF0sCiAgICAgICAgInNwYXJfY2VudHJlX3V2IjogW3JvdW5kKFcudV9zcGFyICogQ0gsIDQpLCByb3VuZChXLnZfc3BhciAqIENILCA0KV0sCiAgICAgICAgImhvbGVzX3V2ZCI6IFtbcm91bmQodSwgNCksIHJvdW5kKHYsIDQpLCByb3VuZChkLCA0KV0gZm9yICh1LCB2LCBkKSBpbiBob2xlc10sCiAgICAgICAgImhhdGNoX3JlY3QiOiB7azogcm91bmQodiwgNCkgZm9yIGssIHYgaW4gaGF0Y2guaXRlbXMoKX0sCiAgICAgICAgImJhdHRlcnlfemNfbW0iOiByb3VuZCh6YywgMyksCiAgICAgICAgImJhdHRlcnlfYm94IjogewogICAgICAgICAgICAiZGltcyI6IFtiZHgsIGJkeSwgYmR6XSwKICAgICAgICAgICAgImNlbnRlcl9zZWMiOiBbYnUsIHJvdW5kKHpjIC8gQ0gsIDUpLCBieV0sCiAgICAgICAgICAgICJvcmllbnRhdGlvbiI6IFBbImJhdHRlcnlfb3JpZW50YXRpb24iXSwKICAgICAgICB9LAogICAgfQoKCmNsYXNzIEFpcmZvaWw6CiAgICBkZWYgX19pbml0X18oc2VsZiwgZGF0X3BhdGgpOgogICAgICAgIHB0cywgbmFtZSA9IFtdLCBOb25lCiAgICAgICAgd2l0aCBvcGVuKGRhdF9wYXRoKSBhcyBmOgogICAgICAgICAgICBmb3IgaSwgbGluZSBpbiBlbnVtZXJhdGUoZik6CiAgICAgICAgICAgICAgICBsaW5lID0gbGluZS5zdHJpcCgpCiAgICAgICAgICAgICAgICBpZiBub3QgbGluZToKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgICAgaWYgaSA9PSAwIGFuZCBub3QgbGluZVswXS5yZXBsYWNlKCcuJywgJycsIDEpLnJlcGxhY2UoJy0nLCAnJywgMSkuaXNkaWdpdCgpOgogICAgICAgICAgICAgICAgICAgIG5hbWUgPSBsaW5lCiAgICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICAgIHgsIHkgPSBsaW5lLnNwbGl0KClbOjJdCiAgICAgICAgICAgICAgICBwdHMuYXBwZW5kKChmbG9hdCh4KSwgZmxvYXQoeSkpKSAgICMgdW5pdCBjaG9yZAogICAgICAgIHNlbGYubmFtZSA9IG5hbWUKICAgICAgICBzZWxmLnB0cyA9IG5wLmFycmF5KHB0cykKICAgICAgICBpbGUgPSBpbnQobnAuYXJnbWluKHNlbGYucHRzWzosIDBdKSkKICAgICAgICBzZWxmLnVwcGVyID0gc2VsZi5wdHNbOmlsZSArIDFdWzo6LTFdICAgICAgIyBMRSAtPiBURQogICAgICAgIHNlbGYubG93ZXIgPSBzZWxmLnB0c1tpbGU6XSAgICAgICAgICAgICAgICMgTEUgLT4gVEUKCiAgICBkZWYgdG9wKHNlbGYsIHVmKToKICAgICAgICByZXR1cm4gZmxvYXQobnAuaW50ZXJwKHVmLCBzZWxmLnVwcGVyWzosIDBdLCBzZWxmLnVwcGVyWzosIDFdKSkKCiAgICBkZWYgYm90KHNlbGYsIHVmKToKICAgICAgICByZXR1cm4gZmxvYXQobnAuaW50ZXJwKHVmLCBzZWxmLmxvd2VyWzosIDBdLCBzZWxmLmxvd2VyWzosIDFdKSkKCiAgICBkZWYgdGhpY2soc2VsZiwgdWYpOgogICAgICAgIHJldHVybiBzZWxmLnRvcCh1ZikgLSBzZWxmLmJvdCh1ZikKCiAgICBkZWYgbWlkKHNlbGYsIHVmKToKICAgICAgICByZXR1cm4gMC41ICogKHNlbGYudG9wKHVmKSArIHNlbGYuYm90KHVmKSkKCgpjbGFzcyBXaW5nUGFyYW06CiAgICAiIiJQYXJhbWV0cmljIHdpbmc6IGV2ZXJ5IGdlb21ldHJpYyBxdWVyeSBkZXJpdmVzIGZyb20gUC4iIiIKCiAgICBkZWYgX19pbml0X18oc2VsZiwgUCwgZGF0X2Rpcj1PVVQpOgogICAgICAgIHNlbGYuUCA9IFAKICAgICAgICBzZWxmLmFmID0gQWlyZm9pbChmIntkYXRfZGlyfS97UFsnYWlyZm9pbF9kYXQnXX0iKQogICAgICAgIHNlbGYuc3cgPSBtYXRoLnRhbihtYXRoLnJhZGlhbnMoUFsic3dlZXBfZGVnIl0pKQogICAgICAgICMgdHdpc3QgYXhpcyAoc3BhciBjZW50cmUpIGluIHNlY3Rpb24gZnJhY3Rpb25zCiAgICAgICAgc2VsZi51X3NwYXIgPSBQWyJzcGFyX3hfZnJhYyJdCiAgICAgICAgc2VsZi52X3NwYXIgPSBzZWxmLmFmLm1pZChzZWxmLnVfc3BhcikKCiAgICAjIC0tIHBsYW5mb3JtIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICBkZWYgY2hvcmRfYXQoc2VsZiwgeSk6CiAgICAgICAgcmV0dXJuIHNlbGYuUFsiY2hvcmQiXSAqICgxLjAgLSAoMS4wIC0gc2VsZi5QWyJ0YXBlciJdKSAqIGFicyh5KSAvIChzZWxmLlBbInNwYW4iXSAvIDIpKQoKICAgIGRlZiB4cWNfYXQoc2VsZiwgeSk6CiAgICAgICAgIiIiUXVhcnRlci1jaG9yZCB4IChnbG9iYWwgQ0FEKSBhdCBzdGF0aW9uIHkuIiIiCiAgICAgICAgcmV0dXJuIGFicyh5KSAqIHNlbGYuc3cKCiAgICBkZWYgeGxlX2F0KHNlbGYsIHkpOgogICAgICAgIHJldHVybiBzZWxmLnhxY19hdCh5KSAtIDAuMjUgKiBzZWxmLmNob3JkX2F0KHkpCgogICAgZGVmIHR3aXN0X2F0KHNlbGYsIHkpOgogICAgICAgICIiIlJhZGlhbnMsICsgPSBub3NlLWRvd24gKHdhc2hvdXQgZGlyZWN0aW9uKSBhYm91dCB0aGUgc3BhciBheGlzLiIiIgogICAgICAgIHlmID0gYWJzKHkpIC8gKHNlbGYuUFsic3BhbiJdIC8gMikKICAgICAgICB0cyA9IHNlbGYuUC5nZXQoInR3aXN0X3N0YXRpb25zIikKICAgICAgICBpZiB0czoKICAgICAgICAgICAgeXMgPSBbcFswXSBmb3IgcCBpbiB0c10KICAgICAgICAgICAgZHMgPSBbcFsxXSBmb3IgcCBpbiB0c10KICAgICAgICAgICAgZGVnID0gZmxvYXQobnAuaW50ZXJwKHlmLCB5cywgZHMpKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIGRlZyA9IHNlbGYuUFsid2FzaG91dF9kZWciXSAqIHlmCiAgICAgICAgcmV0dXJuIG1hdGgucmFkaWFucyhkZWcpCgogICAgIyAtLSBzZWN0aW9uIC0+IGdsb2JhbCAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAgIGRlZiBzZWN0aW9uX3RvX2dsb2JhbChzZWxmLCB1ZiwgdmYsIHkpOgogICAgICAgICIiIlVuaXQtY2hvcmQgc2VjdGlvbiBmcmFjdGlvbnMgLT4gZ2xvYmFsICh4LCB5LCB6KSBtbS4iIiIKICAgICAgICBjID0gc2VsZi5jaG9yZF9hdCh5KQogICAgICAgIHUsIHYgPSB1ZiAqIGMsIHZmICogYwogICAgICAgIHVzLCB2cyA9IHNlbGYudV9zcGFyICogYywgc2VsZi52X3NwYXIgKiBjCiAgICAgICAgdGggPSBzZWxmLnR3aXN0X2F0KHkpCiAgICAgICAgY28sIHNpID0gbWF0aC5jb3ModGgpLCBtYXRoLnNpbih0aCkKICAgICAgICB1ciA9IHVzICsgKHUgLSB1cykgKiBjbyAtICh2IC0gdnMpICogc2kKICAgICAgICB2ciA9IHZzICsgKHUgLSB1cykgKiBzaSArICh2IC0gdnMpICogY28KICAgICAgICByZXR1cm4gKHNlbGYueGxlX2F0KHkpICsgdXIsIHksIHZyKQoKICAgIGRlZiBzcGFyX3BvaW50KHNlbGYsIHkpOgogICAgICAgIHgsIHl5LCB6ID0gc2VsZi5zZWN0aW9uX3RvX2dsb2JhbChzZWxmLnVfc3Bhciwgc2VsZi52X3NwYXIsIHkpCiAgICAgICAgcmV0dXJuIG5wLmFycmF5KFt4LCB5eSwgel0pCgogICAgZGVmIHJpYl9zdGF0aW9ucyhzZWxmKToKICAgICAgICBiYXkgPSBzZWxmLlBbInNwYW4iXSAvIHNlbGYuUFsibl9yaWJzIl0KICAgICAgICByZXR1cm4gc29ydGVkKFtzICogKChrICsgMC41KSAqIGJheSkKICAgICAgICAgICAgICAgICAgICAgICBmb3IgcyBpbiAoMSwgLTEpIGZvciBrIGluIHJhbmdlKHNlbGYuUFsibl9yaWJzIl0gLy8gMildKQoKICAgIGRlZiB4X2FmdF9yb290X2xlKHNlbGYsIHhfY2FkKToKICAgICAgICByZXR1cm4geF9jYWQgKyAwLjI1ICogc2VsZi5QWyJjaG9yZCJdCg==
+#!/usr/bin/env python3
+"""Parametric core for the Z!B PoC CAD (shared by airframe + systems builders).
+
+Single source of geometry truth. ALL spatial definitions (ribs, spar, skins,
+elevons, LRU placements, wire routes) derive from these functions, so a
+twist/washout/sweep/taper/airfoil change propagates everywhere with one
+regeneration.
+
+Parameter schema (params.json) — the optimizer stream returns THIS schema:
+  span, chord (root chord), taper, sweep_deg, washout_deg,
+  twist_stations (optional [[yfrac, deg],...] overriding washout_deg),
+  spar_x_frac, spar_dia, spar_slot_dia, rib_t, skin_t,
+  hinge_x_frac, hinge_gap, elevon_y0, elevon_y1,
+  airfoil_dat, n_ribs, hole_*
+  lru: {name: {dims, mass_g, source, estimated, place: {...}}}
+  wires: [{name, r, pts: [["sec", uf, vf, y], ...] or ["xyz", x, y, z], connectors}]
+
+Coordinate frames (documented consumption contract for the twin):
+  CAD : x = aft (+ toward trailing edge), y = spanwise (0 = wing centre,
+        + = right wing), z = up. Units = millimetres.
+  Root leading edge is at x = -0.25*chord (quarter-chord sweep puts the
+  quarter-chord line through x=0 at y=0).
+  x_aft_of_root_LE = x_cad + 0.25*chord_root.
+"""
+import json
+import math
+import numpy as np
+
+OUT = "/home/hatch/workspace/uav-sub250g/cad"
+
+DEFAULTS = dict(
+    span=900.0,
+    chord=200.0,          # root chord, mm
+    taper=1.0,            # tip chord / root chord
+    sweep_deg=25.0,       # quarter-chord sweep (A2 winner)
+    washout_deg=6.0,      # linear root->tip washout (deg at tip); ignored if twist_stations set (A2 winner)
+    twist_stations=None,  # e.g. [[0.0,0.0],[0.5,-1.0],[1.0,-2.0]] (yfrac, deg)
+    spar_x_frac=0.30,
+    spar_dia=4.0,
+    spar_slot_dia=4.2,
+    rib_t=3.0,
+    skin_t=3.0,
+    hinge_x_frac=0.75,
+    hinge_gap=0.5,
+    elevon_y0=112.5,
+    elevon_y1=405.0,
+    airfoil_dat="mh60.dat",
+    n_ribs=8,
+    hole_x_fracs=(0.15, 0.42, 0.56, 0.68),
+    hole_dia_frac=0.55,
+    hole_min_dia=6.0,
+    hole_min_wall=2.0,
+    # -- battery (CG-critical LRU: placement is a design parameter) --
+    battery_u=0.205,             # section fraction of pack centre (spanwise pack)
+    battery_y=0.0,               # spanwise centre (0 = centreline)
+    battery_orientation="spanwise",  # "spanwise" (64 mm along y) or "chordwise"
+    battery_mass_g=62.0,
+    battery_dims=(28.0, 64.0, 20.0),  # [dx, dy, dz] mm box (GNB 3S 650mAh)
+    # -- battery hatch H1 (bottom aperture + tray + lid) --
+    hatch_margin_x=3.0,          # aperture clearance around pack, chordwise (mm/side)
+    hatch_margin_y=4.0,          # aperture clearance around pack, spanwise (mm/side)
+    hatch_top_clearance=2.0,     # pack top to wing interior (mm, sets battery zc)
+)
+
+# Authoritative hand-edited design parameters (MBSE §4.2 "design" section).
+# Everything else in params.json is "derived" (recomputed, never hand-edited).
+DESIGN_KEYS = [
+    "span", "chord", "taper", "sweep_deg", "washout_deg", "twist_stations",
+    "airfoil_dat",
+    "spar_x_frac", "spar_dia", "spar_slot_dia",
+    "rib_t", "n_ribs",
+    "hole_x_fracs", "hole_dia_frac", "hole_min_dia", "hole_min_wall",
+    "skin_t",
+    "hinge_x_frac", "hinge_gap", "elevon_y0", "elevon_y1",
+    "battery_u", "battery_y", "battery_orientation", "battery_mass_g",
+    "battery_dims",
+    "hatch_margin_x", "hatch_margin_y", "hatch_top_clearance",
+]
+
+# ----------------------------------------------------------------------------
+from collections import defaultdict
+
+
+def make_consistent(tris):
+    """Orient every triangle of a closed manifold mesh consistently (shared
+    edges traversed in opposite directions) and outward (positive volume).
+    BFS over faces; handles multiple disjoint components."""
+    t = np.asarray(tris, dtype=np.float64).reshape(-1, 3, 3).copy()
+    n = len(t)
+    vk = np.round(t, 6)
+    und = defaultdict(list)
+    for fi in range(n):
+        for k in range(3):
+            a = tuple(vk[fi, k])
+            b = tuple(vk[fi, (k + 1) % 3])
+            und[tuple(sorted((a, b)))].append((fi, a, b))
+    seen = np.zeros(n, bool)
+    for s in range(n):
+        if seen[s]:
+            continue
+        seen[s] = True
+        stack = [s]
+        while stack:
+            fi = stack.pop()
+            for k in range(3):
+                a = tuple(vk[fi, k])
+                b = tuple(vk[fi, (k + 1) % 3])
+                for (fj, fa, fb) in und[tuple(sorted((a, b)))]:
+                    if fj == fi or seen[fj]:
+                        continue
+                    if (fa, fb) == (a, b):      # same direction -> flip
+                        vk[fj] = vk[fj][::-1]
+                        t[fj] = t[fj][::-1]
+                    seen[fj] = True
+                    stack.append(fj)
+    v = t.reshape(-1, 3, 3)
+    if float(np.einsum('ij,ij->i', v[:, 0], np.cross(v[:, 1], v[:, 2])).sum()) < 0:
+        t = t[:, ::-1, :]
+    return t
+def load_params(path=None):
+    """Load parameters from a file.
+
+    Accepts TWO formats (backward compatible):
+      - split format (MBSE §4.2): {"meta":..., "design": {...}, "derived": {...}}.
+        Only the "design" section is used; "derived" is recomputed, never read.
+      - flat format: legacy params.json OR optimizer variant files
+        (aero_opt loop --params pattern: flat overrides over DEFAULTS).
+        Variant files keep working unchanged.
+    """
+    P = dict(DEFAULTS)
+    if path:
+        with open(path) as f:
+            ov = json.load(f)
+        if isinstance(ov, dict) and isinstance(ov.get("design"), dict):
+            P.update(ov["design"])
+        else:
+            P.update(ov)
+    if isinstance(P.get("hole_x_fracs"), list):
+        P["hole_x_fracs"] = tuple(P["hole_x_fracs"])
+    if isinstance(P.get("battery_dims"), tuple):
+        P["battery_dims"] = list(P["battery_dims"])
+    return P
+
+
+def hole_layout(P, af):
+    """Lightening-hole (u, v, dia) in root-chord mm. Pure computation;
+    build_cad.py asserts the wall/spar clearances on top."""
+    CH = P["chord"]
+    holes = []
+    for fx in P["hole_x_fracs"]:
+        u = fx * CH
+        d = max(P["hole_min_dia"], P["hole_dia_frac"] * af.thick(fx) * CH)
+        v = af.mid(fx) * CH
+        holes.append((u, v, d))
+    return holes
+
+
+def compute_derived(P):
+    """Recompute EVERYTHING in the params.json "derived" section from design.
+
+    Single source used by build_cad.py, build_systems.py, and verify_params.py.
+    A mismatch between this output and the file's "derived" section is a defect.
+    """
+    W = WingParam(P)
+    CH = P["chord"]
+    af = W.af
+    ST = W.rib_stations()
+    holes = hole_layout(P, af)
+
+    # -- battery placement (spanwise pack; zc from the top-clearance rule) --
+    # The pack is an axis-aligned box on a SWEPT wing: its corners sample
+    # different sections, so the clearance rule uses the corners' GLOBAL
+    # (x, y) -> local section, not the centre section.
+    bu, by = P["battery_u"], P["battery_y"]
+    bdx, bdy, bdz = P["battery_dims"]
+    if P["battery_orientation"] == "spanwise":
+        hdu, hdw = bdx / 2, bdy / 2      # chordwise / spanwise half-extents
+    else:
+        hdu, hdw = bdy / 2, bdx / 2
+    cx = W.xle_at(0.0) + bu * CH
+    corners_xy = [(cx + hdu, by + hdw), (cx + hdu, by - hdw),
+                  (cx - hdu, by + hdw), (cx - hdu, by - hdw)]
+    def _ztop(x, y):
+        uf = (x - W.xle_at(y)) / W.chord_at(y)
+        return W.section_to_global(uf, af.top(uf), y)[2]
+    ztop_min = min(_ztop(x, y) for (x, y) in corners_xy)
+    zc = ztop_min - bdz / 2 - P["hatch_top_clearance"]
+
+    # -- hatch H1 aperture rect (section space; builders use union grids,
+    #    so no snapping is needed for vertex coincidence) --
+    mx, my = P["hatch_margin_x"], P["hatch_margin_y"]
+    hatch = {"u0": bu - (bdx / 2 + mx) / CH, "u1": bu + (bdx / 2 + mx) / CH,
+             "y0": by - (bdy / 2 + my), "y1": by + (bdy / 2 + my)}
+
+    return {
+        "rib_stations_y": [round(s, 4) for s in ST],
+        "spar_centre_uv": [round(W.u_spar * CH, 4), round(W.v_spar * CH, 4)],
+        "holes_uvd": [[round(u, 4), round(v, 4), round(d, 4)] for (u, v, d) in holes],
+        "hatch_rect": {k: round(v, 4) for k, v in hatch.items()},
+        "battery_zc_mm": round(zc, 3),
+        "battery_box": {
+            "dims": [bdx, bdy, bdz],
+            "center_sec": [bu, round(zc / CH, 5), by],
+            "orientation": P["battery_orientation"],
+        },
+    }
+
+
+class Airfoil:
+    def __init__(self, dat_path):
+        pts, name = [], None
+        with open(dat_path) as f:
+            for i, line in enumerate(f):
+                line = line.strip()
+                if not line:
+                    continue
+                if i == 0 and not line[0].replace('.', '', 1).replace('-', '', 1).isdigit():
+                    name = line
+                    continue
+                x, y = line.split()[:2]
+                pts.append((float(x), float(y)))   # unit chord
+        self.name = name
+        self.pts = np.array(pts)
+        ile = int(np.argmin(self.pts[:, 0]))
+        self.upper = self.pts[:ile + 1][::-1]      # LE -> TE
+        self.lower = self.pts[ile:]               # LE -> TE
+
+    def top(self, uf):
+        return float(np.interp(uf, self.upper[:, 0], self.upper[:, 1]))
+
+    def bot(self, uf):
+        return float(np.interp(uf, self.lower[:, 0], self.lower[:, 1]))
+
+    def thick(self, uf):
+        return self.top(uf) - self.bot(uf)
+
+    def mid(self, uf):
+        return 0.5 * (self.top(uf) + self.bot(uf))
+
+
+class WingParam:
+    """Parametric wing: every geometric query derives from P."""
+
+    def __init__(self, P, dat_dir=OUT):
+        self.P = P
+        self.af = Airfoil(f"{dat_dir}/{P['airfoil_dat']}")
+        self.sw = math.tan(math.radians(P["sweep_deg"]))
+        # twist axis (spar centre) in section fractions
+        self.u_spar = P["spar_x_frac"]
+        self.v_spar = self.af.mid(self.u_spar)
+
+    # -- planform -----------------------------------------------------------
+    def chord_at(self, y):
+        return self.P["chord"] * (1.0 - (1.0 - self.P["taper"]) * abs(y) / (self.P["span"] / 2))
+
+    def xqc_at(self, y):
+        """Quarter-chord x (global CAD) at station y."""
+        return abs(y) * self.sw
+
+    def xle_at(self, y):
+        return self.xqc_at(y) - 0.25 * self.chord_at(y)
+
+    def twist_at(self, y):
+        """Radians, + = nose-down (washout direction) about the spar axis."""
+        yf = abs(y) / (self.P["span"] / 2)
+        ts = self.P.get("twist_stations")
+        if ts:
+            ys = [p[0] for p in ts]
+            ds = [p[1] for p in ts]
+            deg = float(np.interp(yf, ys, ds))
+        else:
+            deg = self.P["washout_deg"] * yf
+        return math.radians(deg)
+
+    # -- section -> global ---------------------------------------------------
+    def section_to_global(self, uf, vf, y):
+        """Unit-chord section fractions -> global (x, y, z) mm."""
+        c = self.chord_at(y)
+        u, v = uf * c, vf * c
+        us, vs = self.u_spar * c, self.v_spar * c
+        th = self.twist_at(y)
+        co, si = math.cos(th), math.sin(th)
+        ur = us + (u - us) * co - (v - vs) * si
+        vr = vs + (u - us) * si + (v - vs) * co
+        return (self.xle_at(y) + ur, y, vr)
+
+    def spar_point(self, y):
+        x, yy, z = self.section_to_global(self.u_spar, self.v_spar, y)
+        return np.array([x, yy, z])
+
+    def rib_stations(self):
+        bay = self.P["span"] / self.P["n_ribs"]
+        return sorted([s * ((k + 0.5) * bay)
+                       for s in (1, -1) for k in range(self.P["n_ribs"] // 2)])
+
+    def x_aft_root_le(self, x_cad):
+        return x_cad + 0.25 * self.P["chord"]

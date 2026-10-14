@@ -1,1 +1,112 @@
-ewogIm1ldGEiOiB7CiAgImZvcm1hdCI6ICJkZXNpZ24rZGVyaXZlZCAoTUJTRV9GUkFNRVdPUksubWQgXHUwMGE3NC4yKSIsCiAgImdlb21ldHJ5IjogIkEyIHdpbm5lcjogNmRlZyB3YXNob3V0LCAyNWRlZyBzd2VlcCwgcmVjdGFuZ3VsYXIsIE1INjAsIDggcmlicyIsCiAgIndyaXR0ZW5fYnkiOiAiYnVpbGRfY2FkLnB5IiwKICAiYWVyb19iYXNpcyI6IHsKICAgInhfbnBfdmxtX2FmdF9sZV9tbSI6IDE0NC45OCwKICAgInNvdXJjZSI6ICJhZXJvX29wdC9jYWRfbG9vcC9jeWM0X3dhc2g2L3NpbV9TTTYuanNvbiIsCiAgICJzd2VlcF9kZWciOiAyNS4wLAogICAid2FzaG91dF9kZWciOiA2LjAsCiAgICJub3RlIjogIndpbmctYWxvbmUgVkxNIG5ldXRyYWwgcG9pbnQgZm9yIFRISVMgZ2VvbWV0cnk7IHZlcmlmeV9wYXJhbXMucHkgZmFpbHMgaWYgZGVzaWduIHN3ZWVwL3dhc2hvdXQgZGl2ZXJnZSBmcm9tIGl0IgogIH0KIH0sCiAiZGVzaWduIjogewogICJzcGFuIjogOTAwLjAsCiAgImNob3JkIjogMjAwLjAsCiAgInRhcGVyIjogMS4wLAogICJzd2VlcF9kZWciOiAyNS4wLAogICJ3YXNob3V0X2RlZyI6IDYuMCwKICAidHdpc3Rfc3RhdGlvbnMiOiBudWxsLAogICJzcGFyX3hfZnJhYyI6IDAuMywKICAic3Bhcl9kaWEiOiA0LjAsCiAgInNwYXJfc2xvdF9kaWEiOiA0LjIsCiAgInJpYl90IjogMy4wLAogICJza2luX3QiOiAzLjAsCiAgImhpbmdlX3hfZnJhYyI6IDAuNzUsCiAgImhpbmdlX2dhcCI6IDAuNSwKICAiZWxldm9uX3kwIjogMTEyLjUsCiAgImVsZXZvbl95MSI6IDQwNS4wLAogICJhaXJmb2lsX2RhdCI6ICJtaDYwLmRhdCIsCiAgIm5fcmlicyI6IDgsCiAgImhvbGVfeF9mcmFjcyI6IFsKICAgMC4xNSwKICAgMC40MiwKICAgMC41NiwKICAgMC42OAogIF0sCiAgImhvbGVfZGlhX2ZyYWMiOiAwLjU1LAogICJob2xlX21pbl9kaWEiOiA2LjAsCiAgImhvbGVfbWluX3dhbGwiOiAyLjAsCiAgImJhdHRlcnlfdSI6IDAuMjA1LAogICJiYXR0ZXJ5X3kiOiAwLjAsCiAgImJhdHRlcnlfb3JpZW50YXRpb24iOiAic3Bhbndpc2UiLAogICJiYXR0ZXJ5X21hc3NfZyI6IDYyLjAsCiAgImJhdHRlcnlfZGltcyI6IFsKICAgMjguMCwKICAgNjQuMCwKICAgMjAuMAogIF0sCiAgImhhdGNoX21hcmdpbl94IjogMy4wLAogICJoYXRjaF9tYXJnaW5feSI6IDQuMCwKICAiaGF0Y2hfdG9wX2NsZWFyYW5jZSI6IDIuMAogfSwKICJkZXJpdmVkIjogewogICJyaWJfc3RhdGlvbnNfeSI6IFsKICAgLTM5My43NSwKICAgLTI4MS4yNSwKICAgLTE2OC43NSwKICAgLTU2LjI1LAogICA1Ni4yNSwKICAgMTY4Ljc1LAogICAyODEuMjUsCiAgIDM5My43NQogIF0sCiAgInNwYXJfY2VudHJlX3V2IjogWwogICA2MC4wLAogICAzLjU5NDQKICBdLAogICJob2xlc191dmQiOiBbCiAgIFsKICAgIDMwLjAsCiAgICAyLjg3NjksCiAgICAxMC4wNTczCiAgIF0sCiAgIFsKICAgIDg0LjAsCiAgICAzLjU2MjcsCiAgICAxMC4xODE5CiAgIF0sCiAgIFsKICAgIDExMi4wLAogICAgMi45MjkzLAogICAgOC4xMzE5CiAgIF0sCiAgIFsKICAgIDEzNi4wLAogICAgMS45MDExLAogICAgNi4wCiAgIF0KICBdLAogICJoYXRjaF9yZWN0IjogewogICAidTAiOiAwLjEyLAogICAidTEiOiAwLjI5LAogICAieTAiOiAtMzYuMCwKICAgInkxIjogMzYuMAogIH0sCiAgImJhdHRlcnlfemNfbW0iOiAtNC4xNTEsCiAgImJhdHRlcnlfYm94IjogewogICAiZGltcyI6IFsKICAgIDI4LjAsCiAgICA2NC4wLAogICAgMjAuMAogICBdLAogICAiY2VudGVyX3NlYyI6IFsKICAgIDAuMjA1LAogICAgLTAuMDIwNzUsCiAgICAwLjAKICAgXSwKICAgIm9yaWVudGF0aW9uIjogInNwYW53aXNlIgogIH0KIH0KfQ==
+{
+ "meta": {
+  "format": "design+derived (MBSE_FRAMEWORK.md \u00a74.2)",
+  "geometry": "A2 winner: 6deg washout, 25deg sweep, rectangular, MH60, 8 ribs",
+  "written_by": "build_cad.py",
+  "aero_basis": {
+   "x_np_vlm_aft_le_mm": 144.98,
+   "source": "aero_opt/cad_loop/cyc4_wash6/sim_SM6.json",
+   "sweep_deg": 25.0,
+   "washout_deg": 6.0,
+   "note": "wing-alone VLM neutral point for THIS geometry; verify_params.py fails if design sweep/washout diverge from it"
+  }
+ },
+ "design": {
+  "span": 900.0,
+  "chord": 200.0,
+  "taper": 1.0,
+  "sweep_deg": 25.0,
+  "washout_deg": 6.0,
+  "twist_stations": null,
+  "spar_x_frac": 0.3,
+  "spar_dia": 4.0,
+  "spar_slot_dia": 4.2,
+  "rib_t": 3.0,
+  "skin_t": 3.0,
+  "hinge_x_frac": 0.75,
+  "hinge_gap": 0.5,
+  "elevon_y0": 112.5,
+  "elevon_y1": 405.0,
+  "airfoil_dat": "mh60.dat",
+  "n_ribs": 8,
+  "hole_x_fracs": [
+   0.15,
+   0.42,
+   0.56,
+   0.68
+  ],
+  "hole_dia_frac": 0.55,
+  "hole_min_dia": 6.0,
+  "hole_min_wall": 2.0,
+  "battery_u": 0.205,
+  "battery_y": 0.0,
+  "battery_orientation": "spanwise",
+  "battery_mass_g": 62.0,
+  "battery_dims": [
+   28.0,
+   64.0,
+   20.0
+  ],
+  "hatch_margin_x": 3.0,
+  "hatch_margin_y": 4.0,
+  "hatch_top_clearance": 2.0
+ },
+ "derived": {
+  "rib_stations_y": [
+   -393.75,
+   -281.25,
+   -168.75,
+   -56.25,
+   56.25,
+   168.75,
+   281.25,
+   393.75
+  ],
+  "spar_centre_uv": [
+   60.0,
+   3.5944
+  ],
+  "holes_uvd": [
+   [
+    30.0,
+    2.8769,
+    10.0573
+   ],
+   [
+    84.0,
+    3.5627,
+    10.1819
+   ],
+   [
+    112.0,
+    2.9293,
+    8.1319
+   ],
+   [
+    136.0,
+    1.9011,
+    6.0
+   ]
+  ],
+  "hatch_rect": {
+   "u0": 0.12,
+   "u1": 0.29,
+   "y0": -36.0,
+   "y1": 36.0
+  },
+  "battery_zc_mm": -4.151,
+  "battery_box": {
+   "dims": [
+    28.0,
+    64.0,
+    20.0
+   ],
+   "center_sec": [
+    0.205,
+    -0.02075,
+    0.0
+   ],
+   "orientation": "spanwise"
+  }
+ }
+}

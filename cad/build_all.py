@@ -1,1 +1,175 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJaIUIgUG9DIENBRCDigJQgb25lLWNvbW1hbmQgZnVsbCByZWdlbmVyYXRpb24gKyBzaW0vdHdpbiBleHBvcnRzLgoKVXNhZ2U6CiAgYnVpbGRfYWxsLnB5IFstLXBhcmFtcyBwYXJhbXMuanNvbl0gWy0tb3V0ZGlyIERJUl0KClJ1bnMgYnVpbGRfY2FkLnB5ICsgYnVpbGRfc3lzdGVtcy5weSwgdGhlbjoKICAtIG1lc2ggcXVhbGl0eSBjaGVja3MgKHdhdGVydGlnaHRuZXNzLCBhc3BlY3QgcmF0aW8sIGNvdW50cykgLT4gbWVzaF9xdWFsaXR5Lmpzb24KICAtIHR3aW4gZXhwb3J0czogdHdpbi9tb2RlbC5vYmogKGdyb3VwcywgQ0FEIGF4ZXMsIG1tKSwKICAgIHR3aW4vbW9kZWwuZ2xiIChnbFRGLCBtYXBwZWQgYXhlcyksIHR3aW4vbWFuaWZlc3QuanNvbgoiIiIKaW1wb3J0IGFyZ3BhcnNlCmltcG9ydCBnbG9iCmltcG9ydCBqc29uCmltcG9ydCBtYXRoCmltcG9ydCBvcwppbXBvcnQgc3VicHJvY2VzcwppbXBvcnQgc3lzCgppbXBvcnQgbnVtcHkgYXMgbnAKaW1wb3J0IHRyaW1lc2gKZnJvbSBzdGwgaW1wb3J0IG1lc2ggYXMgc3RsX21lc2gKCmFwID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoKQphcC5hZGRfYXJndW1lbnQoIi0tcGFyYW1zIiwgZGVmYXVsdD1Ob25lKQphcC5hZGRfYXJndW1lbnQoIi0tb3V0ZGlyIiwgZGVmYXVsdD0iL2hvbWUvaGF0Y2gvd29ya3NwYWNlL3Vhdi1zdWIyNTBnL2NhZCIpCmEgPSBhcC5wYXJzZV9hcmdzKCkKRCA9IGEub3V0ZGlyClBZID0gIi9ob21lL2hhdGNoL3dvcmtzcGFjZS91YXYtc3ViMjUwZy9jYWQvLnZlbnYvYmluL3B5dGhvbiIKCmZvciBzY3JpcHQgaW4gKCJidWlsZF9jYWQucHkiLCAiYnVpbGRfc3lzdGVtcy5weSIpOgogICAgY21kID0gW1BZLCBmIi9ob21lL2hhdGNoL3dvcmtzcGFjZS91YXYtc3ViMjUwZy9jYWQve3NjcmlwdH0iLCAiLS1vdXRkaXIiLCBEXQogICAgaWYgYS5wYXJhbXM6CiAgICAgICAgY21kICs9IFsiLS1wYXJhbXMiLCBhLnBhcmFtc10KICAgIHByaW50KCIrIiwgIiAiLmpvaW4oY21kKSkKICAgIHIgPSBzdWJwcm9jZXNzLnJ1bihjbWQsIGNhcHR1cmVfb3V0cHV0PVRydWUsIHRleHQ9VHJ1ZSkKICAgIHN5cy5zdGRvdXQud3JpdGUoci5zdGRvdXQpCiAgICBpZiByLnJldHVybmNvZGUgIT0gMDoKICAgICAgICBzeXMuc3Rkb3V0LndyaXRlKHIuc3RkZXJyKQogICAgICAgIHN5cy5leGl0KGYie3NjcmlwdH0gRkFJTEVEIikKCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBtZXNoIHF1YWxpdHkKZGVmIHdhdGVydGlnaHQodHJpcyk6CiAgICB0ID0gbnAuYXNhcnJheSh0cmlzLCBkdHlwZT1ucC5mbG9hdDY0KS5yZXNoYXBlKC0xLCAzLCAzKQogICAgZSA9IG5wLnZzdGFjayhbdFs6LCBbMCwgMV1dLCB0WzosIFsxLCAyXV0sIHRbOiwgWzIsIDBdXV0pCiAgICBlID0gbnAuc29ydChlLCBheGlzPTEpCiAgICBrZXkgPSBucC5yb3VuZChlLnJlc2hhcGUoLTEsIDYpLCA0KQogICAgXywgYyA9IG5wLnVuaXF1ZShrZXksIGF4aXM9MCwgcmV0dXJuX2NvdW50cz1UcnVlKQogICAgcmV0dXJuIGJvb2woKGMgPT0gMikuYWxsKCkpLCBpbnQoKGMgIT0gMikuc3VtKCkpCgpkZWYgYXNwZWN0X3N0YXRzKHRyaXMpOgogICAgdCA9IG5wLmFzYXJyYXkodHJpcywgZHR5cGU9bnAuZmxvYXQ2NCkucmVzaGFwZSgtMSwgMywgMykKICAgIGEgPSB0WzosIDFdIC0gdFs6LCAwXQogICAgYiA9IHRbOiwgMl0gLSB0WzosIDFdCiAgICBjID0gdFs6LCAwXSAtIHRbOiwgMl0KICAgIGxhLCBsYiwgbGMgPSAobnAubGluYWxnLm5vcm0odiwgYXhpcz0xKSBmb3IgdiBpbiAoYSwgYiwgYykpCiAgICBzID0gMC41ICogKGxhICsgbGIgKyBsYykKICAgIGFyZWEgPSBucC5zcXJ0KG5wLm1heGltdW0ocyAqIChzIC0gbGEpICogKHMgLSBsYikgKiAocyAtIGxjKSwgMWUtMTgpKQogICAgaW5yID0gYXJlYSAvIG5wLm1heGltdW0ocywgMWUtMTIpCiAgICBhciA9IG5wLm1heGltdW0obnAubWF4aW11bShsYSwgbGIpLCBsYykgLyBucC5tYXhpbXVtKDIgKiBpbnIsIDFlLTEyKQogICAgcmV0dXJuIHsibWF4Ijogcm91bmQoZmxvYXQoYXIubWF4KCkpLCAyKSwgIm1lYW4iOiByb3VuZChmbG9hdChhci5tZWFuKCkpLCAyKSwKICAgICAgICAgICAgInBjdF9ndF8xMCI6IHJvdW5kKGZsb2F0KChhciA+IDEwKS5tZWFuKCkgKiAxMDApLCAyKX0KCkdST1VQUyA9IHsgICMgc2ltIGZ1bmN0aW9uIGdyb3VwcyAtPiBwYXJ0IGZpbGVzICh1bmRlciBwYXJ0cy8pCiAgICAid2luZ191cHBlciI6IFsid2luZ19zdHJ1Y3R1cmUvc2tpbl90b3AiXSwKICAgICJ3aW5nX2xvd2VyIjogWyJ3aW5nX3N0cnVjdHVyZS9za2luX2JvdHRvbSJdLAogICAgImVsZXZvbl9SIjogWyJ3aW5nX3N0cnVjdHVyZS9lbGV2b25fcmlnaHQiXSwKICAgICJlbGV2b25fTCI6IFsid2luZ19zdHJ1Y3R1cmUvZWxldm9uX2xlZnQiXSwKICAgICJzdHJ1Y3R1cmUiOiBbIndpbmdfc3RydWN0dXJlL3JpYiIsICJ3aW5nX3N0cnVjdHVyZS9zcGFyIl0sCiAgICAicHJvcHVsc2lvbiI6IFsicHJvcHVsc2lvbi9tb3RvciIsICJwcm9wdWxzaW9uL3Byb3AiLCAicHJvcHVsc2lvbi9tb3Rvcl9tb3VudCIsCiAgICAgICAgICAgICAgICAgICAicHJvcHVsc2lvbi9lc2MiXSwKICAgICJhdmlvbmljcyI6IFsiYXZpb25pY3MvZmMiLCAiYXZpb25pY3MvZ3BzIiwgImF2aW9uaWNzL2dwc19tYXN0IiwKICAgICAgICAgICAgICAgICAiYXZpb25pY3Mvc2Vydm9fTCIsICJhdmlvbmljcy9zZXJ2b19SIiwgImF2aW9uaWNzL3J4IiwKICAgICAgICAgICAgICAgICAiYXZpb25pY3MvZW5jb2RlciJdLAogICAgInBvd2VyIjogWyJwb3dlci9iYXR0ZXJ5Il0sCiAgICAiaGF0Y2giOiBbImhhdGNoL3RyYXlfZndkIiwgImhhdGNoL3RyYXlfYWZ0IiwgImhhdGNoL3RyYXlfcG9ydCIsICJoYXRjaC90cmF5X3N0YmQiLAogICAgICAgICAgICAgICJoYXRjaC9saWQiLCAiaGF0Y2gvbGF0Y2hfMSIsICJoYXRjaC9sYXRjaF8yIiwgImhhdGNoL2hpbmdlIl0sCiAgICAid2lyaW5nIjogW10sCn0Kd2ZpbGVzID0gW2YgZm9yIGYgaW4gc29ydGVkKGdsb2IuZ2xvYihmIntEfS9wYXJ0cy93aXJpbmcvdyouc3RsIikpCiAgICAgICAgIGlmIG9zLnBhdGguYmFzZW5hbWUoZikgIT0gIndpcmluZy5zdGwiXQpHUk9VUFNbIndpcmluZyJdID0gWyJ3aXJpbmcvIiArIG9zLnBhdGguc3BsaXRleHQob3MucGF0aC5iYXNlbmFtZShmKSlbMF0gZm9yIGYgaW4gd2ZpbGVzXQoKcXVhbGl0eSA9IHt9CmZvciBnLCBwYXJ0cyBpbiBHUk9VUFMuaXRlbXMoKToKICAgIHRyaXMgPSBbXQogICAgZm9yIHAgaW4gcGFydHM6CiAgICAgICAgbSA9IHN0bF9tZXNoLk1lc2guZnJvbV9maWxlKGYie0R9L3BhcnRzL3twfS5zdGwiKQogICAgICAgIHRyaXMuYXBwZW5kKG0udmVjdG9ycykKICAgIHRyaXMgPSBucC52c3RhY2sodHJpcykKICAgIHd0LCBiYWRfZWRnZXMgPSB3YXRlcnRpZ2h0KHRyaXMpCiAgICBxdWFsaXR5W2ddID0geyJwYXJ0cyI6IHBhcnRzLCAidHJpYW5nbGVzIjogaW50KGxlbih0cmlzKSksCiAgICAgICAgICAgICAgICAgICJ2ZXJ0aWNlcyI6IGludChucC51bmlxdWUobnAucm91bmQodHJpcy5yZXNoYXBlKC0xLCAzKSwgNCksIGF4aXM9MCkuc2hhcGVbMF0pLAogICAgICAgICAgICAgICAgICAid2F0ZXJ0aWdodCI6IHd0LCAiYmFkX2VkZ2VzIjogYmFkX2VkZ2VzLAogICAgICAgICAgICAgICAgICAqKmFzcGVjdF9zdGF0cyh0cmlzKX0KICAgIHByaW50KGYicXVhbGl0eSB7ZzoxMnN9OiB0cmlzPXtxdWFsaXR5W2ddWyd0cmlhbmdsZXMnXTo2ZH0gIgogICAgICAgICAgZiJ3YXRlcnRpZ2h0PXt3dH0gYXJfbWF4PXtxdWFsaXR5W2ddWydtYXgnXX0iKQpqc29uLmR1bXAocXVhbGl0eSwgb3BlbihmIntEfS9tZXNoX3F1YWxpdHkuanNvbiIsICJ3IiksIGluZGVudD0xKQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHR3aW4gZXhwb3J0cwpvcy5tYWtlZGlycyhmIntEfS90d2luIiwgZXhpc3Rfb2s9VHJ1ZSkKCiMgT0JKIHdpdGggZ3JvdXBzIChDQUQgYXhlcywgbW0pCndpdGggb3BlbihmIntEfS90d2luL21vZGVsLm9iaiIsICJ3IikgYXMgZjoKICAgIGYud3JpdGUoIiMgWiFCIFBvQyDigJQgQ0FEIGF4ZXM6IHg9YWZ0LCB5PXNwYW4oK3JpZ2h0KSwgej11cDsgdW5pdHMgbW1cbiIpCiAgICB2byA9IDEKICAgIGZvciBnLCBwYXJ0cyBpbiBHUk9VUFMuaXRlbXMoKToKICAgICAgICBmLndyaXRlKGYiXG5nIHtnfVxuIikKICAgICAgICBmb3IgcCBpbiBwYXJ0czoKICAgICAgICAgICAgbSA9IHN0bF9tZXNoLk1lc2guZnJvbV9maWxlKGYie0R9L3BhcnRzL3twfS5zdGwiKQogICAgICAgICAgICB2ID0gbS52ZWN0b3JzLnJlc2hhcGUoLTEsIDMpCiAgICAgICAgICAgIGZvciBwdCBpbiB2OgogICAgICAgICAgICAgICAgZi53cml0ZShmInYge3B0WzBdOi40Zn0ge3B0WzFdOi40Zn0ge3B0WzJdOi40Zn1cbiIpCiAgICAgICAgICAgIG52ID0gbGVuKHYpCiAgICAgICAgICAgIGZvciBpIGluIHJhbmdlKDAsIG52LCAzKToKICAgICAgICAgICAgICAgIGYud3JpdGUoZiJmIHt2bytpfSB7dm8raSsxfSB7dm8raSsyfVxuIikKICAgICAgICAgICAgdm8gKz0gbnYKcHJpbnQoIndyb3RlIHR3aW4vbW9kZWwub2JqIikKCiMgZ2xURjogYXhpcyBtYXAgQ0FEKHg9YWZ0LHk9c3Bhbix6PXVwKSAtPiBnbFRGKHg9cmlnaHQseT11cCx6PWFmdCkKIyBnbGIgPSAoY2FkX3ksIGNhZF96LCBjYWRfeCksIGEgcHJvcGVyIHJvdGF0aW9uIChkZXQgKzEpCnNjZW5lID0gdHJpbWVzaC5TY2VuZSgpCmZvciBnLCBwYXJ0cyBpbiBHUk9VUFMuaXRlbXMoKToKICAgIGZvciBwIGluIHBhcnRzOgogICAgICAgIG0gPSBzdGxfbWVzaC5NZXNoLmZyb21fZmlsZShmIntEfS9wYXJ0cy97cH0uc3RsIikKICAgICAgICB2ID0gbS52ZWN0b3JzLnJlc2hhcGUoLTEsIDMpCiAgICAgICAgdmcgPSBucC5jb2x1bW5fc3RhY2soW3ZbOiwgMV0sIHZbOiwgMl0sIHZbOiwgMF1dKQogICAgICAgIHRtID0gdHJpbWVzaC5UcmltZXNoKHZlcnRpY2VzPW5wLnVuaXF1ZShucC5yb3VuZCh2ZywgNCksIGF4aXM9MCksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmFjZXM9W10sIHByb2Nlc3M9RmFsc2UpCiAgICAgICAgIyByZWJ1aWxkIGZhY2VzIHZpYSBpbmRleCBtYXAKICAgICAgICBrZXkgPSBucC5yb3VuZCh2ZywgNCkKICAgICAgICB1bmlxLCBpbnYgPSBucC51bmlxdWUoa2V5LCBheGlzPTAsIHJldHVybl9pbnZlcnNlPVRydWUpCiAgICAgICAgdG0gPSB0cmltZXNoLlRyaW1lc2godmVydGljZXM9dW5pcSwgZmFjZXM9aW52LnJlc2hhcGUoLTEsIDMpLCBwcm9jZXNzPUZhbHNlKQogICAgICAgIHNjZW5lLmFkZF9nZW9tZXRyeSh0bSwgZ2VvbV9uYW1lPWYie2d9L3twLnNwbGl0KCcvJylbLTFdfSIpCnNjZW5lLmV4cG9ydChmIntEfS90d2luL21vZGVsLmdsYiIpCiMgZnJlc2gtdmlld2VyIGNoZWNrOiByZWxvYWQgdGhlIGdsYiBpbmRlcGVuZGVudGx5CmNoayA9IHRyaW1lc2gubG9hZChmIntEfS90d2luL21vZGVsLmdsYiIsIGZvcmNlPSJzY2VuZSIpCm5nZW9tID0gbGVuKGNoay5nZW9tZXRyeSkgaWYgaGFzYXR0cihjaGssICJnZW9tZXRyeSIpIGVsc2UgMQpwcmludChmIndyb3RlIHR3aW4vbW9kZWwuZ2xiOyBmcmVzaC1sb2FkIGNoZWNrOiB7bmdlb219IGdlb21ldHJpZXMgcHJlc2VudCIpCgptYW5pZmVzdCA9IHsKICAgICJwcm9ncmFtIjogIlohQiBQb0Mgc3ViLTI1MGcgZmx5aW5nIHdpbmciLAogICAgInVuaXRzIjogIm1tIiwKICAgICJjYWRfYXhlcyI6IHsieCI6ICJhZnQgKCsgdG93YXJkIHRyYWlsaW5nIGVkZ2UpIiwgInkiOiAic3Bhbndpc2UsIDA9Y2VudHJlLCArcmlnaHQiLAogICAgICAgICAgICAgICAgICJ6IjogInVwIn0sCiAgICAicm9vdF9MRV94IjogLTUwLjAsCiAgICAieF9hZnRfb2Zfcm9vdF9MRSI6ICJ4X2NhZCArIDUwLjAiLAogICAgImdsYl9heGlzX21hcCI6ICJnbGIgPSAoY2FkX3ksIGNhZF94LT56KTogZ2xiLng9cmlnaHQgc3BhbiwgZ2xiLnk9dXAsIGdsYi56PWFmdDsgbm9zZSBhdCAteiIsCiAgICAiZ3JvdXBzIjoge2c6IHsiZnVuY3Rpb24iOiBmfSBmb3IgZywgZiBpbiB7CiAgICAgICAgIndpbmdfdXBwZXIiOiAidXBwZXIgT01MIHNraW4gKHNpbXVsYXRpb24gd2luZyBzdXJmYWNlKSIsCiAgICAgICAgIndpbmdfbG93ZXIiOiAibG93ZXIgT01MIHNraW4gKHNpbXVsYXRpb24gd2luZyBzdXJmYWNlKSIsCiAgICAgICAgImVsZXZvbl9MIjogImxlZnQgZWxldm9uIOKAlCBkZWZsZWN0YWJsZSBjb250cm9sIHN1cmZhY2UgKHNlcGFyYXRlKSIsCiAgICAgICAgImVsZXZvbl9SIjogInJpZ2h0IGVsZXZvbiDigJQgZGVmbGVjdGFibGUgY29udHJvbCBzdXJmYWNlIChzZXBhcmF0ZSkiLAogICAgICAgICJzdHJ1Y3R1cmUiOiAicmlicyArIHNwYXIgKHN0cnVjdHVyYWwgZ3JvdXApIiwKICAgICAgICAicHJvcHVsc2lvbiI6ICJtb3Rvci9wcm9wL21vdW50L0VTQyIsICJhdmlvbmljcyI6ICJGQy9HUFMvc2Vydm9zL1JYL2VuY29kZXIiLAogICAgICAgICJwb3dlciI6ICJiYXR0ZXJ5IiwgIndpcmluZyI6ICJoYXJuZXNzIHR1YmVzICsgY29ubmVjdG9ycyJ9Lml0ZW1zKCl9LAogICAgInBhcmFtc19zY2hlbWEiOiAicGFyYW1zLmpzb24gc3BsaXQgZm9ybWF0OiBkZXNpZ24gKGF1dGhvcml0YXRpdmUpICsgZGVyaXZlZCAiCiAgICAgICAgICAgICAgICAgICAgICAgIihyZWNvbXB1dGVkOyB2ZXJpZnlfcGFyYW1zLnB5IGZhaWxzIG9uIGRpdmVyZ2VuY2UpIiwKICAgICJyZWdlbmVyYXRpb24iOiAiYnVpbGRfYWxsLnB5IFstLXBhcmFtcyA8ZmxhdCB2YXJpYW50IG92ZXJyaWRlcz5dIFstLW91dGRpciA8ZGlyPl0iLAp9Cmpzb24uZHVtcChtYW5pZmVzdCwgb3BlbihmIntEfS90d2luL21hbmlmZXN0Lmpzb24iLCAidyIpLCBpbmRlbnQ9MSkKcHJpbnQoIndyb3RlIHR3aW4vbWFuaWZlc3QuanNvbiIpCgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gcGFyYW1zIHZlcmlmeQojIE1CU0Ugwqc0LjI6IHRoZSBidWlsZCBmYWlscyBpZiB0aGUgZmlsZSdzICJkZXJpdmVkIiBzZWN0aW9uIGRpdmVyZ2VzIGZyb20KIyB3aGF0IGNvbXB1dGVfZGVyaXZlZChkZXNpZ24pIHByb2R1Y2VzLCBvciBpZiB0aGUgYWVybyBiYXNpcyBpcyBzdGFsZS4KcHJpbnQoInZlcmlmeV9wYXJhbXMucHk6IikKciA9IHN1YnByb2Nlc3MucnVuKFtQWSwgIi9ob21lL2hhdGNoL3dvcmtzcGFjZS91YXYtc3ViMjUwZy9jYWQvdmVyaWZ5X3BhcmFtcy5weSIsCiAgICAgICAgICAgICAgICAgICAgIi0tcGFyYW1zIiwgZiJ7RH0vcGFyYW1zLmpzb24iXSwKICAgICAgICAgICAgICAgICAgIGNhcHR1cmVfb3V0cHV0PVRydWUsIHRleHQ9VHJ1ZSkKc3lzLnN0ZG91dC53cml0ZShyLnN0ZG91dCkKaWYgci5yZXR1cm5jb2RlICE9IDA6CiAgICBzeXMuc3Rkb3V0LndyaXRlKHIuc3RkZXJyKQogICAgc3lzLmV4aXQoInZlcmlmeV9wYXJhbXMucHkgRkFJTEVEIikKcHJpbnQoIkJVSUxEX0FMTCBjb21wbGV0ZSIpCg==
+#!/usr/bin/env python3
+"""Z!B PoC CAD — one-command full regeneration + sim/twin exports.
+
+Usage:
+  build_all.py [--params params.json] [--outdir DIR]
+
+Runs build_cad.py + build_systems.py, then:
+  - mesh quality checks (watertightness, aspect ratio, counts) -> mesh_quality.json
+  - twin exports: twin/model.obj (groups, CAD axes, mm),
+    twin/model.glb (glTF, mapped axes), twin/manifest.json
+"""
+import argparse
+import glob
+import json
+import math
+import os
+import subprocess
+import sys
+
+import numpy as np
+import trimesh
+from stl import mesh as stl_mesh
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--params", default=None)
+ap.add_argument("--outdir", default="/home/hatch/workspace/uav-sub250g/cad")
+a = ap.parse_args()
+D = a.outdir
+PY = "/home/hatch/workspace/uav-sub250g/cad/.venv/bin/python"
+
+for script in ("build_cad.py", "build_systems.py"):
+    cmd = [PY, f"/home/hatch/workspace/uav-sub250g/cad/{script}", "--outdir", D]
+    if a.params:
+        cmd += ["--params", a.params]
+    print("+", " ".join(cmd))
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    sys.stdout.write(r.stdout)
+    if r.returncode != 0:
+        sys.stdout.write(r.stderr)
+        sys.exit(f"{script} FAILED")
+
+# ---------------------------------------------------------------- mesh quality
+def watertight(tris):
+    t = np.asarray(tris, dtype=np.float64).reshape(-1, 3, 3)
+    e = np.vstack([t[:, [0, 1]], t[:, [1, 2]], t[:, [2, 0]]])
+    e = np.sort(e, axis=1)
+    key = np.round(e.reshape(-1, 6), 4)
+    _, c = np.unique(key, axis=0, return_counts=True)
+    return bool((c == 2).all()), int((c != 2).sum())
+
+def aspect_stats(tris):
+    t = np.asarray(tris, dtype=np.float64).reshape(-1, 3, 3)
+    a = t[:, 1] - t[:, 0]
+    b = t[:, 2] - t[:, 1]
+    c = t[:, 0] - t[:, 2]
+    la, lb, lc = (np.linalg.norm(v, axis=1) for v in (a, b, c))
+    s = 0.5 * (la + lb + lc)
+    area = np.sqrt(np.maximum(s * (s - la) * (s - lb) * (s - lc), 1e-18))
+    inr = area / np.maximum(s, 1e-12)
+    ar = np.maximum(np.maximum(la, lb), lc) / np.maximum(2 * inr, 1e-12)
+    return {"max": round(float(ar.max()), 2), "mean": round(float(ar.mean()), 2),
+            "pct_gt_10": round(float((ar > 10).mean() * 100), 2)}
+
+GROUPS = {  # sim function groups -> part files (under parts/)
+    "wing_upper": ["wing_structure/skin_top"],
+    "wing_lower": ["wing_structure/skin_bottom"],
+    "elevon_R": ["wing_structure/elevon_right"],
+    "elevon_L": ["wing_structure/elevon_left"],
+    "structure": ["wing_structure/rib", "wing_structure/spar"],
+    "propulsion": ["propulsion/motor", "propulsion/prop", "propulsion/motor_mount",
+                   "propulsion/esc"],
+    "avionics": ["avionics/fc", "avionics/gps", "avionics/gps_mast",
+                 "avionics/servo_L", "avionics/servo_R", "avionics/rx",
+                 "avionics/encoder"],
+    "power": ["power/battery"],
+    "hatch": ["hatch/tray_fwd", "hatch/tray_aft", "hatch/tray_port", "hatch/tray_stbd",
+              "hatch/lid", "hatch/latch_1", "hatch/latch_2", "hatch/hinge"],
+    "wiring": [],
+}
+wfiles = [f for f in sorted(glob.glob(f"{D}/parts/wiring/w*.stl"))
+         if os.path.basename(f) != "wiring.stl"]
+GROUPS["wiring"] = ["wiring/" + os.path.splitext(os.path.basename(f))[0] for f in wfiles]
+
+quality = {}
+for g, parts in GROUPS.items():
+    tris = []
+    for p in parts:
+        m = stl_mesh.Mesh.from_file(f"{D}/parts/{p}.stl")
+        tris.append(m.vectors)
+    tris = np.vstack(tris)
+    wt, bad_edges = watertight(tris)
+    quality[g] = {"parts": parts, "triangles": int(len(tris)),
+                  "vertices": int(np.unique(np.round(tris.reshape(-1, 3), 4), axis=0).shape[0]),
+                  "watertight": wt, "bad_edges": bad_edges,
+                  **aspect_stats(tris)}
+    print(f"quality {g:12s}: tris={quality[g]['triangles']:6d} "
+          f"watertight={wt} ar_max={quality[g]['max']}")
+json.dump(quality, open(f"{D}/mesh_quality.json", "w"), indent=1)
+
+# ---------------------------------------------------------------- twin exports
+os.makedirs(f"{D}/twin", exist_ok=True)
+
+# OBJ with groups (CAD axes, mm)
+with open(f"{D}/twin/model.obj", "w") as f:
+    f.write("# Z!B PoC — CAD axes: x=aft, y=span(+right), z=up; units mm\n")
+    vo = 1
+    for g, parts in GROUPS.items():
+        f.write(f"\ng {g}\n")
+        for p in parts:
+            m = stl_mesh.Mesh.from_file(f"{D}/parts/{p}.stl")
+            v = m.vectors.reshape(-1, 3)
+            for pt in v:
+                f.write(f"v {pt[0]:.4f} {pt[1]:.4f} {pt[2]:.4f}\n")
+            nv = len(v)
+            for i in range(0, nv, 3):
+                f.write(f"f {vo+i} {vo+i+1} {vo+i+2}\n")
+            vo += nv
+print("wrote twin/model.obj")
+
+# glTF: axis map CAD(x=aft,y=span,z=up) -> glTF(x=right,y=up,z=aft)
+# glb = (cad_y, cad_z, cad_x), a proper rotation (det +1)
+scene = trimesh.Scene()
+for g, parts in GROUPS.items():
+    for p in parts:
+        m = stl_mesh.Mesh.from_file(f"{D}/parts/{p}.stl")
+        v = m.vectors.reshape(-1, 3)
+        vg = np.column_stack([v[:, 1], v[:, 2], v[:, 0]])
+        tm = trimesh.Trimesh(vertices=np.unique(np.round(vg, 4), axis=0),
+                             faces=[], process=False)
+        # rebuild faces via index map
+        key = np.round(vg, 4)
+        uniq, inv = np.unique(key, axis=0, return_inverse=True)
+        tm = trimesh.Trimesh(vertices=uniq, faces=inv.reshape(-1, 3), process=False)
+        scene.add_geometry(tm, geom_name=f"{g}/{p.split('/')[-1]}")
+scene.export(f"{D}/twin/model.glb")
+# fresh-viewer check: reload the glb independently
+chk = trimesh.load(f"{D}/twin/model.glb", force="scene")
+ngeom = len(chk.geometry) if hasattr(chk, "geometry") else 1
+print(f"wrote twin/model.glb; fresh-load check: {ngeom} geometries present")
+
+manifest = {
+    "program": "Z!B PoC sub-250g flying wing",
+    "units": "mm",
+    "cad_axes": {"x": "aft (+ toward trailing edge)", "y": "spanwise, 0=centre, +right",
+                 "z": "up"},
+    "root_LE_x": -50.0,
+    "x_aft_of_root_LE": "x_cad + 50.0",
+    "glb_axis_map": "glb = (cad_y, cad_x->z): glb.x=right span, glb.y=up, glb.z=aft; nose at -z",
+    "groups": {g: {"function": f} for g, f in {
+        "wing_upper": "upper OML skin (simulation wing surface)",
+        "wing_lower": "lower OML skin (simulation wing surface)",
+        "elevon_L": "left elevon — deflectable control surface (separate)",
+        "elevon_R": "right elevon — deflectable control surface (separate)",
+        "structure": "ribs + spar (structural group)",
+        "propulsion": "motor/prop/mount/ESC", "avionics": "FC/GPS/servos/RX/encoder",
+        "power": "battery", "wiring": "harness tubes + connectors"}.items()},
+    "params_schema": "params.json split format: design (authoritative) + derived "
+                       "(recomputed; verify_params.py fails on divergence)",
+    "regeneration": "build_all.py [--params <flat variant overrides>] [--outdir <dir>]",
+}
+json.dump(manifest, open(f"{D}/twin/manifest.json", "w"), indent=1)
+print("wrote twin/manifest.json")
+
+# ---------------------------------------------------------------- params verify
+# MBSE §4.2: the build fails if the file's "derived" section diverges from
+# what compute_derived(design) produces, or if the aero basis is stale.
+print("verify_params.py:")
+r = subprocess.run([PY, "/home/hatch/workspace/uav-sub250g/cad/verify_params.py",
+                    "--params", f"{D}/params.json"],
+                   capture_output=True, text=True)
+sys.stdout.write(r.stdout)
+if r.returncode != 0:
+    sys.stdout.write(r.stderr)
+    sys.exit("verify_params.py FAILED")
+print("BUILD_ALL complete")

@@ -1,1 +1,97 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJ2ZXJpZnlfcGFyYW1zLnB5IOKAlCBNQlNFIMKnNC4yIGVuZm9yY2VtZW50IGZvciB0aGUgc3BsaXQgcGFyYW1zLmpzb24uCgpDaGVja3M6CiAgMS4gVGhlIGZpbGUgaGFzIHRoZSBzcGxpdCBmb3JtYXQgKG1ldGEvZGVzaWduL2Rlcml2ZWQpLgogIDIuIEV2ZXJ5ICJkZXJpdmVkIiB2YWx1ZSByZWNvbXB1dGVkIGZyb20gImRlc2lnbiIgbWF0Y2hlcyB0aGUgZmlsZQogICAgICh0b2xlcmFuY2UgMWUtNikg4oCUIGZhaWxzIG9uIGRpdmVyZ2VuY2UgKGhhbmQtZWRpdGVkIGRlcml2ZWQgdmFsdWVzLAogICAgIHN0YWxlIHJlY29yZHMsIGdlbmVyYXRvciBkcmlmdCkuCiAgMy4gVGhlIGFlcm8gYmFzaXMgc3RhbXBlZCBpbiBtZXRhIG1hdGNoZXMgdGhlIGRlc2lnbiBnZW9tZXRyeQogICAgIChzd2VlcF9kZWcvd2FzaG91dF9kZWcpIOKAlCBmYWlscyBvbiBzdGFsZSBhZXJvIGJhc2lzLgogIDQuIE5vIHVua25vd24ga2V5cyBpbiAiZGVzaWduIiAodHlwbyBndWFyZCk7IGFsbCBERVNJR05fS0VZUyBwcmVzZW50LgoKVXNhZ2U6IHZlcmlmeV9wYXJhbXMucHkgWy0tcGFyYW1zIHBhcmFtcy5qc29uXQpFeGl0IDAgb25seSBpZiBldmVyeSBjaGVjayBwYXNzZXMuCiIiIgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGpzb24KaW1wb3J0IG1hdGgKaW1wb3J0IG9zCmltcG9ydCBzeXMKCnN5cy5wYXRoLmluc2VydCgwLCBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5hYnNwYXRoKF9fZmlsZV9fKSkpCmZyb20gcGFyYW1ldHJpYyBpbXBvcnQgREVTSUdOX0tFWVMsIGNvbXB1dGVfZGVyaXZlZCwgV2luZ1BhcmFtICAjIG5vcWE6IEU0MDIKCmFwID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoKQphcC5hZGRfYXJndW1lbnQoIi0tcGFyYW1zIiwgZGVmYXVsdD0iL2hvbWUvaGF0Y2gvd29ya3NwYWNlL3Vhdi1zdWIyNTBnL2NhZC9wYXJhbXMuanNvbiIpCmEgPSBhcC5wYXJzZV9hcmdzKCkKCmZhaWxzID0gW10KCgpkZWYgY2hlY2sobmFtZSwgb2ssIGRldGFpbD0iIik6CiAgICBwcmludChmIiAgW3snUEFTUycgaWYgb2sgZWxzZSAnRkFJTCd9XSB7bmFtZX0iICsgKGYiOiB7ZGV0YWlsfSIgaWYgZGV0YWlsIGVsc2UgIiIpKQogICAgaWYgbm90IG9rOgogICAgICAgIGZhaWxzLmFwcGVuZChuYW1lKQoKCnJlYyA9IGpzb24ubG9hZChvcGVuKGEucGFyYW1zKSkKY2hlY2soInNwbGl0IGZvcm1hdCAobWV0YS9kZXNpZ24vZGVyaXZlZCkiLAogICAgICBhbGwoayBpbiByZWMgZm9yIGsgaW4gKCJtZXRhIiwgImRlc2lnbiIsICJkZXJpdmVkIikpLAogICAgICBmInRvcC1sZXZlbCBrZXlzOiB7c29ydGVkKHJlYy5rZXlzKCkpfSIpCmlmIGZhaWxzOgogICAgcHJpbnQoZiJcblJFU1VMVDoge2xlbihmYWlscyl9IEZBSUxVUkVTOiB7ZmFpbHN9IikKICAgIHN5cy5leGl0KDEpCgpkZXNpZ24sIGRlcml2ZWQsIG1ldGEgPSByZWNbImRlc2lnbiJdLCByZWNbImRlcml2ZWQiXSwgcmVjWyJtZXRhIl0KCm1pc3NpbmcgPSBbayBmb3IgayBpbiBERVNJR05fS0VZUyBpZiBrIG5vdCBpbiBkZXNpZ25dCmNoZWNrKCJhbGwgREVTSUdOX0tFWVMgcHJlc2VudCBpbiBkZXNpZ24iLCBub3QgbWlzc2luZywgZiJtaXNzaW5nOiB7bWlzc2luZ30iKQp1bmtub3duID0gW2sgZm9yIGsgaW4gZGVzaWduIGlmIGsgbm90IGluIERFU0lHTl9LRVlTXQpjaGVjaygibm8gdW5rbm93biBkZXNpZ24ga2V5cyAodHlwbyBndWFyZCkiLCBub3QgdW5rbm93biwgZiJ1bmtub3duOiB7dW5rbm93bn0iKQoKIyByZWJ1aWxkIGEgZmxhdCBQIHRoZSB3YXkgdGhlIGdlbmVyYXRvcnMgc2VlIGl0LCB0aGVuIHJlY29tcHV0ZQpzeXMucGF0aC5pbnNlcnQoMCwgb3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpKQpmcm9tIHBhcmFtZXRyaWMgaW1wb3J0IGxvYWRfcGFyYW1zICAjIG5vcWE6IEU0MDIKUCA9IGxvYWRfcGFyYW1zKGEucGFyYW1zKQpyZWNvbXB1dGVkID0gY29tcHV0ZV9kZXJpdmVkKFApCgoKZGVmIF9kaWZmKHBhdGgsIHdhbnQsIGdvdCwgdG9sPTFlLTYpOgogICAgaWYgaXNpbnN0YW5jZSh3YW50LCBkaWN0KSBhbmQgaXNpbnN0YW5jZShnb3QsIGRpY3QpOgogICAgICAgIGlmIHNldCh3YW50KSAhPSBzZXQoZ290KToKICAgICAgICAgICAgcmV0dXJuIFtmIntwYXRofToga2V5IG1pc21hdGNoIHtzb3J0ZWQoc2V0KHdhbnQpXnNldChnb3QpKX0iXQogICAgICAgIG91dCA9IFtdCiAgICAgICAgZm9yIGsgaW4gd2FudDoKICAgICAgICAgICAgb3V0ICs9IF9kaWZmKGYie3BhdGh9LntrfSIsIHdhbnRba10sIGdvdFtrXSwgdG9sKQogICAgICAgIHJldHVybiBvdXQKICAgIGlmIGlzaW5zdGFuY2Uod2FudCwgKGxpc3QsIHR1cGxlKSkgYW5kIGlzaW5zdGFuY2UoZ290LCAobGlzdCwgdHVwbGUpKToKICAgICAgICBpZiBsZW4od2FudCkgIT0gbGVuKGdvdCk6CiAgICAgICAgICAgIHJldHVybiBbZiJ7cGF0aH06IGxlbiB7bGVuKHdhbnQpfSAhPSB7bGVuKGdvdCl9Il0KICAgICAgICBvdXQgPSBbXQogICAgICAgIGZvciBpLCAodywgZykgaW4gZW51bWVyYXRlKHppcCh3YW50LCBnb3QpKToKICAgICAgICAgICAgb3V0ICs9IF9kaWZmKGYie3BhdGh9W3tpfV0iLCB3LCBnLCB0b2wpCiAgICAgICAgcmV0dXJuIG91dAogICAgaWYgaXNpbnN0YW5jZSh3YW50LCBmbG9hdCkgb3IgaXNpbnN0YW5jZShnb3QsIGZsb2F0KToKICAgICAgICB0cnk6CiAgICAgICAgICAgIG9rID0gYWJzKGZsb2F0KHdhbnQpIC0gZmxvYXQoZ290KSkgPD0gdG9sICogbWF4KDEuMCwgYWJzKGZsb2F0KHdhbnQpKSkKICAgICAgICBleGNlcHQgKFR5cGVFcnJvciwgVmFsdWVFcnJvcik6CiAgICAgICAgICAgIG9rID0gd2FudCA9PSBnb3QKICAgICAgICByZXR1cm4gW10gaWYgb2sgZWxzZSBbZiJ7cGF0aH06IHt3YW50fSAhPSB7Z290fSJdCiAgICByZXR1cm4gW10gaWYgd2FudCA9PSBnb3QgZWxzZSBbZiJ7cGF0aH06IHt3YW50IXJ9ICE9IHtnb3Qhcn0iXQoKCmRpdiA9IF9kaWZmKCJkZXJpdmVkIiwgcmVjb21wdXRlZCwgZGVyaXZlZCkKZm9yIGxpbmUgaW4gZGl2WzoyMF06CiAgICBwcmludChmIiAgICBESVZFUkdFTkNFOiB7bGluZX0iKQpjaGVjaygiZGVyaXZlZCA9PSBjb21wdXRlX2Rlcml2ZWQoZGVzaWduKSIsIG5vdCBkaXYsCiAgICAgIGYie2xlbihkaXYpfSBkaXZlcmdlbnQgZmllbGRzIiBpZiBkaXYgZWxzZSAiYWxsIGRlcml2ZWQgZmllbGRzIHJlY29tcHV0ZSBjbGVhbiIpCgojIGFlcm8tYmFzaXMgc3RhbGVuZXNzOiB0aGUgc3RhbXBlZCBWTE0gbmV1dHJhbCBwb2ludCBiZWxvbmdzIHRvIGEgZ2VvbWV0cnkKYWIgPSBtZXRhLmdldCgiYWVyb19iYXNpcyIsIHt9KQpmb3IgayBpbiAoInN3ZWVwX2RlZyIsICJ3YXNob3V0X2RlZyIpOgogICAgY2hlY2soZiJhZXJvIGJhc2lzIHtrfSBtYXRjaGVzIGRlc2lnbiIsIGFiLmdldChrKSA9PSBkZXNpZ24uZ2V0KGspLAogICAgICAgICAgZiJiYXNpcz17YWIuZ2V0KGspfSBkZXNpZ249e2Rlc2lnbi5nZXQoayl9IikKCnByaW50KGYiXG5SRVNVTFQ6IHsnYWxsIGNoZWNrcyBwYXNzZWQnIGlmIG5vdCBmYWlscyBlbHNlIGYne2xlbihmYWlscyl9IEZBSUxVUkVTOiB7ZmFpbHN9J30iKQpzeXMuZXhpdCgxIGlmIGZhaWxzIGVsc2UgMCkK
+#!/usr/bin/env python3
+"""verify_params.py — MBSE §4.2 enforcement for the split params.json.
+
+Checks:
+  1. The file has the split format (meta/design/derived).
+  2. Every "derived" value recomputed from "design" matches the file
+     (tolerance 1e-6) — fails on divergence (hand-edited derived values,
+     stale records, generator drift).
+  3. The aero basis stamped in meta matches the design geometry
+     (sweep_deg/washout_deg) — fails on stale aero basis.
+  4. No unknown keys in "design" (typo guard); all DESIGN_KEYS present.
+
+Usage: verify_params.py [--params params.json]
+Exit 0 only if every check passes.
+"""
+import argparse
+import json
+import math
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from parametric import DESIGN_KEYS, compute_derived, WingParam  # noqa: E402
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--params", default="/home/hatch/workspace/uav-sub250g/cad/params.json")
+a = ap.parse_args()
+
+fails = []
+
+
+def check(name, ok, detail=""):
+    print(f"  [{'PASS' if ok else 'FAIL'}] {name}" + (f": {detail}" if detail else ""))
+    if not ok:
+        fails.append(name)
+
+
+rec = json.load(open(a.params))
+check("split format (meta/design/derived)",
+      all(k in rec for k in ("meta", "design", "derived")),
+      f"top-level keys: {sorted(rec.keys())}")
+if fails:
+    print(f"\nRESULT: {len(fails)} FAILURES: {fails}")
+    sys.exit(1)
+
+design, derived, meta = rec["design"], rec["derived"], rec["meta"]
+
+missing = [k for k in DESIGN_KEYS if k not in design]
+check("all DESIGN_KEYS present in design", not missing, f"missing: {missing}")
+unknown = [k for k in design if k not in DESIGN_KEYS]
+check("no unknown design keys (typo guard)", not unknown, f"unknown: {unknown}")
+
+# rebuild a flat P the way the generators see it, then recompute
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from parametric import load_params  # noqa: E402
+P = load_params(a.params)
+recomputed = compute_derived(P)
+
+
+def _diff(path, want, got, tol=1e-6):
+    if isinstance(want, dict) and isinstance(got, dict):
+        if set(want) != set(got):
+            return [f"{path}: key mismatch {sorted(set(want)^set(got))}"]
+        out = []
+        for k in want:
+            out += _diff(f"{path}.{k}", want[k], got[k], tol)
+        return out
+    if isinstance(want, (list, tuple)) and isinstance(got, (list, tuple)):
+        if len(want) != len(got):
+            return [f"{path}: len {len(want)} != {len(got)}"]
+        out = []
+        for i, (w, g) in enumerate(zip(want, got)):
+            out += _diff(f"{path}[{i}]", w, g, tol)
+        return out
+    if isinstance(want, float) or isinstance(got, float):
+        try:
+            ok = abs(float(want) - float(got)) <= tol * max(1.0, abs(float(want)))
+        except (TypeError, ValueError):
+            ok = want == got
+        return [] if ok else [f"{path}: {want} != {got}"]
+    return [] if want == got else [f"{path}: {want!r} != {got!r}"]
+
+
+div = _diff("derived", recomputed, derived)
+for line in div[:20]:
+    print(f"    DIVERGENCE: {line}")
+check("derived == compute_derived(design)", not div,
+      f"{len(div)} divergent fields" if div else "all derived fields recompute clean")
+
+# aero-basis staleness: the stamped VLM neutral point belongs to a geometry
+ab = meta.get("aero_basis", {})
+for k in ("sweep_deg", "washout_deg"):
+    check(f"aero basis {k} matches design", ab.get(k) == design.get(k),
+          f"basis={ab.get(k)} design={design.get(k)}")
+
+print(f"\nRESULT: {'all checks passed' if not fails else f'{len(fails)} FAILURES: {fails}'}")
+sys.exit(1 if fails else 0)

@@ -1,1 +1,252 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiI0LXJvdW5kIHZlcmlmaWNhdGlvbiBvZiB0aGUgWiFCIFBvQyBDQUQgKHJvdW5kcyBhLWQpLiBSdW4gYWZ0ZXIgYnVpbGRfY2FkLnB5LgpQcmludHMgbWVhc3VyZWQgbnVtYmVyczsgZXhpdHMgbm9uemVybyBvbiBhbnkgRkFJTC4iIiIKaW1wb3J0IG1hdGgsIGpzb24sIHN5cywgYXJncGFyc2UKaW1wb3J0IG51bXB5IGFzIG5wCmZyb20gc3RsIGltcG9ydCBtZXNoIGFzIHN0bF9tZXNoCgphcCA9IGFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyKCkKYXAuYWRkX2FyZ3VtZW50KCItLW91dGRpciIsIGRlZmF1bHQ9Ii9ob21lL2hhdGNoL3dvcmtzcGFjZS91YXYtc3ViMjUwZy9jYWQiKQpPVVQgPSBhcC5wYXJzZV9hcmdzKCkub3V0ZGlyCl9yZWMgPSBqc29uLmxvYWQob3BlbihmIntPVVR9L3BhcmFtcy5qc29uIikpCmlmIGlzaW5zdGFuY2UoX3JlYy5nZXQoImRlc2lnbiIpLCBkaWN0KTogICAgICAjIHNwbGl0IGZvcm1hdCAoTUJTRSDCpzQuMikKICAgIFAsIERkID0gX3JlY1siZGVzaWduIl0sIF9yZWNbImRlcml2ZWQiXQplbHNlOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIyBsZWdhY3kgZmxhdCAoc2hvdWxkIG5vdCBvY2N1cikKICAgIFAsIERkID0gX3JlYywgX3JlYwpDSCA9IDIwMC4wClNXRUVQID0gZmxvYXQoUFsic3dlZXBfZGVnIl0pCmZhaWxzID0gW10KCmRlZiBjaGVjayhuYW1lLCBjb25kLCBkZXRhaWwpOgogICAgcHJpbnQoZiIgIFt7J1BBU1MnIGlmIGNvbmQgZWxzZSAnRkFJTCd9XSB7bmFtZX06IHtkZXRhaWx9IikKICAgIGlmIG5vdCBjb25kOgogICAgICAgIGZhaWxzLmFwcGVuZChuYW1lKQoKZGVmIGxvYWQocGF0aCk6CiAgICBtID0gc3RsX21lc2guTWVzaC5mcm9tX2ZpbGUocGF0aCkKICAgIHJldHVybiBtLnZlY3RvcnMucmVzaGFwZSgtMSwgMykKCmRlZiB1bmlxX3B0cyh2LCBkZWNpbWFscz0zKToKICAgIHJldHVybiBucC51bmlxdWUobnAucm91bmQodiwgZGVjaW1hbHMpLCBheGlzPTApCgojIC0tLS0gYWlyZm9pbCByZWZlcmVuY2UgKHU8PTE1MCBwb3J0aW9uICsgaGluZ2UgY3V0IGZhY2UpIC0tLS0tLS0tLS0tLS0tLS0tLS0tCnB0cyA9IFtdCndpdGggb3BlbihmIntPVVR9L21oNjAuZGF0IikgYXMgZjoKICAgIGZvciBpLCBsIGluIGVudW1lcmF0ZShmKToKICAgICAgICBsID0gbC5zdHJpcCgpCiAgICAgICAgaWYgbm90IGwgb3IgaSA9PSAwOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHgsIHkgPSBsLnNwbGl0KClbOjJdCiAgICAgICAgcHRzLmFwcGVuZCgoZmxvYXQoeCkgKiBDSCwgZmxvYXQoeSkgKiBDSCkpCnB0cyA9IG5wLmFycmF5KHB0cykKaWxlID0gaW50KG5wLmFyZ21pbihwdHNbOiwgMF0pKQp1cCwgbG8gPSBwdHNbOmlsZSArIDFdWzo6LTFdLCBwdHNbaWxlOl0KdG9wID0gbGFtYmRhIHU6IGZsb2F0KG5wLmludGVycCh1LCB1cFs6LCAwXSwgdXBbOiwgMV0pKQpib3QgPSBsYW1iZGEgdTogZmxvYXQobnAuaW50ZXJwKHUsIGxvWzosIDBdLCBsb1s6LCAxXSkpClVIID0gMTUwLjAKIyBkZXNpZ24gcmVmOiBkZW5zZSBNSDYwIHNhbXBsaW5nIHJpZ2h0IGFyb3VuZCB0aGUgTEUgbm9zZSArIDAuNSBtbSBjaGFtZmVycwpfdXMgPSBucC5saW5zcGFjZSgwLjAsIFVIIC0gMC41LCA0MDApCnQxNTAsIGIxNTAgPSB0b3AoVUgpLCBib3QoVUgpCnJlZiA9IChbKFVIIC0gMC41LCB0MTUwKV0gKyBbKHUsIHRvcCh1KSkgZm9yIHUgaW4gX3VzWzo6LTFdWzE6XV0gKwogICAgICAgWyh1LCBib3QodSkpIGZvciB1IGluIF91c1sxOl1dICsKICAgICAgIFsoVUggLSAwLjUsIGIxNTApLCAoVUgsIGIxNTAgKyAwLjUpLCAoVUgsIHQxNTAgLSAwLjUpXSkKcmVmID0gbnAuYXJyYXkocmVmKQoKZGVmIHNlZ19kaXN0KHAsIGEsIGIpOgogICAgYWIgPSBiIC0gYQogICAgdCA9IG5wLmNsaXAobnAuZG90KHAgLSBhLCBhYikgLyBtYXgobnAuZG90KGFiLCBhYiksIDFlLTEyKSwgMCwgMSkKICAgIHJldHVybiBucC5saW5hbGcubm9ybShwIC0gKGEgKyB0ICogYWIpKQoKZGVmIG1heF9kZXYocXJ5LCByZWZwb2x5KToKICAgIGQgPSBucC5pbmYKICAgIGRldiA9IDAuMAogICAgQSwgQiA9IHJlZnBvbHlbOi0xXSwgcmVmcG9seVsxOl0KICAgIGZvciBwIGluIHFyeToKICAgICAgICBhYiA9IEIgLSBBCiAgICAgICAgZGVub20gPSBucC5laW5zdW0oJ2lqLGlqLT5pJywgYWIsIGFiKQogICAgICAgIHQgPSBucC5jbGlwKG5wLmVpbnN1bSgnaWosaWotPmknLCBwIC0gQSwgYWIpIC8gbnAubWF4aW11bShkZW5vbSwgMWUtMTIpLCAwLCAxKQogICAgICAgIGRkID0gbnAubGluYWxnLm5vcm0ocCAtIChBICsgdFs6LCBOb25lXSAqIGFiKSwgYXhpcz0xKS5taW4oKQogICAgICAgIGRldiA9IG1heChkZXYsIGRkKQogICAgcmV0dXJuIGRldgoKcHJpbnQoIihhKSByaWIgcHJvZmlsZSB2cyBNSDYwIGNvb3JkaW5hdGVzIikKcnYgPSBsb2FkKGYie09VVH0vcmliLnN0bCIpCl9vdXRsaW5lX2FsbCA9IHVuaXFfcHRzKHJ2W25wLmFicyhydls6LCAyXSkgPCAwLjAxXVs6LCA6Ml0pICAgIyBib3R0b20gZmFjZSBpbmNsLiBob2xlcwojIGRyb3AgaG9sZS9zbG90IGJvdW5kYXJ5IHZlcnRpY2VzIC0+IGtlZXAgb3V0ZXIgYm91bmRhcnkgb25seQprZWVwID0gbnAub25lcyhsZW4oX291dGxpbmVfYWxsKSwgYm9vbCkKZm9yIChodSwgaHYsIGhkKSBpbiBbKERkWyJzcGFyX2NlbnRyZV91diJdWzBdLCBEZFsic3Bhcl9jZW50cmVfdXYiXVsxXSwgUFsic3Bhcl9zbG90X2RpYSJdKV0gKyBcCiAgICAgICAgICAgICAgICAgICAgWyh1LCB2LCBkKSBmb3IgKHUsIHYsIGQpIGluIERkWyJob2xlc191dmQiXV06CiAgICBrZWVwICY9IG5wLmxpbmFsZy5ub3JtKF9vdXRsaW5lX2FsbCAtIG5wLmFycmF5KFtodSwgaHZdKSwgYXhpcz0xKSA+IGhkIC8gMiArIDAuMwpvdXRsaW5lID0gX291dGxpbmVfYWxsW2tlZXBdCmRldiA9IG1heF9kZXYob3V0bGluZSwgcmVmKQpjaGVjaygicmliIG91dGxpbmUgZGV2aWF0aW9uIiwgZGV2IDwgMC4wNSwgZiJtYXggZGV2ID0ge2RldjouNGZ9IG1tICh0b2wgMC4wNSkiKQp0bWF4ID0gbWF4KHRvcCh1KSAtIGJvdCh1KSBmb3IgdSBpbiBucC5saW5zcGFjZSgxLCAxOTksIDMwMCkpCmNoZWNrKCJzZWN0aW9uIHRoaWNrbmVzcyIsIGFicyh0bWF4IC0gMjAuMTYpIDwgMC4wNSwgZiJ0bWF4ID0ge3RtYXg6LjNmfSBtbSAoZXhwZWN0IDIwLjE2KSIpCmh4ID0gcnZbOiwgMF0ubWF4KCkKY2hlY2soImhpbmdlIGN1dCBwb3NpdGlvbiIsIGFicyhoeCAtIDE1MC4wKSA8IDAuMDUsIGYicmliIG1heCB4ID0ge2h4Oi4zZn0gbW0gKGV4cGVjdCAxNTAuMCkiKQojIHNwYXIgc2xvdDogdmVydGljZXMgbmVhciBzbG90IGNlbnRyZSAtPiByYWRpdXMKc2MgPSBucC5hcnJheShEZFsic3Bhcl9jZW50cmVfdXYiXSkKZHNsb3QgPSBucC5saW5hbGcubm9ybShydls6LCA6Ml0gLSBzYywgYXhpcz0xKQpyaW5nID0gZHNsb3RbKGRzbG90ID4gMS4wKSAmIChkc2xvdCA8IDMuNSldCnNsb3RfZGlhID0gMiAqIHJpbmcubWF4KCkKY2hlY2soInNwYXIgc2xvdCBkaWFtZXRlciIsIGFicyhzbG90X2RpYSAtIDQuMikgPCAwLjA2LCBmInNsb3QgZGlhID0ge3Nsb3RfZGlhOi4zZn0gbW0gKGV4cGVjdCA0LjIpIikKIyBsaWdodGVuaW5nIGhvbGVzIHByZXNlbnQ6IGV4cGVjdCA0IGludGVyaW9yIHJpbmdzCnByaW50KGYiICBbaW5mb10gc2xvdCBjZW50cmUgdXY9KHtzY1swXTouMmZ9LHtzY1sxXTouMmZ9KSIpCgpwcmludCgiKGIpIHNwYXIgc2xvdCBmaXQgdnMgNCBtbSB0dWJlIikKc3YgPSBsb2FkKGYie09VVH0vc3Bhci5zdGwiKQojIHJhZGl1cyBtZWFzdXJlZCBwZXJwZW5kaWN1bGFyIHRvIHRoZSB0dWJlIGF4aXMgKDNEIHBvaW50LWxpbmUgZGlzdGFuY2UpCmF4X3AwID0gbnAuYXJyYXkoWzEwLjAsIDAuMCwgRGRbInNwYXJfY2VudHJlX3V2Il1bMV1dKSAgICMgWExFKDApK1VfU1BBUiA9IC01MCs2MApheF9kaXIgPSBucC5hcnJheShbbWF0aC50YW4obWF0aC5yYWRpYW5zKFNXRUVQKSkgKiA0NTAuMCwgNDUwLjAsIDAuMF0pCmF4X2RpciAvPSBucC5saW5hbGcubm9ybShheF9kaXIpCnMwID0gc3ZbbnAuYWJzKHN2WzosIDFdKSA8IDVdCncgPSBzMCAtIGF4X3AwCnR1YmVfZGlhID0gMiAqIG5wLmxpbmFsZy5ub3JtKHcgLSBucC5vdXRlcih3IEAgYXhfZGlyLCBheF9kaXIpLCBheGlzPTEpLm1heCgpCmNoZWNrKCJ0dWJlIGRpYW1ldGVyIiwgYWJzKHR1YmVfZGlhIC0gNC4wKSA8IDAuMDUsIGYidHViZSBkaWEgPSB7dHViZV9kaWE6LjNmfSBtbSIpCmNsciA9IHNsb3RfZGlhIC0gdHViZV9kaWEKY2hlY2soImRpYW1ldHJhbCBjbGVhcmFuY2UiLCAwLjE1IDw9IGNsciA8PSAwLjMwLCBmImNsZWFyYW5jZSA9IHtjbHI6LjNmfSBtbSAoZGVzaWduIDAuMjApIikKd2FsbF90ID0gdG9wKDYwLjApIC0gKHNjWzFdICsgc2xvdF9kaWEgLyAyKQp3YWxsX2IgPSAoc2NbMV0gLSBzbG90X2RpYSAvIDIpIC0gYm90KDYwLjApCmNoZWNrKCJzbG90IHdhbGxzIGluIHNlY3Rpb24iLCB3YWxsX3QgPiA1IGFuZCB3YWxsX2IgPiA1LAogICAgICBmIndhbGwgYWJvdmU9e3dhbGxfdDouMmZ9IG1tLCBiZWxvdz17d2FsbF9iOi4yZn0gbW0iKQpzbGVuID0gc3ZbOiwgMV0ubWF4KCkgLSBzdls6LCAxXS5taW4oKQojIHR1YmUgZW5kcyBhcmUgY3V0IHNxdWFyZSB0byB0aGUgdHViZSBheGlzOiB0aGUgeS1leHRlbnQgZXhjZWVkcyA5MDEgYnkKIyAyKnIqc2luKHN3ZWVwKSAoMC44NSBtbS9lbmQgYXQgMjUgZGVnKQpleHBfc2xlbiA9IDkwMS4wICsgMiAqIChQWyJzcGFyX2RpYSJdIC8gMikgKiBtYXRoLnNpbihtYXRoLnJhZGlhbnMoU1dFRVApKQpjaGVjaygic3BhciBsZW5ndGggfiBmdWxsIHNwYW4iLCBhYnMoc2xlbiAtIGV4cF9zbGVuKSA8IDEuMCwKICAgICAgZiJzcGFyIHktZXh0ZW50ID0ge3NsZW46LjJmfSBtbSAoZXhwZWN0IHtleHBfc2xlbjouMmZ9KSIpCgpwcmludCgiKGMpIHJpYiBzdGF0aW9uIC8gd2FzaG91dCAvIHN3ZWVwIG1hdGgiKQphdiA9IGxvYWQoZiJ7T1VUfS9hc3NlbWJseS5zdGwiKQp0cmkgPSBhdi5yZXNoYXBlKC0xLCAzLCAzKQp5cyA9IHRyaS5tZWFuKGF4aXM9MSlbOiwgMV0KZGVmIHRyaV9hdF95KHlleHAsIGhhbGY9NC4wKToKICAgIHJldHVybiB0cmlbKHlzID4geWV4cCAtIGhhbGYpICYgKHlzIDwgeWV4cCArIGhhbGYpXS5yZXNoYXBlKC0xLCAzKQpoaXN0LCBlZGdlcyA9IG5wLmhpc3RvZ3JhbSh5cywgYmlucz00MDApCnBlYWtzID0gW10KZm9yIGkgaW4gcmFuZ2UoMSwgbGVuKGhpc3QpIC0gMSk6CiAgICBpZiBoaXN0W2ldID4gaGlzdFtpIC0gMV0gYW5kIGhpc3RbaV0gPiBoaXN0W2kgKyAxXSBhbmQgaGlzdFtpXSA+IGhpc3QubWF4KCkgKiAwLjA1OgogICAgICAgIHBlYWtzLmFwcGVuZCgwLjUgKiAoZWRnZXNbaV0gKyBlZGdlc1tpICsgMV0pKQojIHJpYiBzdGF0aW9uczogcmliIEZBQ0UgcGxhbmVzIGNvbmNlbnRyYXRlIHZlcnRpY2VzIGF0IGV4YWN0bHkgeWV4cCArLy0gMS41CiMgKHJpYl90LzIpOyBmaW5kIHRoZSB0d28gdGFsbGVzdCB2ZXJ0ZXgteSBwZWFrcyBuZWFyIGVhY2ggc3RhdGlvbi4KdnkgPSBhdi5yZXNoYXBlKC0xLCAzKVs6LCAxXQp2aCwgdmUgPSBucC5oaXN0b2dyYW0odnksIGJpbnM9MTgwMCwgcmFuZ2U9KC00NTAsIDQ1MCkpCnZjID0gMC41ICogKHZlWzotMV0gKyB2ZVsxOl0pCmZvdW5kID0gW10KZm9yIHlleHAgaW4gRGRbInJpYl9zdGF0aW9uc195Il06CiAgICBtID0gKHZjID4geWV4cCAtIDIuNSkgJiAodmMgPCB5ZXhwICsgMi41KQogICAgaWR4ID0gbnAuYXJnc29ydCh2aFttXSlbLTI6XQogICAgcGsgPSB2Y1ttXVtpZHhdCiAgICBmb3VuZC5hcHBlbmQoZmxvYXQocGsubWVhbigpKSkKZm91bmQuc29ydCgpCmZvdW5kLnNvcnQoKQpvayA9IGxlbihmb3VuZCkgPT0gOCBhbmQgbWF4KGFicyhhIC0gYikgZm9yIGEsIGIgaW4gemlwKGZvdW5kLCBzb3J0ZWQoRGRbInJpYl9zdGF0aW9uc195Il0pKSkgPCAwLjUKY2hlY2soIjggcmlicyBhdCBzdGF0aW9ucyIsIG9rLCBmImZvdW5kIHkgPSB7W3JvdW5kKHYsMikgZm9yIHYgaW4gZm91bmRdfSIpCmJheXMgPSBucC5kaWZmKHNvcnRlZChmb3VuZCkpCmNoZWNrKCJiYXkgc3BhY2luZyAxMTIuNSIsIG1heChhYnMoYiAtIDExMi41KSBmb3IgYiBpbiBiYXlzKSA8IDAuNSwKICAgICAgZiJiYXlzID0ge1tyb3VuZChiLDIpIGZvciBiIGluIGJheXNdfSIpCiMgd2FzaG91dDogY2hvcmQtbGluZSBhbmdsZSBwZXIgcmliIChMRT1taW4geCwgVEVjdXQ9bWF4IHggb2YgcmliIHZlcnRzKQpkZWYgcmliX2FuZ2xlKHlleHApOgogICAgY2wgPSB0cmlfYXRfeSh5ZXhwKVs6LCBbMCwgMl1dCiAgICBsZSA9IGNsW2NsWzosIDBdLmFyZ21pbigpXTsgdGUgPSBjbFtjbFs6LCAwXS5hcmdtYXgoKV0KICAgIHJldHVybiBtYXRoLmRlZ3JlZXMobWF0aC5hdGFuMih0ZVsxXSAtIGxlWzFdLCB0ZVswXSAtIGxlWzBdKSkKYV9pbiwgYV9vdXQgPSByaWJfYW5nbGUoNTYuMjUpLCByaWJfYW5nbGUoMzkzLjc1KQp0dyA9IGFfb3V0IC0gYV9pbiAgICMgcmlnaWQtYm9keSByb3RhdGlvbiBiZXR3ZWVuIHRoZSB0d28gc3RhdGlvbnMKd28gPSBQLmdldCgid2FzaG91dF9kZWciLCAyLjApCmV4cF90dyA9IHdvICogKDM5My43NSAtIDU2LjI1KSAvIDQ1MC4wCmNoZWNrKCJjaG9yZC1saW5lIHJvdGF0aW9uIG1hdGNoZXMgd2FzaG91dCIsIGFicyh0dyAtIGV4cF90dykgPCAwLjEsCiAgICAgIGYicmliQDU2LjI1OiB7YV9pbjouM2Z9IGRlZywgcmliQDM5My43NToge2Ffb3V0Oi4zZn0gZGVnLCBkZWx0YSA9IHt0dzorLjNmfSBkZWcgKGV4cGVjdCB7ZXhwX3R3Oi4zZn0pIikKIyBwaHlzaWNhbCB3YXNob3V0OiB0aXAgTEUgbXVzdCBzaXQgbG93ZXIgdGhhbiByb290IExFIChyZWR1Y2VkIGluY2lkZW5jZSkKZGVmIHJpYl9sZV96KHlleHApOgogICAgY2wgPSB0cmlfYXRfeSh5ZXhwKQogICAgcmV0dXJuIGNsW2NsWzosIDBdLmFyZ21pbigpXVsyXQpkel9sZSA9IHJpYl9sZV96KDM5My43NSkgLSByaWJfbGVfeig1Ni4yNSkKdGhfaW4sIHRoX291dCA9IG1hdGgucmFkaWFucyh3byAqIDU2LjI1IC8gNDUwKSwgbWF0aC5yYWRpYW5zKHdvICogMzkzLjc1IC8gNDUwKQpleHBfZHogPSAtKDYwLjAgLSAwLjUpICogKG1hdGguc2luKHRoX291dCkgLSBtYXRoLnNpbih0aF9pbikpCmNoZWNrKCJ3YXNob3V0OiB0aXAgTEUgbG93ZXIgKG5vc2UtZG93biB0d2lzdCkiLCBkel9sZSA8IC0xLjAgYW5kIGFicyhkel9sZSAtIGV4cF9keikgPCAwLjE1LAogICAgICBmIkxFIHogZHJvcCA1Ni4yNS0+MzkzLjc1ID0ge2R6X2xlOi4zZn0gbW0gKGV4cGVjdCB7ZXhwX2R6Oi4zZn0pIikKIyBzd2VlcDogc3Bhci1zbG90IGNlbnRyZSB4IGF0IHRpcCByaWIgdnMgcm9vdCByaWIuIFRoZSBzbG90IGlzIE9OIHRoZSB0d2lzdAojIGF4aXMsIHNvIHR3aXN0IGRvZXMgbm90IGNvbnRhbWluYXRlIHRoZSBtZWFzdXJlbWVudCAodGhlIExFIGRvZXMsIH4wLjQgbW0KIyBhdCA2IGRlZyB3YXNob3V0IOKAlCBtZWFzdXJlZCBzZXBhcmF0ZWx5IGJ5IHRoZSB3YXNob3V0IGNoZWNrcyBhYm92ZSkuCmRlZiByaWJfc2xvdF94KHlleHApOgogICAgdiA9IHRyaV9hdF95KHlleHApICAjIChNLDMpIHZlcnRpY2VzIG5lYXIgdGhlIHN0YXRpb24KICAgIHhjID0gYWJzKHlleHApICogbWF0aC50YW4obWF0aC5yYWRpYW5zKFNXRUVQKSkgLSA1MC4wICsgNjAuMAogICAgemMgPSBEZFsic3Bhcl9jZW50cmVfdXYiXVsxXQogICAgZCA9IG5wLmxpbmFsZy5ub3JtKHZbOiwgWzAsIDJdXSAtIG5wLmFycmF5KFt4YywgemNdKSwgYXhpcz0xKQogICAgcmluZyA9IHZbKGQgPiAxLjApICYgKGQgPCAzLjUpXSAgICMgc2xvdCBib3VuZGFyeSB2ZXJ0aWNlcyAoZGlhIDQuMikKICAgIHJldHVybiBmbG9hdChyaW5nWzosIDBdLm1lYW4oKSkKZHggPSByaWJfc2xvdF94KDM5My43NSkgLSByaWJfc2xvdF94KDU2LjI1KQpleHBfZHggPSAoMzkzLjc1IC0gNTYuMjUpICogbWF0aC50YW4obWF0aC5yYWRpYW5zKFNXRUVQKSkKY2hlY2soZiJ7U1dFRVA6Z30gZGVnIHN3ZWVwIHNoaWZ0IiwgYWJzKGR4IC0gZXhwX2R4KSA8IDAuMywKICAgICAgZiJzbG90IHggc2hpZnQgNTYuMjUtPjM5My43NSA9IHtkeDouMmZ9IG1tIChleHBlY3Qge2V4cF9keDouMmZ9KSIpCgpwcmludCgiKGQpIGludGVyZmVyZW5jZXMiKQpkZWYgbWluX2Rpc3QoQSwgQiwgbj0xNTAwKToKICAgIEEgPSBBW25wLnJhbmRvbS5SYW5kb21TdGF0ZSgwKS5jaG9pY2UobGVuKEEpLCBtaW4obiwgbGVuKEEpKSwgcmVwbGFjZT1GYWxzZSldCiAgICBCID0gQltucC5yYW5kb20uUmFuZG9tU3RhdGUoMSkuY2hvaWNlKGxlbihCKSwgbWluKG4sIGxlbihCKSksIHJlcGxhY2U9RmFsc2UpXQogICAgZDIgPSAoKEFbOiwgTm9uZSwgOl0gLSBCW05vbmUsIDosIDpdKSAqKiAyKS5zdW0oLTEpCiAgICByZXR1cm4gbWF0aC5zcXJ0KGQyLm1pbigpKQoKU1cyMCA9IG1hdGgudGFuKG1hdGgucmFkaWFucyhTV0VFUCkpCnhoID0gbGFtYmRhIHksIHU6IGFicyh5KSAqIFNXMjAgLSA1MC4wICsgdSAgICAgIyBzZWN0aW9uLXBsYW5lIHggb2YgY2hvcmR3aXNlIHUgYXQgc3RhdGlvbiB5CiMgZDE6IHJpYiBjdXQgZmFjZSBsYW5kcyBhdCB1PTE1MCBpbiB0aGUgYXNzZW1ibHkgKHZhbGlkYXRlcyByaWIgcGxhY2VtZW50KS4KIyBUb2xlcmFuY2UgMC4zNSBtbTogdHdpc3QgYWJvdXQgdGhlIHNwYXIgbW92ZXMgdGhlIGhpbmdlIHBvaW50IGluIHggYnkKIyB+MC4xNiBtbSBhdCA2IGRlZyB3YXNob3V0IChzZWNvbmQtb3JkZXIsIGRvY3VtZW50ZWQsIG5vdCBhIGRlZmVjdCkuCnJpYnYzID0gdHJpX2F0X3koMTY4Ljc1KQpjdXRfeCA9IHJpYnYzWzosIDBdLm1heCgpCmNoZWNrKCJyaWIgY3V0IGZhY2UgQCB1PTE1MCBpbiBhc3NlbWJseSIsIGFicyhjdXRfeCAtIHhoKDE2OC43NSwgMTUwLjApKSA8IDAuMzUsCiAgICAgIGYicmliIG1heCB4IEB5PTE2OC43NSA9IHtjdXRfeDouM2Z9IG1tIChleHBlY3Qge3hoKDE2OC43NSwxNTAuMCk6LjNmfSkiKQojIGQ0OiBza2luIFRFIGVkZ2UgKHU9MTUwKSB2cyBlbGV2b24gTEUgKHU9MTUwLjUpIGF0IHRoZSBjb21tb24gc3RhdGlvbiB5PTExMi41CmVsdiA9IGxvYWQoZiJ7T1VUfS9lbGV2b25fcmlnaHQuc3RsIikKc2sgPSBsb2FkKGYie09VVH0vc2tpbl90b3Auc3RsIikKeXEgPSAxMTIuNQpza190ZSA9IHNrWyhucC5hYnMoc2tbOiwgMV0gLSB5cSkgPCAwLjYpICYgKG5wLmFicyhza1s6LCAwXSAtIHhoKHlxLCAxNTAuMCkpIDwgMi4wKV0KZWx2X2xlID0gZWx2WyhucC5hYnMoZWx2WzosIDFdIC0geXEpIDwgMC42KSAmIChucC5hYnMoZWx2WzosIDBdIC0geGgoeXEsIDE1MC41KSkgPCAyLjApXQppZiBsZW4oc2tfdGUpIGFuZCBsZW4oZWx2X2xlKToKICAgIGhnID0gbWluX2Rpc3Qoc2tfdGUsIGVsdl9sZSkKICAgIGNoZWNrKCJza2luL2VsZXZvbiBoaW5nZSBnYXAgfjAuNSIsIDAuMyA8IGhnIDwgMC44LAogICAgICAgICAgZiJtaW4gc2tpbi1lbGV2b24gZGlzdGFuY2UgQHk9MTEyLjUgPSB7aGc6LjNmfSBtbSAoZGVzaWduIDAuNSkiKQplbHNlOgogICAgY2hlY2soInNraW4vZWxldm9uIGhpbmdlIGdhcCIsIEZhbHNlLCAiY291bGQgbm90IGlzb2xhdGUgaGluZ2UtZWRnZSB2ZXJ0aWNlcyIpCiMgZDI6IHNraW4gc2hlbGwgdGhpY2tuZXNzID0gMy4wIG1tIChvdXRlciB2cyBpbm5lciBzdXJmYWNlIGF0IGEgc2tpbiBzdGF0aW9uKQpzazc1ID0gc2tbbnAuYWJzKHNrWzosIDFdIC0gNzUuMCkgPCAxLjBdCnptZWQgPSBucC5tZWRpYW4oc2s3NVs6LCAyXSkKb3V0ZXIsIGlubmVyID0gc2s3NVtzazc1WzosIDJdID4gem1lZF0sIHNrNzVbc2s3NVs6LCAyXSA8PSB6bWVkXQp0X3NoZWxsID0gbWluX2Rpc3Qob3V0ZXJbOiwgWzAsIDJdXSwgaW5uZXJbOiwgWzAsIDJdXSkKY2hlY2soInNraW4gc2hlbGwgdGhpY2tuZXNzIDMuMCIsIGFicyh0X3NoZWxsIC0gMy4wKSA8IDAuMiwKICAgICAgZiJtZWFzdXJlZCA9IHt0X3NoZWxsOi4zZn0gbW0iKQp2c3Bhcl9jID0gRGRbInNwYXJfY2VudHJlX3V2Il1bMV0Kc2tpbl9pbm5lcl90b3BfYXQ2MCA9IHRvcCg2MC4wKSAgICMgaW5uZXIgc3VyZmFjZSA9PSByaWIgb3V0bGluZQpjbHJfc3Bhcl9za2luID0gc2tpbl9pbm5lcl90b3BfYXQ2MCAtICh2c3Bhcl9jICsgMi4wKQpjaGVjaygic3BhciBjbGVhcnMgc2tpbiIsIGNscl9zcGFyX3NraW4gPiA0LjAsCiAgICAgIGYic3BhciB0b3AgdG8gc2tpbiBpbm5lciA9IHtjbHJfc3Bhcl9za2luOi4yZn0gbW0iKQojIHNwYXIgdHViZSBtZXNoID0gZGVzaWduIHR1YmUgaW4gdGhlIHJpZ2h0IHBsYWNlOiBldmVyeSBzdXJmYWNlIHZlcnRleCBtdXN0IHNpdAojIGF0IHJhZGl1cyAyLjAgbW0gKCsvLTAuMTUpIGZyb20gdGhlIGRlc2lnbiBzcGFyIHNlZ21lbnQgKGNlbnRyZSAtPiB0aXAsIHN3ZXB0KS4KIyAoQ2FwLWNlbnRyZSB2ZXJ0aWNlcyBsaWUgb24gdGhlIGF4aXMgYnkgZGVzaWduIGFuZCBhcmUgZXhjbHVkZWQuKQpzdiA9IGxvYWQoZiJ7T1VUfS9zcGFyLnN0bCIpCnVzcGFyLCB2c3BhciA9IERkWyJzcGFyX2NlbnRyZV91diJdCnN3ID0gbWF0aC50YW4obWF0aC5yYWRpYW5zKFBbInN3ZWVwX2RlZyJdKSkKZGVmIHNlZ3B0KHkpOgogICAgcmV0dXJuIG5wLmFycmF5KFthYnMoeSkgKiBzdyAtIDUwLjAgKyB1c3BhciwgeSwgdnNwYXJdKQpBID0gc2VncHQoMC4wKQpBQnMgPSBbc2VncHQoc2duICogKFBbInNwYW4iXSAvIDIgKyAwLjUpKSAtIEEgZm9yIHNnbiBpbiAoMSwgLTEpXQpkcyA9IFtdCmZvciBBQiBpbiBBQnM6CiAgICBMMiA9IGZsb2F0KEFCIEAgQUIpCiAgICB3ID0gc3YgLSBBCiAgICB0ID0gbnAuY2xpcCgodyBAIEFCKSAvIEwyLCAwLCAxKQogICAgZHMuYXBwZW5kKG5wLmxpbmFsZy5ub3JtKHcgLSB0WzosIE5vbmVdICogQUIsIGF4aXM9MSkpCmQgPSBucC5taW5pbXVtKGRzWzBdLCBkc1sxXSkKc3VyZiA9IGQgPiAwLjUgICAjIGNhcC1jZW50cmUgdmVydGljZXMgbGllIG9uIHRoZSBheGlzIGJ5IGRlc2lnbgojIG5lYXIgdGhlIGNlbnRyZSBWLWpvaW50IHRoZSB0dWJlcyBpbnRlcnBlbmV0cmF0ZTogYSB2ZXJ0ZXggaXMgdmFsaWQgaWYgaXQKIyBsaWVzIG9uIEVJVEhFUiB0dWJlJ3Mgc3VyZmFjZQpkZXYgPSBucC5taW5pbXVtKG5wLmFicyhkc1swXVtzdXJmXSAtIFBbInNwYXJfZGlhIl0gLyAyKSwKICAgICAgICAgICAgICAgICBucC5hYnMoZHNbMV1bc3VyZl0gLSBQWyJzcGFyX2RpYSJdIC8gMikpCndvcnN0X3IgPSBmbG9hdChkZXYubWF4KCkpCmNoZWNrKCJzcGFyIHR1YmUgdGhyb3VnaCByaWIgc2xvdHMiLCB3b3JzdF9yIDwgMC4xNSwKICAgICAgZiJtYXggc3VyZmFjZS12ZXJ0ZXggcmFkaXVzIGRldmlhdGlvbiA9IHt3b3JzdF9yOi4zZn0gbW0gKGRlc2lnbiByPTIuMCkiKQpwcmludCgpCmlmIGZhaWxzOgogICAgcHJpbnQoZiJSRVNVTFQ6IHtsZW4oZmFpbHMpfSBGQUlMVVJFUzoge2ZhaWxzfSIpCiAgICBzeXMuZXhpdCgxKQpwcmludCgiUkVTVUxUOiBhbGwgY2hlY2tzIHBhc3NlZCIpCg==
+#!/usr/bin/env python3
+"""4-round verification of the Z!B PoC CAD (rounds a-d). Run after build_cad.py.
+Prints measured numbers; exits nonzero on any FAIL."""
+import math, json, sys, argparse
+import numpy as np
+from stl import mesh as stl_mesh
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--outdir", default="/home/hatch/workspace/uav-sub250g/cad")
+OUT = ap.parse_args().outdir
+_rec = json.load(open(f"{OUT}/params.json"))
+if isinstance(_rec.get("design"), dict):      # split format (MBSE §4.2)
+    P, Dd = _rec["design"], _rec["derived"]
+else:                                         # legacy flat (should not occur)
+    P, Dd = _rec, _rec
+CH = 200.0
+SWEEP = float(P["sweep_deg"])
+fails = []
+
+def check(name, cond, detail):
+    print(f"  [{'PASS' if cond else 'FAIL'}] {name}: {detail}")
+    if not cond:
+        fails.append(name)
+
+def load(path):
+    m = stl_mesh.Mesh.from_file(path)
+    return m.vectors.reshape(-1, 3)
+
+def uniq_pts(v, decimals=3):
+    return np.unique(np.round(v, decimals), axis=0)
+
+# ---- airfoil reference (u<=150 portion + hinge cut face) --------------------
+pts = []
+with open(f"{OUT}/mh60.dat") as f:
+    for i, l in enumerate(f):
+        l = l.strip()
+        if not l or i == 0:
+            continue
+        x, y = l.split()[:2]
+        pts.append((float(x) * CH, float(y) * CH))
+pts = np.array(pts)
+ile = int(np.argmin(pts[:, 0]))
+up, lo = pts[:ile + 1][::-1], pts[ile:]
+top = lambda u: float(np.interp(u, up[:, 0], up[:, 1]))
+bot = lambda u: float(np.interp(u, lo[:, 0], lo[:, 1]))
+UH = 150.0
+# design ref: dense MH60 sampling right around the LE nose + 0.5 mm chamfers
+_us = np.linspace(0.0, UH - 0.5, 400)
+t150, b150 = top(UH), bot(UH)
+ref = ([(UH - 0.5, t150)] + [(u, top(u)) for u in _us[::-1][1:]] +
+       [(u, bot(u)) for u in _us[1:]] +
+       [(UH - 0.5, b150), (UH, b150 + 0.5), (UH, t150 - 0.5)])
+ref = np.array(ref)
+
+def seg_dist(p, a, b):
+    ab = b - a
+    t = np.clip(np.dot(p - a, ab) / max(np.dot(ab, ab), 1e-12), 0, 1)
+    return np.linalg.norm(p - (a + t * ab))
+
+def max_dev(qry, refpoly):
+    d = np.inf
+    dev = 0.0
+    A, B = refpoly[:-1], refpoly[1:]
+    for p in qry:
+        ab = B - A
+        denom = np.einsum('ij,ij->i', ab, ab)
+        t = np.clip(np.einsum('ij,ij->i', p - A, ab) / np.maximum(denom, 1e-12), 0, 1)
+        dd = np.linalg.norm(p - (A + t[:, None] * ab), axis=1).min()
+        dev = max(dev, dd)
+    return dev
+
+print("(a) rib profile vs MH60 coordinates")
+rv = load(f"{OUT}/rib.stl")
+_outline_all = uniq_pts(rv[np.abs(rv[:, 2]) < 0.01][:, :2])   # bottom face incl. holes
+# drop hole/slot boundary vertices -> keep outer boundary only
+keep = np.ones(len(_outline_all), bool)
+for (hu, hv, hd) in [(Dd["spar_centre_uv"][0], Dd["spar_centre_uv"][1], P["spar_slot_dia"])] + \
+                    [(u, v, d) for (u, v, d) in Dd["holes_uvd"]]:
+    keep &= np.linalg.norm(_outline_all - np.array([hu, hv]), axis=1) > hd / 2 + 0.3
+outline = _outline_all[keep]
+dev = max_dev(outline, ref)
+check("rib outline deviation", dev < 0.05, f"max dev = {dev:.4f} mm (tol 0.05)")
+tmax = max(top(u) - bot(u) for u in np.linspace(1, 199, 300))
+check("section thickness", abs(tmax - 20.16) < 0.05, f"tmax = {tmax:.3f} mm (expect 20.16)")
+hx = rv[:, 0].max()
+check("hinge cut position", abs(hx - 150.0) < 0.05, f"rib max x = {hx:.3f} mm (expect 150.0)")
+# spar slot: vertices near slot centre -> radius
+sc = np.array(Dd["spar_centre_uv"])
+dslot = np.linalg.norm(rv[:, :2] - sc, axis=1)
+ring = dslot[(dslot > 1.0) & (dslot < 3.5)]
+slot_dia = 2 * ring.max()
+check("spar slot diameter", abs(slot_dia - 4.2) < 0.06, f"slot dia = {slot_dia:.3f} mm (expect 4.2)")
+# lightening holes present: expect 4 interior rings
+print(f"  [info] slot centre uv=({sc[0]:.2f},{sc[1]:.2f})")
+
+print("(b) spar slot fit vs 4 mm tube")
+sv = load(f"{OUT}/spar.stl")
+# radius measured perpendicular to the tube axis (3D point-line distance)
+ax_p0 = np.array([10.0, 0.0, Dd["spar_centre_uv"][1]])   # XLE(0)+U_SPAR = -50+60
+ax_dir = np.array([math.tan(math.radians(SWEEP)) * 450.0, 450.0, 0.0])
+ax_dir /= np.linalg.norm(ax_dir)
+s0 = sv[np.abs(sv[:, 1]) < 5]
+w = s0 - ax_p0
+tube_dia = 2 * np.linalg.norm(w - np.outer(w @ ax_dir, ax_dir), axis=1).max()
+check("tube diameter", abs(tube_dia - 4.0) < 0.05, f"tube dia = {tube_dia:.3f} mm")
+clr = slot_dia - tube_dia
+check("diametral clearance", 0.15 <= clr <= 0.30, f"clearance = {clr:.3f} mm (design 0.20)")
+wall_t = top(60.0) - (sc[1] + slot_dia / 2)
+wall_b = (sc[1] - slot_dia / 2) - bot(60.0)
+check("slot walls in section", wall_t > 5 and wall_b > 5,
+      f"wall above={wall_t:.2f} mm, below={wall_b:.2f} mm")
+slen = sv[:, 1].max() - sv[:, 1].min()
+# tube ends are cut square to the tube axis: the y-extent exceeds 901 by
+# 2*r*sin(sweep) (0.85 mm/end at 25 deg)
+exp_slen = 901.0 + 2 * (P["spar_dia"] / 2) * math.sin(math.radians(SWEEP))
+check("spar length ~ full span", abs(slen - exp_slen) < 1.0,
+      f"spar y-extent = {slen:.2f} mm (expect {exp_slen:.2f})")
+
+print("(c) rib station / washout / sweep math")
+av = load(f"{OUT}/assembly.stl")
+tri = av.reshape(-1, 3, 3)
+ys = tri.mean(axis=1)[:, 1]
+def tri_at_y(yexp, half=4.0):
+    return tri[(ys > yexp - half) & (ys < yexp + half)].reshape(-1, 3)
+hist, edges = np.histogram(ys, bins=400)
+peaks = []
+for i in range(1, len(hist) - 1):
+    if hist[i] > hist[i - 1] and hist[i] > hist[i + 1] and hist[i] > hist.max() * 0.05:
+        peaks.append(0.5 * (edges[i] + edges[i + 1]))
+# rib stations: rib FACE planes concentrate vertices at exactly yexp +/- 1.5
+# (rib_t/2); find the two tallest vertex-y peaks near each station.
+vy = av.reshape(-1, 3)[:, 1]
+vh, ve = np.histogram(vy, bins=1800, range=(-450, 450))
+vc = 0.5 * (ve[:-1] + ve[1:])
+found = []
+for yexp in Dd["rib_stations_y"]:
+    m = (vc > yexp - 2.5) & (vc < yexp + 2.5)
+    idx = np.argsort(vh[m])[-2:]
+    pk = vc[m][idx]
+    found.append(float(pk.mean()))
+found.sort()
+found.sort()
+ok = len(found) == 8 and max(abs(a - b) for a, b in zip(found, sorted(Dd["rib_stations_y"]))) < 0.5
+check("8 ribs at stations", ok, f"found y = {[round(v,2) for v in found]}")
+bays = np.diff(sorted(found))
+check("bay spacing 112.5", max(abs(b - 112.5) for b in bays) < 0.5,
+      f"bays = {[round(b,2) for b in bays]}")
+# washout: chord-line angle per rib (LE=min x, TEcut=max x of rib verts)
+def rib_angle(yexp):
+    cl = tri_at_y(yexp)[:, [0, 2]]
+    le = cl[cl[:, 0].argmin()]; te = cl[cl[:, 0].argmax()]
+    return math.degrees(math.atan2(te[1] - le[1], te[0] - le[0]))
+a_in, a_out = rib_angle(56.25), rib_angle(393.75)
+tw = a_out - a_in   # rigid-body rotation between the two stations
+wo = P.get("washout_deg", 2.0)
+exp_tw = wo * (393.75 - 56.25) / 450.0
+check("chord-line rotation matches washout", abs(tw - exp_tw) < 0.1,
+      f"rib@56.25: {a_in:.3f} deg, rib@393.75: {a_out:.3f} deg, delta = {tw:+.3f} deg (expect {exp_tw:.3f})")
+# physical washout: tip LE must sit lower than root LE (reduced incidence)
+def rib_le_z(yexp):
+    cl = tri_at_y(yexp)
+    return cl[cl[:, 0].argmin()][2]
+dz_le = rib_le_z(393.75) - rib_le_z(56.25)
+th_in, th_out = math.radians(wo * 56.25 / 450), math.radians(wo * 393.75 / 450)
+exp_dz = -(60.0 - 0.5) * (math.sin(th_out) - math.sin(th_in))
+check("washout: tip LE lower (nose-down twist)", dz_le < -1.0 and abs(dz_le - exp_dz) < 0.15,
+      f"LE z drop 56.25->393.75 = {dz_le:.3f} mm (expect {exp_dz:.3f})")
+# sweep: spar-slot centre x at tip rib vs root rib. The slot is ON the twist
+# axis, so twist does not contaminate the measurement (the LE does, ~0.4 mm
+# at 6 deg washout — measured separately by the washout checks above).
+def rib_slot_x(yexp):
+    v = tri_at_y(yexp)  # (M,3) vertices near the station
+    xc = abs(yexp) * math.tan(math.radians(SWEEP)) - 50.0 + 60.0
+    zc = Dd["spar_centre_uv"][1]
+    d = np.linalg.norm(v[:, [0, 2]] - np.array([xc, zc]), axis=1)
+    ring = v[(d > 1.0) & (d < 3.5)]   # slot boundary vertices (dia 4.2)
+    return float(ring[:, 0].mean())
+dx = rib_slot_x(393.75) - rib_slot_x(56.25)
+exp_dx = (393.75 - 56.25) * math.tan(math.radians(SWEEP))
+check(f"{SWEEP:g} deg sweep shift", abs(dx - exp_dx) < 0.3,
+      f"slot x shift 56.25->393.75 = {dx:.2f} mm (expect {exp_dx:.2f})")
+
+print("(d) interferences")
+def min_dist(A, B, n=1500):
+    A = A[np.random.RandomState(0).choice(len(A), min(n, len(A)), replace=False)]
+    B = B[np.random.RandomState(1).choice(len(B), min(n, len(B)), replace=False)]
+    d2 = ((A[:, None, :] - B[None, :, :]) ** 2).sum(-1)
+    return math.sqrt(d2.min())
+
+SW20 = math.tan(math.radians(SWEEP))
+xh = lambda y, u: abs(y) * SW20 - 50.0 + u     # section-plane x of chordwise u at station y
+# d1: rib cut face lands at u=150 in the assembly (validates rib placement).
+# Tolerance 0.35 mm: twist about the spar moves the hinge point in x by
+# ~0.16 mm at 6 deg washout (second-order, documented, not a defect).
+ribv3 = tri_at_y(168.75)
+cut_x = ribv3[:, 0].max()
+check("rib cut face @ u=150 in assembly", abs(cut_x - xh(168.75, 150.0)) < 0.35,
+      f"rib max x @y=168.75 = {cut_x:.3f} mm (expect {xh(168.75,150.0):.3f})")
+# d4: skin TE edge (u=150) vs elevon LE (u=150.5) at the common station y=112.5
+elv = load(f"{OUT}/elevon_right.stl")
+sk = load(f"{OUT}/skin_top.stl")
+yq = 112.5
+sk_te = sk[(np.abs(sk[:, 1] - yq) < 0.6) & (np.abs(sk[:, 0] - xh(yq, 150.0)) < 2.0)]
+elv_le = elv[(np.abs(elv[:, 1] - yq) < 0.6) & (np.abs(elv[:, 0] - xh(yq, 150.5)) < 2.0)]
+if len(sk_te) and len(elv_le):
+    hg = min_dist(sk_te, elv_le)
+    check("skin/elevon hinge gap ~0.5", 0.3 < hg < 0.8,
+          f"min skin-elevon distance @y=112.5 = {hg:.3f} mm (design 0.5)")
+else:
+    check("skin/elevon hinge gap", False, "could not isolate hinge-edge vertices")
+# d2: skin shell thickness = 3.0 mm (outer vs inner surface at a skin station)
+sk75 = sk[np.abs(sk[:, 1] - 75.0) < 1.0]
+zmed = np.median(sk75[:, 2])
+outer, inner = sk75[sk75[:, 2] > zmed], sk75[sk75[:, 2] <= zmed]
+t_shell = min_dist(outer[:, [0, 2]], inner[:, [0, 2]])
+check("skin shell thickness 3.0", abs(t_shell - 3.0) < 0.2,
+      f"measured = {t_shell:.3f} mm")
+vspar_c = Dd["spar_centre_uv"][1]
+skin_inner_top_at60 = top(60.0)   # inner surface == rib outline
+clr_spar_skin = skin_inner_top_at60 - (vspar_c + 2.0)
+check("spar clears skin", clr_spar_skin > 4.0,
+      f"spar top to skin inner = {clr_spar_skin:.2f} mm")
+# spar tube mesh = design tube in the right place: every surface vertex must sit
+# at radius 2.0 mm (+/-0.15) from the design spar segment (centre -> tip, swept).
+# (Cap-centre vertices lie on the axis by design and are excluded.)
+sv = load(f"{OUT}/spar.stl")
+uspar, vspar = Dd["spar_centre_uv"]
+sw = math.tan(math.radians(P["sweep_deg"]))
+def segpt(y):
+    return np.array([abs(y) * sw - 50.0 + uspar, y, vspar])
+A = segpt(0.0)
+ABs = [segpt(sgn * (P["span"] / 2 + 0.5)) - A for sgn in (1, -1)]
+ds = []
+for AB in ABs:
+    L2 = float(AB @ AB)
+    w = sv - A
+    t = np.clip((w @ AB) / L2, 0, 1)
+    ds.append(np.linalg.norm(w - t[:, None] * AB, axis=1))
+d = np.minimum(ds[0], ds[1])
+surf = d > 0.5   # cap-centre vertices lie on the axis by design
+# near the centre V-joint the tubes interpenetrate: a vertex is valid if it
+# lies on EITHER tube's surface
+dev = np.minimum(np.abs(ds[0][surf] - P["spar_dia"] / 2),
+                 np.abs(ds[1][surf] - P["spar_dia"] / 2))
+worst_r = float(dev.max())
+check("spar tube through rib slots", worst_r < 0.15,
+      f"max surface-vertex radius deviation = {worst_r:.3f} mm (design r=2.0)")
+print()
+if fails:
+    print(f"RESULT: {len(fails)} FAILURES: {fails}")
+    sys.exit(1)
+print("RESULT: all checks passed")
