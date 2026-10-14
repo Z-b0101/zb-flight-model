@@ -1,0 +1,253 @@
+<title>Z!B PoC Twin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a flight-test data sheet. Summary strip, then drawing + live condition side by side, then traces, then the ledger. */
+:root{
+  --paper:#eef1f0; --sheet:#fbfcfb; --ink:#14201f; --muted:#5b6b69; --rule:#cfd8d6;
+  --accent:#0d6e78; --accent-soft:#d6ebec; --pass:#2f7a3e; --pass-soft:#dcefdf; --warn:#a4620b; --warn-soft:#f6e7cf; --fail:#b3261e; --fail-soft:#f6dbd8;
+  --line2:#9a5b13;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f1615; --sheet:#151e1d; --ink:#e3ebe9; --muted:#93a4a1; --rule:#2b3836;
+  --accent:#4fb8c2; --accent-soft:#16373a; --pass:#6cc27c; --pass-soft:#173022; --warn:#e2a54d; --warn-soft:#3a2a12; --fail:#ef7a70; --fail-soft:#3d1916; --line2:#e2a54d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1615; --sheet:#151e1d; --ink:#e3ebe9; --muted:#93a4a1; --rule:#2b3836;
+  --accent:#4fb8c2; --accent-soft:#16373a; --pass:#6cc27c; --pass-soft:#173022; --warn:#e2a54d; --warn-soft:#3a2a12; --fail:#ef7a70; --fail-soft:#3d1916; --line2:#e2a54d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:20px}
+h1,h2{font-family:var(--f-display);font-weight:600;letter-spacing:.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,5vw,52px);line-height:1}
+h2{font-size:22px;text-transform:uppercase;letter-spacing:.06em}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+header{display:grid;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:12px;padding:3px 9px;border:1px solid var(--rule);border-radius:3px;background:var(--sheet)}
+.chip.l1{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.lede{max-width:72ch;margin:0;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:4px;padding:18px;display:grid;gap:14px;min-width:0}
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.cap{font-size:12.5px;color:var(--muted);margin:0}
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;padding:6px 10px;border-bottom:1px solid var(--rule)}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.pill.pass{background:var(--pass-soft);color:var(--pass)}
+.pill.fail{background:var(--fail-soft);color:var(--fail)}
+.pill.measured{background:var(--pass-soft);color:var(--pass)}
+.pill.derived{background:var(--accent-soft);color:var(--accent)}
+.pill.assumed{background:var(--warn-soft);color:var(--warn)}
+.pill.baseline-record{background:var(--accent-soft);color:var(--accent)}
+.pill.unc{background:var(--fail-soft);color:var(--fail)}
+svg{display:block;width:100%;height:auto;max-width:100%}
+svg text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.readouts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+@media (max-width:520px){.readouts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ro{background:var(--sheet);padding:10px 12px;display:grid;gap:2px}
+.ro b{font-family:var(--f-mono);font-weight:500;font-size:20px;font-variant-numeric:tabular-nums}
+.ro span{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.slider{display:grid;gap:6px}
+.slider label{display:flex;justify-content:space-between;font-size:13px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.stall{font-size:12.5px;color:var(--fail);min-height:1.2em;margin:0}
+ol.findings{margin:0;padding-left:22px;display:grid;gap:6px;max-width:90ch}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.sw{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px}
+.three{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+@media (max-width:860px){.three{grid-template-columns:1fr}}
+footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="chips">
+    <span class="chip l1">L1 model twin, not yet hardware-calibrated</span>
+    <span class="chip" id="chip-hash">params.json design hash</span>
+    <span class="chip">JSBSim 1.2.1 · 6-DOF</span>
+    <span class="chip">branch twin/v0.1</span>
+  </div>
+  <h1>Z!B PoC Twin</h1>
+  <p class="lede">The 0.90 m MH60 flying wing, built entirely from the controlled parameter file: planform and camber feed a vortex-lattice model, which feeds a generated JSBSim aircraft that flies the mission to battery depletion. Every input carries its status, so what is measured, what is derived and what is still assumed stays visible.</p>
+</header>
+
+<section class="sheet" aria-labelledby="h-ver">
+  <div class="sheet-head"><h2 id="h-ver">Verification against the controlled baseline</h2><span class="cap" id="ver-sum"></span></div>
+  <div class="scroll"><table id="checks"><thead><tr><th>Quantity</th><th style="text-align:right">Twin</th><th style="text-align:right">Baseline</th><th style="text-align:right">Delta</th><th>Tolerance</th><th>Result</th></tr></thead><tbody></tbody></table></div>
+  <p class="cap">Baseline: DESIGN_CLOSURE item 2 (CG 128.5 mm, 209.0 g, VLM NP 144.98 mm, 31.86 km / 75.8 min). Range and endurance read within tolerance; the 5–8% spread traces to span efficiency (twin 0.90 from VLM vs 0.78 in drag.py) and is logged for CE-01.</p>
+</section>
+
+<div class="grid2">
+  <section class="sheet" aria-labelledby="h-plan">
+    <div class="sheet-head"><h2 id="h-plan">Planform, top view</h2><span class="cap mono" id="plan-dims"></span></div>
+    <svg id="plan" viewBox="0 0 640 330" role="img" aria-label="Top view of the wing with ribs, elevons, neutral point and CG"></svg>
+    <div class="legend"><span><i class="sw" style="background:var(--accent)"></i>Neutral point (VLM)</span><span><i class="sw" style="background:var(--line2)"></i>CG, as designed</span><span><i class="sw" style="background:var(--muted)"></i>Ribs and elevon hinge</span></div>
+  </section>
+
+  <section class="sheet" aria-labelledby="h-cond">
+    <div class="sheet-head"><h2 id="h-cond">Flight condition</h2><span class="cap">trimmed, level, 209.0 g</span></div>
+    <div class="slider">
+      <label for="v"><span>Airspeed</span><span class="mono" id="v-out"></span></label>
+      <input id="v" type="range" min="0" max="36" step="1" value="12">
+    </div>
+    <div class="readouts">
+      <div class="ro"><span>Alpha</span><b id="r-a"></b></div>
+      <div class="ro"><span>Elevon</span><b id="r-de"></b></div>
+      <div class="ro"><span>CL</span><b id="r-cl"></b></div>
+      <div class="ro"><span>L/D trimmed</span><b id="r-ld"></b></div>
+      <div class="ro"><span>Battery power</span><b id="r-p"></b></div>
+      <div class="ro"><span>Prop chain eff.</span><b id="r-eta"></b></div>
+      <div class="ro"><span>Endurance</span><b id="r-e"></b></div>
+      <div class="ro"><span>Range</span><b id="r-r"></b></div>
+    </div>
+    <p class="stall" id="stall"></p>
+    <svg id="pcurve" viewBox="0 0 420 200" role="img" aria-label="Battery power required versus airspeed"></svg>
+    <p class="cap">Battery power vs airspeed. The 7.0 m/s floor is the program's minimum operating speed; the marker follows the slider.</p>
+  </section>
+</div>
+
+<section class="sheet" aria-labelledby="h-mis">
+  <div class="sheet-head"><h2 id="h-mis">Mission flight, 6-DOF</h2><span class="cap mono" id="mis-sum"></span></div>
+  <svg id="mission" viewBox="0 0 900 240" role="img" aria-label="Altitude and battery energy used over the mission"></svg>
+  <div class="legend"><span><i class="sw" style="background:var(--accent)"></i>Altitude (m)</span><span><i class="sw" style="background:var(--line2)"></i>Energy used (Wh, of 5.77 usable)</span></div>
+  <p class="cap">Climb at 45% throttle to +60 m, then hands-off cruise at the best-range trim until the usable energy is spent. The open-loop climb zooms about 25 m past the level-off point before settling, so peak altitude reads near 205 m.</p>
+</section>
+
+<div class="three">
+  <section class="sheet" aria-labelledby="h-der">
+    <div class="sheet-head"><h2 id="h-der">Derived aerodynamics</h2><span class="cap">VLM, 40 × 10 panels per side</span></div>
+    <div class="scroll"><table id="derivs"><tbody></tbody></table></div>
+  </section>
+  <section class="sheet" aria-labelledby="h-pitch">
+    <div class="sheet-head"><h2 id="h-pitch">Pitch step</h2></div>
+    <svg id="pitch" viewBox="0 0 300 180" role="img" aria-label="Pitch rate after a 1 degree elevon step"></svg>
+    <p class="cap">1° nose-up elevon step at t = 2 s. Pitch rate (deg/s) settles without overshoot growth: statically and dynamically stable.</p>
+  </section>
+  <section class="sheet" aria-labelledby="h-roll">
+    <div class="sheet-head"><h2 id="h-roll">Roll step</h2></div>
+    <svg id="roll" viewBox="0 0 300 180" role="img" aria-label="Bank angle after a 1 second aileron pulse"></svg>
+    <p class="cap">4° differential elevon for 1 s. Bank angle (deg). Lateral derivatives are uncalibrated estimates.</p>
+  </section>
+</div>
+
+<section class="sheet" aria-labelledby="h-find">
+  <div class="sheet-head"><h2 id="h-find">Findings while building the twin</h2><span class="cap">for MBSE review and CE-01</span></div>
+  <ol class="findings" id="findings"></ol>
+</section>
+
+<section class="sheet" aria-labelledby="h-led">
+  <div class="sheet-head"><h2 id="h-led">Input ledger</h2><span class="cap">everything not in params.json</span></div>
+  <div class="scroll"><table id="ledger"><thead><tr><th>Input</th><th>Value</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+  <p class="cap">Also uncalibrated and labeled as such in the generated model: lateral-directional derivatives (except roll-control power), the propulsion placeholder (1.5 N × throttle), the battery discharge curve and the hotel load. These close at Gate 3 with weigh-ins, the wattmeter bench test and flight data.</p>
+</section>
+
+<footer>
+  <span>Sources in zb-flight-model: cad/params.json, cad/parametric.py, twin/vlm.py, twin/perf.py, twin/gen_jsbsim.py, twin/fly.py, twin/mission_sim.py. Baseline: program/DESIGN_CLOSURE.md.</span>
+  <span>Owner: Claude, acting GM/DE. Verification: Oubi, Director of MBSE.</span>
+</footer>
+</div>
+
+<script id="data" type="application/json">__BUNDLE__</script>
+<script>
+(function(){
+const B=JSON.parse(document.getElementById('data').textContent);
+const $=id=>document.getElementById(id);
+const NS='http://www.w3.org/2000/svg';
+const el=(n,a={},p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const fx=(v,d=1)=>(v>=0?'':'−')+Math.abs(v).toFixed(d);
+$('chip-hash').textContent='params design hash '+B.hash;
+
+// verification
+const tb=$('checks').querySelector('tbody'); let np=0;
+B.checks.forEach(c=>{const tr=document.createElement('tr');const d=c.twin-c.base; if(c.ok)np++;
+ const dec=c.unit==='mm'||c.unit==='km'||c.unit==='min'?1:2;
+ tr.innerHTML=`<td>${c.name}</td><td class="num">${fx(c.twin,dec)} ${c.unit}</td><td class="num">${fx(c.base,dec)}</td><td class="num">${d>=0?'+':'−'}${Math.abs(d).toFixed(dec)}</td><td class="mono">${c.tol}</td><td><span class="pill ${c.ok?'pass':'fail'}">${c.ok?'pass':'out of tolerance'}</span></td>`;tb.appendChild(tr)});
+$('ver-sum').textContent=`${np} of ${B.checks.length} within tolerance`;
+
+// planform: x (aft, mm) down the page; y (span) across
+(function(){const s=$('plan');const P=B.planform;const W=640,H=330,pad=30;
+ const half=B.design.span/2; const xmax=Math.max(...P.te.map(p=>p[1]));
+ const sx=(W-2*pad)/(2*half), sy=(H-2*pad-20)/xmax, k=Math.min(sx,sy);
+ const ox=W/2, oy=pad+4; const X=y=>ox+y*k, Y=x=>oy+x*k;
+ const poly=P.le.map(p=>[X(p[0]),Y(p[1])]).concat(P.te.slice().reverse().map(p=>[X(p[0]),Y(p[1])]));
+ el('polygon',{points:poly.map(p=>p.join(',')).join(' '),fill:'var(--accent-soft)',stroke:'var(--ink)','stroke-width':1.2},s);
+ P.elevons.forEach(e=>{const pts=[[X(e[0][0]),Y(e[0][1])],[X(e[1][0]),Y(e[1][1])],[X(e[1][0]),Y(e[1][2])],[X(e[0][0]),Y(e[0][2])]];
+   el('polygon',{points:pts.map(p=>p.join(',')).join(' '),fill:'var(--rule)',stroke:'var(--muted)','stroke-width':1},s)});
+ P.ribs.forEach(r=>el('line',{x1:X(r[0]),y1:Y(r[1]),x2:X(r[0]),y2:Y(r[2]),stroke:'var(--muted)','stroke-width':.8,'stroke-dasharray':'3 3'},s));
+ const mark=(x,col,lab,dy)=>{el('line',{x1:X(-half*0.25),x2:X(half*0.25),y1:Y(x),y2:Y(x),stroke:col,'stroke-width':2},s);
+   const t=el('text',{x:X(half*0.25)+6,y:Y(x)+dy,'font-size':11},s);t.style.fill=col;t.textContent=lab};
+ mark(P.cg,'var(--line2)',`CG ${P.cg.toFixed(1)} mm`,0);
+ mark(P.np,'var(--accent)',`NP ${P.np.toFixed(1)} mm`,12);
+ // span dimension
+ const yd=H-12; el('line',{x1:X(-half),x2:X(half),y1:yd,y2:yd,stroke:'var(--muted)','stroke-width':.8},s);
+ [-half,half].forEach(y=>el('line',{x1:X(y),x2:X(y),y1:yd-5,y2:yd+5,stroke:'var(--muted)'},s));
+ const t=el('text',{x:ox,y:yd-6,'text-anchor':'middle'},s);t.textContent=`span ${B.design.span.toFixed(0)} mm`;
+ const t2=el('text',{x:X(-half)+2,y:oy-8},s);t2.textContent='root LE = 0, x aft';
+ $('plan-dims').textContent=`${B.design.chord} mm chord · ${B.design.sweep_deg}° sweep · ${B.design.washout_deg}° washout · ${B.design.n_ribs} ribs · MH60`;
+})();
+
+// generic line chart
+function chart(svg,series,opt){const W=+svg.viewBox.baseVal.width,H=+svg.viewBox.baseVal.height;const m={l:44,r:opt.r2?44:12,t:10,b:28};
+ svg.innerHTML='';const xs=series[0].pts.map(p=>p[0]);const x0=opt.x0??Math.min(...xs),x1=opt.x1??Math.max(...xs);
+ const X=x=>m.l+(x-x0)/(x1-x0)*(W-m.l-m.r);
+ const axis=(lo,hi)=>y=>H-m.b-(y-lo)/(hi-lo)*(H-m.t-m.b);
+ const Y1=axis(opt.y0,opt.y1);
+ for(let i=0;i<=4;i++){const v=opt.y0+(opt.y1-opt.y0)*i/4;const y=Y1(v);el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:'var(--rule)','stroke-width':.7},svg);
+   const t=el('text',{x:m.l-6,y:y+4,'text-anchor':'end'},svg);t.textContent=+v.toFixed(opt.yd??0)}
+ (opt.xt||[]).forEach(v=>{const t=el('text',{x:X(v),y:H-m.b+16,'text-anchor':'middle'},svg);t.textContent=v;el('line',{x1:X(v),x2:X(v),y1:H-m.b,y2:H-m.b+4,stroke:'var(--muted)'},svg)});
+ if(opt.xl){const t=el('text',{x:W-m.r,y:H-2,'text-anchor':'end'},svg);t.textContent=opt.xl}
+ let Y2=null;if(opt.r2){Y2=axis(opt.r2[0],opt.r2[1]);for(let i=0;i<=4;i++){const v=opt.r2[0]+(opt.r2[1]-opt.r2[0])*i/4;const t=el('text',{x:W-m.r+6,y:Y2(v)+4},svg);t.textContent=+v.toFixed(1)}}
+ series.forEach(s=>{const Y=s.right?Y2:Y1;const d=s.pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('');
+   if(s.fill){el('path',{d:d+`L${X(s.pts[s.pts.length-1][0])},${H-m.b}L${X(s.pts[0][0])},${H-m.b}Z`,fill:s.color,opacity:.12},svg)}
+   el('path',{d,fill:'none',stroke:s.color,'stroke-width':s.w||1.8},svg)});
+ el('line',{x1:m.l,x2:W-m.r,y1:H-m.b,y2:H-m.b,stroke:'var(--muted)','stroke-width':.8},svg);
+ return {X,Y:Y1,m,H,W}}
+
+// power curve + slider
+const SW=B.sweep;
+const pc=chart($('pcurve'),[{pts:SW.filter(s=>!s.stalled).map(s=>[s.V,s.P_batt]),color:'var(--accent)'}],{y0:0,y1:Math.ceil(Math.max(...SW.map(s=>s.P_batt))/4)*4,xt:[5,7,9,11,13],xl:'m/s',yd:0});
+const floor=el('line',{x1:pc.X(7),x2:pc.X(7),y1:pc.m.t,y2:pc.H-pc.m.b,stroke:'var(--warn)','stroke-dasharray':'4 3','stroke-width':1},$('pcurve'));
+const dot=el('circle',{r:5,fill:'var(--sheet)',stroke:'var(--accent)','stroke-width':2.5},$('pcurve'));
+const slider=$('v');slider.max=SW.length-1;
+const best=SW.reduce((a,b)=>b.V>=7&&b.range_km>a.range_km?b:a,SW[0]);slider.value=SW.indexOf(best);
+function upd(){const s=SW[+slider.value];
+ $('v-out').textContent=`${s.V.toFixed(2)} m/s`+(s===best?' · best range':'');
+ $('r-a').textContent=fx(s.alpha,1)+'°';$('r-de').textContent=fx(s.elevon,1)+'°';$('r-cl').textContent=s.CL.toFixed(2);
+ $('r-ld').textContent=s.LD.toFixed(1);$('r-p').textContent=s.P_batt.toFixed(2)+' W';$('r-eta').textContent=(100*s.eta).toFixed(0)+'%';
+ $('r-e').textContent=s.endurance_min.toFixed(0)+' min';$('r-r').textContent=s.range_km.toFixed(1)+' km';
+ const notes=[];if(s.stalled)notes.push('Beyond usable CL: stalled.');if(s.V<7&&!s.stalled)notes.push('Below the 7.0 m/s operating floor.');if(Math.abs(s.elevon)>8)notes.push('Trim elevon exceeds the ±8° authority limit.');
+ $('stall').textContent=notes.join(' ');
+ dot.setAttribute('cx',pc.X(s.V));dot.setAttribute('cy',pc.Y(Math.min(s.P_batt,pc.H)));dot.style.display=s.stalled?'none':'';}
+slider.addEventListener('input',upd);upd();
+
+// mission
+const T=B.trace, M=B.mission;
+chart($('mission'),[{pts:T.map(r=>[r[0],r[1]]),color:'var(--accent)',fill:true},{pts:T.map(r=>[r[0],r[2]]),color:'var(--line2)',right:true}],
+ {y0:0,y1:220,r2:[0,6],xt:[0,10,20,30,40,50,60,70],xl:'minutes',yd:0});
+$('mis-sum').textContent=`${M.range_km.toFixed(2)} km · ${M.flight_time_min.toFixed(1)} min · cruise ${M.V_cruise.toFixed(2)} m/s at ${(100*M.throttle_cruise).toFixed(0)}% throttle`;
+
+// derivatives
+const D=B.derivs;const rows=[['CL slope',D.CLa_per_deg.toFixed(4)+' /deg'],['Zero-lift alpha',fx(D.alpha0L_deg,2)+'°'],['Oswald e',D.oswald_e.toFixed(3)],
+ ['Neutral point',D.x_np_mm.toFixed(1)+' mm'],['Static margin',(100*D.SM).toFixed(2)+'% MAC'],['Cm0 about CG',fx(D.Cm0_cg,4)],['Cmα about CG',fx(D.Cma_cg,5)+' /deg'],
+ ['CL per elevon deg',D.CLde.toFixed(4)],['Cm per elevon deg',fx(D.Cmde_cg,5)],['Stall speed',D.vstall.toFixed(2)+' m/s']];
+const dt=$('derivs').querySelector('tbody');rows.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${r[0]}</td><td class="num">${r[1]}</td>`;dt.appendChild(tr)});
+
+chart($('pitch'),[{pts:B.pitch,color:'var(--accent)'}],{y0:-16,y1:16,xt:[0,5,10,15,20],xl:'s',yd:0});
+const ph=B.roll.map(p=>p[1]);chart($('roll'),[{pts:B.roll,color:'var(--accent)'}],{y0:Math.min(0,Math.floor(Math.min(...ph)/10)*10),y1:Math.ceil(Math.max(...ph)/10)*10,xt:[0,2,4,6],xl:'s',yd:0});
+
+B.findings.forEach(f=>{const li=document.createElement('li');li.textContent=f;$('findings').appendChild(li)});
+const lt=$('ledger').querySelector('tbody');
+B.ledger.forEach(l=>{const unc=/UNCALIBRATED/.test(l.source);const tr=document.createElement('tr');
+ tr.innerHTML=`<td class="mono">${l.key}</td><td class="mono">${l.value}</td><td><span class="pill ${l.status}">${l.status}</span>${unc?' <span class="pill unc">uncalibrated</span>':''}</td><td style="min-width:0">${l.source.replace(' (UNCALIBRATED)','')}</td>`;lt.appendChild(tr)});
+})();
+</script>
