@@ -52,3 +52,17 @@ A first estimate (assumed prop and motor constants, to be confirmed on the bench
    - Elevon mixing is done in the autopilot (ArduPlane), so the transmitter's lack of a delta mode doesn't matter. Set the transmitter to a plain 4-channel airplane model.
    - The listed radio range is about 800 m in the air. The 26 km mission is far beyond manual radio range, so the flight cards must make sure that loss of radio triggers the autopilot's return-home. This goes in the Gate 5 flight cards.
    - Weigh the F-08A on arrival of the scale: the weight budget carries 8 g for receiver + encoder (estimate).
+
+## R-07 decision (2026-10-14, 15:25 PT): power-train lines 11-13 replaced
+Full trade: `mfg/MOTOR_TRADE.md` on `r07/motor-trade` @94b96a2 (PR #14). Pending MBSE review of the airframe items (DR-14 prop notch, CG lever); the parts below don't depend on them.
+
+| # | Item | Qty | Shop | Unit (USD) | Stock |
+|---|---|---|---|---|---|
+| 11 | Suppo 2204/14 1400kv motor (20 g) | 2 | [Altitude Hobbies](https://www.altitudehobbies.com/products/suppo-2204-14-1400kv-brushless-motor-park-300-equiv) | 17.59 | In stock |
+| 12 | EMAX Bullet 30A ESC (3.5 g, meets MBSE 30 A floor) | 1 | [Pyrodrone](https://pyrodrone.com/products/emx-sc-1774-d-shot-bullet-series-30a-escblheli_s) (with #4, #5) | 22.80 | In stock |
+| 13 | APC 8x6SF prop (7.1 g) | 3 | [ReadyMadeRC](https://www.readymaderc.com/products/details/apc-8x6-sf-prop) (with #3) | 2.78 | Only 3 left |
+| 13b | APC 8x3.8SF prop (alternate) | 2 | [ReadyMadeRC](https://www.readymaderc.com/products/details/apc-8x3-8-sf-prop) | ~2.8 | Check |
+| 14 | Scorpion 3 mm threaded prop adapter (M5) | 2 | [Scorpion](https://www.scorpionsystem.com/catalog/aeroplane/accessories_3/prop_adapter/PropAdapter3/) | 3.09 | In stock |
+| | **Subtotal** | | | **~$80** | |
+
+Cancelled: Specter 1404 4800KV, Bullet 20A, Gemfan 7040-3 (−$35–43). New expected total: about $300 plus shipping (~$340 all-in, five shops), inside the $500 authority.
