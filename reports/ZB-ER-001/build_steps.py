@@ -285,8 +285,8 @@ for ang, col, lab in ((12, ACC, "≥ 12° up"), (-8, INK, "≥ 8° down")):
     note(ax, (58, 36.5 + 16 * math.sin(t)), lab, fs=8.5, col=col)
 ax.plot([40, 54], [36.5, 36.5], color=GREY, lw=1, ls=":"); note(ax, (22, 28), "hinge tape, top + bottom", fs=8)
 # fin
-ax.add_patch(Polygon([[72, 32], [90, 32], [90, 50], [80, 50]], fc=LIGHT, ec=INK, lw=LW)); ax.plot([66, 96], [32, 32], color=INK, lw=2.5)
-note(ax, (82, 26), "tip fin (if adopted)\n≈ 60 × 120 mm", fs=8)
+ax.add_patch(Polygon([[80, 32], [90, 32], [90, 56], [84, 56]], fc=LIGHT, ec=INK, lw=LW)); ax.plot([66, 96], [32, 32], color=INK, lw=2.5)
+note(ax, (80, 26), "tip fin, upright: 120 high × 60 chord\naft 30% of tip chord (PR #13)", fs=8)
 # hatch lid
 ax.add_patch(FancyBboxPatch((14, 6), 24, 12, boxstyle="round,pad=0.4,rounding_size=2", fc="white", ec=INK, lw=LW))
 ax.add_patch(FancyBboxPatch((15.5, 7.5), 21, 9, boxstyle="round,pad=0.2,rounding_size=1.6", fc=ACC, alpha=0.2, ec=ACC, lw=1.2))

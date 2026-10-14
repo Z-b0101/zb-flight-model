@@ -62,8 +62,8 @@ for xv, lab, col in ((128.5, "CG 128.5", INK), (142.6, "NP 142.6", ACC)):
     ax.plot([-12, 12], [-xv, -xv], color=col, lw=1.4); ax.plot([-120, -14], [-xv, -xv], color=col, lw=0.5, ls=":"); ax.text(-124, -xv, lab, fontsize=7.5, ha="right", va="center", color=col)
 # fins (proposed)
 for s in (-1, 1):
-    ax.plot([s * 450, s * 450], [-(xle(450) + 80), -(xle(450) + 200)], color=ACC, lw=3, alpha=0.6)
-ax.text(450, -(xle(450) + 215), "tip fin (proposed, DR-01)", fontsize=7, ha="center", color=ACC)
+    ax.plot([s * 450, s * 450], [-(xle(450) + 140), -(xle(450) + 200)], color=ACC, lw=3, alpha=0.8)
+ax.text(450, -(xle(450) + 215), "tip fin 120 high × 60 chord (DR-01, PR #13)", fontsize=7, ha="center", color=ACC)
 # servos
 for s in (-1, 1):
     ax.add_patch(Rectangle((s * 250 - 12, -(xle(250) + 0.6 * C + 10)), 24, 20, fc="white", ec=INK, lw=0.8))
