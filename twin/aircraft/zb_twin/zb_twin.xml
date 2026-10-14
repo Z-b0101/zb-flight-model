@@ -121,7 +121,7 @@
       20.0 0.08
     </tableData></table></sum></function>
   <function name="aero/coefficient/Cm"><sum>
-    <value>0.03111</value>
+    <value>0.00349</value>
     <product><property>aero/alpha-deg</property><value>-0.004464</value></product>
     <product><property>fcs/elevon-sym-deg</property><value>-0.008242</value></product>
     <product><property>velocities/q-aero-rad_sec</property><property>aero/ci2vel</property><value>-1.2</value></product></sum></function>

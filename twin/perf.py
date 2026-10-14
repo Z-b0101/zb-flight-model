@@ -23,7 +23,16 @@ ASSUMPTIONS = {
     "p_hotel_w":      (1.0,    "assumed",  "hotel load placeholder; bench test pending (UNCALIBRATED)"),
     "eta":            ("min(0.55, 0.20+0.0875*P_shaft)", "assumed", "propulsion derate fit; wattmeter pending (UNCALIBRATED)"),
     "v_floor_ms":     (7.0,    "derived",  "max(1.5*Vstall, 7.0) AIRFOIL_TRADE §3"),
+    "cm0_section":    (-0.022, "measured", "MH60 XFoil Re100k Ncrit9 at CL~0.5 (AIRFOIL_TRADE.md; zb_model/trim.py CM0_AIRFOIL); -0.037 at CL 0"),
 }
+
+
+def thin_airfoil_cm(wing, n=4001):
+    """Thin-airfoil Cm_ac of the mean line the VLM uses (inviscid). The VLM's section
+    pitching moment is this value; the viscous section value comes from XFoil."""
+    th = np.linspace(1e-4, math.pi - 1e-4, n); x = 0.5 * (1 - np.cos(th))
+    s = np.array([wing.camber_slope(u) for u in x])
+    return 0.5 * np.trapezoid(s * (np.cos(2 * th) - np.cos(th)), th)
 
 def A(k): return ASSUMPTIONS[k][0]
 
@@ -49,6 +58,12 @@ class Twin:
         self.CLde = d["CLde_per_deg"] * k
         # transfer root-LE moments to CG
         self.Cm0 = d["Cm0_rootLE"] + d["CL0"] * xcg / c
+        # viscous section-moment correction (2026-10-14, CE-01 trim reconciliation): the
+        # inviscid mean line of the reflexed MH60 gives cm_ac ~ +0.006; XFoil gives -0.022.
+        # A uniform section increment on the rectangular planform adds the same wing Cm0.
+        self.cm_thin = thin_airfoil_cm(self.w)
+        self.dCm_visc = A("cm0_section") - self.cm_thin
+        self.Cm0 += self.dCm_visc
         self.Cma = -(d["x_np_mm"] / 1000 - xcg) / c * d["CLa_per_deg"]
         self.Cmde = (d["Cmde_rootLE_per_deg"] + d["CLde_per_deg"] * xcg / c) * k
         self.SM = (d["x_np_mm"] / 1000 - xcg) / c

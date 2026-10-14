@@ -22,7 +22,7 @@ AUTOPILOT = """
   <!-- Stand-in for the autopilot: pitch-attitude hold and bank hold. Not ArduPlane. -->
   <property value="0">ap/theta-cmd-deg</property>
   <property value="0">ap/phi-cmd-deg</property>
-  <property value="0.15">ap/elev-trim-norm</property>
+  <property value="-0.45">ap/elev-trim-norm</property>
   <property value="0">ap/phase</property>
   <property value="0.9">fcs/throttle-cmd-norm</property>
   <channel name="pitch">
@@ -68,14 +68,14 @@ def run(T=62.0):
 <altitude unit="M">1.8</altitude><latitude unit="DEG">37</latitude><longitude unit="DEG">-122</longitude>
 <psi unit="DEG">0</psi><theta unit="DEG">6</theta><phi unit="DEG">0</phi></initialize>''')
     events = "".join([
-        ev("launch", "simulation/sim-time-sec ge 0", [("fcs/throttle-cmd-norm", 0.9), ("ap/theta-cmd-deg", 17), ("ap/phase", 1)]),
-        ev("level", "position/h-agl-ft ge 66 AND ap/phase == 1", [("fcs/throttle-cmd-norm", 0.25), ("ap/theta-cmd-deg", 5.5), ("ap/phase", 2)]),
-        ev("turn1", "simulation/sim-time-sec ge 10 AND ap/phase == 2", [("ap/phi-cmd-deg", 30), ("ap/theta-cmd-deg", 7), ("fcs/throttle-cmd-norm", 0.32), ("ap/phase", 3)]),
-        ev("downwind", "attitude/psi-deg ge 172 AND attitude/psi-deg le 200 AND ap/phase == 3", [("ap/phi-cmd-deg", 0), ("ap/theta-cmd-deg", 5.5), ("fcs/throttle-cmd-norm", 0.25), ("ap/phase", 4)]),
-        ev("turn2", "simulation/sim-time-sec ge 26 AND ap/phase == 4", [("ap/phi-cmd-deg", 30), ("ap/theta-cmd-deg", 1.5), ("fcs/throttle-cmd-norm", 0.0), ("ap/phase", 5)]),
+        ev("launch", "simulation/sim-time-sec ge 0", [("fcs/throttle-cmd-norm", 0.9), ("ap/theta-cmd-deg", 18.4), ("ap/phase", 1)]),
+        ev("level", "position/h-agl-ft ge 66 AND ap/phase == 1", [("fcs/throttle-cmd-norm", 0.25), ("ap/theta-cmd-deg", 6.9), ("ap/phase", 2)]),
+        ev("turn1", "simulation/sim-time-sec ge 10 AND ap/phase == 2", [("ap/phi-cmd-deg", 30), ("ap/theta-cmd-deg", 8.4), ("fcs/throttle-cmd-norm", 0.32), ("ap/phase", 3)]),
+        ev("downwind", "attitude/psi-deg ge 172 AND attitude/psi-deg le 200 AND ap/phase == 3", [("ap/phi-cmd-deg", 0), ("ap/theta-cmd-deg", 6.9), ("fcs/throttle-cmd-norm", 0.25), ("ap/phase", 4)]),
+        ev("turn2", "simulation/sim-time-sec ge 26 AND ap/phase == 4", [("ap/phi-cmd-deg", 30), ("ap/theta-cmd-deg", 2.9), ("fcs/throttle-cmd-norm", 0.0), ("ap/phase", 5)]),
         ev("final", "attitude/psi-deg ge 352 AND attitude/psi-deg le 359.99 AND ap/phase == 5",
-           [("ap/phi-cmd-deg", 0), ("fcs/throttle-cmd-norm", 0.0), ("ap/theta-cmd-deg", -1.5), ("ap/phase", 6)]),
-        ev("flare", "position/h-agl-ft le 5 AND ap/phase == 6", [("ap/theta-cmd-deg", 6.5), ("ap/phase", 7)]),
+           [("ap/phi-cmd-deg", 0), ("fcs/throttle-cmd-norm", 0.0), ("ap/theta-cmd-deg", -0.1), ("ap/phase", 6)]),
+        ev("flare", "position/h-agl-ft le 5 AND ap/phase == 6", [("ap/theta-cmd-deg", 7.9), ("ap/phase", 7)]),
         ev("touchdown", "position/h-agl-ft le 0.6 AND ap/phase == 7", [("ap/phase", 8)]),
     ])
     props = ["position/lat-geod-deg", "position/long-gc-deg", "position/h-agl-ft", "attitude/phi-deg",

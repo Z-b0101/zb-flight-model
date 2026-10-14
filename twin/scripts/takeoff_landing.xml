@@ -4,33 +4,33 @@
  <property value="0.9">fcs/throttle-cmd-norm</property>
  <event name="launch"><condition logic="AND">
     simulation/sim-time-sec ge 0
-  </condition><set name="fcs/throttle-cmd-norm" value="0.9"/><set name="ap/theta-cmd-deg" value="17"/><set name="ap/phase" value="1"/></event>
+  </condition><set name="fcs/throttle-cmd-norm" value="0.9"/><set name="ap/theta-cmd-deg" value="18.4"/><set name="ap/phase" value="1"/></event>
  <event name="level"><condition logic="AND">
     position/h-agl-ft ge 66
     ap/phase == 1
-  </condition><set name="fcs/throttle-cmd-norm" value="0.25"/><set name="ap/theta-cmd-deg" value="5.5"/><set name="ap/phase" value="2"/></event>
+  </condition><set name="fcs/throttle-cmd-norm" value="0.25"/><set name="ap/theta-cmd-deg" value="6.9"/><set name="ap/phase" value="2"/></event>
  <event name="turn1"><condition logic="AND">
     simulation/sim-time-sec ge 10
     ap/phase == 2
-  </condition><set name="ap/phi-cmd-deg" value="30"/><set name="ap/theta-cmd-deg" value="7"/><set name="fcs/throttle-cmd-norm" value="0.32"/><set name="ap/phase" value="3"/></event>
+  </condition><set name="ap/phi-cmd-deg" value="30"/><set name="ap/theta-cmd-deg" value="8.4"/><set name="fcs/throttle-cmd-norm" value="0.32"/><set name="ap/phase" value="3"/></event>
  <event name="downwind"><condition logic="AND">
     attitude/psi-deg ge 172
     attitude/psi-deg le 200
     ap/phase == 3
-  </condition><set name="ap/phi-cmd-deg" value="0"/><set name="ap/theta-cmd-deg" value="5.5"/><set name="fcs/throttle-cmd-norm" value="0.25"/><set name="ap/phase" value="4"/></event>
+  </condition><set name="ap/phi-cmd-deg" value="0"/><set name="ap/theta-cmd-deg" value="6.9"/><set name="fcs/throttle-cmd-norm" value="0.25"/><set name="ap/phase" value="4"/></event>
  <event name="turn2"><condition logic="AND">
     simulation/sim-time-sec ge 26
     ap/phase == 4
-  </condition><set name="ap/phi-cmd-deg" value="30"/><set name="ap/theta-cmd-deg" value="1.5"/><set name="fcs/throttle-cmd-norm" value="0.0"/><set name="ap/phase" value="5"/></event>
+  </condition><set name="ap/phi-cmd-deg" value="30"/><set name="ap/theta-cmd-deg" value="2.9"/><set name="fcs/throttle-cmd-norm" value="0.0"/><set name="ap/phase" value="5"/></event>
  <event name="final"><condition logic="AND">
     attitude/psi-deg ge 352
     attitude/psi-deg le 359.99
     ap/phase == 5
-  </condition><set name="ap/phi-cmd-deg" value="0"/><set name="fcs/throttle-cmd-norm" value="0.0"/><set name="ap/theta-cmd-deg" value="-1.5"/><set name="ap/phase" value="6"/></event>
+  </condition><set name="ap/phi-cmd-deg" value="0"/><set name="fcs/throttle-cmd-norm" value="0.0"/><set name="ap/theta-cmd-deg" value="-0.1"/><set name="ap/phase" value="6"/></event>
  <event name="flare"><condition logic="AND">
     position/h-agl-ft le 5
     ap/phase == 6
-  </condition><set name="ap/theta-cmd-deg" value="6.5"/><set name="ap/phase" value="7"/></event>
+  </condition><set name="ap/theta-cmd-deg" value="7.9"/><set name="ap/phase" value="7"/></event>
  <event name="touchdown"><condition logic="AND">
     position/h-agl-ft le 0.6
     ap/phase == 7

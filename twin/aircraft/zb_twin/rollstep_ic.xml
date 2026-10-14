@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<initialize name="rollstep_ic"><ubody unit="M/SEC">10.557731426345224</ubody><wbody unit="M/SEC">0.7699029915167568</wbody>
+<initialize name="rollstep_ic"><ubody unit="M/SEC">10.436901214411872</ubody><wbody unit="M/SEC">1.011129720618268</wbody>
 <altitude unit="M">120</altitude><latitude unit="DEG">37</latitude><longitude unit="DEG">-122</longitude>
-<psi unit="DEG">0</psi><theta unit="DEG">4.170805806680518</theta><phi unit="DEG">0</phi></initialize>
+<psi unit="DEG">0</psi><theta unit="DEG">5.533560958891687</theta><phi unit="DEG">0</phi></initialize>

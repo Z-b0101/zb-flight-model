@@ -121,7 +121,7 @@
       20.0 0.08
     </tableData></table></sum></function>
   <function name="aero/coefficient/Cm"><sum>
-    <value>0.03111</value>
+    <value>0.00349</value>
     <product><property>aero/alpha-deg</property><value>-0.004464</value></product>
     <product><property>fcs/elevon-sym-deg</property><value>-0.008242</value></product>
     <product><property>velocities/q-aero-rad_sec</property><property>aero/ci2vel</property><value>-1.2</value></product></sum></function>
@@ -149,7 +149,7 @@
   <!-- Stand-in for the autopilot: pitch-attitude hold and bank hold. Not ArduPlane. -->
   <property value="0">ap/theta-cmd-deg</property>
   <property value="0">ap/phi-cmd-deg</property>
-  <property value="0.15">ap/elev-trim-norm</property>
+  <property value="-0.45">ap/elev-trim-norm</property>
   <property value="0">ap/phase</property>
   <property value="0.9">fcs/throttle-cmd-norm</property>
   <channel name="pitch">

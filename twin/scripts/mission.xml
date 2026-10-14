@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <runscript name="mission"><use aircraft="zb_twin" initialize="mission_ic"/>
-<run start="0" end="5128.03487594769" dt="0.002">
+<run start="0" end="4644.996048771874" dt="0.002">
  <property value="0.45">fcs/throttle-cmd-norm</property>
- <property value="-0.06107830857898508">fcs/elevator-cmd-norm</property>
+ <property value="-0.5096302983038262">fcs/elevator-cmd-norm</property>
  <event name="climb"><condition>simulation/sim-time-sec ge 0.0</condition>
   <set name="fcs/throttle-cmd-norm" value="0.45"/></event>
  <event name="level"><condition>position/h-sl-ft ge 590.6</condition>
-  <set name="fcs/throttle-cmd-norm" value="0.15199764437643096"/></event>
+  <set name="fcs/throttle-cmd-norm" value="0.17031063781862954"/></event>
 </run>
 <output name="out_mission.csv" type="CSV" rate="10">
   <property>velocities/vt-fps</property>

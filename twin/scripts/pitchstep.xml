@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <runscript name="pitchstep"><use aircraft="zb_twin" initialize="pitchstep_ic"/>
 <run start="0" end="20" dt="0.002">
- <property value="0.2508512641719358">fcs/throttle-cmd-norm</property>
- <property value="0.18947342595198913">fcs/elevator-cmd-norm</property>
+ <property value="0.25150894334709073">fcs/throttle-cmd-norm</property>
+ <property value="-0.321672960620085">fcs/elevator-cmd-norm</property>
  <event name="de_step"><condition>simulation/sim-time-sec ge 2.0</condition>
-  <set name="fcs/elevator-cmd-norm" value="0.06447342595198913"/></event>
+  <set name="fcs/elevator-cmd-norm" value="-0.446672960620085"/></event>
 </run>
 <output name="out_pitchstep.csv" type="CSV" rate="10">
   <property>velocities/vt-fps</property>
