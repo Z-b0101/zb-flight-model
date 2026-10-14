@@ -17,7 +17,7 @@ A flying prototype is about **four weeks** away. The CEO took this week's decisi
 - First flight is targeted for **Nov 10–13**, weather permitting.
 - Ten autonomous flights with a flight-calibrated twin follow by about **Fri Nov 20**.
 
-Money is not the constraint. The whole prototype is about $361 against a $10,000 budget. The schedule is set by parts lead time, physical hands, and the gate evidence.
+Money is not the constraint. The whole prototype is about $275 against a $10,000 budget. The schedule is set by parts lead time, physical hands, and the gate evidence.
 
 ## 2. Why Gate 4 needs hardware before Gate 4
 
