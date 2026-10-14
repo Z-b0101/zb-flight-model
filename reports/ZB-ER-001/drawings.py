@@ -1,6 +1,6 @@
 """Appendix A engineering drawings + Appendix B engineering plots for ZB-ER-001."""
 import math, os, sys, json
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
