@@ -15,7 +15,7 @@ Not yet in the air: no hardware has been built. In simulation, yes. Tonight the 
 
 ## What's proven vs what isn't
 - **Checked by two independent calculations (design loop and twin), not yet by hardware:** geometry, stability, trim and range on a like-for-like basis. Spar strength is 2.8× margin at 4 g on literature material values that the coupon test will confirm.
-- **Not yet proven, because they need hardware:** real airframe weight (coupon test), motor/propeller efficiency and electronics power draw (bench test), and flying qualities (first flight). The electronics power draw is the biggest swing: it moves range between about 26 and 31 km.
+- **Not yet proven, because they need hardware:** real airframe weight (coupon test), motor/propeller efficiency and electronics power draw (bench test), and flying qualities (first flight). The electronics power draw is the biggest swing: 26 km budgets 1 W for it, and 31 km is the ceiling with zero electronics load.
 - **Found and being fixed:** the swept wing's spar has no designed centre joint. A first sizing says a printed sleeve of about 2–3 g solves it, well inside the margin.
 
 ## What's next, with dates
