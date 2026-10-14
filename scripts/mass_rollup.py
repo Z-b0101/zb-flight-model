@@ -8,16 +8,20 @@ NP from the twin VLM (mass-independent). Usage:
 """
 import argparse, json, math, os, sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(REPO, "twin"))
+sys.path.insert(0, os.path.join(REPO, "twin")); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 BASE_G, BASE_X = 211.9, 128.5
 MOTOR_BASE_G, MOTOR_X = 10.0, 192.0
 ESC_G, ESC_X = 3.5, 185.0
+PROP_BASE_G, PROP_X = 7.9, 205.6      # Gemfan 7040-3 at the prop plane (cad/build_systems.py)
+ADAPTER_X = 200.0                     # prop adapter between motor bell and prop hub
 BATT_G = 62.0
 SM_FLOOR = 0.05
 
 
-def rollup(motor_g=MOTOR_BASE_G, battery_fwd_mm=0.0, esc_to_mm=ESC_X, np_mm=None):
+def rollup(motor_g=MOTOR_BASE_G, battery_fwd_mm=0.0, esc_to_mm=ESC_X, np_mm=None,
+           prop_g=PROP_BASE_G, adapter_g=0.0, notch=None):
+    """notch: dict(mass_removed_g, x_centroid_mm, closure_g, dnp_mm) from scripts/prop_notch.py (R-07/DR-14)."""
     raw = json.load(open(os.path.join(REPO, "cad", "params.json")))
     D, S = raw["design"], raw.get("structure", {})
     sweep = math.tan(math.radians(D["sweep_deg"])); c = D["chord"]; semi = D["span"] / 2
@@ -34,6 +38,12 @@ def rollup(motor_g=MOTOR_BASE_G, battery_fwd_mm=0.0, esc_to_mm=ESC_X, np_mm=None
     if D.get("fin_height", 0) > 0:
         xf = semi * sweep + D["fin_x_frac"] * c + 0.5 * D["fin_chord"]
         rows.append(("DR-01 tip fins", 2 * D["fin_mass_g"], xf))
+    if notch:
+        np_mm += notch["dnp_mm"]
+        rows.append(("DR-14 prop notch: foam removed", -notch["mass_removed_g"], notch["x_centroid_mm"]))
+        rows.append(("DR-14 prop notch: edge closure", notch["closure_g"], notch["x_notch_mm"]))
+    if prop_g != PROP_BASE_G: rows.append((f"Prop delta ({prop_g:g} g vs {PROP_BASE_G:g} g)", prop_g - PROP_BASE_G, PROP_X))
+    if adapter_g: rows.append((f"Prop adapter ({adapter_g:g} g)", adapter_g, ADAPTER_X))
     if motor_g != MOTOR_BASE_G: rows.append((f"Motor delta ({motor_g:g} g vs {MOTOR_BASE_G:g} g)", motor_g - MOTOR_BASE_G, MOTOR_X))
     if battery_fwd_mm: rows.append((f"Battery {battery_fwd_mm:g} mm forward", 0.0, -BATT_G * battery_fwd_mm))   # moment-only
     if esc_to_mm != ESC_X: rows.append((f"ESC moved to {esc_to_mm:g} mm", 0.0, ESC_G * (esc_to_mm - ESC_X)))
@@ -61,6 +71,15 @@ if __name__ == "__main__":
     ap.add_argument("--motor-g", type=float, default=17.0)
     ap.add_argument("--battery-fwd-mm", type=float, default=0.0)
     ap.add_argument("--esc-to-mm", type=float, default=ESC_X)
+    ap.add_argument("--prop-g", type=float, default=PROP_BASE_G)
+    ap.add_argument("--adapter-g", type=float, default=0.0)
+    ap.add_argument("--notch-dia-in", type=float, default=0.0, help="apply the DR-14 TE notch for this prop diameter")
     a = ap.parse_args()
-    np_mm, out = rollup(a.motor_g, a.battery_fwd_mm, a.esc_to_mm)
+    notch = None
+    if a.notch_dia_in:
+        import prop_notch
+        r = prop_notch.run(dia_in=a.notch_dia_in)
+        notch = dict(mass_removed_g=r["mass_removed_g"], x_centroid_mm=r["x_centroid_mm"], closure_g=0.5,
+                     x_notch_mm=r["x_notch_mm"], dnp_mm=r["dnp_mm"])
+    np_mm, out = rollup(a.motor_g, a.battery_fwd_mm, a.esc_to_mm, prop_g=a.prop_g, adapter_g=a.adapter_g, notch=notch)
     print(f"NP {np_mm:.1f} mm (twin VLM)\n"); print(table(out))
