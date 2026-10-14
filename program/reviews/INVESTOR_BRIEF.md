@@ -4,19 +4,19 @@
 A 0.90 m flying wing that weighs about 212 g, under the 250 g line. Below that line, recreational flight needs no FAA registration and no Remote ID. It is built from foam skins, a carbon spar and 3D-printed ribs, and flies an off-the-shelf ArduPlane autopilot.
 
 ## Does it work?
-Not yet in the air: no hardware has been built. In simulation, yes. Tonight the team stood up a **digital twin**: a flight simulator generated directly from the controlled design file. It flies the complete mission and reproduces the design team's baseline numbers within tolerance on all five checks.
+Not yet in the air: no hardware has been built. In simulation, yes. Tonight the team stood up a **digital twin**: a flight simulator generated directly from the controlled design file. It flies the complete mission and reproduces the design team's baseline numbers within tolerance on all five like-for-like checks (balance point, stability margin, trim, range, endurance).
 
 | What investors usually ask | Answer today | How solid |
 |---|---|---|
 | Is it under 250 g? | 212 g planned (incl. new spar joint), **38 g margin** | Modeled; confirmed only at weigh-in |
 | Is it stable? | Yes: 7% static margin; pitch and roll disturbances die out in 6-DOF simulation | Modeled, cross-checked (roll terms still estimates) |
 | How far / how long? | **About 26 km, or about 60 min** on one 650 mAh pack | Modeled; depends on two untested numbers |
-| What's the upside? | Battery upsize to 750 mAh (+10 g) is the best trade on record, about +15% range | Modeled |
+| What's the upside? | Battery upsize to 750 mAh (+10 g) is the best trade on record, about +15% range | Modeled (design trade study; to be re-run on the twin) |
 
 ## What's proven vs what isn't
 - **Checked by two independent calculations (design loop and twin), not yet by hardware:** geometry, stability, trim and range on a like-for-like basis. Spar strength is 2.8× margin at 4 g on literature material values that the coupon test will confirm.
 - **Not yet proven, because they need hardware:** real airframe weight (coupon test), motor/propeller efficiency and electronics power draw (bench test), and flying qualities (first flight). The electronics power draw is the biggest swing: 26 km budgets 1 W for it, and 31 km is the ceiling with zero electronics load.
-- **Found and being fixed:** the swept wing's spar has no designed centre joint. A first sizing says a printed sleeve of about 2–3 g solves it, well inside the margin.
+- **Found and being fixed:** the swept wing's spar has no designed centre joint. A first sizing says a printed sleeve of about 2 g solves it, well inside the margin.
 
 ## What's next, with dates
 | Date | Milestone |
