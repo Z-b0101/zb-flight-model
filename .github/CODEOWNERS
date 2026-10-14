@@ -1,0 +1,9 @@
+# Z!B CODEOWNERS — review routing for zb-flight-model
+
+# Chief Engineer (Y3k): flight physics, sim backend, mass & CG
+/zb_model/ @zib-ce-y3k
+/jsbsim/ @zib-ce-y3k
+
+# Director of Digital Engineering (Claude): autonomy & twin
+/twin/ @zib-ce-claude
+/autonomy/ @zib-ce-claude
