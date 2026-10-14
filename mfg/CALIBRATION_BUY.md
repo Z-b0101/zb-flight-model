@@ -44,6 +44,6 @@ A first estimate (assumed prop and motor constants, to be confirmed on the bench
 
 **Expected total: about $255–260 plus shipping (~$290 all-in), inside the $500 authority.**
 
-## Two questions for the CEO before ordering
-1. Do you have a **0.1 g scale**? (If yes, remove #10.)
-2. What **RC transmitter and receiver** will you fly with? The plan assumes a HotRC F-08A receiver you already own (R-09). If you have no radio, one has to be added (~$40–80), still inside the $500.
+## CEO answers (2026-10-14, 10:43 PT)
+1. **No 0.1 g scale on hand:** #10 stays in the cart.
+2. **RC transmitter and receiver on hand:** the CEO is sending a photo. Once the model is identified, #8 (the PWM→PPM encoder) is kept or dropped, depending on whether the receiver outputs PWM or a serial protocol (R-09).
