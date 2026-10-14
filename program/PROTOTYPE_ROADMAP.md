@@ -74,7 +74,7 @@ Dates assume the calibration buy is ordered by Fri Oct 16 (CEO places the order 
 | Gate 3 package (exit adds: construction fallback named and assessed, VC-35) | Oubi leads | Thu Oct 29 | Calibrated parameters |
 | **Gate 4: prototype authorization** (exit names the spar joiner design + root bending check, VC-34, and control authority, VC-29) | **CEO** | **Fri Oct 30** | Build authorization (Class D); order buy B |
 
-**Gate failure rule (D-30c).** CDR, Gate 3 and Gate 4 sit in one week with one day of slack. If any of them fails to enter or exit cleanly, all three slip day for day, with no same-week re-entry. A bench slip moves Gate 3 and Gate 4 day for day. **CEO availability is needed on Wed Oct 28 (CDR) and Fri Oct 30 (Gate 4).**
+**Gate failure rule (D-30c).** CDR, Gate 3 and Gate 4 sit in one week with one day of slack. If any of them fails to enter or exit cleanly, all three slip day for day, with no same-week re-entry. A bench slip moves Gate 3 and Gate 4 day for day. **CEO confirmed for Wed Oct 28 (CDR) and Fri Oct 30 (Gate 4)** (11:13 PT, Oct 14).
 
 ### Phase 2: Build (Mon Nov 2 – Fri Nov 6), physical
 | Item | Target | Notes |
