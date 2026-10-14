@@ -11,3 +11,8 @@
 
 # MBSE (Oubi): program record
 /program/ @zib-gm-oubi
+
+# Manufacturing engineering (2026-10-14): GM primary, MBSE reviews ALL /mfg/ files
+# (DFM findings and mass sheets gate MBSE-verified Gate 1/4 criteria). Advisory
+# until branch protection exists; ratify in FEDERATED_OPERATING_MODEL.md with PR #3.
+/mfg/ @zib-ce-claude @zib-gm-oubi
