@@ -1,6 +1,6 @@
 # JSBSim model — wiring notes
 
-`zb_wing.xml` is Z!B's authored JSBSim aero model for the 0.9 m MH60 wing
+`zb_wing.xml` (now RETIRED, see retired/README.md) was Z!B's authored JSBSim aero model for the 0.9 m MH60 wing
 (traceability row A4a-ii / gap G1). It loads clean in JSBSim 1.3.2 and
 reconciles with the trade study (L/D 9.25, trim elevon −5.9°, Vstall
 3.96 m/s at the authored mass).
