@@ -1,14 +1,14 @@
 # Z!B proof-of-concept: where we stand (2026-10-14, 06:00 PT)
 
 ## The aircraft
-A 0.90 m flying wing that weighs about 209 g, under the 250 g line. Below that line, recreational flight needs no FAA registration and no Remote ID. It is built from foam skins, a carbon spar and 3D-printed ribs, and flies an off-the-shelf ArduPlane autopilot.
+A 0.90 m flying wing that weighs about 212 g, under the 250 g line. Below that line, recreational flight needs no FAA registration and no Remote ID. It is built from foam skins, a carbon spar and 3D-printed ribs, and flies an off-the-shelf ArduPlane autopilot.
 
 ## Does it work?
 Not yet in the air: no hardware has been built. In simulation, yes. Tonight the team stood up a **digital twin**: a flight simulator generated directly from the controlled design file. It flies the complete mission and reproduces the design team's baseline numbers within tolerance on all five checks.
 
 | What investors usually ask | Answer today | How solid |
 |---|---|---|
-| Is it under 250 g? | 209 g planned, **41 g margin** | Modeled; confirmed only at weigh-in |
+| Is it under 250 g? | 212 g planned (incl. new spar joint), **38 g margin** | Modeled; confirmed only at weigh-in |
 | Is it stable? | Yes: 7% static margin; pitch and roll disturbances die out in 6-DOF simulation | Modeled, cross-checked (roll terms still estimates) |
 | How far / how long? | **About 26 km, or about 60 min** on one 650 mAh pack | Modeled; depends on two untested numbers |
 | What's the upside? | Battery upsize to 750 mAh (+10 g) is the best trade on record, about +15% range | Modeled |

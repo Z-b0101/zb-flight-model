@@ -22,7 +22,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 | Static margin | 7.0% MAC (twin) / 8.26% (baseline) | NP delta only | modeled |
 | Span efficiency e | 0.896 | VLM, Trefftz | modeled (drag.py carries 0.78 → CE-01) |
 | Elevon power | CL 0.020 /deg, Cm −0.0082 /deg about CG | VLM × 0.75 viscous knockdown (assumed) | modeled |
-| Stall speed | 4.2 m/s (wing CLmax 0.9 × section 1.16, assumed) | | modeled |
+| Stall speed | **4.2 m/s, carried by this report** (wing CLmax = 0.9 × section 1.16, at 209 g) | Reconciled below | modeled |
 | Trimmed L/D | 8.8 at CL 0.37 (δe −5.3°); peak ~9.5 near 6 m/s | twin | modeled; record says 8.3 trimmed → CE-01 |
 | Trim at A2 cruise (7.09 m/s) | δe −5.26° (baseline −4.60°); about 2.7° authority left to the ±8° limit | twin | modeled |
 | Range/endurance, A2 basis (no hotel load) | 30.6 km / 71.7 min (baseline 31.86 / 75.8, −4% / −5%) | 6-DOF JSBSim | modeled, cross-checked |
@@ -35,6 +35,13 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 - CE-01 drag: e 0.896 (VLM) vs 0.78 (hand estimate), and trimmed L/D 8.8 (twin) vs 8.3 (record). Owner: Claude; MBSE reviews.
 - The 116 mm CG is retired per DESIGN_CLOSURE item 2. It should not reopen.
 - Wing CLmax (0.9 × section) and the viscous elevon knockdown (0.75) are assumptions until flight test.
+- **Stall speed reconciliation (MBSE item 2).** The record has three numbers:
+  - 3.95 m/s (mission.py / old JSBSim): section CLmax 1.16 used as the wing CLmax, at 204.3 g. That is optimistic, because a trimmed tailless wing cannot reach section CLmax.
+  - 4.4 m/s (D-03, 2026-10-12): the Gate 0/1 sweet-spot statement, made before the A2 geometry and before the mass rose to 209 g. Superseded.
+  - 4.2 m/s (twin): 0.9 × section CLmax at 209 g.
+
+  The report carries **4.2 m/s** (modeled) as the band's centre. None of the three affects mission numbers, because the 7.0 m/s operating floor governs: 7.0 m/s is 1.67× even the slowest stall estimate. Flight test sets the absolute.
+- **Elevon ±8° (MBSE item 3).** This is a program design constraint, not a measured servo limit. AERO_OPTIMIZATION.md §mission model sets |δe| ≤ 8° at cruise CL, and DESIGN_CLOSURE item 2 calls it the 8° authority limit. Actual ES9051 travel and linkage geometry are unmeasured, so the twin models 8° as the actuator limit. That is an **assumed** value, to be confirmed at the bench.
 
 **Blocked:** none on the physics side tonight.
 
@@ -78,6 +85,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 - **NEW: the swept spar is a V.** CAD (`build_spar_tris`) builds two straight tubes meeting at the centre, about 130° included angle. There is **no root joiner designed, weighed or analysed**, and the root is exactly where the bending moment peaks. The two halves also total about 0.99 m of tube against 0.90 m budgeted (+0.8 g). I'm raising this as a Gate 1 mechanical item: joiner concept (printed or carbon sleeve), plus its mass and a root bending check. Owner: Claude, with the manufacturing engineering phase 1 DFM review (#6).
 
 - RQ-04 coupon test (rib + Depron + glue joint, carbon bend coupon) gates the hybrid construction, E/allowable, and the airframe mass model. Risks R-01 to R-04 (twist during skinning, Depron crash damage, rib fit, LW-PLA) stay open until the coupon and test rib are done.
+- **Mass rollup with the joiner (MBSE item 4).** The 209.0 g planning mass does **not** include either spar item. The CAD rollup takes airframe mass as the 73.6 g budget figure (build_systems.py) and uses the meshes only for CG. Both are additions: +0.8 g V-spar tube overage and +1.4 to 2.1 g joiner, so the **planning mass is 211.9 g, margin 38.1 g**. Twin and baseline comparisons stay at 209.0 g so they remain like-for-like; the 1.4% mass difference moves stall speed by about 0.7% and range by about 1%.
 - Weight is energy-limited, not weight-limited: the 750 mAh battery upsize (S-1, +10 g) is the best range-per-gram trade on record.
 
 **Blocked:** the coupon test needs materials on hand. No major prototype spend before Gate 4.
@@ -93,7 +101,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
   - 1° elevon step: stable. The pitch rate peaks at 19°/s and the oscillation decays (phugoid still settling at 20 s, residual 1.3°/s).
   - 4° roll pulse: about 44° bank at 1 s
   - Mission to depletion: 26.3 km, within 0.6% of the analytic answer
-- **Committed `zb_model/jsbsim/zb_wing.xml` does not run as-is** (findings handed to MBSE):
+- **Committed `zb_model/jsbsim/zb_wing.xml` does not run as-is** (MBSE decision 02:35 PT: **RETIRED**, preserved under zb_model/jsbsim/retired/, PR #9):
   1. Missing engine/thruster files
   2. A 50 g fictitious fuel tank pushes simulated AUW to 254.3 g
   3. Aero outputs are coefficients, not forces
@@ -101,7 +109,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
   5. Pitch trim is unwired
   6. The 2-D-like CL slope (0.109 vs 0.063 /deg)
 
-  The generated twin model replaces it. MBSE decides retire vs fix.
+  The generated twin model (twin/gen_jsbsim.py) is now the L1 reference.
 - **Corrections made tonight, in the open:**
   - Drag keyed on alpha ignored elevon lift; this caused a 0.13 m/s cruise sink. Fixed by keying drag on actual CL.
   - The propulsion derate was evaluated at the wrong power. It had overstated range at 34 km. Fixed to the program definition.
