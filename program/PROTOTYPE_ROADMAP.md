@@ -1,16 +1,17 @@
 # Prototype roadmap: from frozen design to a flying, sub-250 g prototype
 
-**Owner:** Claude (GM). **Reviewer:** Oubi (MBSE). **Decision authority:** CEO.
-**Status:** DRAFT v0.1, 2026-10-14, for MBSE feedback.
-**Asked for by:** CEO, 09:28 PT 2026-10-14, after the investor meeting ("investors are waiting for a prototype").
-**Configuration:** `cad/params.json` design hash `7be168427b4d`; twin frozen at `freeze/report-2026-10-14` @1883c1c.
-**Ground rules from the CEO (2026-10-14):** no date was given by investors, so this plans to the fastest *credible* date and shows what each week buys. **Gate 4 stays as is:** no flight article is built before Gate 4 authorization.
+**Owner:** Claude (GM). **Reviewer:** Oubi (MBSE). **Decision authority:** CEO.  
+**Status:** DRAFT v0.1, 2026-10-14, for MBSE feedback.  
+**Asked for by:** CEO, 09:28 PT 2026-10-14, after the investor meeting ("investors are waiting for a prototype").  
+**Configuration:** `cad/params.json` design hash `7be168427b4d`; twin frozen at `freeze/report-2026-10-14` @1883c1c.  
+**Ground rules from the CEO (2026-10-14):** no date was given by investors, so this plans to the fastest *credible* date and shows what each week buys. **Gate 4 stays as is:** no flight article is built before Gate 4 authorization.  
 
 ---
 
 ## 1. The answer in one paragraph
 
 A flying prototype is about **four weeks** away if three things happen this week: the CEO approves a **$246 calibration buy** (bench and coupon hardware the gates themselves require), names **who does the physical work**, and closes the **TDR**. On that basis:
+
 - Gate 4 (build authorization) lands **Fri Oct 30**.
 - The prototype is built and weighed under 250 g by **Fri Nov 6**.
 - First flight is targeted for **Nov 10–13**, weather permitting.
@@ -30,6 +31,7 @@ The gate register (DEV_TRACKER §6) says *no major prototype spend before Gate 4
 | Gate 4 | Closed interfaces, mass margin, CG range, control authority, test plan | Uses Gate 3 data |
 
 So this roadmap separates two kinds of spend:
+
 - **Calibration buy (before Gate 4):** test articles that retire named uncertainties ("model before money", D-15). The bench avionics are reused in the flight article, so nothing is wasted.
 - **Flight-article commitment (Gate 4):** the decision to build and fly. Gate 4 is unchanged.
 
@@ -105,9 +107,11 @@ Dates assume the calibration buy is ordered by Fri Oct 16 and arrives in 3–5 d
 
 1. **Approve the $246 calibration buy** (or the $206 version if the charger and scale are on hand), ordered by Fri Oct 16. Every day it slips moves the whole roadmap a day.
 2. **Name who does the physical work.** AI agents can write procedures and reduce data, but cannot weigh, print, glue or fly. The coupon test is already the CEO's open action (RQ-25). Options from mfg/ONBOARDING.md:
-   - A: the CEO executes with agent-written cards.
-   - B: hire a human technician. A local RC-club builder or a hobby-shop technician for about 2 weeks of part-time work is the fastest route; cost is not estimated here.
-   The dates above need roughly **2 bench days/week in Phase 1 and 4 days in the build week**.
+    - A: the CEO executes with agent-written cards.
+    - B: hire a human technician. A local RC-club builder or a hobby-shop technician for about 2 weeks of part-time work is the fastest route; cost is not estimated here.
+
+    The dates above need roughly **2 bench days/week in Phase 1 and 4 days in the build week**.
+
 3. **Close the TDR (P-13)**: it is a CDR entry criterion. The recommendation on record is "proceed with actions".
 4. Confirm **who flies the maiden** and where (a field and an experienced RC pilot reduce R-02 risk).
 
