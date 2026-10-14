@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<initialize name="launch_ic"><ubody unit="M/SEC">9.0</ubody><wbody unit="M/SEC">0.3</wbody>
+<altitude unit="M">1.8</altitude><latitude unit="DEG">37</latitude><longitude unit="DEG">-122</longitude>
+<psi unit="DEG">0</psi><theta unit="DEG">6</theta><phi unit="DEG">0</phi></initialize>
