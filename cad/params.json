@@ -115,5 +115,14 @@
    ],
    "orientation": "spanwise"
   }
+ },
+ "structure": {
+  "_note": "SA-01 structural changes R1-R5 (program/STRUCTURAL_ANALYSIS.md section 8; ZB-ER-001). Outside the design hash; consumed by scripts/mass_rollup.py and the structures model. CE item, proposed 2026-10-14 for the CE-01 freeze.",
+  "R1_spar_spec": {"od_mm": 4.0, "id_mm_assumed": 3.0, "flex_modulus_min_gpa": 100.0, "flex_strength_min_mpa": 1000.0, "coupon_reject_below_gpa": 80.0, "coupon_reject_below_mpa": 600.0},
+  "R2_hinge_web": {"x_frac": 0.75, "t_mm": 3.0, "material": "Depron", "span": "full", "mass_g": 0.75},
+  "R3_midchord_web": {"x_frac": 0.525, "t_mm": 3.0, "material": "Depron", "span": "full", "mass_g": 1.54, "lead_hole_dia_mm": 6.0},
+  "web_glue_mass_g": 0.5,
+  "R4_hatch": {"corner_radius_mm": 8.0, "frame_width_mm": 6.0, "frame_t_mm": 1.2, "frame_material": "PLA", "lid_bears_spanwise": true, "retention_pulloff_min_n": 9.1, "net_mass_g": 1.5},
+  "R5_centre_section": {"span_mm": 112.5, "joiner_block_mm": [12.0, 12.0], "socket_length_mm": 40.0, "included_angle_deg": 130.0, "print_orientation": "socket axes in the layer plane", "integrates": ["V-joiner", "battery tray", "hatch frame", "FC mount", "motor mount", "grip zone"], "net_mass_g": 1.5, "closes": "Gate 1 root-joiner item"}
  }
 }
