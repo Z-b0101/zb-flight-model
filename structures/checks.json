@@ -1,0 +1,304 @@
+{
+ "hash": "479399d88b60",
+ "fos": 1.5,
+ "assumed": {
+  "landing_sink_ms": 1.5,
+  "landing_sink_abuse_ms": 2.5,
+  "crush_stroke_m": 0.003,
+  "inverted_impact_g": 10.0,
+  "launch_speed_ms": 9.0,
+  "launch_stroke_m": 0.7,
+  "grip_force_N": 20.0,
+  "grip_area_m2": 0.00045,
+  "motor_prop_kg": 0.0322,
+  "thrust_max_N": 6.0,
+  "shaft_power_W": 120.0,
+  "rpm_max": 15000.0,
+  "adhesive_tau_cf_pla_Pa": 3000000.0,
+  "joiner_socket_L_m": 0.04,
+  "joiner_block_mm": [
+   12.0,
+   12.0
+  ],
+  "cap": {
+   "w": 0.003,
+   "t": 0.0005,
+   "E": 120000000000.0,
+   "sigma_allow_c": 500000000.0
+  }
+ },
+ "A_spar_alone": [
+  {
+   "case": "C3",
+   "n": 4.0,
+   "grade": "low",
+   "M_limit": 0.48127259643060394,
+   "sigma_limit_MPa": 112.05034085902842,
+   "allow_MPa": 250.0,
+   "RF": 1.4874266815158694
+  },
+  {
+   "case": "C3",
+   "n": 4.0,
+   "grade": "nominal",
+   "M_limit": 0.48127259643060394,
+   "sigma_limit_MPa": 112.05034085902842,
+   "allow_MPa": 600.0,
+   "RF": 3.5698240356380864
+  },
+  {
+   "case": "C3",
+   "n": 4.0,
+   "grade": "premium",
+   "M_limit": 0.48127259643060394,
+   "sigma_limit_MPa": 112.05034085902842,
+   "allow_MPa": 1000.0,
+   "RF": 5.949706726063478
+  },
+  {
+   "case": "C4",
+   "n": 5.900636154521643,
+   "grade": "low",
+   "M_limit": 0.8119752628886394,
+   "sigma_limit_MPa": 189.04484828462537,
+   "allow_MPa": 250.0,
+   "RF": 0.8816250121544377
+  },
+  {
+   "case": "C4",
+   "n": 5.900636154521643,
+   "grade": "nominal",
+   "M_limit": 0.8119752628886394,
+   "sigma_limit_MPa": 189.04484828462537,
+   "allow_MPa": 600.0,
+   "RF": 2.1159000291706502
+  },
+  {
+   "case": "C4",
+   "n": 5.900636154521643,
+   "grade": "premium",
+   "M_limit": 0.8119752628886394,
+   "sigma_limit_MPa": 189.04484828462537,
+   "allow_MPa": 1000.0,
+   "RF": 3.5265000486177507
+  }
+ ],
+ "B_curved_panel": {
+  "R_mm": 588.8968707953463,
+  "b_mm": 90.00000000000001,
+  "Z": 4.373661962827511,
+  "flat_kPa": 48.203196098116514,
+  "curved_kPa": 18.339374066318005,
+  "used_kPa": 48.203196098116514,
+  "midweb_kPa": 192.81278439246606,
+  "crush_kPa": 170.0,
+  "cases": [
+   {
+    "case": "C3",
+    "skin": "top (compression)",
+    "sig_kPa": 34.3790361372048,
+    "RF_buckling": 0.9347401113038825,
+    "RF_buckling_midweb": 3.73896044521553,
+    "RF_crush": 3.2965826290483062
+   },
+   {
+    "case": "C4",
+    "skin": "top (compression)",
+    "sig_kPa": 58.00231950125179,
+    "RF_buckling": 0.5540375685271944,
+    "RF_buckling_midweb": 2.2161502741087777,
+    "RF_crush": 1.9539448475140275
+   },
+   {
+    "case": "landing 1.5 m/s",
+    "skin": "bottom (compression)",
+    "sig_kPa": 68.2757083193279,
+    "RF_buckling": 0.4706719982326995,
+    "RF_buckling_midweb": 1.882687992930798,
+    "RF_crush": 1.6599363979245636
+   }
+  ]
+ },
+ "C_landing": {
+  "n_body": 38.23935798667231,
+  "F_battery_into_hatch_N": 23.25,
+  "F_battery_inverted_N": 6.0801229999999995,
+  "hatch_retention_required_N": 9.120184499999999,
+  "F_motor_landing_N": 12.075,
+  "wing_dynamic": [
+   {
+    "spar": "low",
+    "web": true,
+    "sink": 1.5,
+    "pulse_ms": 4.0,
+    "n_body": 38.23935798667231,
+    "M_root": 0.7042909314646398,
+    "T_root": 0.10544433645238124,
+    "f1_hz": 7.704365841009407,
+    "sigma_spar_alone_MPa": 163.97368044601447,
+    "RF_spar_alone": 1.0164232833789373
+   },
+   {
+    "spar": "low",
+    "web": true,
+    "sink": 2.5,
+    "pulse_ms": 2.4000000000000004,
+    "n_body": 106.22043885186754,
+    "M_root": 1.1738182191077333,
+    "T_root": 0.17574056075396882,
+    "f1_hz": 7.704365841009407,
+    "sigma_spar_alone_MPa": 273.28946741002414,
+    "RF_spar_alone": 0.6098539700273622
+   },
+   {
+    "spar": "nominal",
+    "web": true,
+    "sink": 1.5,
+    "pulse_ms": 4.0,
+    "n_body": 38.23935798667231,
+    "M_root": 0.9441402443826349,
+    "T_root": 0.0970087566181272,
+    "f1_hz": 10.402403930915709,
+    "sigma_spar_alone_MPa": 219.81562421465435,
+    "RF_spar_alone": 1.8197068630999222
+   },
+   {
+    "spar": "nominal",
+    "web": true,
+    "sink": 2.5,
+    "pulse_ms": 2.4000000000000004,
+    "n_body": 106.22043885186754,
+    "M_root": 1.573567073971057,
+    "T_root": 0.16168126103021205,
+    "f1_hz": 10.402403930915709,
+    "sigma_spar_alone_MPa": 366.35937369109035,
+    "RF_spar_alone": 1.0918241178599541
+   },
+   {
+    "spar": "premium",
+    "web": true,
+    "sink": 1.5,
+    "pulse_ms": 4.0,
+    "n_body": 38.23935798667231,
+    "M_root": 0.9683885786416806,
+    "T_root": 0.09783292231809289,
+    "f1_hz": 10.682640400570383,
+    "sigma_spar_alone_MPa": 225.4611443193535,
+    "RF_spar_alone": 2.956902701258224
+   },
+   {
+    "spar": "premium",
+    "web": true,
+    "sink": 2.5,
+    "pulse_ms": 2.4000000000000004,
+    "n_body": 106.22043885186754,
+    "M_root": 1.6139809644028016,
+    "T_root": 0.16305487053015483,
+    "f1_hz": 10.682640400570383,
+    "sigma_spar_alone_MPa": 375.7685738655893,
+    "RF_spar_alone": 1.7741416207549339
+   }
+  ]
+ },
+ "D_launch": {
+  "n_x": 5.8997866608008716,
+  "F_battery_aft_N": 3.587142857142857,
+  "grip_pressure_kPa": 44.44444444444444,
+  "RF_grip_crush": 2.55
+ },
+ "E_motor_mount": {
+  "thrust_N": 6.0,
+  "torque_Nm": 0.07639437268410976,
+  "F_landing_N": 12.075,
+  "F_design_N": 12.075,
+  "bond_area_min_foam_mm2": 90.56249999999999,
+  "bond_area_min_pla_mm2": 6.0375,
+  "note": "foam-only bond area is a shear minimum; peel on a cantilevered mount needs ~4x that. Tie the mount into the printed centre section."
+ },
+ "F_joiner": {
+  "M_limit": 0.8119752628886394,
+  "T_limit": 0.1724417046319865,
+  "M_equiv_limit": 0.8300843144159877,
+  "M_ult": 1.2451264716239816,
+  "socket_L_mm": 40.0,
+  "bearing_peak_MPa": 1.1673060671474826,
+  "block_mm": [
+   12.0,
+   12.0
+  ],
+  "block_sigma_ult_MPa": 4.361912541479532,
+  "RF_block_inlayer": 10.316575486572296,
+  "RF_block_interlayer": 3.438858495524099,
+  "RF_bearing": 38.55030078783485,
+  "airfoil_depth_at_spar_mm": 20.05913731511194
+ },
+ "G_bonds": {
+  "spar_rib": [
+   {
+    "web": false,
+    "T_spar_limit": 0.14592570301050642,
+    "tau_spar_rib_kPa": 967.6998732617485,
+    "RF": 2.066756496783202
+   },
+   {
+    "web": true,
+    "T_spar_limit": 0.011643115665465683,
+    "tau_spar_rib_kPa": 77.21080879789773,
+    "RF": 25.903109048307954
+   }
+  ],
+  "rib_skin": {
+   "p_peak_Pa": 232.94811656217942,
+   "rib_spacing_mm": 112.50000000000001,
+   "line_load_N_per_m": 26.206663113245188,
+   "peel_kPa": 8.73555437108173,
+   "RF_vs_depron_tension": 30.526587705691902
+  }
+ },
+ "H_caps": {
+  "per_grade": [
+   {
+    "grade": "low",
+    "EI_tube": 0.2577087723647878,
+    "EI_with_caps": 16.80422719807029,
+    "RF_tube": 57.48747654678207,
+    "RF_cap": 8.479518307217242,
+    "cap_sigma_limit_MPa": 39.310409065290955,
+    "cap_buckle_on_web_MPa": 133.04225317759267,
+    "RF_cap_buckle_on_web": 2.256268442905657,
+    "cap_buckle_no_web_MPa": 1.949551486634934,
+    "RF_cap_buckle_no_web": 0.033062515043567026,
+    "cap_arm_mm": 6.779568657555972
+   },
+   {
+    "grade": "nominal",
+    "EI_tube": 1.0308350894591511,
+    "EI_with_caps": 17.577353515164656,
+    "RF_tube": 36.07941095116701,
+    "RF_cap": 8.869642690064007,
+    "cap_sigma_limit_MPa": 37.58137108575316,
+    "cap_buckle_on_web_MPa": 133.04225317759267,
+    "RF_cap_buckle_on_web": 2.3600744967325595,
+    "cap_buckle_no_web_MPa": 1.949551486634934,
+    "RF_cap_buckle_no_web": 0.03458365018466991,
+    "cap_arm_mm": 6.779568657555972
+   },
+   {
+    "grade": "premium",
+    "EI_tube": 1.1253283059929067,
+    "EI_with_caps": 17.67184673169841,
+    "RF_tube": 55.37918847903488,
+    "RF_cap": 8.917324559023978,
+    "cap_sigma_limit_MPa": 37.38041955599937,
+    "cap_buckle_on_web_MPa": 133.04225317759267,
+    "RF_cap_buckle_on_web": 2.372761903296866,
+    "cap_buckle_no_web_MPa": 1.949551486634934,
+    "RF_cap_buckle_no_web": 0.0347695667017028,
+    "cap_arm_mm": 6.779568657555972
+   }
+  ],
+  "mass_full_span_g": 4.766592609917964,
+  "mass_inboard_60pct_g": 2.8599555659507785,
+  "note": "caps need a shear connection to the tube (filler or full-depth web at the spar line); fallback only"
+ }
+}

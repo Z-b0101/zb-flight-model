@@ -147,7 +147,11 @@ check("bay spacing 112.5", max(abs(b - 112.5) for b in bays) < 0.5,
       f"bays = {[round(b,2) for b in bays]}")
 # washout: chord-line angle per rib (LE=min x, TEcut=max x of rib verts)
 def rib_angle(yexp):
-    cl = tri_at_y(yexp)[:, [0, 2]]
+    v = tri_at_y(yexp)
+    # keep only material forward of the rib cut face (u=150): the fixed inboard TE part
+    # (te_centre, CE-01) starts at the hinge gap and must not be read as the rib's TE
+    v = v[v[:, 0] <= np.abs(v[:, 1]) * math.tan(math.radians(SWEEP)) - 50.0 + 150.3]
+    cl = v[:, [0, 2]]
     le = cl[cl[:, 0].argmin()]; te = cl[cl[:, 0].argmax()]
     return math.degrees(math.atan2(te[1] - le[1], te[0] - le[0]))
 a_in, a_out = rib_angle(56.25), rib_angle(393.75)

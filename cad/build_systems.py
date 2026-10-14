@@ -42,13 +42,13 @@ for s in ("propulsion", "avionics", "power", "wiring"):
 # pos: section-relative {"sec": [uf, vf, y]} or absolute {"xyz": [x, y, z]}.
 # source: dimension provenance. est=True -> flagged ESTIMATED in BOM.
 LRU = {
-    "motor": dict(sub="propulsion", shape=["cyl", 19.13 / 2, 12.25, "x"],
-                  mass=10.0, pos={"sec": [0.96, 0.0, 0.0]},
-                  src="hglrc.com Specter 1404 4800KV: dia 19.13 x 12.25 mm, 10 g incl wire",
+    "motor": dict(sub="propulsion", shape=["cyl", 27.5 / 2, 11.5, "x"],
+                  mass=20.0, pos={"sec": [0.96, 0.0, 0.0]},
+                  src="altitudehobbies.com Suppo 2204/14 1400kv (R-07, CE-01): 27.5 x 11.5 mm, 20 g",
                   est=False),
-    "prop": dict(sub="propulsion", shape=["prop3", 178.43 / 2, 7.5],
-                 mass=7.9, pos={"sec": [1.028, 0.0, 0.0]},
-                 src="getfpv/phaserfpv Flash 7040-3: dia 178.43 mm, hub 7.5 mm, 7.9 g; blade planform ESTIMATED (max width 18.24 mm known)",
+    "prop": dict(sub="propulsion", shape=["prop3", P.get("prop_dia_in", 8.0) * 25.4 / 2, 7.62],
+                 mass=12.2, pos={"sec": [1.028, 0.0, 0.0]},
+                 src="APC 8x6SF (R-07, CE-01): dia 203.2 mm, hub 7.62 mm thick, 7.1 g (ReadyMadeRC/Motion RC) + Scorpion 3 mm adapter 5.1 g; 2-blade drawn as the 3-blade envelope (conservative for clearance)",
                  est=True),
     "motor_mount": dict(sub="propulsion", shape=["box", [30, 26, 4]],
                         mass=0.0, pos={"sec": [0.94, -0.012, 0.0]},
@@ -59,7 +59,7 @@ LRU = {
                 src="EMAX USA FAQ: board 11.9x19.6 mm, 3.5 g w/o wires; 6 mm height incl shrink ESTIMATED; external pod mount",
                 est=True),
     "fc": dict(sub="avionics", shape=["box", [37, 26, 14]],
-               mass=23.0, pos={"sec": [0.475, 0.0175, 0.0]},
+               mass=23.0, pos={"sec": [0.450, 0.0175, 0.0]},   # CE-01 C/opt1: FC 5 mm fwd (was 0.475); spar clearance 2.9 mm,
                src="SpeedyBee manual: 37x26x14 mm, 19 g w/ USB extender; 23 g per WEIGHT_BUDGET (oga.global teardown)",
                est=False),
     "gps": dict(sub="avionics", shape=["box", [21, 21, 8.02]],
@@ -288,9 +288,9 @@ WIRES = [
                 ["sec", 0.80, -0.015, -2], ["sec", 0.68, 0.005, -2], ["sec", 0.60, 0.015, -6]],
          desc="ESC->FC signal+ground"),
     dict(name="w2_batt_fc", r=2.0, sub="wiring",
-         route=[["sec", 0.4825, 0.04, -8], ["sec", 0.45, 0.035, 4],
-                ["sec", 0.38, 0.03, 16], ["sec", 0.28, 0.02, 28],
-                ["sec", P["battery_u"], ZC / P["chord"], 37.0]],
+         route=[["sec", 0.4575, 0.04, -8], ["sec", 0.425, 0.035, 4],
+                ["sec", 0.355, 0.03, 16], ["sec", 0.28, 0.02, 28],
+                ["sec", P["battery_u"], max(ZC, -3.0) / P["chord"], 39.5]],   # pigtail exits above the tray wall (battery 9 mm fwd sits lower),
          conn="xt30",
          desc="FC PDB -> battery XT30 pigtail (pack +y end, just outside tray wall; "
               "stays inside wing, no skin breach)"),
@@ -372,9 +372,9 @@ print(f"assembly_full.stl <- {len(all_parts)} parts")
 
 # ---------------------------------------------------------------- CG rollup (masses: WEIGHT_BUDGET.md)
 import trimesh
-MASSES = {"airframe": 73.6, "battery": 62.0, "motor": 10.0, "esc": 3.5,
+MASSES = {"airframe": 73.6, "battery": 62.0, "motor": 20.0, "esc": 3.5,
           "fc": 23.0, "gps": 7.7, "servo_L": 4.3, "servo_R": 4.3,
-          "rx": 5.0, "encoder": 3.0, "prop": 7.9, "wiring": 3.0}
+          "rx": 5.0, "encoder": 3.0, "prop": 12.2, "wiring": 3.0}   # R-07: Suppo 2204/14; APC 8x6SF + adapter
 # airframe CG from mesh volumes (ribs x8 placed via parametric transform)
 num = np.zeros(3)
 den = 0.0
@@ -614,6 +614,23 @@ for wname in ("w4_servo_L", "w4_servo_R"):
     clashes.append({"type": "wire-rib", "wire": wname,
                     "min_dist_to_rib_material_mm": round(dmin, 2),
                     "verdict": "OK" if dmin > 1.5 else "CLASH"})
+
+# 5) DR-14 prop disc vs skins (added at CE-01: the prop was previously skipped, which hid the
+#    prop-wing strike). Sample the swept disc +/- 4 mm axially; distance to the skin surfaces.
+from scipy.spatial import cKDTree
+_pc = resolve_pos(LRU["prop"]["pos"]); _R = LRU["prop"]["shape"][1]
+_th = np.linspace(0, 2 * np.pi, 361); _rr = np.linspace(8.0, _R, 40)
+_disc = np.array([[_pc[0] + dx, _pc[1] + r * math.cos(t), _pc[2] + r * math.sin(t)]
+                  for dx in (-4.0, 0.0, 4.0) for r in _rr for t in _th])
+_skin = np.vstack([struct["skin_top"], struct["skin_bottom"]])
+_tm = np.vstack([mesh_ for mesh_ in (stl_mesh.Mesh.from_file(f"{D}/parts/wing_structure/{k}.stl").vectors
+                                     for k in ("skin_top", "skin_bottom", "te_centre"))])
+_dense = np.vstack([_skin] + [(_tm[:, 0] * a + _tm[:, 1] * b + _tm[:, 2] * (1 - a - b))
+                              for a, b in [(i / 6, j / 6) for i in range(7) for j in range(7 - i)]])
+_dprop = float(cKDTree(_dense).query(_disc)[0].min())
+clashes.append({"type": "prop-disc", "part": "prop vs skins", "clearance_mm": round(_dprop, 2),
+                "verdict": "CLASH" if _dprop < 2.0 else ("TIGHT" if _dprop < 5.0 else "OK"),
+                "note": "VC-R07-7 requires >= 5 mm; disc R=%.1f mm" % _R})
 
 n_clash = sum(1 for c in clashes if c["verdict"] == "CLASH")
 n_tight = sum(1 for c in clashes if c["verdict"] == "TIGHT")

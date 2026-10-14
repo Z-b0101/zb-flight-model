@@ -252,16 +252,30 @@ tris = make_consistent(np.vstack([grid_mesh(loops), strip_cap(loops[0], 28),
                                  strip_cap(loops[-1], 28)]))
 to_stl(tris, f"{SUB}/skin_top.stl")
 to_stl(bottom_skin_with_hole(), f"{SUB}/skin_bottom.stl")
+
+# DR-14 pusher-prop trailing-edge notch (CE-01 freeze, 2026-10-14): remove everything aft of
+# x = prop_notch_x (from the root LE) for |y| <= prop_notch_halfspan. Exact mesh boolean (Manifold).
+if P.get("prop_notch_halfspan", 0) > 0:
+    import trimesh
+    _x0 = W.xle_at(0.0) + P["prop_notch_x"]
+    _hy = P["prop_notch_halfspan"]
+    _box = trimesh.creation.box(extents=[400.0, 2 * _hy, 120.0])
+    _box.apply_translation([_x0 + 200.0, 0.0, 0.0])
+    for _tag in ("skin_top", "skin_bottom"):
+        _m = trimesh.load(f"{SUB}/{_tag}.stl", force="mesh")
+        _cut = trimesh.boolean.difference([_m, _box], engine="manifold")
+        to_stl(make_consistent(_cut.triangles), f"{SUB}/{_tag}.stl")
+    print(f"DR-14 notch: skins cut aft of x={P['prop_notch_x']:.1f} mm for |y|<={_hy:.1f} mm")
 hr = compute_derived(P)["hatch_rect"]
 print(f"bottom skin: with hatch H1 aperture "
       f"u=[{hr['u0']:.4f},{hr['u1']:.4f}] y=[{hr['y0']:.1f},{hr['y1']:.1f}]")
 
 # ---------------------------------------------------------------- elevons (hinge -> TE)
-def elevon_mesh(y0, y1, n_st=6):
+def elevon_mesh(y0, y1, n_st=6, stations=None):
     uf0 = UH + P["hinge_gap"] / CH
     ufs = np.linspace(uf0, 0.9985, 14)
     loops = []
-    for y in np.linspace(y0, y1, n_st):
+    for y in (np.linspace(y0, y1, n_st) if stations is None else stations):
         ring = [W.section_to_global(uf, af.top(uf), y) for uf in ufs]
         ring += [W.section_to_global(uf, af.bot(uf), y) for uf in ufs[::-1]]
         loops.append(np.array(ring))
@@ -271,6 +285,19 @@ def elevon_mesh(y0, y1, n_st=6):
 for sgn, tag in ((+1, "elevon_right"), (-1, "elevon_left")):
     to_stl(make_consistent(elevon_mesh(sgn * P["elevon_y0"], sgn * P["elevon_y1"])),
            f"{SUB}/{tag}.stl")
+
+# Fixed inboard trailing edge, hinge line -> TE, |y| < elevon_y0 - gap (CE-01: was not modelled,
+# which also hid the prop strike from the clash check). Stations include y = 0 (sweep kink).
+_yte = P["elevon_y0"] - P["hinge_gap"]
+# stations: include the y = 0 sweep kink, stay clear of rib stations (verify_cad samples ribs by y)
+_st = [-_yte, -85.0, -30.0, 0.0, 30.0, 85.0, _yte]   # no triangle centroid within 4 mm of the rib at 56.25
+_te = elevon_mesh(-_yte, _yte, stations=_st)
+to_stl(_te, f"{SUB}/te_centre.stl")
+if P.get("prop_notch_halfspan", 0) > 0:
+    _m = trimesh.Trimesh(vertices=_te.reshape(-1, 3), faces=np.arange(len(_te) * 3).reshape(-1, 3), process=True)
+    _cut = trimesh.boolean.difference([_m, _box], engine="manifold")
+    to_stl(make_consistent(_cut.triangles), f"{SUB}/te_centre.stl")
+    print(f"DR-14 notch: inboard fixed TE cut (|y|<={_yte:.1f} mm)")
 
 # ---------------------------------------------------------------- assembly (ribs placed via parametric transform)
 rib_mesh = stl_mesh.Mesh.from_file(f"{SUB}/rib.stl")
@@ -287,12 +314,12 @@ for y in ST:
     Yr = V_SPAR_MM + (Xs - U_SPAR_MM) * si + (Ys - V_SPAR_MM) * co
     v = np.column_stack([W.xle_at(y) + Xr, np.full_like(X, y) + (Z - P["rib_t"] / 2), Yr])
     parts.append(v.reshape(-1, 3, 3))
-for tag in ("spar", "skin_top", "skin_bottom", "elevon_right", "elevon_left"):
+for tag in ("spar", "skin_top", "skin_bottom", "te_centre", "elevon_right", "elevon_left"):
     parts.append(stl_mesh.Mesh.from_file(f"{SUB}/{tag}.stl").vectors)
 to_stl(np.vstack(parts), f"{SUB}/wing_structure.stl")
 
 # canonical print files at root (backward compat: coupon test feeds on rib.stl)
-for f in ("rib", "spar", "skin_top", "skin_bottom", "elevon_right", "elevon_left"):
+for f in ("rib", "spar", "skin_top", "skin_bottom", "te_centre", "elevon_right", "elevon_left"):
     shutil.copy(f"{SUB}/{f}.stl", f"{D}/{f}.stl")
 shutil.copy(f"{SUB}/wing_structure.stl", f"{D}/assembly.stl")
 

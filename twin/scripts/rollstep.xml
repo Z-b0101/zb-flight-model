@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<runscript name="rollstep"><use aircraft="zb_twin" initialize="rollstep_ic"/>
+<run start="0" end="6" dt="0.002">
+ <property value="0.24989034032622667">fcs/throttle-cmd-norm</property>
+ <property value="-0.19383013082813982">fcs/elevator-cmd-norm</property>
+ <event name="ail_on"><condition>simulation/sim-time-sec ge 1.0</condition>
+  <set name="fcs/aileron-cmd-norm" value="0.5"/></event>
+ <event name="ail_off"><condition>simulation/sim-time-sec ge 2.0</condition>
+  <set name="fcs/aileron-cmd-norm" value="0.0"/></event>
+</run>
+<output name="out_rollstep.csv" type="CSV" rate="10">
+  <property>velocities/vt-fps</property>
+  <property>position/h-sl-ft</property>
+  <property>aero/alpha-deg</property>
+  <property>attitude/theta-deg</property>
+  <property>attitude/phi-deg</property>
+  <property>attitude/psi-deg</property>
+  <property>position/distance-from-start-mag-mt</property>
+  <property>velocities/q-rad_sec</property>
+  <property>velocities/p-rad_sec</property>
+  <property>fcs/elevon-sym-deg</property>
+  <property>fcs/elevon-diff-deg</property>
+</output></runscript>

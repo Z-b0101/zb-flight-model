@@ -12,7 +12,7 @@ def test_geometry_duplicates_match_params():
 
 
 def test_design_hash_is_controlled_baseline():
-    assert dc.run()["params_hash"] == "7be168427b4d"
+    assert dc.run()["params_hash"] == "479399d88b60"   # CE-01 frozen baseline (2026-10-14); was 7be168427b4d
 
 
 def test_every_basis_divergence_names_its_closing_item():

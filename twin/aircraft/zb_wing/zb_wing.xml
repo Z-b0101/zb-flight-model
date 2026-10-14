@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<fdm_config name="zb_wing" version="2.0" release="ALPHA">
+ <fileheader>
+  <author>Z!B Program</author>
+  <filecreationdate>2026-10-13</filecreationdate>
+  <version>0.1</version>
+  <description>Z!B PoC 0.90m flying wing, MH60, 204g AUW. ALPHA: aero from
+  AIRFOIL_TRADE.md (XFoil Re~100k, comparative); lateral-directional derivatives
+  are typical-value estimates - MUST be calibrated in flight test. Propulsion is
+  a throttle-proportional thrust-actuator placeholder (R-07): replace with
+  BLDC+propeller model after wattmeter test. See MODEL_NOTES.md.</description>
+ </fileheader>
+
+ <metrics>
+  <wingarea unit="M2">0.180</wingarea>
+  <wingspan unit="M">0.90</wingspan>
+  <chord unit="M">0.20</chord>
+  <!-- aero reference at nominal CG: moment transfer arm ~0 at nominal loading.
+       Cm values below are defined about the CG via the 8% SM relation. -->
+  <location name="AERORP" unit="M"><x>0.116</x><y>0</y><z>0</z></location>
+  <location name="EYEPOINT" unit="M"><x>0.05</x><y>0</y><z>0.02</z></location>
+  <location name="VRP" unit="M"><x>0</x><y>0</y><z>0</z></location>
+ </metrics>
+
+ <mass_balance>
+  <emptywt unit="KG">0.0736</emptywt>
+  <location name="CG" unit="M"><x>0.1085</x><y>0</y><z>0</z></location>
+  <pointmass name="battery">
+   <weight unit="KG">0.0620</weight>
+   <location unit="M"><x>0.095</x><y>0.000</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="motor">
+   <weight unit="KG">0.0100</weight>
+   <location unit="M"><x>0.210</x><y>0.000</y><z>0.020</z></location>
+  </pointmass>
+  <pointmass name="esc">
+   <weight unit="KG">0.0035</weight>
+   <location unit="M"><x>0.160</x><y>0.000</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="fc">
+   <weight unit="KG">0.0230</weight>
+   <location unit="M"><x>0.105</x><y>0.000</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="gps">
+   <weight unit="KG">0.0077</weight>
+   <location unit="M"><x>0.130</x><y>0.000</y><z>0.030</z></location>
+  </pointmass>
+  <pointmass name="servoL">
+   <weight unit="KG">0.0043</weight>
+   <location unit="M"><x>0.150</x><y>-0.150</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="servoR">
+   <weight unit="KG">0.0043</weight>
+   <location unit="M"><x>0.150</x><y>0.150</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="rx_encoder">
+   <weight unit="KG">0.0080</weight>
+   <location unit="M"><x>0.080</x><y>0.000</y><z>0.000</z></location>
+  </pointmass>
+  <pointmass name="prop">
+   <weight unit="KG">0.0079</weight>
+   <location unit="M"><x>0.230</x><y>0.000</y><z>0.020</z></location>
+  </pointmass>
+  <ixx unit="KG*M2">0.00518</ixx>
+  <iyy unit="KG*M2">0.00051</iyy>
+  <izz unit="KG*M2">0.00566</izz>
+  <ixz unit="KG*M2">0.0</ixz>
+ </mass_balance>
+
+ <!-- Belly-lander: tripod skid contacts. Placeholder geometry/damping. -->
+ <ground_reactions>
+  <contact type="BOGEY" name="nose_skid">
+   <location unit="M"><x>0.03</x><y>0.0</y><z>-0.012</z></location>
+   <spring_coeff unit="N/M">900</spring_coeff>
+   <damping_coeff unit="N/M/SEC">90</damping_coeff>
+   <static_friction>0.6</static_friction>
+   <dynamic_friction>0.4</dynamic_friction>
+   <rolling_friction>0.05</rolling_friction>
+  </contact>
+  <contact type="BOGEY" name="left_skid">
+   <location unit="M"><x>0.14</x><y>-0.28</y><z>-0.012</z></location>
+   <spring_coeff unit="N/M">900</spring_coeff>
+   <damping_coeff unit="N/M/SEC">90</damping_coeff>
+   <static_friction>0.6</static_friction>
+   <dynamic_friction>0.4</dynamic_friction>
+   <rolling_friction>0.05</rolling_friction>
+  </contact>
+  <contact type="BOGEY" name="right_skid">
+   <location unit="M"><x>0.14</x><y>0.28</y><z>-0.012</z></location>
+   <spring_coeff unit="N/M">900</spring_coeff>
+   <damping_coeff unit="N/M/SEC">90</damping_coeff>
+   <static_friction>0.6</static_friction>
+   <dynamic_friction>0.4</dynamic_friction>
+   <rolling_friction>0.05</rolling_friction>
+  </contact>
+ </ground_reactions>
+
+ <!-- TWIN v0.1 (Claude, 2026-10-14): placeholder propulsion re-expressed as a
+      BODY-frame external force (T = 1.5 N x throttle), same scaling as the
+      original rocket placeholder. Removes (a) missing zb_thrust/zb_nozzle files and
+      (b) the fictitious 50 g fuel tank that inflated sim mass to 254.3 g. Still R-07:
+      replace with motor+prop model after the wattmeter test. -->
+ <external_reactions>
+  <force name="thrust" frame="BODY" unit="N">
+   <function><product><property>fcs/throttle-pos-norm</property><value>0.33721</value></product></function>
+   <location unit="M"><x>0.21</x><y>0</y><z>0.02</z></location>
+   <direction><x>1</x><y>0</y><z>0</z></direction>
+  </force>
+ </external_reactions>
+
+ <flight_control name="zb_fcs">
+  <channel name="throttle">
+   <fcs_function name="fcs/throttle-pos-norm">
+    <function><property>fcs/throttle-cmd-norm</property></function>
+   </fcs_function>
+  </channel>
+  <channel name="pitch">
+   <!-- symmetric elevon, deg, + = trailing-edge DOWN (nose-down) -->
+   <fcs_function name="fcs/elevon-sym-deg">
+    <function>
+     <product><sum><property>fcs/elevator-cmd-norm</property><property>fcs/pitch-trim-cmd-norm</property></sum><value>20.0</value></product>
+    </function>
+   </fcs_function>
+  </channel>
+  <channel name="roll">
+   <!-- differential elevon, deg, + = left TE-down / right TE-up (roll right) -->
+   <fcs_function name="fcs/elevon-diff-deg">
+    <function>
+     <product><property>fcs/aileron-cmd-norm</property><value>10.0</value></product>
+    </function>
+   </fcs_function>
+  </channel>
+ </flight_control>
+
+ <aerodynamics>
+  <function name="aero/coefficient/CD"><description>CD(alpha) = Cd_profile(CL) + 0.012 + CL^2/(pi AR e); + trim drag from elevon</description>
+    <sum>
+     <table>
+      <independentVar lookup="row">aero/alpha-deg</independentVar>
+      <tableData>
+      -10.0 0.09913
+      -9.0 0.08189
+      -8.0 0.06711
+      -7.0 0.05479
+      -6.0 0.04492
+      -5.0 0.03752
+      -4.0 0.03258
+      -3.0 0.03009
+      -2.0 0.03007
+      -1.0 0.03250
+      0.0 0.03739
+      1.0 0.04474
+      2.0 0.05455
+      3.0 0.06682
+      4.0 0.08155
+      5.0 0.09874
+      6.0 0.11838
+      7.0 0.14049
+      8.0 0.15467
+      9.0 0.15106
+      10.0 0.14750
+      11.0 0.14399
+      12.0 0.14054
+      13.0 0.13714
+      14.0 0.13379
+      15.0 0.13050
+      </tableData>
+     </table>
+     <product>
+      <property>fcs/elevon-sym-deg</property>
+      <property>fcs/elevon-sym-deg</property>
+      <value>1.3e-4</value>
+     </product>
+    </sum>
+   </function>
+  <function name="aero/coefficient/CY"><description>CY_beta ESTIMATE - calibrate in flight test</description>
+    <product>
+     <property>aero/beta-deg</property>
+     <value>-0.01</value>
+    </product>
+   </function>
+  <function name="aero/coefficient/CL"><description>CL(alpha) MH60 linear + gentle stall blend; + elevon lift (ESTIMATE)</description>
+    <sum>
+     <table>
+      <independentVar lookup="row">aero/alpha-deg</independentVar>
+      <tableData>
+      -10.0 -0.76300
+      -9.0 -0.65400
+      -8.0 -0.54500
+      -7.0 -0.43600
+      -6.0 -0.32700
+      -5.0 -0.21800
+      -4.0 -0.10900
+      -3.0 0.00000
+      -2.0 0.10900
+      -1.0 0.21800
+      0.0 0.32700
+      1.0 0.43600
+      2.0 0.54500
+      3.0 0.65400
+      4.0 0.76300
+      5.0 0.87200
+      6.0 0.98100
+      7.0 1.09000
+      8.0 1.15424
+      9.0 1.13824
+      10.0 1.12224
+      11.0 1.10624
+      12.0 1.09024
+      13.0 1.07424
+      14.0 1.05824
+      15.0 1.04224
+      </tableData>
+     </table>
+     <product>
+      <property>fcs/elevon-sym-deg</property>
+      <value>0.012</value>
+     </product>
+    </sum>
+   </function>
+  <function name="aero/coefficient/Cl"><description>Roll: dihedral + damping + adverse coupling + differential elevon (all ESTIMATED)</description>
+    <sum>
+     <product><property>aero/beta-deg</property><value>-0.0015</value></product>
+     <product><property>velocities/p-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.45</value></product>
+     <product><property>velocities/r-aero-rad_sec</property><property>aero/bi2vel</property><value>0.15</value></product>
+     <product><property>fcs/elevon-diff-deg</property><value>0.003490658503988659</value></product>
+    </sum>
+   </function>
+  <function name="aero/coefficient/Cm"><description>Cm about CG: Cm0_wing + dCm/dCL*CL(alpha) + Cmq + elevon (de>0 TE-down)</description>
+    <sum>
+     <table>
+      <independentVar lookup="row">aero/alpha-deg</independentVar>
+      <tableData>
+      -10.0 0.05404
+      -9.0 0.04532
+      -8.0 0.03660
+      -7.0 0.02788
+      -6.0 0.01916
+      -5.0 0.01044
+      -4.0 0.00172
+      -3.0 -0.00700
+      -2.0 -0.01572
+      -1.0 -0.02444
+      0.0 -0.03316
+      1.0 -0.04188
+      2.0 -0.05060
+      3.0 -0.05932
+      4.0 -0.06804
+      5.0 -0.07676
+      6.0 -0.08548
+      7.0 -0.09420
+      8.0 -0.09934
+      9.0 -0.09806
+      10.0 -0.09678
+      11.0 -0.09550
+      12.0 -0.09422
+      13.0 -0.09294
+      14.0 -0.09166
+      15.0 -0.09038
+      </tableData>
+     </table>
+     <product><property>velocities/q-aero-rad_sec</property><property>aero/ci2vel</property><value>-12.0</value></product>
+     <product><property>fcs/elevon-sym-deg</property><value>-0.008</value></product>
+    </sum>
+   </function>
+  <function name="aero/coefficient/Cn"><description>Yaw: weathervane + damping + adverse yaw (all ESTIMATED)</description>
+    <sum>
+     <product><property>aero/beta-deg</property><value>0.0012</value></product>
+     <product><property>velocities/p-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.06</value></product>
+     <product><property>velocities/r-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.15</value></product>
+     <product><property>fcs/elevon-diff-deg</property><value>-0.00034906585039886593</value></product>
+    </sum>
+   </function>
+  <axis name="DRAG">
+   <function name="aero/force-or-moment/drag">
+    <product><property>aero/qbar-area</property>
+    <property>aero/coefficient/CD</property>
+    </product>
+   </function>
+  </axis>
+  <axis name="SIDE">
+   <function name="aero/force-or-moment/side">
+    <product><property>aero/qbar-area</property>
+    <property>aero/coefficient/CY</property>
+    </product>
+   </function>
+  </axis>
+  <axis name="LIFT">
+   <function name="aero/force-or-moment/lift">
+    <product><property>aero/qbar-area</property>
+    <property>aero/coefficient/CL</property>
+    </product>
+   </function>
+  </axis>
+  <axis name="ROLL">
+   <function name="aero/force-or-moment/roll">
+    <product><property>aero/qbar-area</property><property>metrics/bw-ft</property>
+    <property>aero/coefficient/Cl</property>
+    </product>
+   </function>
+  </axis>
+  <axis name="PITCH">
+   <function name="aero/force-or-moment/pitch">
+    <product><property>aero/qbar-area</property><property>metrics/cbarw-ft</property>
+    <property>aero/coefficient/Cm</property>
+    </product>
+   </function>
+  </axis>
+  <axis name="YAW">
+   <function name="aero/force-or-moment/yaw">
+    <product><property>aero/qbar-area</property><property>metrics/bw-ft</property>
+    <property>aero/coefficient/Cn</property>
+    </product>
+   </function>
+  </axis>
+ </aerodynamics>
+</fdm_config>
