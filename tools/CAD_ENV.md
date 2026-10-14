@@ -7,6 +7,27 @@
 | Workaround | Build an exact-boolean solid kernel from git source (Manifold), add the pure-Python deps from git, and put a small **CadQuery-API shim** (`tools/cq_compat/cadquery`) in front of it. The repo CAD scripts run **unchanged**. |
 | Setup | `bash tools/setup_cad_env.sh` (about 6 min on 2 cores, once per session), then `source tools/cad_env.sh` |
 
+## Update 2026-10-14 15:50 PT: real CadQuery now installs (CEO enabled package registries)
+
+The network setting is live: pypi.org now returns 200 through the proxy.
+
+**Quirk to know:** the session's `NO_PROXY` still lists pypi.org, but there is no direct DNS. pip must therefore be told to go through the proxy:
+
+```
+NO_PROXY=localhost,127.0.0.1 no_proxy=localhost,127.0.0.1 pip install cadquery
+```
+
+`tools/setup_cad_env.sh --real` does this in a venv at `$ZIB_VENDOR/cqvenv`. It installed CadQuery 2.8.0 with OCP.
+
+| Check (real CadQuery 2.8.0) | Result |
+|---|---|
+| `build_systems.py` | CG 128.5 mm, mass 209.0 g; 0 CLASH / 0 TIGHT |
+| `verify_cad.py` | All checks passed |
+| STEP export | Works |
+| Cross-check vs shim, per-part volume | Max difference **0.23%** across all parts (tessellation only) |
+
+**Primary toolchain is now real CadQuery.** The Manifold shim stays as the fallback for sessions where the registries are blocked.
+
 ## What the shim covers
 
 It covers exactly the CadQuery calls in `cad/build_cad.py` and `cad/build_systems.py`:

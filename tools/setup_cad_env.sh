@@ -14,6 +14,15 @@
 #         python3 cad/build_cad.py --outdir OUT && python3 cad/build_systems.py --outdir OUT
 #         cp cad/mh60.dat OUT/ && python3 cad/verify_cad.py --outdir OUT
 set -euo pipefail
+if [ "${1:-}" = "--real" ]; then
+  # Registries allowed: install the real CadQuery (STEP-capable). NO_PROXY lists pypi.org but
+  # there is no direct DNS in the sandbox, so force pip through the agent proxy.
+  V=${ZIB_VENDOR:-/home/claude/vendor}; mkdir -p "$V"
+  python3 -m venv --system-site-packages "$V/cqvenv"
+  NO_PROXY=localhost,127.0.0.1 no_proxy=localhost,127.0.0.1 "$V/cqvenv/bin/pip" install -q cadquery numpy-stl trimesh
+  "$V/cqvenv/bin/python" -c "import cadquery; print('real cadquery', cadquery.__version__)"
+  echo "run CAD with: $V/cqvenv/bin/python cad/build_cad.py --outdir OUT"; exit 0
+fi
 V=${ZIB_VENDOR:-/home/claude/vendor}
 mkdir -p "$V"; cd "$V"
 clone() { [ -d "$2/.git" ] || GIT_LFS_SKIP_SMUDGE=1 git clone -q --depth 1 --recurse-submodules --shallow-submodules "https://github.com/$1" "$2"; }
