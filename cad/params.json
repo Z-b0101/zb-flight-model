@@ -38,7 +38,7 @@
   "hole_dia_frac": 0.55,
   "hole_min_dia": 6.0,
   "hole_min_wall": 2.0,
-  "battery_u": 0.205,
+  "battery_u": 0.16,
   "battery_y": 0.0,
   "battery_orientation": "spanwise",
   "battery_mass_g": 62.0,
@@ -49,7 +49,14 @@
   ],
   "hatch_margin_x": 3.0,
   "hatch_margin_y": 4.0,
-  "hatch_top_clearance": 2.0
+  "hatch_top_clearance": 2.0,
+  "fin_height": 120.0,
+  "fin_chord": 60.0,
+  "fin_x_frac": 0.7,
+  "fin_t": 3.0,
+  "fin_mass_g": 1.0,
+  "elevon_up_deg": 12.0,
+  "elevon_down_deg": 8.0
  },
  "derived": {
   "rib_stations_y": [
@@ -89,12 +96,12 @@
    ]
   ],
   "hatch_rect": {
-   "u0": 0.12,
-   "u1": 0.29,
+   "u0": 0.075,
+   "u1": 0.245,
    "y0": -36.0,
    "y1": 36.0
   },
-  "battery_zc_mm": -4.151,
+  "battery_zc_mm": -8.509,
   "battery_box": {
    "dims": [
     28.0,
@@ -102,11 +109,20 @@
     20.0
    ],
    "center_sec": [
-    0.205,
-    -0.02075,
+    0.16,
+    -0.04254,
     0.0
    ],
    "orientation": "spanwise"
   }
+ },
+ "structure": {
+  "_note": "SA-01 structural changes R1-R5 (program/STRUCTURAL_ANALYSIS.md section 8; ZB-ER-001). Outside the design hash; consumed by scripts/mass_rollup.py and the structures model. CE item, proposed 2026-10-14 for the CE-01 freeze.",
+  "R1_spar_spec": {"od_mm": 4.0, "id_mm_assumed": 3.0, "flex_modulus_min_gpa": 100.0, "flex_strength_min_mpa": 1000.0, "coupon_reject_below_gpa": 80.0, "coupon_reject_below_mpa": 600.0},
+  "R2_hinge_web": {"x_frac": 0.75, "t_mm": 3.0, "material": "Depron", "span": "full", "mass_g": 0.75},
+  "R3_midchord_web": {"x_frac": 0.525, "t_mm": 3.0, "material": "Depron", "span": "full", "mass_g": 1.54, "lead_hole_dia_mm": 6.0},
+  "web_glue_mass_g": 0.5,
+  "R4_hatch": {"corner_radius_mm": 8.0, "frame_width_mm": 6.0, "frame_t_mm": 1.2, "frame_material": "PLA", "lid_bears_spanwise": true, "retention_pulloff_min_n": 9.1, "net_mass_g": 1.5},
+  "R5_centre_section": {"span_mm": 112.5, "joiner_block_mm": [12.0, 12.0], "socket_length_mm": 40.0, "included_angle_deg": 130.0, "print_orientation": "socket axes in the layer plane", "integrates": ["V-joiner", "battery tray", "hatch frame", "FC mount", "motor mount", "grip zone"], "net_mass_g": 1.5, "closes": "Gate 1 root-joiner item"}
  }
 }

@@ -12,7 +12,7 @@ requires-python = ">=3.10"
 dependencies = ["pyyaml"]
 
 [project.optional-dependencies]
-dev = ["pytest", "nbformat"]
+dev = ["pytest", "nbformat", "numpy", "scipy"]
 
 [tool.setuptools.packages.find]
 where = ["."]
