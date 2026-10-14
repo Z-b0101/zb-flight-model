@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parametric import DESIGN_KEYS, compute_derived, WingParam  # noqa: E402
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--params", default="/home/hatch/workspace/uav-sub250g/cad/params.json")
+ap.add_argument("--params", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "params.json"))
 a = ap.parse_args()
 
 fails = []

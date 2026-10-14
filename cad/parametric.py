@@ -26,7 +26,8 @@ import json
 import math
 import numpy as np
 
-OUT = "/home/hatch/workspace/uav-sub250g/cad"
+import os
+OUT = os.path.dirname(os.path.abspath(__file__))  # cad/ in the repo (was an absolute workspace path)
 
 DEFAULTS = dict(
     span=900.0,

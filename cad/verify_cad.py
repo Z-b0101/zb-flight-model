@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """4-round verification of the Z!B PoC CAD (rounds a-d). Run after build_cad.py.
 Prints measured numbers; exits nonzero on any FAIL."""
-import math, json, sys, argparse
+import math, json, os, sys, argparse
 import numpy as np
 from stl import mesh as stl_mesh
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--outdir", default="/home/hatch/workspace/uav-sub250g/cad")
+ap.add_argument("--outdir", default=os.path.dirname(os.path.abspath(__file__)))
 OUT = ap.parse_args().outdir
 _rec = json.load(open(f"{OUT}/params.json"))
 if isinstance(_rec.get("design"), dict):      # split format (MBSE §4.2)
