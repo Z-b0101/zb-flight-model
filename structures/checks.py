@@ -33,7 +33,8 @@ ASSUMED = dict(
     landing_sink_ms=1.5, landing_sink_abuse_ms=2.5, crush_stroke_m=0.003,
     inverted_impact_g=10.0,
     launch_speed_ms=9.0, launch_stroke_m=0.7, grip_force_N=20.0, grip_area_m2=2 * 15e-3 * 15e-3,
-    motor_prop_kg=0.025, thrust_max_N=6.0, shaft_power_W=120.0, rpm_max=15000.0,
+    motor_prop_kg=0.0322,   # CE-01 frozen: Suppo 2204/14 20 g + APC 8x6SF 7.1 g + adapter 5.1 g (was 0.025)
+     thrust_max_N=6.0, shaft_power_W=120.0, rpm_max=15000.0,
     adhesive_tau_cf_pla_Pa=3.0e6,  # CA on lightly sanded pultruded carbon to PLA, conservative
     joiner_socket_L_m=0.040, joiner_block_mm=(12.0, 12.0),
     cap=dict(w=3e-3, t=0.5e-3, E=120e9, sigma_allow_c=500e6),

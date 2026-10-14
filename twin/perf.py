@@ -12,8 +12,11 @@ RHO, G = 1.225, 9.80665
 
 # value, status, source  (status: measured | derived | assumed | baseline-record)
 ASSUMPTIONS = {
-    "mass_kg":        (0.2119, "baseline-record", "planning mass 211.9 g = CAD rollup 209.0 + V-spar tube overage 0.8 + joiner ~2.1 (joint report, MBSE item 4); single mass basis per MBSE O-01 gate (b), 2026-10-14. Tip fins (if in params) are added by mass_props()"),
-    "x_cg_mm":        (128.5,  "baseline-record", "DESIGN_CLOSURE ITEM 2: as-designed CG 128.5 mm aft root LE (cg_report.json, not in repo)"),
+    "mass_kg":        (0.2330, "baseline-record", "CE-01 FROZEN stacked roll-up 233.0 g (2026-10-14): planning 211.9 g + SA-01 R2-R5 + DR-01 fins + DR-14 notch + R-07 power train (Suppo 2204/14 20 g, APC 8x6SF 7.1 g, adapter 5.1 g). Source: scripts/mass_rollup.py --motor-g 20 --prop-g 7.1 --adapter-g 5.1 --notch-dia-in 8 --battery-fwd-mm 9 --esc-to-mm 95 --fc-fwd-mm 5. Weigh-as-built replaces it (B-12)"),
+    "x_cg_mm":        (130.32, "baseline-record", "CE-01 FROZEN stacked CG, same roll-up (FC 5 mm fwd, battery_u 0.160, ESC at 95 mm). Was 128.5 (DESIGN_CLOSURE ITEM 2, pre-change baseline)"),
+    "record_mass_kg": (0.2119, "baseline-record", "design-team record basis (A2 loop / five checks): planning 211.9 g + fins (added by mass_props); used ONLY for like-for-like twin-vs-record checks"),
+    "record_x_cg_mm": (128.5, "baseline-record", "design-team record CG basis (DESIGN_CLOSURE ITEM 2), like-for-like checks only"),
+    "mass_basis_includes_fins": (True, "baseline-record", "the CE-01 frozen roll-up already contains the DR-01 fins; mass_props() must not add them again"),
     "cd_misc":        (0.012,  "assumed",  "zb_model/drag.py flat placeholder; Hoerner buildup TODO"),
     "cd_profile_tab": ([(0.40, .0155), (0.50, .0155), (0.60, .0157), (0.70, .0163)], "measured", "MH60 XFoil Re100k Ncrit9 (airfoiltools)"),
     "clmax_section":  (1.16,   "measured", "MH60 polar"),
@@ -46,24 +49,29 @@ def cd_profile(cl):
 
 def eta(p_shaft): return min(0.55, 0.20 + 0.0875 * p_shaft)
 
-def mass_props(design):
-    """Planning mass + CG, plus the tip fins when params.json defines them (DR-01)."""
+def mass_props(design, basis="frozen"):
+    """Mass + CG. basis="frozen": the CE-01 frozen stacked roll-up (fins included).
+    basis="record": the design-team record basis (211.9 g, 128.5 mm) plus the fins, for
+    like-for-like twin-vs-record checks only."""
     import lateral
-    m, x = A("mass_kg") * 1000, A("x_cg_mm")
+    if basis == "record":
+        m, x, add_fins = A("record_mass_kg") * 1000, A("record_x_cg_mm"), True
+    else:
+        m, x, add_fins = A("mass_kg") * 1000, A("x_cg_mm"), not A("mass_basis_includes_fins")
     g = lateral.fin_geometry(design)
-    if g is not None:
+    if g is not None and add_fins:
         mf = 2 * design["fin_mass_g"]; xf = g["x_le_mm"] + 0.5 * g["cf"]
         x = (m * x + mf * xf) / (m + mf); m += mf
     return m / 1000, x
 
 
 class Twin:
-    def __init__(self, params_path=None):
+    def __init__(self, params_path=None, mass_basis="frozen"):
         self.raw, self.design, self.hash = vlm.load(params_path)
         self.w = vlm.Wing(self.design)
         self.d = self.w.derivatives()
         d, c = self.d, self.w.cref
-        self.m, self.x_cg_mm = mass_props(self.design)
+        self.m, self.x_cg_mm = mass_props(self.design, mass_basis)
         xcg = self.x_cg_mm / 1000
         k = A("flap_knockdown")
         self.CLa, self.CL0 = d["CLa_per_deg"], d["CL0"]

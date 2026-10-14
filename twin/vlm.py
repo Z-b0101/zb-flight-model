@@ -36,12 +36,25 @@ class Wing:
         # cosine spanwise spacing
         th = np.linspace(0, math.pi, 2 * ns + 1)
         self.yb = -0.5 * b * np.cos(th)          # strip edges (m)
-        self.S = sum((self.yb[i + 1] - self.yb[i]) * self.chord(0.5 * (self.yb[i] + self.yb[i + 1]))
+        # DR-14 pusher-prop TE notch (CE-01): cut aft of prop_notch_x for |y| <= prop_notch_halfspan.
+        # Strip edges are snapped to +/- halfspan so no strip straddles the notch edge.
+        self.xn = design.get("prop_notch_x", 0.0) / 1000.0
+        self.rn = design.get("prop_notch_halfspan", 0.0) / 1000.0
+        if self.rn > 0:
+            yb = self.yb.copy()
+            for s_ in (-1, 1):
+                yb[np.argmin(abs(yb - s_ * self.rn))] = s_ * self.rn
+            self.yb = np.sort(yb)
+        self.S = sum((self.yb[i + 1] - self.yb[i]) * self._c(0.5 * (self.yb[i] + self.yb[i + 1]), self._cut(i))
                      for i in range(2 * ns))
         self.AR = b * b / self.S
         self.cref = design["chord"] / 1000.0
 
     def chord(self, y): return self.W.chord_at(y * 1000) / 1000.0
+    def _cut(self, i): return self.rn > 0 and abs(0.5 * (self.yb[i] + self.yb[i + 1])) < self.rn
+    def _c(self, y, cut):
+        c = self.chord(y)
+        return min(c, self.xn - self.xle(y)) if cut else c
     def xle(self, y):   return (self.W.xle_at(y * 1000) + 0.25 * self.P["chord"]) / 1000.0  # aft root LE
     def twist(self, y): return self.W.twist_at(y * 1000)   # rad, + nose-down
     def camber_slope(self, uf):
@@ -53,18 +66,19 @@ class Wing:
         A, B, C, N = [], [], [], []
         hinge = P["hinge_x_frac"]; ey0, ey1 = P["elevon_y0"] / 1000, P["elevon_y1"] / 1000
         for i in range(2 * self.ns):
-            ya, yb = self.yb[i], self.yb[i + 1]; ym = 0.5 * (ya + yb)
+            ya, yb = self.yb[i], self.yb[i + 1]; ym = 0.5 * (ya + yb); cut = self._cut(i)
             for k in range(nc):
                 u0, u1 = k / nc, (k + 1) / nc
-                def pt(y, u): return np.array([self.xle(y) + u * self.chord(y), y, 0.0])
+                def pt(y, u): return np.array([self.xle(y) + u * self._c(y, cut), y, 0.0])
                 A.append(pt(ya, u0 + 0.25 / nc)); B.append(pt(yb, u0 + 0.25 / nc))
                 C.append(pt(ym, u0 + 0.75 / nc))
                 uc = u0 + 0.75 / nc
+                uc_true = uc * self._c(ym, cut) / self.chord(ym)   # = uc except in the notch
                 # surface slope dz/dx; effective angle is alpha - slope. Washout (twist + = nose-DOWN)
                 # raises the trailing edge, i.e. ADDS to dz/dx. (Fixed 2026-10-14: this was "- tan",
                 # which modelled the 6 deg washout as 6 deg wash-in; found by the structures work.)
-                slope = self.camber_slope(uc) + math.tan(self.twist(ym))
-                if uc > hinge and ey0 <= abs(ym) <= ey1:
+                slope = self.camber_slope(uc_true) + math.tan(self.twist(ym))
+                if uc > hinge and ey0 <= abs(ym) <= ey1 and not cut:
                     # + elevon = trailing edge DOWN; aileron + = right TE up / left TE down
                     d = elevon_deg + (aileron_deg if ym < 0 else -aileron_deg)
                     slope -= math.tan(math.radians(d))

@@ -32,50 +32,22 @@ def intersection(W, dia_in, xp=PROP_PLANE_MM):
     return (min(hits), max(hits)) if hits else None
 
 
-class NotchedWing(vlm.Wing):
-    """Twin VLM with the TE notch. Strip edges are snapped to +/- r_n so no strip straddles
-    the notch edge (a straddling strip gives a sheared panel row and a near-singular AIC)."""
-    def __init__(self, design, xn_mm, rn_mm, **kw):
-        self.xn, self.rn = xn_mm / 1000, rn_mm / 1000
-        super().__init__(design, **kw)
-        yb = self.yb.copy()
-        for s in (-1, 1):
-            yb[np.argmin(abs(yb - s * self.rn))] = s * self.rn
-        self.yb = np.sort(yb)
-        self.S = sum((self.yb[i + 1] - self.yb[i]) * self._c(0.5 * (self.yb[i] + self.yb[i + 1]), self._cut(i))
-                     for i in range(2 * self.ns))
-        self.AR = self.b ** 2 / self.S
-    def _cut(self, i): return abs(0.5 * (self.yb[i] + self.yb[i + 1])) < self.rn
-    def _c(self, y, cut):
-        c = vlm.Wing.chord(self, y)
-        return min(c, self.xn - self.xle(y)) if cut else c
-    def _panels(self, elevon_deg=0.0, aileron_deg=0.0):
-        P = self.P; nc = self.nc
-        A, B, C, N = [], [], [], []
-        hinge = P["hinge_x_frac"]; ey0, ey1 = P["elevon_y0"] / 1000, P["elevon_y1"] / 1000
-        for i in range(2 * self.ns):
-            ya, yb = self.yb[i], self.yb[i + 1]; ym = 0.5 * (ya + yb); cut = self._cut(i)
-            for k in range(nc):
-                u0 = k / nc
-                def pt(y, u): return np.array([self.xle(y) + u * self._c(y, cut), y, 0.0])
-                A.append(pt(ya, u0 + 0.25 / nc)); B.append(pt(yb, u0 + 0.25 / nc))
-                C.append(pt(ym, u0 + 0.75 / nc))
-                uc = u0 + 0.75 / nc
-                # camber of the truncated section: local fraction of the ORIGINAL chord
-                uf_orig = uc * self._c(ym, cut) / vlm.Wing.chord(self, ym)
-                slope = self.camber_slope(uf_orig) + math.tan(self.twist(ym))
-                if uc > hinge and ey0 <= abs(ym) <= ey1 and not cut:
-                    d = elevon_deg + (aileron_deg if ym < 0 else -aileron_deg)
-                    slope -= math.tan(math.radians(d))
-                n = np.array([-slope, 0.0, 1.0]); N.append(n / np.linalg.norm(n))
-        return np.array(A), np.array(B), np.array(C), np.array(N)
+# The notched-wing VLM now lives in twin/vlm.py (Wing reads prop_notch_x / prop_notch_halfspan
+# from the controlled design; CE-01 freeze). This script compares it with the un-notched wing.
 
 
-def run(dia_in=8.0, xn=195.0, gap=5.0, ns=80):
+def run(dia_in=None, xn=None, gap=5.0, ns=80):
+    """Defaults come from the controlled design (prop_dia_in, prop_notch_x, prop_notch_halfspan)."""
     raw, design, _ = vlm.load()
-    base = vlm.Wing(design, ns=ns); d0 = base.derivatives()
+    dia_in = design.get("prop_dia_in", 8.0) if dia_in is None else dia_in
+    xn = design.get("prop_notch_x", 195.0) if xn is None else xn
+    d_un = dict(design); d_un["prop_notch_halfspan"] = 0.0
+    base = vlm.Wing(d_un, ns=ns); d0 = base.derivatives()
     rn = dia_in * 25.4 / 2 + gap
-    nw = NotchedWing(design, xn, rn, ns=ns); d1 = nw.derivatives()
+    if "prop_notch_halfspan" in design and dia_in == design.get("prop_dia_in"):
+        rn = design["prop_notch_halfspan"]
+    d_n = dict(design); d_n["prop_notch_x"] = xn; d_n["prop_notch_halfspan"] = rn
+    nw = vlm.Wing(d_n, ns=ns); d1 = nw.derivatives()
     sw = math.tan(math.radians(design["sweep_deg"])); c = design["chord"]
     # removed planform (both sides): integral of (TE(y) - xn) over |y| <= rn
     ys = np.linspace(0, rn, 2001); cut = np.maximum(c + ys * sw - xn, 0)
@@ -94,7 +66,7 @@ def run(dia_in=8.0, xn=195.0, gap=5.0, ns=80):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dia-in", type=float, default=8.0); ap.add_argument("--xn", type=float, default=195.0)
+    ap.add_argument("--dia-in", type=float, default=None); ap.add_argument("--xn", type=float, default=None)
     ap.add_argument("--gap", type=float, default=5.0)
     a = ap.parse_args()
     for k, v in run(a.dia_in, a.xn, a.gap).items():

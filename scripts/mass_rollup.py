@@ -40,7 +40,8 @@ def rollup(motor_g=MOTOR_BASE_G, battery_fwd_mm=0.0, esc_to_mm=ESC_X, np_mm=None
         xf = semi * sweep + D["fin_x_frac"] * c + 0.5 * D["fin_chord"]
         rows.append(("DR-01 tip fins", 2 * D["fin_mass_g"], xf))
     if notch:
-        np_mm += notch["dnp_mm"]
+        if not D.get("prop_notch_halfspan"):     # VLM NP already includes the notch once it is in params
+            np_mm += notch["dnp_mm"]
         rows.append(("DR-14 prop notch: foam removed", -notch["mass_removed_g"], notch["x_centroid_mm"]))
         rows.append(("DR-14 prop notch: edge closure", notch["closure_g"], notch["x_notch_mm"]))
     if prop_g != PROP_BASE_G: rows.append((f"Prop delta ({prop_g:g} g vs {PROP_BASE_G:g} g)", prop_g - PROP_BASE_G, PROP_X))

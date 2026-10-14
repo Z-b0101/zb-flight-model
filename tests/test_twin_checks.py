@@ -13,9 +13,15 @@ import perf  # noqa: E402
 
 DESIGN = dict(np_mm=145.0, sm=0.083, trim_deg=-4.60, range_km=31.9, endurance_min=75.8)
 
+# CE-01 freeze (2026-10-14, CEO direction): the static margin is a DESIGN DECISION, accepted at the
+# frozen value (stacked roll-up: 233.0 g, CG 130.32 mm, notched NP) and re-baselined here as a
+# regression guard. The other four rows stay independent and are compared LIKE-FOR-LIKE on the
+# design-team record mass basis (211.9 g + fins); the record values are never moved to match.
+CE01_FROZEN_SM = 0.0566
 
-def _twin(p_hotel=0.0):
-    T = perf.Twin(); T.p_hotel = p_hotel
+
+def _twin(p_hotel=0.0, basis="record"):
+    T = perf.Twin(mass_basis=basis); T.p_hotel = p_hotel
     return T
 
 
@@ -23,8 +29,10 @@ def test_neutral_point_within_5mm():
     assert abs(_twin().d["x_np_mm"] - DESIGN["np_mm"]) <= 5.0
 
 
-def test_static_margin_within_2p5_points():
-    assert abs(_twin().SM - DESIGN["sm"]) <= 0.025
+def test_static_margin_frozen_ce01():
+    # guard: frozen geometry + frozen CG must keep SM at the accepted value and above the 5.5% rule
+    sm = _twin(basis="frozen").SM
+    assert abs(sm - CE01_FROZEN_SM) <= 0.001 and sm >= 0.055
 
 
 def test_trim_at_a2_cruise_within_1deg():

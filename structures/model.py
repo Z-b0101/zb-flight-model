@@ -21,7 +21,8 @@ G0, RHO = 9.80665, 1.225
 
 # Mass model (g), from WEIGHT_BUDGET.md airframe rollup and BUDGET.md LRU picks.
 # Wing-borne (relieves bending) vs centre-borne (does not).
-MASS = dict(total_g=211.9, skins_g=36.0, ribs_g=12.0, spar_g=7.9, misc_wing_g=8.85,
+MASS = dict(total_g=233.0,   # CE-01 frozen stacked roll-up (was 211.9 planning)
+            skins_g=36.0, ribs_g=12.0, spar_g=7.9, misc_wing_g=8.85,
             servo_g=4.3, servo_y_frac=0.55)
 
 

@@ -56,7 +56,10 @@
   "fin_t": 3.0,
   "fin_mass_g": 1.0,
   "elevon_up_deg": 12.0,
-  "elevon_down_deg": 8.0
+  "elevon_down_deg": 8.0,
+  "prop_dia_in": 8.0,
+  "prop_notch_x": 195.0,
+  "prop_notch_halfspan": 106.6
  },
  "derived": {
   "rib_stations_y": [
