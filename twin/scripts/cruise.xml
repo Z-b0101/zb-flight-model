@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <runscript name="cruise"><use aircraft="zb_twin" initialize="cruise_ic"/>
 <run start="0" end="90" dt="0.002">
- <property value="0.17007430284222355">fcs/throttle-cmd-norm</property>
- <property value="-0.5651863228289759">fcs/elevator-cmd-norm</property>
+ <property value="0.2510761958475659">fcs/throttle-cmd-norm</property>
+ <property value="-0.3971646699965745">fcs/elevator-cmd-norm</property>
 </run>
 <output name="out_cruise.csv" type="CSV" rate="10">
   <property>velocities/vt-fps</property>

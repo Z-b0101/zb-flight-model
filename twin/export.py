@@ -35,6 +35,7 @@ def main():
         sweep.append({k: f(v) for k, v in t.items()} | {"endurance_min": E / t["P_batt"] / 60, "range_km": E / t["P_batt"] * V / 1000})
     fly_res = json.load(open(f"{HERE}/fly_results.json"))
     mis = json.load(open(f"{HERE}/mission_results.json"))
+    a2 = json.load(open(f"{HERE}/mission_a2basis_results.json"))["result"]
     ledger = [{"key": k, "value": v[0] if not isinstance(v[0], list) else "MH60 table", "status": v[1], "source": v[2]}
               for k, v in perf.ASSUMPTIONS.items()]
     d = s["derivatives"]
@@ -42,9 +43,9 @@ def main():
     checks = [
         {"name": "Neutral point", "twin": d["x_np_mm"], "base": 144.98, "unit": "mm", "tol": "±5 mm", "ok": abs(d["x_np_mm"] - 144.98) <= 5},
         {"name": "Static margin", "twin": 100 * s["SM"], "base": 8.26, "unit": "% MAC", "tol": "±2.5 pt", "ok": abs(100 * s["SM"] - 8.26) <= 2.5},
-        {"name": "Trim elevon", "twin": f(s["best_range"]["elevon"]), "base": -4.60, "unit": "deg", "tol": "±1 deg", "ok": abs(s["best_range"]["elevon"] + 4.60) <= 1},
-        {"name": "Range (6-DOF)", "twin": mis["result"]["range_km"], "base": 31.86, "unit": "km", "tol": "±10%", "ok": abs(mis["result"]["range_km"] / 31.86 - 1) <= 0.10},
-        {"name": "Endurance (6-DOF)", "twin": mis["result"]["flight_time_min"], "base": 75.8, "unit": "min", "tol": "±10%", "ok": abs(mis["result"]["flight_time_min"] / 75.8 - 1) <= 0.10},
+        {"name": "Trim elevon at A2 cruise speed", "twin": f(T.trim(a2["V_cruise"])["elevon"]), "base": -4.60, "unit": "deg", "tol": "±1 deg", "ok": abs(T.trim(a2["V_cruise"])["elevon"] + 4.60) <= 1},
+        {"name": "Range, A2 basis (no hotel load)", "twin": a2["range_km"], "base": 31.86, "unit": "km", "tol": "±10%", "ok": abs(a2["range_km"] / 31.86 - 1) <= 0.10},
+        {"name": "Endurance, A2 basis (no hotel load)", "twin": a2["flight_time_min"], "base": 75.8, "unit": "min", "tol": "±10%", "ok": abs(a2["flight_time_min"] / 75.8 - 1) <= 0.10},
     ]
     bundle = dict(hash=T.hash, design={k: P[k] for k in ("span", "chord", "taper", "sweep_deg", "washout_deg", "n_ribs", "airfoil_dat", "hinge_x_frac", "elevon_y0", "elevon_y1", "battery_mass_g")},
                   planform=dict(le=le, te=te, ribs=ribs, elevons=elev, np=d["x_np_mm"], cg=s["x_cg_mm"]),
@@ -61,7 +62,8 @@ def main():
                       "Pitch trim was not wired to the elevon.",
                       "Its CL slope (0.109/deg) is 2-D-like; the params-driven VLM gives 0.063/deg.",
                       "Drag keyed on alpha ignored elevon lift and over-counted induced drag (0.13 m/s cruise sink). Fixed: drag keyed on actual CL.",
-                      "Range/endurance read 5–8% above baseline: VLM Oswald e = 0.90 vs 0.78 in drag.py (CE-01).",
+                      "The baseline 31.86 km / 75.8 min is the A2 loop figure with no hotel load. Like-for-like, the twin flies 30.6 km / 71.7 min (−4% / −5%). With the 1 W hotel load the operational estimate is 26.3 km at 10.5 m/s, or 60 min at 7.1 m/s.",
+                      "Correction 02:10 PT: an earlier twin build evaluated propulsion efficiency at input power instead of shaft power and over-stated range (34 km). Fixed to the program definition in zb_model/mission.py.",
                   ])
     json.dump(bundle, open(f"{HERE}/twin_bundle.json", "w"), default=f)
     print("ok", len(json.dumps(bundle, default=f)), "bytes")

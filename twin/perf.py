@@ -52,6 +52,7 @@ class Twin:
         self.Cma = -(d["x_np_mm"] / 1000 - xcg) / c * d["CLa_per_deg"]
         self.Cmde = (d["Cmde_rootLE_per_deg"] + d["CLde_per_deg"] * xcg / c) * k
         self.SM = (d["x_np_mm"] / 1000 - xcg) / c
+        self.p_hotel = A("p_hotel_w")
         self.m = A("mass_kg"); self.S = self.w.S; self.AR = self.w.AR; self.e = d["oswald_e"]
 
     def trim(self, V):
@@ -66,12 +67,13 @@ class Twin:
         CD = CDi + CDp + CDtrim
         D = 0.5 * RHO * V * V * self.S * CD
         Pair = D * V
-        # shaft power: solve P_shaft*eta = Pair
-        ps = Pair / 0.2
-        for _ in range(50): ps = Pair / eta(ps)
+        # program definition (zb_model/mission.py): eta is evaluated at P_shaft = D*V,
+        # and electrical propulsion power = P_shaft / eta
+        ps = Pair
+        p_prop = Pair / eta(Pair)
         stalled = CL > 0.9 * A("clmax_section")  # wing CLmax ~ 0.9 section (assumed)
         return dict(V=V, alpha=a, elevon=de, CL=CL, CD=CD, LD=CL / CD, D=D, P_air=Pair,
-                    P_shaft=ps, eta=eta(ps), P_batt=ps + A("p_hotel_w"), stalled=stalled)
+                    P_shaft=ps, eta=eta(ps), P_batt=p_prop + self.p_hotel, stalled=stalled)
 
     def vstall(self):
         CLmax = 0.9 * A("clmax_section")

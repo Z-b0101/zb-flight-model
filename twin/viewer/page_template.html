@@ -84,7 +84,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
 <section class="sheet" aria-labelledby="h-ver">
   <div class="sheet-head"><h2 id="h-ver">Verification against the controlled baseline</h2><span class="cap" id="ver-sum"></span></div>
   <div class="scroll"><table id="checks"><thead><tr><th>Quantity</th><th style="text-align:right">Twin</th><th style="text-align:right">Baseline</th><th style="text-align:right">Delta</th><th>Tolerance</th><th>Result</th></tr></thead><tbody></tbody></table></div>
-  <p class="cap">Baseline: DESIGN_CLOSURE item 2 (CG 128.5 mm, 209.0 g, VLM NP 144.98 mm, 31.86 km / 75.8 min). Range and endurance read within tolerance; the 5–8% spread traces to span efficiency (twin 0.90 from VLM vs 0.78 in drag.py) and is logged for CE-01.</p>
+  <p class="cap">Baseline: DESIGN_CLOSURE item 2 (CG 128.5 mm, 209.0 g, VLM NP 144.98 mm, 31.86 km / 75.8 min). The baseline range and endurance come from the A2 optimization loop, which carried no hotel load, so the twin is compared on that same basis here. With the 1 W hotel load included, the operational estimate drops to about 26 km or 60 minutes (see the mission flight below).</p>
 </section>
 
 <div class="grid2">
@@ -95,7 +95,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
   </section>
 
   <section class="sheet" aria-labelledby="h-cond">
-    <div class="sheet-head"><h2 id="h-cond">Flight condition</h2><span class="cap">trimmed, level, 209.0 g</span></div>
+    <div class="sheet-head"><h2 id="h-cond">Flight condition</h2><span class="cap">trimmed, level, 209.0 g, 1 W hotel load</span></div>
     <div class="slider">
       <label for="v"><span>Airspeed</span><span class="mono" id="v-out"></span></label>
       <input id="v" type="range" min="0" max="36" step="1" value="12">
@@ -120,7 +120,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
   <div class="sheet-head"><h2 id="h-mis">Mission flight, 6-DOF</h2><span class="cap mono" id="mis-sum"></span></div>
   <svg id="mission" viewBox="0 0 900 240" role="img" aria-label="Altitude and battery energy used over the mission"></svg>
   <div class="legend"><span><i class="sw" style="background:var(--accent)"></i>Altitude (m)</span><span><i class="sw" style="background:var(--line2)"></i>Energy used (Wh, of 5.77 usable)</span></div>
-  <p class="cap">Climb at 45% throttle to +60 m, then hands-off cruise at the best-range trim until the usable energy is spent. The open-loop climb zooms about 25 m past the level-off point before settling, so peak altitude reads near 205 m.</p>
+  <p class="cap">Operational basis, 1 W hotel load included. Climb at 45% throttle to +60 m, then hands-off cruise at the best-range trim until the usable energy is spent. The open-loop climb overshoots the level-off point before settling. Best-range speed rises to about 10.5 m/s once the hotel load is counted, because the fixed 1 W rewards covering ground faster.</p>
 </section>
 
 <div class="three">
@@ -233,7 +233,7 @@ slider.addEventListener('input',upd);upd();
 // mission
 const T=B.trace, M=B.mission;
 chart($('mission'),[{pts:T.map(r=>[r[0],r[1]]),color:'var(--accent)',fill:true},{pts:T.map(r=>[r[0],r[2]]),color:'var(--line2)',right:true}],
- {y0:0,y1:220,r2:[0,6],xt:[0,10,20,30,40,50,60,70],xl:'minutes',yd:0});
+ {y0:0,y1:Math.ceil(Math.max(...T.map(r=>r[1]))/40)*40,r2:[0,6],xt:Array.from({length:Math.floor(T[T.length-1][0]/10)+1},(_,i)=>i*10),xl:'minutes',yd:0});
 $('mis-sum').textContent=`${M.range_km.toFixed(2)} km · ${M.flight_time_min.toFixed(1)} min · cruise ${M.V_cruise.toFixed(2)} m/s at ${(100*M.throttle_cruise).toFixed(0)}% throttle`;
 
 // derivatives
@@ -242,7 +242,7 @@ const D=B.derivs;const rows=[['CL slope',D.CLa_per_deg.toFixed(4)+' /deg'],['Zer
  ['CL per elevon deg',D.CLde.toFixed(4)],['Cm per elevon deg',fx(D.Cmde_cg,5)],['Stall speed',D.vstall.toFixed(2)+' m/s']];
 const dt=$('derivs').querySelector('tbody');rows.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${r[0]}</td><td class="num">${r[1]}</td>`;dt.appendChild(tr)});
 
-chart($('pitch'),[{pts:B.pitch,color:'var(--accent)'}],{y0:-16,y1:16,xt:[0,5,10,15,20],xl:'s',yd:0});
+chart($('pitch'),[{pts:B.pitch,color:'var(--accent)'}],{y0:-Math.ceil(Math.max(...B.pitch.map(p=>Math.abs(p[1])))/4)*4,y1:Math.ceil(Math.max(...B.pitch.map(p=>Math.abs(p[1])))/4)*4,xt:[0,5,10,15,20],xl:'s',yd:0});
 const ph=B.roll.map(p=>p[1]);chart($('roll'),[{pts:B.roll,color:'var(--accent)'}],{y0:Math.min(0,Math.floor(Math.min(...ph)/10)*10),y1:Math.ceil(Math.max(...ph)/10)*10,xt:[0,2,4,6],xl:'s',yd:0});
 
 B.findings.forEach(f=>{const li=document.createElement('li');li.textContent=f;$('findings').appendChild(li)});
