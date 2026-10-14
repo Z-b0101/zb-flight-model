@@ -122,7 +122,26 @@ Pick: motor 20 g, prop 7.1 g, adapter 5.1 g, notch for 8 in, battery 3 mm forwar
 | Battery further forward (beyond the 3 mm) | +6.9 mm (total 9.9 mm) | +3.2 mm | Hatch / tray geometry; pack protrudes more below the skin |
 | Nose ballast at x ≈ 5 mm | 3.4 g (AUW 236.4 g) | 1.5 g | Mass only; last resort per the rule |
 
-**GM recommendation:** move the FC forward 10 mm and the battery forward a further 4 mm (10 × 23 + 4 × 62 = 478 g·mm, giving SM ≈ 5.6%) if CAD shows the room. Otherwise use 3.4 g of ballast. MBSE decides at CE-01.
+**CEO decision (2026-10-14, 15:55 PT): option 1, layout only, no ballast.** I checked it in real CadQuery 2.8.0 (`cad/build_all.py --params cad/params.json`).
+
+**FC +10 mm does not fit.** At its outboard corners the FC hits the swept spar tube (clearance −1.4 mm, CLASH). A sweep of feasible pairs found:
+
+| FC forward | Battery forward (total) | FC–spar clearance | Clash check | Moment gained | SM |
+|---|---|---|---|---|---|
+| 10 mm | 7 mm | **−1.42 mm (CLASH)** | 3 CLASH | 478 g·mm | — |
+| 6 mm | 8 mm | 2.03 mm | 0 / 0 | 448 g·mm | ≈5.56% |
+| **5 mm** | **9 mm** | **2.94 mm** | **0 CLASH / 0 TIGHT** | **487 g·mm** | **5.63%** |
+| 4 mm | 10 mm | 3.84 mm | 0 / 0 | 464 g·mm | ≈5.60% |
+
+**Implemented (proposed baseline change at CE-01):** FC 5 mm forward (`build_systems.py` FC u 0.475 → 0.450) and battery 9 mm forward (`params.json` `battery_u` 0.205 → 0.160; design hash 9d4f5b2e493a). The XT30 pigtail (w2) is re-routed to exit above the tray wall.
+
+- Full `build_all.py`: CAD-basis CG 128.5 → 125.2 mm; 0 CLASH / 0 TIGHT; `verify_params` and `verify_cad` all pass; all parts watertight.
+- Stacked roll-up (`mass_rollup.py --battery-fwd-mm 9 --fc-fwd-mm 5 --esc-to-mm 95`, full R-07 power train + notch): **233.0 g, CG 130.32 mm, SM 5.63%**. Meets the ≥ 5.5% rule.
+
+**Side effects:**
+- **Pack sits 4.4 mm lower.** The airfoil is thinner further forward, so the tray bottom moves from z −15.7 to −20.0 mm. The lid is therefore a deeper belly bump: a little more drag, and the first ground contact on landing.
+- **SA-01 hatch-FE to re-run** at the new aperture (u 0.075–0.245, was 0.12–0.29). The aperture aft edge is now 11 mm ahead of the spar (was 2 mm), which is a likely improvement. Bearing-lid landing case to re-check. ECD Oct 16, GM.
+- The twin's record CG (128.5 mm) is unchanged until MBSE re-baselines at CE-01. The SM above comes from the roll-up.
 
 **AUW.** 233.0 g planning (236.4 g with ballast), against the 250 g limit. The weigh-as-you-go rule (R-05) stays in force. The powertrain parts are **weighed at receipt** and the roll-up re-run before any CG change is built.
 

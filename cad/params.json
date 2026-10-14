@@ -38,7 +38,7 @@
   "hole_dia_frac": 0.55,
   "hole_min_dia": 6.0,
   "hole_min_wall": 2.0,
-  "battery_u": 0.205,
+  "battery_u": 0.16,
   "battery_y": 0.0,
   "battery_orientation": "spanwise",
   "battery_mass_g": 62.0,
@@ -96,12 +96,12 @@
    ]
   ],
   "hatch_rect": {
-   "u0": 0.12,
-   "u1": 0.29,
+   "u0": 0.075,
+   "u1": 0.245,
    "y0": -36.0,
    "y1": 36.0
   },
-  "battery_zc_mm": -4.151,
+  "battery_zc_mm": -8.509,
   "battery_box": {
    "dims": [
     28.0,
@@ -109,8 +109,8 @@
     20.0
    ],
    "center_sec": [
-    0.205,
-    -0.02075,
+    0.16,
+    -0.04254,
     0.0
    ],
    "orientation": "spanwise"
