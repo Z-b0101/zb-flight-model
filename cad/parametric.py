@@ -76,6 +76,9 @@ DESIGN_KEYS = [
     "battery_u", "battery_y", "battery_orientation", "battery_mass_g",
     "battery_dims",
     "hatch_margin_x", "hatch_margin_y", "hatch_top_clearance",
+    # DR-01 tip fins (upright, aft part of the tip chord) and DR-02 elevon throw (CE-01 proposal, 2026-10-14)
+    "fin_height", "fin_chord", "fin_x_frac", "fin_t", "fin_mass_g",
+    "elevon_up_deg", "elevon_down_deg",
 ]
 
 # ----------------------------------------------------------------------------

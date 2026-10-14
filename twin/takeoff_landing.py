@@ -22,7 +22,7 @@ AUTOPILOT = """
   <!-- Stand-in for the autopilot: pitch-attitude hold and bank hold. Not ArduPlane. -->
   <property value="0">ap/theta-cmd-deg</property>
   <property value="0">ap/phi-cmd-deg</property>
-  <property value="-0.45">ap/elev-trim-norm</property>
+  <property value="-0.22">ap/elev-trim-norm</property>
   <property value="0">ap/phase</property>
   <property value="0.9">fcs/throttle-cmd-norm</property>
   <channel name="pitch">

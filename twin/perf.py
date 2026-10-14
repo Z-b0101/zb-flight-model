@@ -12,12 +12,12 @@ RHO, G = 1.225, 9.80665
 
 # value, status, source  (status: measured | derived | assumed | baseline-record)
 ASSUMPTIONS = {
-    "mass_kg":        (0.2090, "baseline-record", "DESIGN_CLOSURE ITEM 2: CAD rollup 209.0 g (budget says 204.3 g -> CE-01 open)"),
+    "mass_kg":        (0.2119, "baseline-record", "planning mass 211.9 g = CAD rollup 209.0 + V-spar tube overage 0.8 + joiner ~2.1 (joint report, MBSE item 4); single mass basis per MBSE O-01 gate (b), 2026-10-14. Tip fins (if in params) are added by mass_props()"),
     "x_cg_mm":        (128.5,  "baseline-record", "DESIGN_CLOSURE ITEM 2: as-designed CG 128.5 mm aft root LE (cg_report.json, not in repo)"),
     "cd_misc":        (0.012,  "assumed",  "zb_model/drag.py flat placeholder; Hoerner buildup TODO"),
     "cd_profile_tab": ([(0.40, .0155), (0.50, .0155), (0.60, .0157), (0.70, .0163)], "measured", "MH60 XFoil Re100k Ncrit9 (airfoiltools)"),
     "clmax_section":  (1.16,   "measured", "MH60 polar"),
-    "flap_knockdown": (0.75,   "assumed",  "inviscid VLM overpredicts plain-flap effectiveness; typical 0.7-0.8"),
+    "flap_knockdown": (0.75,   "assumed",  "CRITICAL, UNCALIBRATED (MBSE steelman 2026-10-14): inviscid VLM overpredicts plain-flap effectiveness; typical 0.7-0.8. Sets Cm_de (~-0.008/deg) shared with the design loop, so twin/design trim agreement is internal consistency only. Closed by bench throw + flight trim-vs-speed"),
     "pack_wh":        (7.215,  "derived",  "3S 650 mAh nominal"),
     "usable_frac":    (0.80,   "assumed",  "battery derate; bench test pending (UNCALIBRATED)"),
     "p_hotel_w":      (1.0,    "assumed",  "hotel load placeholder; bench test pending (UNCALIBRATED)"),
@@ -46,13 +46,25 @@ def cd_profile(cl):
 
 def eta(p_shaft): return min(0.55, 0.20 + 0.0875 * p_shaft)
 
+def mass_props(design):
+    """Planning mass + CG, plus the tip fins when params.json defines them (DR-01)."""
+    import lateral
+    m, x = A("mass_kg") * 1000, A("x_cg_mm")
+    g = lateral.fin_geometry(design)
+    if g is not None:
+        mf = 2 * design["fin_mass_g"]; xf = g["x_le_mm"] + 0.5 * g["cf"]
+        x = (m * x + mf * xf) / (m + mf); m += mf
+    return m / 1000, x
+
+
 class Twin:
     def __init__(self, params_path=None):
         self.raw, self.design, self.hash = vlm.load(params_path)
         self.w = vlm.Wing(self.design)
         self.d = self.w.derivatives()
         d, c = self.d, self.w.cref
-        xcg = A("x_cg_mm") / 1000
+        self.m, self.x_cg_mm = mass_props(self.design)
+        xcg = self.x_cg_mm / 1000
         k = A("flap_knockdown")
         self.CLa, self.CL0 = d["CLa_per_deg"], d["CL0"]
         self.CLde = d["CLde_per_deg"] * k
@@ -68,7 +80,7 @@ class Twin:
         self.Cmde = (d["Cmde_rootLE_per_deg"] + d["CLde_per_deg"] * xcg / c) * k
         self.SM = (d["x_np_mm"] / 1000 - xcg) / c
         self.p_hotel = A("p_hotel_w")
-        self.m = A("mass_kg"); self.S = self.w.S; self.AR = self.w.AR; self.e = d["oswald_e"]
+        self.S = self.w.S; self.AR = self.w.AR; self.e = d["oswald_e"]
 
     def trim(self, V):
         CLreq = self.m * G / (0.5 * RHO * V * V * self.S)
@@ -109,7 +121,7 @@ class Twin:
 
     def summary(self):
         r, e, sweep = self.mission()
-        return dict(design_hash=self.hash, derivatives=self.d, SM=self.SM, x_cg_mm=A("x_cg_mm"),
+        return dict(design_hash=self.hash, derivatives=self.d, SM=self.SM, x_cg_mm=self.x_cg_mm,
                     mass_g=self.m * 1000, vstall=self.vstall(), best_range=r, best_endurance=e,
                     Cm0_cg=self.Cm0, Cma_cg=self.Cma, CLde=self.CLde, Cmde_cg=self.Cmde)
 

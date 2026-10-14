@@ -49,7 +49,14 @@
   ],
   "hatch_margin_x": 3.0,
   "hatch_margin_y": 4.0,
-  "hatch_top_clearance": 2.0
+  "hatch_top_clearance": 2.0,
+  "fin_height": 120.0,
+  "fin_chord": 60.0,
+  "fin_x_frac": 0.7,
+  "fin_t": 3.0,
+  "fin_mass_g": 1.0,
+  "elevon_up_deg": 12.0,
+  "elevon_down_deg": 8.0
  },
  "derived": {
   "rib_stations_y": [

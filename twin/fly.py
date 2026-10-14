@@ -13,6 +13,13 @@ PROPS = ["velocities/vt-fps", "position/h-sl-ft", "aero/alpha-deg", "attitude/th
          "velocities/q-rad_sec", "velocities/p-rad_sec", "fcs/elevon-sym-deg", "fcs/elevon-diff-deg"]
 
 
+
+def elev_norm(deg):
+    """elevon degrees -> fcs/elevator-cmd-norm with the asymmetric throw from params.json (DR-02)."""
+    import vlm
+    _, d, _ = vlm.load()
+    return deg / d.get("elevon_up_deg", 8.0) if deg < 0 else deg / d.get("elevon_down_deg", 8.0)
+
 def sim(name, V, alpha, elev_deg, thr, T=60.0, events=""):
     a = math.radians(alpha)
     os.makedirs(f"{HERE}/scripts", exist_ok=True)
@@ -25,7 +32,7 @@ def sim(name, V, alpha, elev_deg, thr, T=60.0, events=""):
 <runscript name="{name}"><use aircraft="zb_twin" initialize="{name}_ic"/>
 <run start="0" end="{T}" dt="0.002">
  <property value="{thr}">fcs/throttle-cmd-norm</property>
- <property value="{elev_deg/8.0}">fcs/elevator-cmd-norm</property>{events}
+ <property value="{elev_norm(elev_deg)}">fcs/elevator-cmd-norm</property>{events}
 </run>
 <output name="out_{name}.csv" type="CSV" rate="10">
 {out}
@@ -58,7 +65,7 @@ def main():
     res["cruise_90s"] = dict(V_end=last["vt-fps"] * 0.3048, dh_m=(last["h-sl-ft"] - cruise[0]["h-sl-ft"]) * 0.3048,
                              alpha_end=last["alpha-deg"], dist_m=last["distance-from-start-mag-mt"])
     pitch = sim("pitchstep", V, tr["alpha"], tr["elevon"], thr, T=20,
-                events=step(2.0, "fcs/elevator-cmd-norm", (tr["elevon"] - 1.0) / 8.0, "de_step"))
+                events=step(2.0, "fcs/elevator-cmd-norm", elev_norm(tr["elevon"] - 1.0), "de_step"))
     roll = sim("rollstep", V, tr["alpha"], tr["elevon"], thr, T=6,
                events=step(1.0, "fcs/aileron-cmd-norm", 0.5, "ail_on") + step(2.0, "fcs/aileron-cmd-norm", 0.0, "ail_off"))
     res["pitch_step_peak_q_dps"] = max(abs(r["q-rad_sec"]) for r in pitch) * 57.3

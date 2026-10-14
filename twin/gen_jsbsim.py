@@ -16,8 +16,26 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aircraft", "zb_t
 def build(T=None):
     T = T or Twin()
     c, b, S = T.w.cref, T.w.b, T.S
-    xcg = A("x_cg_mm") / 1000
+    xcg = T.x_cg_mm / 1000
     m = T.m
+    # lateral-directional from geometry (twin/lateral.py, DR-01); evaluated at cruise CL (lowest Cn_beta_wing)
+    import lateral
+    CLc = T.trim(10.5)["CL"]
+    lat = lateral.derive(T.design, T.x_cg_mm, T.d["x_np_mm"], CLc)
+    fin = lat["fin"]
+    if fin:
+        Sv_S = fin["area_mm2"] / 1e6 / S
+        cyb_fin = -2 * fin["lift_slope_per_rad"] * lateral.ASSUMED["fin_eta_sidewash"] * Sv_S          # per rad
+        clb_fin = cyb_fin * (fin["z_ac_mm"] / 1000) / b
+        cnr_fin = 2 * cyb_fin * (fin["arm_m"] / b) ** 2
+    else:
+        cyb_fin = clb_fin = cnr_fin = 0.0
+    d2r = math.pi / 180
+    CYb = -0.004 * 0 + cyb_fin * d2r          # wing-alone side force ~0 (typed -0.004 retired)
+    Clb = -0.0015 + clb_fin * d2r              # wing dihedral-effect estimate (UNCALIBRATED) + fins
+    Cnb = lat["cn_beta_per_deg"]
+    Cnr = -0.15 + cnr_fin
+    up, dn = T.design.get("elevon_up_deg", 8.0), T.design.get("elevon_down_deg", 8.0)
     # CL(alpha) with linear lift to a gentle stall at 0.9*section CLmax
     clmax = 0.9 * A("clmax_section")
     rows_cl, rows_cd = [], []
@@ -76,9 +94,12 @@ def build(T=None):
  <flight_control name="zb_fcs">
   <channel name="all">
    <fcs_function name="fcs/throttle-pos-norm"><function><property>fcs/throttle-cmd-norm</property></function></fcs_function>
-   <fcs_function name="fcs/elevon-sym-deg"><function><product>
-     <sum><property>fcs/elevator-cmd-norm</property><property>fcs/pitch-trim-cmd-norm</property></sum><value>8.0</value></product></function></fcs_function>
-   <fcs_function name="fcs/elevon-diff-deg"><function><product><property>fcs/aileron-cmd-norm</property><value>8.0</value></product></function></fcs_function>
+   <fcs_function name="fcs/elevon-sym-deg"><function><ifthen>
+     <lt><sum><property>fcs/elevator-cmd-norm</property><property>fcs/pitch-trim-cmd-norm</property></sum><value>0</value></lt>
+     <product><sum><property>fcs/elevator-cmd-norm</property><property>fcs/pitch-trim-cmd-norm</property></sum><value>{up:.1f}</value></product>
+     <product><sum><property>fcs/elevator-cmd-norm</property><property>fcs/pitch-trim-cmd-norm</property></sum><value>{dn:.1f}</value></product>
+   </ifthen></function></fcs_function>
+   <fcs_function name="fcs/elevon-diff-deg"><function><product><property>fcs/aileron-cmd-norm</property><value>{dn:.1f}</value></product></function></fcs_function>
   </channel>
  </flight_control>
  <aerodynamics>
@@ -103,16 +124,16 @@ def build(T=None):
     <product><property>fcs/elevon-sym-deg</property><value>{T.Cmde:.6f}</value></product>
     <product><property>velocities/q-aero-rad_sec</property><property>aero/ci2vel</property><value>-1.2</value></product></sum></function>
   <!-- lateral-directional: UNCALIBRATED estimates carried over from zb_wing.xml, except Cl_da from VLM -->
-  <function name="aero/coefficient/CY"><product><property>aero/beta-deg</property><value>-0.004</value></product></function>
+  <function name="aero/coefficient/CY"><product><property>aero/beta-deg</property><value>{CYb:.6f}</value></product></function>
   <function name="aero/coefficient/Cl"><sum>
-    <product><property>aero/beta-deg</property><value>-0.0015</value></product>
+    <product><property>aero/beta-deg</property><value>{Clb:.6f}</value></product>
     <product><property>velocities/p-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.40</value></product>
     <product><property>velocities/r-aero-rad_sec</property><property>aero/bi2vel</property><value>0.08</value></product>
     <product><property>fcs/elevon-diff-deg</property><value>{T.d["Clda_per_deg"] * A("flap_knockdown"):.6f}</value></product></sum></function>
   <function name="aero/coefficient/Cn"><sum>
-    <product><property>aero/beta-deg</property><value>0.0012</value></product>
+    <product><property>aero/beta-deg</property><value>{Cnb:.6f}</value></product>
     <product><property>velocities/p-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.06</value></product>
-    <product><property>velocities/r-aero-rad_sec</property><property>aero/bi2vel</property><value>-0.15</value></product>
+    <product><property>velocities/r-aero-rad_sec</property><property>aero/bi2vel</property><value>{Cnr:.4f}</value></product>
     <product><property>fcs/elevon-diff-deg</property><value>-0.00035</value></product></sum></function>
   <axis name="DRAG"><function name="aero/f/drag"><product><property>aero/qbar-area</property><property>aero/coefficient/CD</property></product></function></axis>
   <axis name="SIDE"><function name="aero/f/side"><product><property>aero/qbar-area</property><property>aero/coefficient/CY</property></product></function></axis>
