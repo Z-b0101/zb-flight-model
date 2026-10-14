@@ -1,0 +1,316 @@
+<title>Z!B Program Status</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: status board. Hero row = wing plan view + weight gauge; then four answer tiles, a three-state proof ledger, and a dated track. */
+:root {
+  --bg: #e9eeee;          /* drafting-film grey-green */
+  --panel: #f6f8f8;
+  --ink: #142027;         /* deep blueprint ink */
+  --muted: #4f5f66;
+  --line: #c4ced0;
+  --accent: #1d5e7a;      /* instrument teal-blue */
+  --wing: #cddde3;
+  --ok: #22704a;   --ok-bg: #dcefe3;
+  --hw: #8a5a00;   --hw-bg: #f6e7c4;
+  --fix: #a2401f;  --fix-bg: #f6ddd2;
+  --f-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10181c; --panel: #172228; --ink: #e3ebec; --muted: #9aabb1; --line: #2c3c43;
+    --accent: #6fb6d3; --wing: #23404c;
+    --ok: #7fd3a4; --ok-bg: #173527; --hw: #e9bf62; --hw-bg: #3a2e12; --fix: #f0957a; --fix-bg: #3e2219;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10181c; --panel: #172228; --ink: #e3ebec; --muted: #9aabb1; --line: #2c3c43;
+  --accent: #6fb6d3; --wing: #23404c;
+  --ok: #7fd3a4; --ok-bg: #173527; --hw: #e9bf62; --hw-bg: #3a2e12; --fix: #f0957a; --fix-bg: #3e2219;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 1rem; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 1.5rem 2.5rem;
+}
+.wrap { max-width: 68rem; margin: 0 auto; display: grid; gap: 2.25rem; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; line-height: 1.15; }
+h2 { font-size: 1.45rem; font-weight: 600; }
+h3 { font-size: 1.12rem; font-weight: 600; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-data); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+/* masthead */
+.mast { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .75rem 2rem; border-bottom: 2px solid var(--ink); padding-bottom: .75rem; }
+.mast h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -.01em; }
+.mast h1 span { color: var(--accent); }
+.mast .stamp { font-family: var(--f-data); font-size: .8rem; color: var(--muted); text-align: right; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 1.5rem; align-items: stretch; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem; min-width: 0; }
+.plan { display: grid; gap: .75rem; }
+.plan svg { width: 100%; height: auto; display: block; }
+.plan .caption { color: var(--muted); max-width: 60ch; }
+.gauge { display: grid; gap: 1rem; align-content: start; }
+.big { font-family: var(--f-display); font-weight: 700; font-size: 3.4rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.big small { font-size: 1.3rem; font-weight: 500; color: var(--muted); }
+.bar { position: relative; height: 2.4rem; margin-top: 1.6rem; margin-bottom: 1.6rem; }
+.bar .track { position: absolute; inset: 0; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); }
+.bar .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 84.8%; background: var(--accent); border-radius: 3px 0 0 3px; }
+.bar .margin { position: absolute; left: 84.8%; right: 0; top: 0; bottom: 0;
+  background: repeating-linear-gradient(135deg, var(--ok-bg) 0 6px, transparent 6px 12px); border-left: 1px solid var(--ok); }
+.bar .legal { position: absolute; right: -1px; top: -.6rem; bottom: -.6rem; border-right: 3px solid var(--fix); }
+.bar .lbl { position: absolute; font-family: var(--f-data); font-size: .75rem; white-space: nowrap; color: var(--muted); }
+.bar .lbl.top { top: -1.55rem; }
+.bar .lbl.bot { bottom: -1.55rem; }
+.bar .l212 { left: 0; color: var(--ink); }
+.bar .l250 { right: 0; color: var(--fix); }
+.bar .l38 { right: 0; color: var(--ok); }
+.gauge .note { color: var(--muted); font-size: .95rem; }
+.legalbox { border-top: 1px solid var(--line); padding-top: .85rem; font-size: .95rem; }
+
+/* answers */
+.answers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.ans { display: grid; grid-template-rows: auto auto 1fr auto; gap: .45rem; padding: 1rem 1.1rem; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; min-width: 0; }
+.ans .q { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; color: var(--muted); }
+.ans .a { font-family: var(--f-display); font-weight: 700; font-size: 1.75rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ans .d { font-size: .95rem; }
+.ans .basis { font-family: var(--f-data); font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); border-top: 1px dashed var(--line); padding-top: .45rem; }
+.ans.up .a { color: var(--accent); }
+
+/* status */
+.legend { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pill { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--f-data); font-size: .74rem; font-weight: 500; letter-spacing: .03em; padding: .22rem .6rem; border-radius: 999px; white-space: nowrap; }
+.pill::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; }
+.pill.ok { color: var(--ok); background: var(--ok-bg); }
+.pill.hw { color: var(--hw); background: var(--hw-bg); }
+.pill.hw::before { background: transparent; border: 2px solid currentColor; }
+.pill.fix { color: var(--fix); background: var(--fix-bg); }
+.pill.fix::before { border-radius: 1px; transform: rotate(45deg); }
+.status { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.col { display: grid; gap: .8rem; align-content: start; padding: 1.1rem; border: 1px solid var(--line); border-top-width: 4px; border-radius: 6px; background: var(--panel); min-width: 0; }
+.col.ok { border-top-color: var(--ok); }
+.col.hw { border-top-color: var(--hw); }
+.col.fix { border-top-color: var(--fix); }
+.col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+.col li { padding-left: 1rem; position: relative; }
+.col li::before { content: ""; position: absolute; left: 0; top: .65em; width: .45rem; height: 1px; background: var(--muted); }
+.col .callout { font-size: .95rem; background: var(--bg); border-radius: 4px; padding: .6rem .75rem; }
+.col .callout b { font-variant-numeric: tabular-nums; }
+.swing { display: grid; gap: .3rem; }
+.swing svg { width: 100%; height: auto; display: block; }
+
+/* timeline */
+.track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: .55rem; border-top: 2px solid var(--line); }
+.track li { position: relative; padding: 1.75rem 1rem 0 0; display: grid; gap: .3rem; align-content: start; min-width: 0; }
+.track li::before { content: ""; position: absolute; top: 0; left: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--muted); }
+.track li.done::before { background: var(--ok); border-color: var(--ok); }
+.track li.next::before { border-style: dashed; }
+.track .when { font-family: var(--f-data); font-size: .8rem; color: var(--accent); font-weight: 500; }
+.track .what { font-size: .97rem; }
+.track .gate { font-size: .88rem; color: var(--muted); }
+
+.sec { display: grid; gap: 1rem; }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; }
+
+footer { border-top: 1px solid var(--line); padding-top: .9rem; font-family: var(--f-data); font-size: .78rem; color: var(--muted); max-width: 75ch; }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .answers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .status { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .answers { grid-template-columns: minmax(0, 1fr); }
+  .track { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
+  .track::before { left: .5rem; right: auto; top: .5rem; bottom: .5rem; border-top: 0; border-left: 2px solid var(--line); }
+  .track li { padding: 0 0 0 2rem; }
+  .big { font-size: 2.8rem; }
+  .mast .stamp { text-align: left; }
+}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Program status board</div>
+      <h1>Z<span>!</span>B flying wing</h1>
+    </div>
+    <div class="stamp">As of 14 Oct 2026, 06:00 PT</div>
+  </header>
+
+  <section class="hero" aria-label="The aircraft">
+    <div class="panel plan">
+      <div class="eyebrow">The aircraft, seen from above</div>
+      <svg viewBox="0 0 600 340" role="img" aria-labelledby="wing-t">
+        <title id="wing-t">Top view of the Z!B flying wing: 0.90 m span, 0.20 m chord, wings swept back 25 degrees, with a small pusher propeller at the rear centre.</title>
+        <!-- centre line -->
+        <line x1="300" y1="8" x2="300" y2="200" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+        <!-- wing: 1 m = 600 px; half-span 270 px; chord 120 px; LE sweep offset 270*tan25 = 126 px -->
+        <polygon points="300,24 570,150 570,270 300,144 30,270 30,150"
+                 fill="var(--wing)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+        <!-- pusher propeller -->
+        <rect x="296" y="140" width="8" height="14" rx="2" fill="var(--ink)"/>
+        <rect x="276" y="154" width="48" height="5" rx="2.5" fill="var(--accent)"/>
+        <circle cx="300" cy="156.5" r="3.5" fill="var(--ink)"/>
+        <text x="332" y="166" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)">pusher propeller</text>
+        <!-- sweep angle -->
+        <line x1="300" y1="24" x2="430" y2="24" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <path d="M 380 24 A 80 80 0 0 1 372.5 57.8" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+        <text x="392" y="48" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--accent)">25° sweep</text>
+        <!-- chord dimension at right tip -->
+        <line x1="584" y1="150" x2="584" y2="270" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <line x1="578" y1="150" x2="590" y2="150" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <line x1="578" y1="270" x2="590" y2="270" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <text x="562" y="215" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--ink)" text-anchor="end">0.20 m</text>
+        <text x="562" y="231" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)" text-anchor="end">chord</text>
+        <!-- span dimension -->
+        <line x1="30" y1="300" x2="570" y2="300" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <line x1="30" y1="292" x2="30" y2="308" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <line x1="570" y1="292" x2="570" y2="308" stroke="var(--muted)" stroke-width="1" fill="none"/>
+        <rect x="236" y="290" width="128" height="20" fill="var(--panel)"/>
+        <text x="300" y="305" font-family="IBM Plex Mono, monospace" font-size="14" fill="var(--ink)" text-anchor="middle">0.90 m span</text>
+        <text x="300" y="332" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)" text-anchor="middle">flight direction: up the page</text>
+      </svg>
+      <p class="caption">A single swept wing with no tail. The propeller sits at the back and pushes.</p>
+    </div>
+
+    <div class="panel gauge">
+      <div class="eyebrow">Planned weight vs the legal line</div>
+      <div class="big">212<small> g of 250 g</small></div>
+      <div class="bar" role="img" aria-label="212 grams planned against a 250 gram legal limit, leaving a 38 gram margin">
+        <div class="track"></div>
+        <div class="fill"></div>
+        <div class="margin"></div>
+        <div class="legal"></div>
+        <span class="lbl bot l212">212 g planned</span>
+        <span class="lbl top l250">250 g line</span>
+        <span class="lbl bot l38">38 g margin</span>
+      </div>
+      <p class="note">Modeled weight. It will be confirmed at the first weigh-in.</p>
+      <p class="legalbox">Below 250 g, recreational flight needs no FAA registration and no Remote ID.</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="ans-h">
+    <div class="sec-head"><h2 id="ans-h">The short answers</h2></div>
+    <div class="answers">
+      <article class="ans">
+        <div class="q">Under 250 g?</div>
+        <div class="a">Yes, 212 g</div>
+        <p class="d">A 38 g margin below the legal line.</p>
+        <div class="basis">Modeled · confirmed at first weigh-in</div>
+      </article>
+      <article class="ans">
+        <div class="q">Stable?</div>
+        <div class="a">Yes</div>
+        <p class="d">A 7% static margin. When a gust knocks it, the wobble dies out on its own.</p>
+        <div class="basis">In simulation</div>
+      </article>
+      <article class="ans">
+        <div class="q">How far, how long?</div>
+        <div class="a">~26 km<br>~60 min</div>
+        <p class="d">On one 650 mAh battery.</p>
+        <div class="basis">Modeled · two inputs still untested</div>
+      </article>
+      <article class="ans up">
+        <div class="q">Upside</div>
+        <div class="a">About +15% range</div>
+        <p class="d">A 750 mAh battery adds 10 g. It is the best trade on record.</p>
+        <div class="basis">Best trade on record</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="st-h">
+    <div class="sec-head">
+      <h2 id="st-h">What is proven, and what is not yet</h2>
+      <div class="legend" aria-hidden="true">
+        <span class="pill ok">Checked in simulation</span>
+        <span class="pill hw">Needs hardware</span>
+        <span class="pill fix">Found &amp; fixing</span>
+      </div>
+    </div>
+    <div class="status">
+      <div class="col ok">
+        <span class="pill ok">Checked in simulation</span>
+        <h3>Checked two independent ways</h3>
+        <ul>
+          <li>Shape</li>
+          <li>Stability</li>
+          <li>Trim (how it balances in steady flight)</li>
+          <li>Range, compared like for like</li>
+        </ul>
+        <p class="callout">The digital twin matched the design baseline on <b>5 of 5</b> checks.</p>
+      </div>
+      <div class="col hw">
+        <span class="pill hw">Needs hardware</span>
+        <h3>Waiting on real parts</h3>
+        <ul>
+          <li>Real airframe weight <span class="mono">· coupon test</span></li>
+          <li>Motor and propeller efficiency <span class="mono">· bench test</span></li>
+          <li>Electronics power draw <span class="mono">· bench test</span></li>
+          <li>How it handles in the air <span class="mono">· first flight</span></li>
+        </ul>
+        <div class="callout swing">
+          <span>Electronics power draw is the biggest swing. The 26 km figure budgets 1 W for the electronics; every watt saved moves range toward the <b>~31 km</b> ceiling, which is what the wing alone could fly with zero electronics load.</span>
+          <svg viewBox="0 0 300 44" role="img" aria-label="Range from about 26 km with 1 W of electronics up to a 31 km ceiling with none">
+            <line x1="20" y1="18" x2="280" y2="18" stroke="var(--line)" stroke-width="2" fill="none"/>
+            <rect x="20" y="10" width="260" height="16" rx="8" fill="var(--hw-bg)" stroke="var(--hw)" stroke-width="1.5"/>
+            <circle cx="20" cy="18" r="5" fill="var(--hw)"/>
+            <circle cx="280" cy="18" r="5" fill="var(--hw)"/>
+            <text x="20" y="40" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink)" text-anchor="start">~26 km</text>
+            <text x="280" y="40" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink)" text-anchor="end">~31 km ceiling</text>
+          </svg>
+        </div>
+      </div>
+      <div class="col fix">
+        <span class="pill fix">Found &amp; fixing</span>
+        <h3>Centre joint for the main spar</h3>
+        <ul>
+          <li>The swept main spar needs a joint where the two wing halves meet.</li>
+          <li>A printed sleeve of about 2–3 g solves it.</li>
+        </ul>
+        <p class="callout">The sleeve fits inside the 38 g weight margin.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="tl-h">
+    <div class="sec-head"><h2 id="tl-h">Timeline</h2></div>
+    <ol class="track">
+      <li class="done">
+        <span class="when">Tonight</span>
+        <span class="what">Digital twin built and verified.</span>
+      </li>
+      <li>
+        <span class="when">Oct 16</span>
+        <span class="what">Weight and balance, and drag, reconciled and closed.</span>
+      </li>
+      <li>
+        <span class="when">Oct 17</span>
+        <span class="what">Airframe recommendation, visible to investors.</span>
+        <span class="gate">Ships on time with its caveats stated, rather than slipping.</span>
+      </li>
+      <li class="next">
+        <span class="when">Next</span>
+        <span class="what">Coupon test, then electronics bench test, then prototype authorization.</span>
+        <span class="gate">No major hardware spend before authorization.</span>
+      </li>
+    </ol>
+  </section>
+
+  <footer>Every number traces to one controlled design file; assumptions are labeled. Status as of 14 Oct 2026, 06:00 PT.</footer>
+</div>
