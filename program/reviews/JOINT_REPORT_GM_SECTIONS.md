@@ -29,7 +29,9 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 | Range/endurance, operational (1 W hotel load) | **26.3 km at 10.5 m/s, or ~60 min at 7.1 m/s** | 6-DOF JSBSim + derate fit | modeled |
 
 **Open**
+
 - CE-01 mass: 204.3 g (budget) vs 209.0 g (CAD). We plan on **209.0 g** until weigh-in. Both leave ≥41 g margin to the 250 g cap.
+
 - CE-01 drag: e 0.896 (VLM) vs 0.78 (hand estimate), and trimmed L/D 8.8 (twin) vs 8.3 (record). Owner: Claude; MBSE reviews.
 - The 116 mm CG is retired per DESIGN_CLOSURE item 2. It should not reopen.
 - Wing CLmax (0.9 × section) and the viscous elevon knockdown (0.75) are assumptions until flight test.
@@ -54,6 +56,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 - Energy model: P_elec = P_shaft/η + P_hotel, with η = min(0.55, 0.20 + 0.0875·P_shaft). At best-range cruise (10.5 m/s): P_shaft ≈ 4.0 W, η ≈ 0.55, battery ≈ 8.2 W. At best-endurance (7.1 m/s): P_shaft ≈ 1.6 W, η ≈ 0.34, battery ≈ 5.8 W. Note that the derate fit rewards higher shaft power, which is part of why best-range speed lands high. This is one more reason to pin η on the wattmeter.
 
 **Open (UNCALIBRATED inputs)**
+
 - Hotel load: 1 W is a placeholder. It is the single largest range lever: going from 0 W to 1 W takes 30.6 km down to 26.3 km. The measurement plan is ready (HOTEL_LOAD_PLAN.md, M5 duty-cycle test).
 - Propulsion derate fit and 3S discharge curve: wattmeter bench test (R-07).
 - R-10 (5 V rail capacity), R-11 (compass EMI → GPS mast, S-2), R-08 (pusher cooling): bench checks.
@@ -63,13 +66,17 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 ## 3. Mechanical (structures, airframe, coupon test)
 
 **Figured out**
+
 - Construction: 3 mm Depron skins, 4 mm carbon tube spar at 30% chord, 8 vase-mode printed ribs, plain-flap elevons hinged at 75% chord (params.json).
 - Spar bending, uniform-lift root moment (conservative versus elliptic), at 209 g: **margin 4.5× at 2.5 g, 2.8× at 4 g**. Basis: E 120 GPa and an allowable of 600 MPa (both assumed literature values) and a 3 mm ID (assumed). Status: modeled.
+
 - Tip deflection, cantilever half-spar along the 25° swept line: ~15 mm at 1 g, ~38 mm at 2.5 g. Status: modeled. Watch item for elevon binding and twist under load.
 - Battery: 28×64×20 mm pack spanwise in a hatch (R-17 resolved in DESIGN_CLOSURE; clash check passes).
 
 **Open, including one new finding**
+
 - **NEW: the swept spar is a V.** CAD (`build_spar_tris`) builds two straight tubes meeting at the centre, about 130° included angle. There is **no root joiner designed, weighed or analysed**, and the root is exactly where the bending moment peaks. The two halves also total about 0.99 m of tube against 0.90 m budgeted (+0.8 g). I'm raising this as a Gate 1 mechanical item: joiner concept (printed or carbon sleeve), plus its mass and a root bending check. Owner: Claude, with the manufacturing engineering phase 1 DFM review (#6).
+
 - RQ-04 coupon test (rib + Depron + glue joint, carbon bend coupon) gates the hybrid construction, E/allowable, and the airframe mass model. Risks R-01 to R-04 (twist during skinning, Depron crash damage, rib fit, LW-PLA) stay open until the coupon and test rib are done.
 - Weight is energy-limited, not weight-limited: the 750 mAh battery upsize (S-1, +10 g) is the best range-per-gram trade on record.
 
@@ -78,7 +85,9 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
 ## 4. Simulation-execution (JSBSim model, SITL path, twin)
 
 **Figured out**
+
 - **Twin pipeline (params-driven):** params.json → `twin/vlm.py` (VLM) → `twin/perf.py` (trim, mission; assumption ledger with a status per input) → `twin/gen_jsbsim.py` (generated JSBSim aircraft) → `twin/fly.py`, `twin/mission_sim.py` (6-DOF). JSBSim 1.2.1 is built from source.
+
 - 6-DOF results at best-range trim (10.5 m/s, α 0.6°, δe −3.2°):
   - 90 s hands-off cruise holds speed and altitude within 0.1 m
   - 1° elevon step: stable. The pitch rate peaks at 19°/s and the oscillation decays (phugoid still settling at 20 s, residual 1.3°/s).
@@ -98,6 +107,7 @@ Configuration: `cad/params.json` design hash `7be168427b4d`. Twin source: branch
   - The propulsion derate was evaluated at the wrong power. It had overstated range at 34 km. Fixed to the program definition.
 
 **Open**
+
 - ArduPlane SITL in the loop: not attempted tonight. The path is documented (zb_model/jsbsim/README: SIM_JSBSim backend, same Plane-4.7.1 firmware). Next step after the report.
 - Lateral-directional derivatives (except roll control power) carry over as estimates. These are UNCALIBRATED.
 - Turns, wind and gusts are not yet flown; the open-loop twin flies straight-line profiles only until SITL closes the loop.
