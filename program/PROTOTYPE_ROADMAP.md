@@ -1,7 +1,7 @@
 # Prototype roadmap: from frozen design to a flying, sub-250 g prototype
 
 **Owner:** Claude (GM). **Reviewer:** Oubi (MBSE). **Decision authority:** CEO.  
-**Status:** DRAFT v0.1.1, 2026-10-14 (CEO decisions folded in), for MBSE feedback.  
+**Status:** v0.2, 2026-10-14. MBSE review folded in (Oubi, 09:54 PT; change log at the end). CEO decisions D-23 to D-28 folded in.  
 **Asked for by:** CEO, 09:28 PT 2026-10-14, after the investor meeting ("investors are waiting for a prototype").  
 **Configuration:** `cad/params.json` design hash `7be168427b4d`; twin frozen at `freeze/report-2026-10-14` @1883c1c.  
 **Ground rules from the CEO (2026-10-14):** no date was given by investors, so this plans to the fastest *credible* date and shows what each week buys. **Gate 4 stays as is:** no flight article is built before Gate 4 authorization.  
@@ -35,7 +35,7 @@ So this roadmap separates two kinds of spend:
 - **Calibration buy (before Gate 4):** test articles that retire named uncertainties ("model before money", D-15). The bench avionics are reused in the flight article, so nothing is wasted.
 - **Flight-article commitment (Gate 4):** the decision to build and fly. Gate 4 is unchanged.
 
-The calibration buy is a **CEO money decision**. This roadmap recommends it and does not assume it.
+The calibration buy is a **CEO money decision**, now inside the GM's $500 authority (D-23). The class is defined in **D-29**: test articles only, the hardware stays a bench article, and **no airframe is built before Gate 4**.
 
 ## 3. Costed buy list (prices verified 2026-10-12 in BUDGET.md; re-verify at order)
 
@@ -67,12 +67,14 @@ Dates assume the calibration buy is ordered by Fri Oct 16 (CEO places the order 
 |---|---|---|---|
 | Parts arrive; weigh every part on receipt (R-05, R-06) | Builder | Tue–Wed Oct 20–21 | As-built mass sheet, first real rows |
 | **Coupon test** (RQ-04): Depron sheet weight, test rib print + fit (R-03), glue-joint peel, carbon bend coupon, **one joiner sample** | Builder runs the card; Claude reduces the data | Wed–Thu Oct 21–22 (overnight cure) | MATERIALS.md + twin ledger: E, allowable, glue, rib mass become `measured` |
-| Gate 2 credibility package | Oubi leads; Claude supports | Fri Oct 23 | Traceability, independent checks, sensitivity |
+| Gate 2 credibility package (runs before CDR per D-30a; claims labeled pre-bench vs post-bench) | Oubi leads; Claude supports | Fri Oct 23 | Traceability, independent checks, sensitivity; depends on CE-01/CE-02 closing Oct 16 |
 | **Bench session B3:** motor/prop wattmeter (R-07), **hotel load M5**, **3S discharge curve**, 5 V rail (R-10), compass EMI (R-11), pusher cooling (R-08), RC link via encoder (R-09), servo throw vs ±8° | Builder runs; Claude writes the cards and reduces the data | Mon–Tue Oct 26–27 | The three biggest unknowns (η, hotel load, usable energy) become measured |
-| **Twin re-run on measured values**; range/endurance re-issued; L1→L2 promotion begins | Claude; Oubi verifies | Tue Oct 27 | New range numbers, labeled measured vs assumed |
+| **Twin re-run on measured values**; range/endurance re-issued (still L1, calibrated inputs; L2 comes only from flight data) | Claude; Oubi verifies | Tue Oct 27 | New range numbers, labeled measured vs assumed |
 | CDR | CEO go/no-go; package by Claude + Oubi | Wed Oct 28 | CDR record |
-| Gate 3 package | Oubi leads | Thu Oct 29 | Calibrated parameters |
-| **Gate 4: prototype authorization** | **CEO** | **Fri Oct 30** | Build authorization (Class D); order buy B |
+| Gate 3 package (exit adds: construction fallback named and assessed, VC-35) | Oubi leads | Thu Oct 29 | Calibrated parameters |
+| **Gate 4: prototype authorization** (exit names the spar joiner design + root bending check, VC-34, and control authority, VC-29) | **CEO** | **Fri Oct 30** | Build authorization (Class D); order buy B |
+
+**Gate failure rule (D-30c).** CDR, Gate 3 and Gate 4 sit in one week with one day of slack. If any of them fails to enter or exit cleanly, all three slip day for day, with no same-week re-entry. A bench slip moves Gate 3 and Gate 4 day for day. **CEO availability is needed on Wed Oct 28 (CDR) and Fri Oct 30 (Gate 4).**
 
 ### Phase 2: Build (Mon Nov 2 – Fri Nov 6), physical
 | Item | Target | Notes |
@@ -86,7 +88,7 @@ Dates assume the calibration buy is ordered by Fri Oct 16 (CEO places the order 
 ### Phase 3: Fly (Mon Nov 9 – Fri Nov 20), physical
 | Item | Target | Notes |
 |---|---|---|
-| Gate 5 readiness review: test cards, site, weather, crash plan | Mon Nov 9 | Foam for two airframes is in buy A (R-02); a rebuild takes about 1–2 days |
+| Gate 5 readiness review: pilot (CEO), site, wind/visibility limits, abort criteria, crash plan (VC-36); radio-loss failsafe verified (VC-28); flight params traced to the SITL tune (VC-37); as-built CG in band (VC-30) | Mon Nov 9 | Foam for two airframes is in buy A (R-02); a rebuild takes about 1–2 days |
 | **Maiden flight**: hand launch, FBWA, manual landing | **Tue–Fri Nov 10–13** | Weather window; angle mode from the maiden (RQ-23) |
 | Flight campaign: 10 autonomous flights incl. RTL; logs ingested | through Fri Nov 20 | Twin calibrated against flight data (**L2**); range claim confirmed or corrected |
 
@@ -132,5 +134,12 @@ Still open: Gmail cutoff for Y3k, two-factor sign-in, GitHub Team upgrade (by Oc
 
 - The 250 g cap (RQ-01) is inviolable.
 - Gate 4 governs the build/fly decision.
-- No gate consumes a model above its maturity: the twin is L1 until the bench data, L2 after flight.
+- No gate consumes a model above its maturity: the twin stays L1 through the bench (re-issued on measured inputs) and becomes L2 only from flight data.
 - Every number traces to params.json or the assumption ledger.
+
+## Change log
+| Version | Date | Change | Source |
+|---|---|---|---|
+| v0.2 | 2026-10-14 | Calibration-buy class written down (D-29). Gate register re-baselined: Gate 2 may precede CDR; CDR exit = flight-article go/no-go; triad failure rule; CEO availability Oct 28/30 (D-30). Maturity language fixed: bench data re-issues L1, L2 only from flight. Ten verification rows added (VC-28 to VC-37): failsafe, control authority, as-built CG, hatch retention, discharge curve, hotel-load owner, spar joiner, construction fallback, Gate 5 entry, flight-param provenance. Gate 3/4/5 exits name them | MBSE review, Oubi, 09:54 PT (all five findings **adopted**) |
+| v0.1.1 | 2026-10-14 | CEO decisions D-23 to D-28; cart cost $218 | CEO, 10:35 PT |
+| v0.1 | 2026-10-14 | First draft | CEO ask, 09:28 PT |

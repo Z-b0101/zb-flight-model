@@ -25,7 +25,7 @@ Evidence artifacts: `cad/` = CAD + clash check · `twin` = z-b-digital-twin (L1)
 | VC-12 | RQ-10 | CAD + aero sim for design optimization | E | M — aero_opt/lifting_line.py, glauert.py | Optimization run completed; results documented vs objectives | Partial | IN WORK (coordinator) |
 | VC-13 | RQ-11 | ≥4 criticism rounds/node; ≥12 iters @ 11/12 for complex | E | I — DEV_TRACKER §3 criticism records | Every D-xxx carries its round/iteration log | Partial | **FLAGGED — "complex" undefined; see §A** |
 | VC-14 | RQ-12 | Only GitHub-referenceable logic behind flight/monitor/sim/math | E | A — GITHUB_TRACEABILITY.md audit | zb-flight-model repo published; 100% claim-units BACKED or with retirement owner | Partial | IN WORK — 55/40/5; repo NOT published (AI-03) |
-| VC-15 | RQ-13 | Perfect the twin before prototype spend | E | I — gate records | No prototype spend before CDR exit | None | **FLAGGED — "perfect" unmeasurable; see §A** |
+| VC-15 | RQ-13 | Perfect the twin before prototype spend | E | I — gate records | No flight-article commitment before Gate 4; calibration buys per D-29 only | None | **FLAGGED — "perfect" unmeasurable; see §A** |
 | VC-16 | RQ-14 | TDR + CDR gates with CEO pings | E | I — gate records + chat pings | TDR actions closed; CDR held; pings delivered by GM | Full (planned) | OPEN — TDR pending CEO review |
 | VC-17 | RQ-15 | Platform vs instance decisions tracked separately | E | I — DEV_TRACKER §3 tag audit | Every D-xxx tagged platform or instance | Full (planned) | OPEN — locked; tag sweep not yet done |
 | VC-18 | RQ-16 | Reach for help when needing guidance | E | I — guidance-request log at integration review | — | None | **FLAGGED — behavior norm; see §A** |
@@ -38,6 +38,16 @@ Evidence artifacts: `cad/` = CAD + clash check · `twin` = z-b-digital-twin (L1)
 | VC-25 | RQ-23 | Angle mode from the maiden (mode named) | E | T — SITL + maiden log | Maiden flown in FBWA (logged); TECS only in auto-throttle modes | Full (planned) | OPEN |
 | VC-26 | RQ-24 | Document every aspect (DEV_TRACKER) | E | I — integration-review audit of tracker | Maintenance protocol followed; append-only; no rewrites | Full (ongoing) | IN WORK / ongoing |
 | VC-27 | RQ-25 | Coupon test (CEO action item) | E | T — CEO bench | Sheet weighed; rib printed; glue joints pull-tested; logged | Full (planned) | OPEN — CEO-owned (AI-01) |
+| VC-28 | RQ-23 | Loss-of-radio failsafe (AI-16): RTL engages and loiters; manual takeover procedure defined (autoland absent from hwdef, AI-13) | E | T — SITL + bench | RX-loss → RTL in SITL and on the bench; takeover procedure written into Gate 5 cards | Full (planned) | OPEN — Gate 5 entry |
+| VC-29 | RQ-09 | Elevon control authority: measured servo throw vs the ±8° assumed limit | E | T — bench B3 | Measured travel ≥ ±8° each side, symmetric within 1° | Full (planned) | OPEN — Gate 4 "control authority" evidence |
+| VC-30 | RQ-01 | As-built CG within the SM band (design 128.5 mm, R-15) | E | T — pre-maiden balance | CG within the agreed SM band at weigh-in | Full (planned) | OPEN — pre-Gate-5 |
+| VC-31 | RQ-08 | Battery hatch retention (R-17 rescoped) | E | T — pull/shake test | Battery retained under the agreed pull load; hatch stays closed | Full (planned) | OPEN — Gate 4/5 evidence |
+| VC-32 | RQ-13 | Measured 3S discharge curve of the actual flight pack; replaces the reference curve in the twin ledger | E | T — bench B3 | Curve logged; ledger row flips to measured | Full (planned) | OPEN — CDR entry |
+| VC-33 | RQ-03 | Hotel-load measurement (M5 duty cycle). **Owner: GM (Claude); executor: CEO at the bench** — closes appendix gap #3 | E | T — bench B3 | M5 measured; HOTEL_LOAD_PLAN decision rule applied | Full (planned) | OPEN — CDR entry |
+| VC-34 | RQ-04 | Spar V-joiner design + root bending check | E | A + T — MfgE M2 + coupon joiner sample | Joiner designed, weighed, root moment margin ≥ 1.5 at 4 g on measured allowables | Full (planned) | OPEN — Gate 4 "closed interfaces" |
+| VC-35 | RQ-04 | Construction fallback named and assessed (if the coupon fails) | E | A — MfgE M1 | Fallback named with mass and schedule impact, by Oct 16 | Full (planned) | OPEN — Gate 3 exit addition |
+| VC-36 | RQ-23 | Gate 5 entry: pilot, site, wind/visibility limits, abort criteria, crash plan | E | I — readiness review | All five named in the Gate 5 record (pilot = CEO, D-27) | Full (planned) | OPEN — Gate 5 entry |
+| VC-37 | RQ-12 | Flight-parameter provenance: ArduPlane params traced to the SITL tune and reviewed | E | I — param file diff vs SITL record | Every non-default param traced; MBSE review recorded | Full (planned) | OPEN — Gate 5 entry |
 | — | RQ-26 | Spending-authority thresholds | — | — | — | — | **NOT YET A REQUIREMENT — proposed, needs CEO ratification (AI-04)** |
 
 ## §A — Verifiability audit (4-round criticism on the RQ set, per RQ-11)
