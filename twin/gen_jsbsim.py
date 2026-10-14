@@ -26,9 +26,12 @@ def build(T=None):
         if cl > clmax:  # gentle post-stall droop (MH60 TE stall), ASSUMED shape
             cl = clmax - 0.02 * (cl - clmax) / T.CLa
         rows_cl.append(f"      {a:.1f} {cl:.5f}")
+
+    # drag polar as a function of the ACTUAL CL (incl. elevon lift), not alpha:
+    for i in range(-10, 23):
+        cl = i * 0.05
         cd = cd_profile(abs(cl)) + A("cd_misc") + cl * cl / (math.pi * T.AR * T.d["oswald_e"])
-        if a > 12: cd += 0.01 * (a - 12)
-        rows_cd.append(f"      {a:.1f} {cd:.5f}")
+        rows_cd.append(f"      {cl:.3f} {cd:.5f}")
     rows_cl, rows_cd = "\n".join(rows_cl), "\n".join(rows_cd)
     # inertia: thin-plate estimate for structure + point masses lumped at CG (ASSUMED)
     Ixx = m * b * b / 12 * 0.55
@@ -85,11 +88,15 @@ def build(T=None):
     </tableData></table>
     <product><property>fcs/elevon-sym-deg</property><value>{T.CLde:.5f}</value></product></sum></function>
   <function name="aero/coefficient/CD"><sum>
-    <table><independentVar lookup="row">aero/alpha-deg</independentVar><tableData>
+    <table><independentVar lookup="row">aero/coefficient/CL</independentVar><tableData>
 {rows_cd}
     </tableData></table>
     <product><property>fcs/elevon-sym-deg</property><property>fcs/elevon-sym-deg</property><value>1.3e-4</value></product>
-    <product><property>aero/beta-rad</property><property>aero/beta-rad</property><value>0.3</value></product></sum></function>
+    <product><property>aero/beta-rad</property><property>aero/beta-rad</property><value>0.3</value></product>
+    <table><independentVar lookup="row">aero/alpha-deg</independentVar><tableData>
+      12.0 0.0
+      20.0 0.08
+    </tableData></table></sum></function>
   <function name="aero/coefficient/Cm"><sum>
     <value>{T.Cm0:.5f}</value>
     <product><property>aero/alpha-deg</property><value>{T.Cma:.6f}</value></product>
