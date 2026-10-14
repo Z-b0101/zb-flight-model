@@ -1,9 +1,13 @@
 # Z!B CODEOWNERS — review routing for zb-flight-model
+# Updated 2026-10-14 for the CEO re-org: Claude absorbs the former CE scope;
+# Oubi (MBSE) owns the program record. Branch protection is not enforceable
+# on the current plan, so routing is advisory and PR review runs by convention.
 
-# Chief Engineer (Y3k): flight physics, sim backend, mass & CG
-/zb_model/ @zib-ce-y3k
-/jsbsim/ @zib-ce-y3k
-
-# Director of Digital Engineering (Claude): autonomy & twin
+# Digital Engineering & Autonomy (Claude): flight model, sim backend, mass & CG,
+# twin and autonomy (twin/ and autonomy/ land later)
+/zb_model/ @zib-ce-claude
 /twin/ @zib-ce-claude
 /autonomy/ @zib-ce-claude
+
+# MBSE (Oubi): program record
+/program/ @zib-gm-oubi
