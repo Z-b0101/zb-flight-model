@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: zb-flight-model
+message: "If you use this software, please cite it as below."
+authors:
+  - name: "Project Z!B"
+version: 0.1.0
+date-released: 2026-10-13
+license: MIT
+repository-code: "https://github.com/Z-b0101/zb-flight-model"
+abstract: "Clean-room mission, aero, trim, stability, structures, and weight math for Project Z!B's sub-250g fixed-wing UAV family."
