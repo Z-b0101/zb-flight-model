@@ -38,5 +38,8 @@ Source: the corrected twin, `perf.Twin` with only `washout_deg` changed. All oth
 2. **The CE-01 trim reconciliation:** design loop −4.6° vs twin −0.6° (at 7.1 m/s, 6°).
 3. **Flight evidence:** stall-approach test card on an early flight. Only after the maiden, at the locked 6°.
 
+## Update 2026-10-14 PM — evidence reversed: hold 6°
+After the twin's viscous section-moment correction (`twin/v0.1 @6dcfac0`), trim at 1.3 Vs (5.5 m/s) needs −7.2° elevon against the ±8° assumed limit (DR-02 in ZB-ER-001). Every degree of washout removed costs about 0.4° more up-elevon at that speed, so 3° washout would push trim past the limit. The range gain (≤ 0.4 km) is inside the twin's span-efficiency uncertainty (DR-10). **Recommendation withdrawn: keep 6°.** The slow-flight authority issue is addressed instead by more up-elevon throw (≥ 12°).
+
 ## Status
-**Open.** The locked value stays 6° until the CE-01/CE-02 review.
+**Recommendation withdrawn by the author.** The locked value stays 6°.

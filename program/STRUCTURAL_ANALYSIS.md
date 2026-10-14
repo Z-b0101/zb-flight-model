@@ -57,13 +57,15 @@ These are pinned in `tests/test_structures.py`; all pass.
 
 ## 4. Results: flight load cases (nominal tube, with the hinge-line web)
 
+Updated 2026-10-14 PM for the twin's viscous section-moment correction (`twin/v0.1 @6dcfac0`): trim now needs more up-elevon, which moves load inboard and adds nose-down section moment. Root bending fell (gust 0.759 → 0.712 N·m) and root torque rose (0.124 → 0.163 N·m). Landing is unaffected (inertia only).
+
 | Case | n | Root M (N·m) | Root T (N·m) | Spar alone, limit (MPa) | Top skin (kPa) | Tip deflection (mm) | Tip twist (°, + nose-up) |
 |---|---|---|---|---|---|---|---|
-| C1 cruise | 1.0 | 0.098 | 0.015 | 23 | 7 | 2.5 | +0.02 |
-| C2 pull-up | 2.5 | 0.293 | 0.041 | 68 | 21 | 8.6 | −0.01 |
-| C3 manoeuvre | 4.0 | 0.479 | 0.059 | 112 | 34 | 14.3 | −0.15 |
-| C4 gust | 6.15 | 0.759 | 0.124 | 177 | 54 | 23.5 | +0.19 |
-| C5 dive | 1.0 | 0.010 | 0.071 | 2 | 1 | −2.0 | −1.06 |
+| C1 cruise | 1.0 | 0.059 | 0.046 | 14 | 4 | 0.6 | +0.57 |
+| C2 pull-up | 2.5 | 0.242 | 0.081 | 56 | 17 | 6.2 | +0.70 |
+| C3 manoeuvre | 4.0 | 0.400 | 0.121 | 93 | 29 | 10.5 | +0.96 |
+| C4 gust | 6.15 | 0.712 | 0.163 | 166 | 51 | 21.3 | +0.87 |
+| C5 dive | 1.0 | 0.218 | 0.101 | 51 | 16 | −12.9 | +2.05 |
 
 Inertia relief is real. The wing carries 73 g of its own mass, and that cuts the root moment by about a third compared with a lift-only hand calculation.
 
@@ -71,9 +73,9 @@ Inertia relief is real. The wing carries 73 g of its own mass, and that cuts the
 
 | Tube grade | Allowable | C3 4 g | C4 gust | Landing 1.5 m/s | Landing 2.5 m/s (abuse) |
 |---|---|---|---|---|---|
-| Low (30 GPa, 250 MPa) | 250 MPa | 1.49 | **0.94** | **1.02** | **0.61** |
-| Nominal (120 GPa, 600 MPa) | 600 MPa | 3.58 | 2.26 | **1.82** | 1.09 |
-| Premium (131 GPa, 1.83 GPa flexural; 1.0 GPa used) | 1.0 GPa | 5.97 | 3.77 | 2.96 | 1.77 |
+| Low (30 GPa, 250 MPa) | 250 MPa | 1.79 | **1.01** | **1.02** | **0.61** |
+| Nominal (120 GPa, 600 MPa) | 600 MPa | 4.30 | 2.41 | **1.82** | 1.09 |
+| Premium (131 GPa, 1.83 GPa flexural; 1.0 GPa used) | 1.0 GPa | 7.16 | 4.02 | 2.96 | 1.77 |
 
 ## 5. Results: the foam
 
@@ -81,8 +83,8 @@ Inertia relief is real. The wing carries 73 g of its own mass, and that cuts the
 
 | Case | Skin stress (kPa) | Buckling RF as drawn | With mid-chord web (R3) | Crush RF (0.17 MPa) |
 |---|---|---|---|---|
-| C3 4 g, top | 34 | **0.94** | 3.75 | 3.31 |
-| C4 gust, top | 54 | **0.59** | 2.37 | 2.09 |
+| C3 4 g, top | 29 | 1.13 | 4.50 | 3.97 |
+| C4 gust, top | 51 | **0.63** | 2.53 | 2.23 |
 | Landing 1.5 m/s, bottom | 68 | **0.47** | 1.88 | 1.66 |
 
 **Torsion box.**

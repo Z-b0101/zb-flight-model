@@ -37,7 +37,7 @@ def trim2(wing, CL_req):
     """Solve alpha, elevon for CL = CL_req and Cm about the CG = 0 (linear VLM)."""
     c = wing.cref
     def f(a, d):
-        s = wing.solve(a, elevon_deg=d); return np.array([s["CL"], s["Cm"] + s["CL"] * XCG / c]), s
+        s = wing.solve(a, elevon_deg=d); return np.array([s["CL"], s["Cm"] + s["CL"] * XCG / c + TWIN.dCm_visc]), s
     f0, s0 = f(0, 0); fa, _ = f(1, 0); fd, _ = f(0, 1)
     J = np.c_[fa - f0, fd - f0]
     a, d = np.linalg.solve(J, np.array([CL_req, 0.0]) - f0)

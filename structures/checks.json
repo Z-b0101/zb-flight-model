@@ -32,55 +32,55 @@
    "case": "C3",
    "n": 4.0,
    "grade": "low",
-   "M_limit": 0.4793396392761269,
-   "sigma_limit_MPa": 111.60030794705422,
+   "M_limit": 0.39973241186056274,
+   "sigma_limit_MPa": 93.06607800561945,
    "allow_MPa": 250.0,
-   "RF": 1.4934247918539543
+   "RF": 1.7908422729128344
   },
   {
    "case": "C3",
    "n": 4.0,
    "grade": "nominal",
-   "M_limit": 0.4793396392761269,
-   "sigma_limit_MPa": 111.60030794705422,
+   "M_limit": 0.39973241186056274,
+   "sigma_limit_MPa": 93.06607800561945,
    "allow_MPa": 600.0,
-   "RF": 3.5842195004494903
+   "RF": 4.298021454990803
   },
   {
    "case": "C3",
    "n": 4.0,
    "grade": "premium",
-   "M_limit": 0.4793396392761269,
-   "sigma_limit_MPa": 111.60030794705422,
+   "M_limit": 0.39973241186056274,
+   "sigma_limit_MPa": 93.06607800561945,
    "allow_MPa": 1000.0,
-   "RF": 5.973699167415817
+   "RF": 7.1633690916513375
   },
   {
    "case": "C4",
    "n": 6.152736122197127,
    "grade": "low",
-   "M_limit": 0.7592600593610908,
-   "sigma_limit_MPa": 176.77164476644714,
+   "M_limit": 0.7120070394372211,
+   "sigma_limit_MPa": 165.7701519984052,
    "allow_MPa": 250.0,
-   "RF": 0.9428359785126665
+   "RF": 1.0054081790808163
   },
   {
    "case": "C4",
    "n": 6.152736122197127,
    "grade": "nominal",
-   "M_limit": 0.7592600593610908,
-   "sigma_limit_MPa": 176.77164476644714,
+   "M_limit": 0.7120070394372211,
+   "sigma_limit_MPa": 165.7701519984052,
    "allow_MPa": 600.0,
-   "RF": 2.2628063484303995
+   "RF": 2.4129796297939587
   },
   {
    "case": "C4",
    "n": 6.152736122197127,
    "grade": "premium",
-   "M_limit": 0.7592600593610908,
-   "sigma_limit_MPa": 176.77164476644714,
+   "M_limit": 0.7120070394372211,
+   "sigma_limit_MPa": 165.7701519984052,
    "allow_MPa": 1000.0,
-   "RF": 3.771343914050666
+   "RF": 4.021632716323265
   }
  ],
  "B_curved_panel": {
@@ -96,26 +96,26 @@
    {
     "case": "C3",
     "skin": "top (compression)",
-    "sig_kPa": 34.24095804101089,
-    "RF_buckling": 0.9385094899191168,
-    "RF_buckling_midweb": 3.754037959676467,
-    "RF_crush": 3.309876236453208
+    "sig_kPa": 28.55432687106646,
+    "RF_buckling": 1.1254148700655677,
+    "RF_buckling_midweb": 4.501659480262271,
+    "RF_crush": 3.969042374736271
    },
    {
     "case": "C4",
     "skin": "top (compression)",
-    "sig_kPa": 54.236682520266896,
-    "RF_buckling": 0.5925042346276027,
-    "RF_buckling_midweb": 2.370016938510411,
-    "RF_crush": 2.089606665949443
+    "sig_kPa": 50.86122900057119,
+    "RF_buckling": 0.6318263379960818,
+    "RF_buckling_midweb": 2.527305351984327,
+    "RF_crush": 2.2282853867345707
    },
    {
     "case": "landing 1.5 m/s",
     "skin": "bottom (compression)",
-    "sig_kPa": 68.27570831932792,
-    "RF_buckling": 0.47067199823269934,
-    "RF_buckling_midweb": 1.8826879929307974,
-    "RF_crush": 1.6599363979245632
+    "sig_kPa": 68.2757083193279,
+    "RF_buckling": 0.4706719982326995,
+    "RF_buckling_midweb": 1.882687992930798,
+    "RF_crush": 1.6599363979245636
    }
   ]
  },
@@ -216,35 +216,35 @@
   "note": "foam-only bond area is a shear minimum; peel on a cantilevered mount needs ~4x that. Tie the mount into the printed centre section."
  },
  "F_joiner": {
-  "M_limit": 0.7592600593610908,
-  "T_limit": 0.12396518114910668,
-  "M_equiv_limit": 0.7693134626914687,
-  "M_ult": 1.1539701940372031,
+  "M_limit": 0.7120070394372211,
+  "T_limit": 0.162716521184932,
+  "M_equiv_limit": 0.730363396176645,
+  "M_ult": 1.0955450942649676,
   "socket_L_mm": 40.0,
-  "bearing_peak_MPa": 1.0818470569098777,
+  "bearing_peak_MPa": 1.027073525873407,
   "block_mm": [
    12.0,
    12.0
   ],
-  "block_sigma_ult_MPa": 4.0425749324077715,
-  "RF_block_inlayer": 11.131519081873355,
-  "RF_block_interlayer": 3.7105063606244517,
-  "RF_bearing": 41.59552841834711,
+  "block_sigma_ult_MPa": 3.8379008039223974,
+  "RF_block_inlayer": 11.725159742015547,
+  "RF_block_interlayer": 3.908386580671849,
+  "RF_bearing": 43.813805795191456,
   "airfoil_depth_at_spar_mm": 20.05913731511194
  },
  "G_bonds": {
   "spar_rib": [
    {
     "web": false,
-    "T_spar_limit": 0.1049033135304001,
-    "tau_spar_rib_kPa": 695.6617039617532,
-    "RF": 2.8749606146351243
+    "T_spar_limit": 0.13769594076056085,
+    "tau_spar_rib_kPa": 913.1245673221688,
+    "RF": 2.1902816675551775
    },
    {
     "web": true,
-    "T_spar_limit": 0.008370022470432757,
-    "tau_spar_rib_kPa": 55.50543541498376,
-    "RF": 36.032507177848345
+    "T_spar_limit": 0.01098647963891063,
+    "tau_spar_rib_kPa": 72.85635590462866,
+    "RF": 27.45127690188163
    }
   ],
   "rib_skin": {
@@ -261,39 +261,39 @@
     "grade": "low",
     "EI_tube": 0.2577087723647878,
     "EI_with_caps": 16.80422719807029,
-    "RF_tube": 61.47881520574597,
-    "RF_cap": 9.068248779695821,
-    "cap_sigma_limit_MPa": 36.75829164277896,
+    "RF_tube": 65.5589148655492,
+    "RF_cap": 9.670071678156457,
+    "cap_sigma_limit_MPa": 34.47061660218028,
     "cap_buckle_on_web_MPa": 133.04225317759267,
-    "RF_cap_buckle_on_web": 2.4129205000513747,
+    "RF_cap_buckle_on_web": 2.57305624890152,
     "cap_buckle_no_web_MPa": 1.949551486634934,
-    "RF_cap_buckle_no_web": 0.035358035779262824,
+    "RF_cap_buckle_no_web": 0.03770460523203258,
     "cap_arm_mm": 6.779568657555972
    },
    {
     "grade": "nominal",
     "EI_tube": 1.0308350894591511,
     "EI_with_caps": 17.577353515164656,
-    "RF_tube": 38.58439388553248,
-    "RF_cap": 9.485459384039464,
-    "cap_sigma_limit_MPa": 35.141506577342014,
+    "RF_tube": 41.14508364284807,
+    "RF_cap": 10.114970858554306,
+    "cap_sigma_limit_MPa": 32.95445315607912,
     "cap_buckle_on_web_MPa": 133.04225317759267,
-    "RF_cap_buckle_on_web": 2.5239337777543014,
+    "RF_cap_buckle_on_web": 2.691437027695508,
     "cap_buckle_no_web_MPa": 1.949551486634934,
-    "RF_cap_buckle_no_web": 0.03698478288713884,
+    "RF_cap_buckle_no_web": 0.03943931294912716,
     "cap_arm_mm": 6.779568657555972
    },
    {
     "grade": "premium",
     "EI_tube": 1.1253283059929067,
     "EI_with_caps": 17.67184673169841,
-    "RF_tube": 59.22414931520097,
-    "RF_cap": 9.536451791374255,
-    "cap_sigma_limit_MPa": 34.953601258157065,
+    "RF_tube": 63.15461594366893,
+    "RF_cap": 10.169347425222886,
+    "cap_sigma_limit_MPa": 32.77824224065464,
     "cap_buckle_on_web_MPa": 133.04225317759267,
-    "RF_cap_buckle_on_web": 2.5375020672878414,
+    "RF_cap_buckle_on_web": 2.705905789594807,
     "cap_buckle_no_web_MPa": 1.949551486634934,
-    "RF_cap_buckle_no_web": 0.037183607534192115,
+    "RF_cap_buckle_no_web": 0.039651332781900826,
     "cap_arm_mm": 6.779568657555972
    }
   ],
