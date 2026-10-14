@@ -1,0 +1,50 @@
+# Assumptions ledger — EVERY constant in zb_model lives here with a status.
+# status: measured | derived | assumed
+# Nothing is published with an untracked constant (publication precondition).
+
+geometry:
+  span_m:            { value: 0.90,  status: derived,  source: "Gate 1 design lock 2026-10-13" }
+  chord_m:           { value: 0.20,  status: derived,  source: "Gate 1 design lock 2026-10-13" }
+  planform:          { value: "rectangular, 8 identical ribs", status: derived, source: "Gate 1; taper rejected A2 (ITERATION_LOG.md)" }
+  airfoil:           { value: "MH60", status: derived, source: "AIRFOIL_TRADE.md — winner 2026-10-13" }
+  washout_deg:       { value: 6.0,   status: derived,  source: "A2 winner; at Depron skin-fairing kink limit — coupon test gates" }
+  sweep_deg:         { value: 25.0,  status: derived,  source: "A2 winner (ITERATION_LOG.md)" }
+  static_margin:     { value: 0.06,  status: derived,  source: "A2 loop basis; SM 5-8% all feasible" }
+
+mission:
+  rho_sl:            { value: 1.225, status: measured, source: "ISA sea level" }
+  p_hotel_w:         { value: 1.0,   status: assumed,  source: "illustrative placeholder; bench test required (traceability G2)" }
+  usable_fraction:   { value: 0.80,  status: assumed,  source: "80% usable-energy derate; real curve from battery/wattmeter test" }
+  pack_3s_650_wh:    { value: 7.215, status: derived,  source: "11.1 V x 0.65 Ah nominal (GNB spec)" }
+  v_floor_ms:        { value: 7.0,   status: derived,  source: "max(1.5*Vstall, 7.0); floor governs (AIRFOIL_TRADE.md §3)" }
+  vstall_ms:         { value: 3.95,  status: assumed,  source: "from Clmax 1.16 @ 204.3 g; flight test sets the absolute" }
+
+drag:
+  oswald_e:          { value: 0.78,  status: assumed,  source: "hand estimate (traceability B2b); A2 VLM loop used e_vlm=1.000 — calibrate vs VLM/flight" }
+  c_misc:            { value: 0.012, status: assumed,  source: "flat placeholder; TODO Hoerner component buildup (traceability B2c)" }
+  cd_table:          { value: "mh60 ncrit9 re100k", status: measured, source: "airfoiltools.com xf-mh60-il-100000 (full table extracted)" }
+  clmax:             { value: 1.16,  status: measured, source: "MH60 polar; gentle trailing-edge stall" }
+  cm0_airfoil:       { value: -0.022, status: measured, source: "MH60 Cm @ CL~0.5 (-0.037 @ CL 0), XFoil Ncrit 9" }
+
+trim:
+  washout_credit_per_deg: { value: 0.0075, status: assumed, source: "lifting-line estimate (AIRFOIL_TRADE.md §1); A2 VLM realized ~+0.0026/deg — calibration gap, see trim.py" }
+  elevon_deff_per_deg:    { value: -0.008, status: assumed, source: "thin-airfoil estimate; cross-check AeroSandbox deflected data" }
+  trim_drag_k:             { value: 1.3e-4, status: assumed, source: "25%-chord ~65%-span elevons, stated assumption" }
+
+propulsion:
+  eta_max:           { value: 0.55,   status: assumed, source: "derate fit; wattmeter bench test to pin (traceability C1-exact)" }
+  eta_0:             { value: 0.20,   status: assumed, source: "derate fit; wattmeter bench test to pin" }
+  eta_slope:         { value: 0.0875, status: assumed, source: "derate fit; wattmeter bench test to pin" }
+
+structures:
+  spar_od_mm:        { value: 4.0,   status: measured, source: "verified spec" }
+  spar_id_mm:        { value: 3.0,   status: assumed,  source: "1 mm wall; verify by caliper" }
+  spar_mass_g_per_m: { value: 8.8,   status: measured, source: "corrected 2026-10-12" }
+  e_carbon_gpa:      { value: 120.0, status: assumed,  source: "pultruded-carbon literature band; coupon bend test" }
+  sigma_allow_mpa:   { value: 600.0, status: assumed,  source: "with knockdown; coupon bend test" }
+
+weight:
+  budget_total_g:    { value: 204.3, status: assumed,  source: "WEIGHT_BUDGET.md 2026-10-12 [VERIFY] — conflicts with 209.0 g CAD; CE-01 owns closure" }
+
+stability:
+  x_np_mm:           { value: 95.0,  status: assumed,  source: "A2 loop datum @ SM 6%; do NOT mix with CAD root-LE datum (CE-02)" }
