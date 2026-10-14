@@ -28,7 +28,7 @@ A first estimate (assumed prop and motor constants, to be confirmed on the bench
 | 4 | GNB 3S 650 mAh 80C XT30 LiPo ×1 | [Pyrodrone](https://pyrodrone.com/collections/3s-batteries/products/gaoneng-gnb-3s-11-1v-650mah-80c-lipo-battery-xt30) | 15.99 | In stock, 62 g, 20×28×64 mm (fits the hatch) |
 | 5 | ToolkitRC WM150 watt meter | [Pyrodrone](https://pyrodrone.com/products/toolkitrc-wm150-advanced-watt-power-meter) | 51.99 | In stock; 10 mA precision, needed to measure the ~1 W electronics draw. Same shop as #4 |
 | 6 | Depron 3 mm sheets (4) | [RcDepron.com](https://www.modelairplanenews.com/depron-foam-back-usa/) (US importer) | ~18 (est.) | Price not published; confirm at order |
-| 7 | 4 mm OD carbon tube, 1 m (×2, one spare) | US hobby shop or Amazon | ~14 (est.) | Must be 4.0 mm OD to fit the 4.2 mm rib slot |
+| 7 | 4 mm OD carbon tube, 1 m (×2, one spare) | A vendor that **publishes flexural properties** (not an unspecified hobby tube) | ~14–25 (est.) | Must be 4.0 mm OD to fit the 4.2 mm rib slot. **Spec (SA-01 R1): flexural modulus ≥ 100 GPa, flexural strength ≥ 1 GPa.** A tube at the bottom of the published range (30 GPa / 250 MPa) fails the gust case. The spare is the coupon: 3-point bend before Gate 4 |
 | 8 | PWM→PPM encoder | Amazon | ~4 (est.) | Only if the radio receiver has PWM outputs (R-09) |
 | 9 | PLA filament, foam-safe CA, hot glue, hinge tape, pushrods | Amazon / local | ~28 (est.) | Commodity |
 | 10 | 0.1 g kitchen scale | Amazon | ~12 (est.) | Skip if on hand |
