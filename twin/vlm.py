@@ -60,8 +60,10 @@ class Wing:
                 A.append(pt(ya, u0 + 0.25 / nc)); B.append(pt(yb, u0 + 0.25 / nc))
                 C.append(pt(ym, u0 + 0.75 / nc))
                 uc = u0 + 0.75 / nc
-                # local incidence: camber slope (dz/dx) minus washout
-                slope = self.camber_slope(uc) - math.tan(self.twist(ym))
+                # surface slope dz/dx; effective angle is alpha - slope. Washout (twist + = nose-DOWN)
+                # raises the trailing edge, i.e. ADDS to dz/dx. (Fixed 2026-10-14: this was "- tan",
+                # which modelled the 6 deg washout as 6 deg wash-in; found by the structures work.)
+                slope = self.camber_slope(uc) + math.tan(self.twist(ym))
                 if uc > hinge and ey0 <= abs(ym) <= ey1:
                     # + elevon = trailing edge DOWN; aileron + = right TE up / left TE down
                     d = elevon_deg + (aileron_deg if ym < 0 else -aileron_deg)

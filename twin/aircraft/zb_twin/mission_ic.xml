@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<initialize name="mission_ic"><ubody unit="M/SEC">10.485148586641515</ubody><wbody unit="M/SEC">0.11379537494590447</wbody>
+<initialize name="mission_ic"><ubody unit="M/SEC">7.1180619853880565</ubody><wbody unit="M/SEC">0.9840872520400025</wbody>
 <altitude unit="M">120</altitude><latitude unit="DEG">37</latitude><longitude unit="DEG">-122</longitude>
-<psi unit="DEG">0</psi><theta unit="DEG">0.6218069953837674</theta><phi unit="DEG">0</phi></initialize>
+<psi unit="DEG">0</psi><theta unit="DEG">7.871366625557072</theta><phi unit="DEG">0</phi></initialize>
