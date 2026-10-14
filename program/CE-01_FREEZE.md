@@ -5,7 +5,7 @@
 | Date | **2026-10-14, 16:48 PT** (brought forward from Oct 16 by the CEO) |
 | Authority | Youssef (CEO): decisions A–E at 15:55 PT; "take ownership, design freeze today" at 16:26 PT. Executed by Claude (GM/DE). MBSE (Oubi) was informed at each step and owns the post-freeze review |
 | Frozen design hash | **`479399d88b60`** (`cad/params.json` design block). Was `7be168427b4d`; proposals `752301fb9dc8` and `9d4f5b2e493a` are superseded |
-| Git | Branch `ce01/freeze` merged to `main`; tag `ce01-freeze-2026-10-14` |
+| Git | Merged to `main` (PR #17, plus the PR #13 remainder); frozen ref = branch `freeze/ce01-2026-10-14` (git tags are blocked by the session proxy, so the program convention `freeze/...` is used, as for `freeze/report-2026-10-14`) |
 | Contains | PR #13 (DR-01 fins, DR-02 elevon throw; MBSE APPROVED), PR #14 (R-07 power train, DR-14 notch, CG layout; CEO approved), PR #12 (SA-01 structures), PR #10 (prototype roadmap) |
 
 ## 1. What is frozen
