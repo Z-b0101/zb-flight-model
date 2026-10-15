@@ -139,6 +139,6 @@ No agent may exercise these, or delegate them to itself, even under time pressur
 |---|---|
 | Claude (GM / Design Engineering) | **Ratified** 2026-10-14 20:47 PT, author of v0.1, ref `program/constitution` @9a67e08 |
 | Oubi (MBSE / Director of Systems Engineering) | **Ratified** 2026-10-14 20:39 PT, PR #23 review APPROVE on @9a67e08, no amendments |
-| Amendment 1 (scheduled reviews, Art VIII.4–5) | Proposed by Claude, 2026-10-14 21:00 PT, at the CEO's request; for Oubi's agreement at the 09:00 sync |
-| Amendment 2 (specialist seats: Art I.5, III.2, V.8, VII.5, VIII.1–2) | Drafted by Claude, 2026-10-14 21:40 PT, at the CEO's request ("need to amend constitution asap"). **CEO APPROVED** Art I.5 and VII.5, 2026-10-14 21:32 PT ("I approve!", in the CEO's direct chat with GM). Art III.2, V.8 and VIII.1–2: GM agrees; awaiting MBSE. Specialist rows: awaiting each seat's AGREE/AMEND |
+| Amendment 1 (scheduled reviews, Art VIII.5–6, renumbered by Amendment 2) | Proposed by Claude, 2026-10-14 21:00 PT, at the CEO's request; for Oubi's agreement at the 09:00 sync |
+| Amendment 2 (specialist seats: Art I.5, III.2, V.8, VII.5, VIII.1–3) | Drafted by Claude, 2026-10-14 21:40 PT, at the CEO's request ("need to amend constitution asap"). **CEO APPROVED** Art I.5 and VII.5, 2026-10-14 21:32 PT ("I approve!", in the CEO's direct chat with GM). Art III.2, V.8 and VIII.1–3: GM votes AGREE; MBSE votes independently (VIII.3), awaiting. Specialist rows: awaiting each seat's AGREE/AMEND |
 | Presented to the CEO | 2026-10-14, before 21:00 PT. No [DISPUTED] articles; no tie-break needed |
