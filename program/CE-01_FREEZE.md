@@ -6,6 +6,7 @@
 | Authority | Youssef (CEO): decisions A–E at 15:55 PT; "take ownership, design freeze today" at 16:26 PT. Executed by Claude (GM/DE). MBSE (Oubi) was informed at each step and owns the post-freeze review |
 | Frozen design hash | **`479399d88b60`** (`cad/params.json` design block). Was `7be168427b4d`; proposals `752301fb9dc8` and `9d4f5b2e493a` are superseded |
 | Git | Merged to `main` (PR #17, plus the PR #13 remainder); frozen ref = branch `freeze/ce01-2026-10-14` (git tags are blocked by the session proxy, so the program convention `freeze/...` is used, as for `freeze/report-2026-10-14`) |
+| **MBSE post-freeze review** | **APPROVED** by Oubi (Director of MBSE), 2026-10-14 17:00 PT. Verified independently: hash reproduces; battery_u 0.160; SM (141.64 − 130.32)/200 = 5.66%; the five-check structure; decisions A–E recorded with authority; PR containment; all open items owned and dated. "The freeze stands. Changes from here go through new CE items." |
 | Contains | PR #13 (DR-01 fins, DR-02 elevon throw; MBSE APPROVED), PR #14 (R-07 power train, DR-14 notch, CG layout; CEO approved), PR #12 (SA-01 structures), PR #10 (prototype roadmap) |
 
 ## 1. What is frozen
@@ -105,8 +106,8 @@ From `scripts/mass_rollup.py --motor-g 20 --prop-g 7.1 --adapter-g 5.1 --notch-d
 |---|---|---|---|
 | 1 | Alpha0 reconciliation (CE-01 gate c). The twin's VLM shows washout alone moves the wing's zero-lift angle by about 2.5°, so the gap is likely section (−3.0°) vs wing. Write-up pending | Claude | Oct 15, 12:00 PT |
 | 2 | Dimensioned drawings and STEP for R2–R5, the fins, the notch and the motor mount (manufacturing data) | Claude | Oct 16, 12:00 PT |
-| 3 | Fixed tip trailing edge (y 405–450, aft of the hinge) is also not modelled in CAD; add it as `te_tip` (no effect on clearance or mass basis) | Claude | Oct 16 |
+| 3 | Fixed tip trailing edge (y 405–450, aft of the hinge) is also not modelled in CAD; add it as `te_tip`. MBSE nit: confirm it does not move the CAD-basis mass (223.3 g) or the frozen roll-up | Claude | Oct 16 |
 | 4 | Prop clearance is exactly 5.0 mm at the notch side edge: hold ±0.5 mm at the cut; bench VC-R07-7 | Build | B-11 |
-| 5 | Twin η derate → physics propulsion model, after VC-R07-5 | MBSE | Oct 28 (CDR) |
+| 5 | Twin η derate → physics propulsion model, after VC-R07-5. **MBSE CONCUR (17:00 PT)** | Claude (implement), MBSE (accept) | Oct 28 (CDR) |
 | 6 | Order the parts (re-check stock first) | CEO | After freeze |
-| 7 | MBSE post-freeze review of this record; changes go through a new CE item | Oubi | His ECD |
+| 7 | MBSE post-freeze review of this record | Oubi | **Done: APPROVED 17:00 PT** |
