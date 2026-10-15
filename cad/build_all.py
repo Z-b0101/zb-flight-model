@@ -67,7 +67,7 @@ GROUPS = {  # sim function groups -> part files (under parts/)
     "wing_lower": ["wing_structure/skin_bottom"],
     "elevon_R": ["wing_structure/elevon_right"],
     "elevon_L": ["wing_structure/elevon_left"],
-    "structure": ["wing_structure/rib", "wing_structure/spar", "wing_structure/te_centre"],
+    "structure": ["wing_structure/rib", "wing_structure/spar", "wing_structure/te_centre", "wing_structure/te_tip_right", "wing_structure/te_tip_left"],
     "propulsion": ["propulsion/motor", "propulsion/prop", "propulsion/motor_mount",
                    "propulsion/esc"],
     "avionics": ["avionics/fc", "avionics/gps", "avionics/gps_mast",

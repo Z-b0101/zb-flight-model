@@ -299,6 +299,14 @@ if P.get("prop_notch_halfspan", 0) > 0:
     to_stl(make_consistent(_cut.triangles), f"{SUB}/te_centre.stl")
     print(f"DR-14 notch: inboard fixed TE cut (|y|<={_yte:.1f} mm)")
 
+# Fixed tip trailing edge, hinge line -> TE, outboard of the elevons (elevon_y1 + gap .. tip).
+# Was not modelled (CE-01 open item 3). Geometry only: the airframe mass budget (73.6 g) and the
+# CAD-basis CG list are NOT changed here (MBSE nit); the mass/CG effect is reported in
+# program/TE_PARTS_MASS_CHECK.md for a CE decision.
+for sgn, tag in ((+1, "te_tip_right"), (-1, "te_tip_left")):
+    _y0, _y1 = P["elevon_y1"] + P["hinge_gap"], P["span"] / 2
+    to_stl(make_consistent(elevon_mesh(sgn * _y0, sgn * _y1, n_st=4)), f"{SUB}/{tag}.stl")
+
 # ---------------------------------------------------------------- assembly (ribs placed via parametric transform)
 rib_mesh = stl_mesh.Mesh.from_file(f"{SUB}/rib.stl")
 rv = rib_mesh.vectors.reshape(-1, 3)
@@ -314,12 +322,12 @@ for y in ST:
     Yr = V_SPAR_MM + (Xs - U_SPAR_MM) * si + (Ys - V_SPAR_MM) * co
     v = np.column_stack([W.xle_at(y) + Xr, np.full_like(X, y) + (Z - P["rib_t"] / 2), Yr])
     parts.append(v.reshape(-1, 3, 3))
-for tag in ("spar", "skin_top", "skin_bottom", "te_centre", "elevon_right", "elevon_left"):
+for tag in ("spar", "skin_top", "skin_bottom", "te_centre", "te_tip_right", "te_tip_left", "elevon_right", "elevon_left"):
     parts.append(stl_mesh.Mesh.from_file(f"{SUB}/{tag}.stl").vectors)
 to_stl(np.vstack(parts), f"{SUB}/wing_structure.stl")
 
 # canonical print files at root (backward compat: coupon test feeds on rib.stl)
-for f in ("rib", "spar", "skin_top", "skin_bottom", "te_centre", "elevon_right", "elevon_left"):
+for f in ("rib", "spar", "skin_top", "skin_bottom", "te_centre", "te_tip_right", "te_tip_left", "elevon_right", "elevon_left"):
     shutil.copy(f"{SUB}/{f}.stl", f"{D}/{f}.stl")
 shutil.copy(f"{SUB}/wing_structure.stl", f"{D}/assembly.stl")
 
