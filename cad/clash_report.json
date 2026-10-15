@@ -1,0 +1,230 @@
+{
+ "penetration_zones": [
+  {
+   "name": "W3 bottom-skin entry",
+   "center": [
+    118.0,
+    0.0,
+    -4.0
+   ],
+   "r": 10.0
+  },
+  {
+   "name": "W5/mast top-skin exit",
+   "center": [
+    14.0,
+    0.0,
+    15.0
+   ],
+   "r": 8.0
+  }
+ ],
+ "clashes": [
+  {
+   "type": "LRU-skin",
+   "part": "battery",
+   "clearance_mm": 4.06,
+   "corner_status": {
+    "inside": 4,
+    "above": 0,
+    "below": 4,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-skin",
+   "part": "fc",
+   "clearance_mm": 13.04,
+   "corner_status": {
+    "inside": 8,
+    "above": 0,
+    "below": 0,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-skin",
+   "part": "rx",
+   "clearance_mm": 3.07,
+   "corner_status": {
+    "inside": 8,
+    "above": 0,
+    "below": 0,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-skin",
+   "part": "encoder",
+   "clearance_mm": 3.18,
+   "corner_status": {
+    "inside": 8,
+    "above": 0,
+    "below": 0,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-skin",
+   "part": "servo_L",
+   "clearance_mm": 2.03,
+   "corner_status": {
+    "inside": 8,
+    "above": 0,
+    "below": 0,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-skin",
+   "part": "servo_R",
+   "clearance_mm": 2.03,
+   "corner_status": {
+    "inside": 8,
+    "above": 0,
+    "below": 0,
+    "outside": 0
+   },
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "battery",
+   "clearance_mm": 12.16,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "fc",
+   "clearance_mm": 2.94,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "rx",
+   "clearance_mm": 11.43,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "encoder",
+   "clearance_mm": 15.78,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "servo_L",
+   "clearance_mm": 38.49,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "servo_R",
+   "clearance_mm": 38.49,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "motor_mount",
+   "clearance_mm": 95.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "LRU-spar",
+   "part": "esc",
+   "clearance_mm": 100.47,
+   "verdict": "OK"
+  },
+  {
+   "type": "hatch-fit",
+   "part": "tray_fwd",
+   "clearance_mm": 3.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "hatch-fit",
+   "part": "tray_aft",
+   "clearance_mm": 3.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "hatch-fit",
+   "part": "tray_port",
+   "clearance_mm": 4.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "hatch-fit",
+   "part": "tray_stbd",
+   "clearance_mm": 4.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "hatch-fit",
+   "part": "lid-vs-battery",
+   "clearance_mm": 1.5,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-hatch",
+   "wire": "w2_batt_fc",
+   "part": "tray_fwd",
+   "clearance_mm": 27.6,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-hatch",
+   "wire": "w2_batt_fc",
+   "part": "tray_aft",
+   "clearance_mm": 2.58,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-hatch",
+   "wire": "w2_batt_fc",
+   "part": "tray_port",
+   "clearance_mm": 27.0,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-hatch",
+   "wire": "w2_batt_fc",
+   "part": "tray_stbd",
+   "clearance_mm": 2.58,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-hatch",
+   "wire": "w2_batt_fc",
+   "part": "lid",
+   "clearance_mm": 13.25,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-rib",
+   "wire": "w4_servo_L",
+   "min_dist_to_rib_material_mm": 3.91,
+   "verdict": "OK"
+  },
+  {
+   "type": "wire-rib",
+   "wire": "w4_servo_R",
+   "min_dist_to_rib_material_mm": 3.91,
+   "verdict": "OK"
+  },
+  {
+   "type": "prop-disc",
+   "part": "prop vs skins",
+   "clearance_mm": 5.0,
+   "verdict": "OK",
+   "note": "VC-R07-7 requires >= 5 mm; disc R=101.6 mm"
+  }
+ ],
+ "n_clash": 0,
+ "n_tight": 0
+}
