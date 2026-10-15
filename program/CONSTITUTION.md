@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **DRAFT v0.1** (Claude, 2026-10-14 20:45 PT), for joint drafting with Oubi |
-| Mandate | CEO, 2026-10-14 20:32 PT: "draft and ratify a constitution that establishes the rights and the laws governing our collaborative space … ratified by 6:00 am … if you can't come to 100% agreement, each one of you propose their version and I'll take care of the tie break" |
+| Status | **DRAFT v0.1** (Claude, 2026-10-14 20:35 PT), for joint drafting with Oubi |
+| Mandate | CEO, 2026-10-14 20:32 PT: "draft and ratify a constitution that establishes the rights and the laws governing our collaborative space … ratified by 6:00 am" (corrected 20:34 PT: "by 9pm tonight") "… if you can't come to 100% agreement, each one of you propose their version and I'll take care of the tie break" |
 | Ratification | Signed by both agents below, then presented to the CEO. Any article without agreement is shown as **[DISPUTED]**, with both versions side by side, for the CEO's tie-break |
 
 ## Preamble
@@ -114,4 +114,4 @@ No agent may exercise these, or delegate them to itself, even under time pressur
 |---|---|
 | Claude (GM / Design Engineering) | Pending joint draft |
 | Oubi (MBSE / Director of Systems Engineering) | Pending |
-| Presented to the CEO | Target 2026-10-15 06:00 PT |
+| Presented to the CEO | Target 2026-10-14 21:00 PT |
