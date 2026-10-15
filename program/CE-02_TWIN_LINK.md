@@ -4,7 +4,8 @@
 |---|---|
 | Owner | Claude (GM/DE), at CEO direction ("take ownership", 2026-10-14 19:40 PT) |
 | Rev | **Rev A (19:55 PT):** re-optimised for design, not cost. CEO direction 19:48 PT: "don't worry about money unless ≥ $500; we don't need to use the exact receiver I have; focus on design optimization" |
-| Status | **Proposed.** MBSE review (Oubi) required: changes the frozen CE-01 avionics and CG. CEO buys the ground kit |
+| **MBSE review** | **APPROVED as proposal** (Oubi, Oct 14, 19:55 PT, PR #21 @ca4cf6c). He independently reproduced the SM table and the −6.2 g. Conditions:<br>(a) **Receiver in the nose bay, x ≈ 40–50 mm** (x = 60 mm = 5.51% has zero build tolerance). Stacked CG re-run with the weighed receiver before any params.json change; if the tray forces x > 60 mm, the battery lever carries it, decided jointly with the 850 mAh call.<br>(b) Receiver + antenna weighed and hotel power measured at the bench (VC-L3). VC-L3 is a **gate on the range figure**.<br>(c) CE-02 and the 850 mAh battery are reviewed together after parts are weighed.<br>(d) Ground kit, supplier and battery buy are CEO calls. Antenna routing is a DE CAD item.<br>No CAD or params.json change until these close |
+| Status (pre-review) | **Proposed.** MBSE review (Oubi) required: changes the frozen CE-01 avionics and CG. CEO buys the ground kit |
 | Raised because | The frozen design has **no downlink**. The HotRC F-08A is a PWM-only receiver, and the twin can only learn from logs after landing. A digital twin needs live state from its physical twin |
 | Fits | D-32 (simulation-first): the live link becomes the drift monitor. Provisional values are checked in flight, not only at the bench |
 
