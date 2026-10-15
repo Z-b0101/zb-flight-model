@@ -25,9 +25,9 @@
 
 ```
 AIRCRAFT                               GROUND                                  TWIN
-SpeedyBee F405 Wing (ArduPlane)        mLRS TX module ── USB/BT/WiFi ──►       mavlink-router / MAVProxy
-  UART4: MAVLink2  ◄──►  mLRS RX ~~~~~ 900 MHz LoRa ~~~~~►                        ├─► Mission Planner / QGC (pilot)
-  UART1: CRSF RC   ◄───  (RC + telem                                             └─► twin bridge (pymavlink, new: twin/live/)
+SpeedyBee F405 Wing (ArduPlane)        ELRS TX (Nomad) ── WiFi/BT/USB ──►       mavlink-router / MAVProxy
+  UART1: MAVLink2 + RC ◄─► ELRS RX ~~~ 900 MHz LoRa ~~~►                        ├─► Mission Planner / QGC (pilot)
+  (ELRS MAVLink mode: RC + telem on one link and one UART)                             └─► twin bridge (pymavlink, new: twin/live/)
   integrated V/A sensor   on one link)                                                ├─ JSBSim shadow run: same servo/throttle inputs + estimated wind
                                                                                       ├─ residuals: V, climb, attitude, current (predicted − measured)
   SERIAL6: onboard wireless (APP board)                                               ├─ online estimates: η(P), CD0, e (recursive least squares)
