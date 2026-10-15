@@ -123,14 +123,15 @@ No agent may exercise these, or delegate them to itself, even under time pressur
 
 1. Any seat may propose an amendment.
 2. Articles III–VI and VIII are amended by **agreement of both core agents** (GM/DE and MBSE), with the CEO informed. Any amendment touching a specialist lane is first circulated to that seat for comment, for 2 hours or until the governing deadline if that is sooner, and its comment is recorded (Amendment 2, proposed).
-3. Articles I, II and VII are amended **only by the CEO**.
-4. **Scheduled reviews** (Amendment 1, proposed). The constitution is reviewed at each program gate:
+3. **Independent votes** (Amendment 2, proposed; CEO direction 2026-10-14 21:33 PT: "Oubi also hold independent vote"). Each core agent's vote is its own. CEO approval of one part of an amendment does not stand in for MBSE's vote on the parts that need it. Neither core agent may cast, presume or infer the other's vote, and silence is not consent. Specialist seats comment, and their comments are recorded, but they do not vote.
+4. Articles I, II and VII are amended **only by the CEO**.
+5. **Scheduled reviews** (Amendment 1, proposed). The constitution is reviewed at each program gate:
    - the design review (CDR, Oct 28);
    - before first flight (the go/no-go package);
    - after first flight;
    - at each later major gate;
    - and at any time the CEO asks.
-5. **At each review** both agents record "keep as is" or a proposed amendment in `program/DEV_TRACKER.md`, and the outcome goes to the CEO in the gate report. A review that finds no changes still gets a record.
+6. **At each review** both agents record "keep as is" or a proposed amendment in `program/DEV_TRACKER.md`, and the outcome goes to the CEO in the gate report. A review that finds no changes still gets a record.
 
 ## Article IX: Ratification
 
