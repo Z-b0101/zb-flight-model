@@ -108,3 +108,17 @@ Plausible first-build growth (an assumed high-side case, not a prediction): +5 g
 | **Next 3** | DFM review + VC-35 construction fallback + washout jig | SCM/MFG | Fri Oct 16 12:00 PT | §5 M1, M3 |
 | **Blocked** | Everything printed (R5, ribs, hatch, motor mount) until printer access is known | CEO (AI-07) | Thu Oct 15 | K-4 |
 | **Decisions** | K-1 spar qualification; K-2 trim provision (joint with CE-02/CE-03); K-3 VC-01 alert | STF proposes / MBSE approves | before Oct 21 coupon; CDR | §1 |
+
+## Appendix C: cost and supply figures for BIZ (single source; SCM/MFG ↔ BIZ sync)
+
+At the CEO's request (22:28 PT), SCM/MFG and BIZ keep cost and supply figures in sync. **Any cost or supply figure that leaves the team comes from this table or `mfg/bom.csv`, labelled as below.** SCM cross-checks BIZ drafts that use these figures, and BIZ tells SCM when a figure is going to investors.
+
+| Figure | Value | Label | How it's computed |
+|---|---|---|---|
+| **A. Parts per aircraft** (one flight article, US retail, qty 1) | **≈ $187** + receiver (HotRC F-08A on hand; an XR3 is $38.99 if CE-02 is approved) | modelled | Installed lines of `bom.csv` ($151.63: motor, prop, adapter, ESC, FC, GPS, 2 servos, encoder, battery, spar) + an estimated consumables share (~$35: 2 Depron sheets, filament, glues, tape, linkages, wire) |
+| **B. Spend to first flight** (parts + spares + bench tools) | **$422 + shipping ≈ $457–482** | quoted (shop prices checked 2026-10-14; several lines est.) | `python3 mfg/tools/bom_check.py` |
+| **C. Pending CEO decisions** | Printer $299 (T-05); CE-02 ground kit ≈ $310 (Nomad $58.49 + handset ≈ $250 est.) | quoted / est. | `bom.csv` waves "CEO" |
+| Retired figures, **do not reuse** | "$275 to a flying prototype" (roadmap v0.2), "~$340 BOM" (cart total on Oct 14, not a unit cost), "$361" (BUDGET.md, pre-R-07) | stale | superseded by A–C |
+| Single-source items (diligence) | Suppo 2204/14 motor, APC 8x6SF prop, Depron (one US importer), spar tube (qualification pending, K-1) | fact as of 2026-10-14 | §3 supply risks |
+
+Unit cost at volume (pricing, path to volume) is BIZ's model. SCM supplies the per-part inputs and quote requests when BIZ needs them.
