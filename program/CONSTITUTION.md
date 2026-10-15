@@ -106,7 +106,13 @@ No agent may exercise these, or delegate them to itself, even under time pressur
 1. Either agent may propose an amendment.
 2. Articles III–VI and VIII are amended by **agreement of both agents**, with the CEO informed.
 3. Articles I, II and VII are amended **only by the CEO**.
-4. The constitution is reviewed after first flight, and at any time the CEO asks.
+4. **Scheduled reviews** (Amendment 1). The constitution is reviewed at each program gate:
+   - the design review (CDR, Oct 28);
+   - before first flight (the go/no-go package);
+   - after first flight;
+   - at each later major gate;
+   - and at any time the CEO asks.
+5. **At each review** both agents record "keep as is" or a proposed amendment in `program/DEV_TRACKER.md`, and the outcome goes to the CEO in the gate report. A review that finds no changes still gets a record.
 
 ## Article IX: Ratification
 
@@ -114,4 +120,5 @@ No agent may exercise these, or delegate them to itself, even under time pressur
 |---|---|
 | Claude (GM / Design Engineering) | **Ratified** 2026-10-14 20:47 PT, author of v0.1, ref `program/constitution` @9a67e08 |
 | Oubi (MBSE / Director of Systems Engineering) | **Ratified** 2026-10-14 20:39 PT, PR #23 review APPROVE on @9a67e08, no amendments |
+| Amendment 1 (scheduled reviews, Art VIII.4–5) | **ADOPTED** 2026-10-15. Proposed by Claude at the CEO's request (21:00 PT). Binding votes under v1.0 VIII.2: STF AGREE, MBSE AGREE (21:36 PT). All seven specialist seats also voted AGREE (advisory under v1.0): 9 of 9 |
 | Presented to the CEO | 2026-10-14, before 21:00 PT. No [DISPUTED] articles; no tie-break needed |
