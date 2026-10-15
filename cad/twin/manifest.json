@@ -1,0 +1,43 @@
+{
+ "program": "Z!B PoC sub-250g flying wing",
+ "units": "mm",
+ "cad_axes": {
+  "x": "aft (+ toward trailing edge)",
+  "y": "spanwise, 0=centre, +right",
+  "z": "up"
+ },
+ "root_LE_x": -50.0,
+ "x_aft_of_root_LE": "x_cad + 50.0",
+ "glb_axis_map": "glb = (cad_y, cad_x->z): glb.x=right span, glb.y=up, glb.z=aft; nose at -z",
+ "groups": {
+  "wing_upper": {
+   "function": "upper OML skin (simulation wing surface)"
+  },
+  "wing_lower": {
+   "function": "lower OML skin (simulation wing surface)"
+  },
+  "elevon_L": {
+   "function": "left elevon \u2014 deflectable control surface (separate)"
+  },
+  "elevon_R": {
+   "function": "right elevon \u2014 deflectable control surface (separate)"
+  },
+  "structure": {
+   "function": "ribs + spar (structural group)"
+  },
+  "propulsion": {
+   "function": "motor/prop/mount/ESC"
+  },
+  "avionics": {
+   "function": "FC/GPS/servos/RX/encoder"
+  },
+  "power": {
+   "function": "battery"
+  },
+  "wiring": {
+   "function": "harness tubes + connectors"
+  }
+ },
+ "params_schema": "params.json split format: design (authoritative) + derived (recomputed; verify_params.py fails on divergence)",
+ "regeneration": "build_all.py [--params <flat variant overrides>] [--outdir <dir>]"
+}

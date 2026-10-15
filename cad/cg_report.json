@@ -1,0 +1,123 @@
+{
+ "total_mass_g": 223.3,
+ "margin_to_250g": 26.7,
+ "cg_x_aft_rootLE_mm": 129.7,
+ "cg_y_mm": 0.2,
+ "cg_z_mm": 1.2,
+ "target_x_mm": 116.0,
+ "delta_to_target_mm": 13.7,
+ "rows": [
+  {
+   "part": "airframe",
+   "mass_g": 73.6,
+   "x_aft_rootLE_mm": 191.5,
+   "y_mm": 0.0,
+   "z_mm": 5.2,
+   "basis": "volume-weighted mesh centroids (mount+mast mass in misc)"
+  },
+  {
+   "part": "motor",
+   "mass_g": 20.0,
+   "x_aft_rootLE_mm": 192.0,
+   "y_mm": 0.0,
+   "z_mm": 0.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "prop",
+   "mass_g": 12.2,
+   "x_aft_rootLE_mm": 205.6,
+   "y_mm": 0.0,
+   "z_mm": 0.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "esc",
+   "mass_g": 3.5,
+   "x_aft_rootLE_mm": 185.0,
+   "y_mm": 0.0,
+   "z_mm": -12.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "fc",
+   "mass_g": 23.0,
+   "x_aft_rootLE_mm": 90.0,
+   "y_mm": 0.0,
+   "z_mm": 3.5,
+   "basis": "WEIGHT_BUDGET.md (23 g teardown)"
+  },
+  {
+   "part": "gps",
+   "mass_g": 7.7,
+   "x_aft_rootLE_mm": 60.0,
+   "y_mm": 0.0,
+   "z_mm": 43.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "servo_L",
+   "mass_g": 4.3,
+   "x_aft_rootLE_mm": 236.5,
+   "y_mm": 250.0,
+   "z_mm": 6.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "servo_R",
+   "mass_g": 4.3,
+   "x_aft_rootLE_mm": 236.5,
+   "y_mm": -250.0,
+   "z_mm": 6.0,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "rx",
+   "mass_g": 5.0,
+   "x_aft_rootLE_mm": 106.2,
+   "y_mm": 24.0,
+   "z_mm": 2.7,
+   "basis": "WEIGHT_BUDGET.md (RX+encoder=8 split 5+3)"
+  },
+  {
+   "part": "encoder",
+   "mass_g": 3.0,
+   "x_aft_rootLE_mm": 106.2,
+   "y_mm": -24.0,
+   "z_mm": 2.7,
+   "basis": "WEIGHT_BUDGET.md (RX+encoder=8 split 5+3)"
+  },
+  {
+   "part": "battery",
+   "mass_g": 62.0,
+   "x_aft_rootLE_mm": 32.0,
+   "y_mm": 0.0,
+   "z_mm": -8.5,
+   "basis": "WEIGHT_BUDGET.md"
+  },
+  {
+   "part": "wiring",
+   "mass_g": 3.0,
+   "x_aft_rootLE_mm": 141.5,
+   "y_mm": 2.1,
+   "z_mm": 1.7,
+   "basis": "ESTIMATED"
+  },
+  {
+   "part": "hatch_tray",
+   "mass_g": 1.0,
+   "x_aft_rootLE_mm": 32.0,
+   "y_mm": 0.0,
+   "z_mm": -14.7,
+   "basis": "ESTIMATED (printed tray walls)"
+  },
+  {
+   "part": "hatch_lid",
+   "mass_g": 0.7,
+   "x_aft_rootLE_mm": 32.0,
+   "y_mm": 0.0,
+   "z_mm": -21.5,
+   "basis": "ESTIMATED (Depron lid + latch + hinge)"
+  }
+ ]
+}
