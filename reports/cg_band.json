@@ -1,0 +1,121 @@
+{
+  "design_hash": "479399d88b60",
+  "np_mm": 141.6369466598136,
+  "mac_mm": 200.0,
+  "frozen_cg_mm": 130.32,
+  "frozen_sm": 0.056584733299067935,
+  "vstall": 4.536451378849936,
+  "aft_limit_design_mm": 130.6369466598136,
+  "aft_limit_abs_mm": 131.6369466598136,
+  "auth_frac": 0.6666666666666666,
+  "labels": {
+    "np_mm": "modelled (VLM, notched wing)",
+    "frozen_cg_mm": "modelled (CE-01 roll-up; weigh-as-built replaces it)",
+    "aft_limit": "modelled, from rule SM >= 5.5%",
+    "forward_limit": "modelled, PROVISIONAL criterion, depends on uncalibrated flap_knockdown"
+  },
+  "forward": [
+    {
+      "knockdown": 0.8,
+      "up_throw_deg": 12.0,
+      "fwd_limit_mm": 124.91805339594963,
+      "sm_at_fwd": 0.08359446631931981,
+      "window_mm": 5.718893263863961
+    },
+    {
+      "knockdown": 0.8,
+      "up_throw_deg": 14.0,
+      "fwd_limit_mm": 121.7083445744378,
+      "sm_at_fwd": 0.09964301042687893,
+      "window_mm": 8.928602085375786
+    },
+    {
+      "knockdown": 0.8,
+      "up_throw_deg": 15.0,
+      "fwd_limit_mm": 120.10349016368188,
+      "sm_at_fwd": 0.10766728248065853,
+      "window_mm": 10.533456496131706
+    },
+    {
+      "knockdown": 0.75,
+      "up_throw_deg": 12.0,
+      "fwd_limit_mm": 126.12169420401656,
+      "sm_at_fwd": 0.07757626227898512,
+      "window_mm": 4.515252455797025
+    },
+    {
+      "knockdown": 0.75,
+      "up_throw_deg": 14.0,
+      "fwd_limit_mm": 123.11259218384922,
+      "sm_at_fwd": 0.09262177237982186,
+      "window_mm": 7.524354475964373
+    },
+    {
+      "knockdown": 0.75,
+      "up_throw_deg": 15.0,
+      "fwd_limit_mm": 121.60804117376554,
+      "sm_at_fwd": 0.10014452743024023,
+      "window_mm": 9.028905486048046
+    },
+    {
+      "knockdown": 0.7,
+      "up_throw_deg": 12.0,
+      "fwd_limit_mm": 127.32533501208351,
+      "sm_at_fwd": 0.07155805823865037,
+      "window_mm": 3.311611647730075
+    },
+    {
+      "knockdown": 0.7,
+      "up_throw_deg": 14.0,
+      "fwd_limit_mm": 124.51683979326066,
+      "sm_at_fwd": 0.08560053433276466,
+      "window_mm": 6.120106866552931
+    },
+    {
+      "knockdown": 0.7,
+      "up_throw_deg": 15.0,
+      "fwd_limit_mm": 123.11259218384922,
+      "sm_at_fwd": 0.09262177237982186,
+      "window_mm": 7.524354475964373
+    },
+    {
+      "knockdown": 0.6,
+      "up_throw_deg": 12.0,
+      "fwd_limit_mm": 129.7326166282174,
+      "sm_at_fwd": 0.05952165015798101,
+      "window_mm": 0.9043300315962028
+    },
+    {
+      "knockdown": 0.6,
+      "up_throw_deg": 14.0,
+      "fwd_limit_mm": 127.32533501208351,
+      "sm_at_fwd": 0.07155805823865037,
+      "window_mm": 3.311611647730075
+    },
+    {
+      "knockdown": 0.6,
+      "up_throw_deg": 15.0,
+      "fwd_limit_mm": 126.12169420401656,
+      "sm_at_fwd": 0.07757626227898512,
+      "window_mm": 4.515252455797025
+    }
+  ],
+  "frozen_trim": [
+    {
+      "knockdown": 0.8,
+      "de_13vs": -5.755997234454871
+    },
+    {
+      "knockdown": 0.75,
+      "de_13vs": -6.139730383418529
+    },
+    {
+      "knockdown": 0.7,
+      "de_13vs": -6.578282553662711
+    },
+    {
+      "knockdown": 0.6,
+      "de_13vs": -7.674662979273163
+    }
+  ]
+}
