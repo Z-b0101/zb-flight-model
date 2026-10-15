@@ -24,7 +24,8 @@ ASSUMPTIONS = {
     "pack_wh":        (7.215,  "derived",  "3S 650 mAh nominal"),
     "usable_frac":    (0.80,   "assumed",  "battery derate; bench test pending (UNCALIBRATED)"),
     "p_hotel_w":      (1.0,    "assumed",  "hotel load placeholder; bench test pending (UNCALIBRATED)"),
-    "eta":            ("min(0.55, 0.20+0.0875*P_shaft)", "assumed", "propulsion derate fit; wattmeter pending (UNCALIBRATED)"),
+    "eta":            ("min(0.55, 0.20+0.0875*P_shaft)", "assumed", "design-team derate fit; RECORD basis only (like-for-like checks). Superseded for operation by eta_provisional (D-32)"),
+    "eta_provisional": (0.42, "provisional", "D-32 (CEO 2026-10-14): overall propulsion efficiency, PROVISIONAL. Source: mfg/MOTOR_TRADE.md physics model (UIUC APC 8x6SF wind-tunnel CT/CP + Suppo 2204/14 Kv/Rm/Io) gives 0.39-0.45 across cruise; band in program/PROVISIONAL_VALUES.md (P-01). Checkpoint: bench VC-R07-5 (Oct 26-27)"),
     "v_floor_ms":     (7.0,    "derived",  "max(1.5*Vstall, 7.0) AIRFOIL_TRADE §3"),
     "cm0_section":    (-0.022, "measured", "MH60 XFoil Re100k Ncrit9 at CL~0.5 (AIRFOIL_TRADE.md; zb_model/trim.py CM0_AIRFOIL); -0.037 at CL 0"),
 }
@@ -72,6 +73,9 @@ class Twin:
         self.d = self.w.derivatives()
         d, c = self.d, self.w.cref
         self.m, self.x_cg_mm = mass_props(self.design, mass_basis)
+        # D-32: the record basis keeps the design-team derate (like-for-like); the frozen/operational
+        # basis uses the PROVISIONAL constant (overridable for sensitivity sweeps via self.eta_fn)
+        self.eta_fn = eta if mass_basis == "record" else (lambda p, _e=A("eta_provisional"): _e)
         xcg = self.x_cg_mm / 1000
         k = A("flap_knockdown")
         self.CLa, self.CL0 = d["CLa_per_deg"], d["CL0"]
@@ -105,10 +109,11 @@ class Twin:
         # program definition (zb_model/mission.py): eta is evaluated at P_shaft = D*V,
         # and electrical propulsion power = P_shaft / eta
         ps = Pair
-        p_prop = Pair / eta(Pair)
+        e_p = self.eta_fn(Pair)
+        p_prop = Pair / e_p
         stalled = CL > 0.9 * A("clmax_section")  # wing CLmax ~ 0.9 section (assumed)
         return dict(V=V, alpha=a, elevon=de, CL=CL, CD=CD, LD=CL / CD, D=D, P_air=Pair,
-                    P_shaft=ps, eta=eta(ps), P_batt=p_prop + self.p_hotel, stalled=stalled)
+                    P_shaft=ps, eta=e_p, P_batt=p_prop + self.p_hotel, stalled=stalled)
 
     def vstall(self):
         CLmax = 0.9 * A("clmax_section")

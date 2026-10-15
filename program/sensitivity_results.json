@@ -1,0 +1,329 @@
+[
+ {
+  "id": "P-01",
+  "name": "propulsion efficiency eta (overall)",
+  "case": "low",
+  "value": 0.36,
+  "unit": "-",
+  "range_km": 24.3137,
+  "endur_min": 57.8897,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": [
+   "C1",
+   "C2"
+  ]
+ },
+ {
+  "id": "P-01",
+  "name": "propulsion efficiency eta (overall)",
+  "case": "best",
+  "value": 0.42,
+  "unit": "-",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-01",
+  "name": "propulsion efficiency eta (overall)",
+  "case": "high",
+  "value": 0.45,
+  "unit": "-",
+  "range_km": 29.173,
+  "endur_min": 69.4595,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-02",
+  "name": "hotel (electronics) power",
+  "case": "low",
+  "value": 1.7,
+  "unit": "W",
+  "range_km": 24.3616,
+  "endur_min": 58.0038,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": [
+   "C1",
+   "C2"
+  ]
+ },
+ {
+  "id": "P-02",
+  "name": "hotel (electronics) power",
+  "case": "best",
+  "value": 1.0,
+  "unit": "W",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-02",
+  "name": "hotel (electronics) power",
+  "case": "high",
+  "value": 0.8,
+  "unit": "W",
+  "range_km": 28.6856,
+  "endur_min": 68.2991,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-03",
+  "name": "usable battery fraction",
+  "case": "low",
+  "value": 0.75,
+  "unit": "-",
+  "range_km": 25.8723,
+  "endur_min": 61.6007,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": [
+   "C1"
+  ]
+ },
+ {
+  "id": "P-03",
+  "name": "usable battery fraction",
+  "case": "best",
+  "value": 0.8,
+  "unit": "-",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-03",
+  "name": "usable battery fraction",
+  "case": "high",
+  "value": 0.85,
+  "unit": "-",
+  "range_km": 29.3219,
+  "endur_min": 69.8141,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-04",
+  "name": "misc drag cd_misc",
+  "case": "low",
+  "value": 0.018,
+  "unit": "-",
+  "range_km": 25.114,
+  "endur_min": 59.7953,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": [
+   "C1"
+  ]
+ },
+ {
+  "id": "P-04",
+  "name": "misc drag cd_misc",
+  "case": "best",
+  "value": 0.012,
+  "unit": "-",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-04",
+  "name": "misc drag cd_misc",
+  "case": "high",
+  "value": 0.008,
+  "unit": "-",
+  "range_km": 29.5445,
+  "endur_min": 70.3441,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-05",
+  "name": "plain-flap knockdown",
+  "case": "low",
+  "value": 0.65,
+  "unit": "-",
+  "range_km": 27.1738,
+  "endur_min": 64.6996,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -7.0843,
+  "fails": []
+ },
+ {
+  "id": "P-05",
+  "name": "plain-flap knockdown",
+  "case": "best",
+  "value": 0.75,
+  "unit": "-",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-05",
+  "name": "plain-flap knockdown",
+  "case": "high",
+  "value": 0.85,
+  "unit": "-",
+  "range_km": 27.8874,
+  "endur_min": 66.3986,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -5.4174,
+  "fails": []
+ },
+ {
+  "id": "P-06",
+  "name": "fin endplate factor",
+  "case": "low",
+  "value": 1.3,
+  "unit": "-",
+  "cn": 0.0011,
+  "fails": []
+ },
+ {
+  "id": "P-06",
+  "name": "fin endplate factor",
+  "case": "best",
+  "value": 1.55,
+  "unit": "-",
+  "cn": 0.0013,
+  "fails": []
+ },
+ {
+  "id": "P-06",
+  "name": "fin endplate factor",
+  "case": "high",
+  "value": 1.8,
+  "unit": "-",
+  "cn": 0.0014,
+  "fails": []
+ },
+ {
+  "id": "P-07",
+  "name": "fin sidewash factor",
+  "case": "low",
+  "value": 0.8,
+  "unit": "-",
+  "cn": 0.001,
+  "fails": []
+ },
+ {
+  "id": "P-07",
+  "name": "fin sidewash factor",
+  "case": "best",
+  "value": 1.0,
+  "unit": "-",
+  "cn": 0.0013,
+  "fails": []
+ },
+ {
+  "id": "P-07",
+  "name": "fin sidewash factor",
+  "case": "high",
+  "value": 1.2,
+  "unit": "-",
+  "cn": 0.0015,
+  "fails": []
+ },
+ {
+  "id": "P-08",
+  "name": "aft-mass growth (motor/prop/adapter/fins vs estimate)",
+  "case": "low",
+  "value": 4.0,
+  "unit": "g at ~200 mm",
+  "range_km": 27.2706,
+  "endur_min": 64.93,
+  "sm": 0.0507,
+  "auw": 237.0,
+  "trim_slow": -6.1397,
+  "fails": [
+   "C3"
+  ]
+ },
+ {
+  "id": "P-08",
+  "name": "aft-mass growth (motor/prop/adapter/fins vs estimate)",
+  "case": "best",
+  "value": 0.0,
+  "unit": "g at ~200 mm",
+  "range_km": 27.5971,
+  "endur_min": 65.7074,
+  "sm": 0.0566,
+  "auw": 233.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-08",
+  "name": "aft-mass growth (motor/prop/adapter/fins vs estimate)",
+  "case": "high",
+  "value": -1.0,
+  "unit": "g at ~200 mm",
+  "range_km": 27.6791,
+  "endur_min": 65.9026,
+  "sm": 0.0581,
+  "auw": 232.0,
+  "trim_slow": -6.1397,
+  "fails": []
+ },
+ {
+  "id": "P-09",
+  "name": "motor Io and Rm vs vendor",
+  "case": "low",
+  "value": 1.25,
+  "unit": "x",
+  "thrust": 2.1047,
+  "fails": []
+ },
+ {
+  "id": "P-09",
+  "name": "motor Io and Rm vs vendor",
+  "case": "best",
+  "value": 1.0,
+  "unit": "x",
+  "thrust": 2.4453,
+  "fails": []
+ },
+ {
+  "id": "P-09",
+  "name": "motor Io and Rm vs vendor",
+  "case": "high",
+  "value": 0.85,
+  "unit": "x",
+  "thrust": 2.7069,
+  "fails": []
+ }
+]

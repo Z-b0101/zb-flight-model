@@ -104,9 +104,9 @@ From `scripts/mass_rollup.py --motor-g 20 --prop-g 7.1 --adapter-g 5.1 --notch-d
 
 | # | Item | Owner | ECD |
 |---|---|---|---|
-| 1 | Alpha0 reconciliation (CE-01 gate c). The twin's VLM shows washout alone moves the wing's zero-lift angle by about 2.5°, so the gap is likely section (−3.0°) vs wing. Write-up pending | Claude | Oct 15, 12:00 PT |
+| 1 | **CLOSED (Oct 14 eve):** `program/ALPHA0_RECONCILIATION.md`. The record −3.07° is the old wash-in sign error; frozen α0L = +1.69° (root chord); guarded by `tests/test_alpha0.py`. MBSE to verify. Original item: Alpha0 reconciliation (CE-01 gate c). The twin's VLM shows washout alone moves the wing's zero-lift angle by about 2.5°, so the gap is likely section (−3.0°) vs wing. Write-up pending | Claude | Oct 15, 12:00 PT |
 | 2 | Dimensioned drawings and STEP for R2–R5, the fins, the notch and the motor mount (manufacturing data) | Claude | Oct 16, 12:00 PT |
-| 3 | Fixed tip trailing edge (y 405–450, aft of the hinge) is also not modelled in CAD; add it as `te_tip`. MBSE nit: confirm it does not move the CAD-basis mass (223.3 g) or the frozen roll-up | Claude | Oct 16 |
+| 3 | **DONE in CAD (Oct 14 eve); FINDING raised as CE-03** (`program/TE_PARTS_MASS_CHECK.md`): the fixed TE parts (+1.48 g, aft) are not in the airframe budget, giving SM 5.66% → 5.25% when built; to be closed jointly with CE-02 + the 850 mAh battery. Original item: fixed tip trailing edge (y 405–450, aft of the hinge) not modelled in CAD; add it as `te_tip`. MBSE nit: confirm it does not move the CAD-basis mass (223.3 g) or the frozen roll-up | Claude | Oct 16 |
 | 4 | Prop clearance is exactly 5.0 mm at the notch side edge: hold ±0.5 mm at the cut; bench VC-R07-7 | Build | B-11 |
 | 5 | Twin η derate → physics propulsion model, after VC-R07-5. **MBSE CONCUR (17:00 PT)** | Claude (implement), MBSE (accept) | Oct 28 (CDR) |
 | 6 | Order the parts (re-check stock first) | CEO | After freeze |
