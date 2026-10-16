@@ -1,0 +1,560 @@
+{
+ "motor": {
+  "sub_assembly": "propulsion",
+  "file": "parts/propulsion/motor.stl",
+  "shape": [
+   "cyl",
+   13.75,
+   11.5,
+   "x"
+  ],
+  "mass_g": 20.0,
+  "source": "altitudehobbies.com Suppo 2204/14 1400kv (R-07, CE-01): 27.5 x 11.5 mm, 20 g",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   142.0,
+   0.0,
+   0.0
+  ]
+ },
+ "prop": {
+  "sub_assembly": "propulsion",
+  "file": "parts/propulsion/prop.stl",
+  "shape": [
+   "prop3",
+   101.6,
+   7.62
+  ],
+  "mass_g": 12.2,
+  "source": "APC 8x6SF (R-07, CE-01): dia 203.2 mm, hub 7.62 mm thick, 7.1 g (ReadyMadeRC/Motion RC) + Scorpion 3 mm adapter 5.1 g; 2-blade drawn as the 3-blade envelope (conservative for clearance)",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   155.6,
+   0.0,
+   0.0
+  ]
+ },
+ "motor_mount": {
+  "sub_assembly": "propulsion",
+  "file": "parts/propulsion/motor_mount.stl",
+  "shape": [
+   "box",
+   [
+    30,
+    26,
+    4
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "custom printed mount (plate + ESC shelf) \u2014 ESTIMATED; mass in airframe misc",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   138.0,
+   0.0,
+   -2.4
+  ]
+ },
+ "esc": {
+  "sub_assembly": "propulsion",
+  "file": "parts/propulsion/esc.stl",
+  "shape": [
+   "box",
+   [
+    20,
+    12,
+    6
+   ]
+  ],
+  "mass_g": 3.5,
+  "source": "EMAX USA FAQ: board 11.9x19.6 mm, 3.5 g w/o wires; 6 mm height incl shrink ESTIMATED; external pod mount",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   135.0,
+   0.0,
+   -12.0
+  ]
+ },
+ "fc": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/fc.stl",
+  "shape": [
+   "box",
+   [
+    37,
+    26,
+    14
+   ]
+  ],
+  "mass_g": 23.0,
+  "source": "SpeedyBee manual: 37x26x14 mm, 19 g w/ USB extender; 23 g per WEIGHT_BUDGET (oga.global teardown)",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   40.0,
+   0.0,
+   3.5
+  ]
+ },
+ "gps": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/gps.stl",
+  "shape": [
+   "box",
+   [
+    21,
+    21,
+    8.02
+   ]
+  ],
+  "mass_g": 7.7,
+  "source": "rotorama/n-factory: 21x21x8.02 mm, 7.73 g",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   10.0,
+   0.0,
+   43.0
+  ]
+ },
+ "gps_mast": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/gps_mast.stl",
+  "shape": [
+   "box",
+   [
+    8,
+    8,
+    25
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed mast per WEIGHT_BUDGET S-2 \u2014 ESTIMATED; mass in airframe misc",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   10.0,
+   0.0,
+   26.5
+  ]
+ },
+ "servo_L": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/servo_L.stl",
+  "shape": [
+   "box",
+   [
+    19.74,
+    23.25,
+    8.34
+   ]
+  ],
+  "mass_g": 4.3,
+  "source": "buzzardmodels/xyzhobby ES9051: 19.74x8.34x23.25 mm, 4.3 g; mounted flat (8.34 vertical)",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   186.5,
+   250.0,
+   6.0
+  ]
+ },
+ "servo_R": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/servo_R.stl",
+  "shape": [
+   "box",
+   [
+    19.74,
+    23.25,
+    8.34
+   ]
+  ],
+  "mass_g": 4.3,
+  "source": "buzzardmodels/xyzhobby ES9051: 19.74x8.34x23.25 mm, 4.3 g; mounted flat (8.34 vertical)",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   186.5,
+   -250.0,
+   6.0
+  ]
+ },
+ "rx": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/rx.stl",
+  "shape": [
+   "box",
+   [
+    32,
+    18,
+    13
+   ]
+  ],
+  "mass_g": 5.0,
+  "source": "HotRC F-04A (manuals.plus/picclick): 32x18x13 mm, 5 g",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   56.2,
+   24.0,
+   2.7
+  ]
+ },
+ "encoder": {
+  "sub_assembly": "avionics",
+  "file": "parts/avionics/encoder.stl",
+  "shape": [
+   "box",
+   [
+    21,
+    21,
+    8
+   ]
+  ],
+  "mass_g": 3.0,
+  "source": "JHEMCU SPP-S: 21x21 mm (jhemcu.com); height 8 mm ESTIMATED; mass 3 g (budget RX+encoder=8)",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   56.2,
+   -24.0,
+   2.7
+  ]
+ },
+ "battery": {
+  "sub_assembly": "power",
+  "file": "parts/power/battery.stl",
+  "shape": [
+   "box",
+   [
+    28.0,
+    64.0,
+    20.0
+   ]
+  ],
+  "mass_g": 62.0,
+  "source": "hobbyrc.co.uk GNB 3S 650mAh 80C: 64x28x20 mm, 62 g; SPANWISE (64 along y) at u=0.205 \u2014 clears the spar tube (fwd surface), sits in hatch H1 tray; zc from 2 mm top-clearance rule",
+  "ESTIMATED": false,
+  "pos_cad_xyz_mm": [
+   -18.0,
+   0.0,
+   -8.5
+  ]
+ },
+ "w1a": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w1a.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "motor phase A lead to ESC (external pod run)",
+  "ESTIMATED": false
+ },
+ "w1b": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w1b.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "motor phase B lead to ESC (external pod run)",
+  "ESTIMATED": false
+ },
+ "w1c": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w1c.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "motor phase C lead to ESC (external pod run)",
+  "ESTIMATED": false
+ },
+ "w3a_power": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w3a_power.stl",
+  "wire_r_mm": 1.8,
+  "min_bend_radius_mm": 4.8,
+  "desc": "ESC->FC power (via documented bottom-skin penetration)",
+  "ESTIMATED": false
+ },
+ "w3b_signal": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w3b_signal.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 4.4,
+  "desc": "ESC->FC signal+ground",
+  "ESTIMATED": false
+ },
+ "w2_batt_fc": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w2_batt_fc.stl",
+  "wire_r_mm": 2.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "FC PDB -> battery XT30 pigtail (pack +y end, just outside tray wall; stays inside wing, no skin breach)",
+  "ESTIMATED": false,
+  "connector": {
+   "xt30": {
+    "dims": [
+     16,
+     8,
+     7
+    ],
+    "desc": "XT30 male on battery pigtail"
+   },
+   "ESTIMATED_dims": true
+  }
+ },
+ "w4_servo_L": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w4_servo_L.stl",
+  "wire_r_mm": 1.2,
+  "min_bend_radius_mm": 6.0,
+  "desc": "FC -> left servo lead via 0.42 lightening holes",
+  "ESTIMATED": false,
+  "connector": {
+   "jr": {
+    "dims": [
+     10,
+     6,
+     5
+    ],
+    "desc": "JR/Futaba servo plug"
+   },
+   "ESTIMATED_dims": true
+  }
+ },
+ "w4_servo_R": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w4_servo_R.stl",
+  "wire_r_mm": 1.2,
+  "min_bend_radius_mm": 6.0,
+  "desc": "FC -> right servo lead via 0.42 lightening holes",
+  "ESTIMATED": false,
+  "connector": {
+   "jr": {
+    "dims": [
+     10,
+     6,
+     5
+    ],
+    "desc": "JR/Futaba servo plug"
+   },
+   "ESTIMATED_dims": true
+  }
+ },
+ "w5_gps": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w5_gps.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "FC -> GPS through printed mast wire channel (top-skin penetration at mast base)",
+  "ESTIMATED": false,
+  "connector": {
+   "sh1_0": {
+    "dims": [
+     8,
+     5,
+     3.5
+    ],
+    "desc": "SH1.0 6-pin GPS plug"
+   },
+   "ESTIMATED_dims": true
+  }
+ },
+ "w6_rx_enc": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w6_rx_enc.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 6.0,
+  "desc": "RX -> encoder jumper (corridor fwd of FC, aft of battery)",
+  "ESTIMATED": false
+ },
+ "w6_enc_fc": {
+  "sub_assembly": "wiring",
+  "file": "parts/wiring/w6_enc_fc.stl",
+  "wire_r_mm": 1.0,
+  "min_bend_radius_mm": 1000000000.0,
+  "desc": "encoder -> FC SBUS",
+  "ESTIMATED": false
+ },
+ "tray_fwd": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/tray_fwd.stl",
+  "shape": [
+   "box",
+   [
+    1.2,
+    74.4,
+    10.67130103956513
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed tray fwd wall (vase-mode PETG); mass in hatch_tray",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -35.6,
+   0.0,
+   -14.7
+  ]
+ },
+ "tray_aft": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/tray_aft.stl",
+  "shape": [
+   "box",
+   [
+    1.2,
+    74.4,
+    10.67130103956513
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed tray aft wall; mass in hatch_tray",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -0.4,
+   0.0,
+   -14.7
+  ]
+ },
+ "tray_port": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/tray_port.stl",
+  "shape": [
+   "box",
+   [
+    35.0,
+    1.2,
+    10.67130103956513
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed tray port wall (0.5 overlap into fwd/aft); mass in hatch_tray",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -18.0,
+   -36.6,
+   -14.7
+  ]
+ },
+ "tray_stbd": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/tray_stbd.stl",
+  "shape": [
+   "box",
+   [
+    35.0,
+    1.2,
+    10.67130103956513
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed tray stbd wall (0.5 overlap into fwd/aft); mass in hatch_tray",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -18.0,
+   36.6,
+   -14.7
+  ]
+ },
+ "lid": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/lid.stl",
+  "shape": [
+   "box",
+   [
+    44.0,
+    82.0,
+    3.0
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "Depron 3mm lid panel (44x82); mass in hatch_lid",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -18.0,
+   0.0,
+   -21.5
+  ]
+ },
+ "latch_1": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/latch_1.stl",
+  "shape": [
+   "box",
+   [
+    10.0,
+    8.0,
+    5.0
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed aft snap-latch (embedded 0.2 in lid); mass in hatch_lid",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -5.0,
+   20.0,
+   -17.7
+  ]
+ },
+ "latch_2": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/latch_2.stl",
+  "shape": [
+   "box",
+   [
+    10.0,
+    8.0,
+    5.0
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "printed aft snap-latch (embedded 0.2 in lid); mass in hatch_lid",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -5.0,
+   -20.0,
+   -17.7
+  ]
+ },
+ "hinge": {
+  "sub_assembly": "hatch",
+  "file": "parts/hatch/hinge.stl",
+  "shape": [
+   "box",
+   [
+    40.0,
+    8.0,
+    1.0
+   ]
+  ],
+  "mass_g": 0.0,
+  "source": "fiber-tape hinge strip, fwd edge (embedded 0.2 in lid); mass in hatch_lid",
+  "ESTIMATED": true,
+  "pos_cad_xyz_mm": [
+   -33.0,
+   0.0,
+   -19.7
+  ]
+ },
+ "_wire_penetrations": [
+  {
+   "name": "W3 bottom-skin entry",
+   "center": [
+    118.0,
+    0.0,
+    -4.0
+   ],
+   "r": 10.0
+  },
+  {
+   "name": "W5/mast top-skin exit",
+   "center": [
+    14.0,
+    0.0,
+    15.0
+   ],
+   "r": 8.0
+  }
+ ],
+ "_hatch_H1": {
+  "aperture_rect_section": {
+   "u0": 0.075,
+   "u1": 0.245,
+   "y0": -36.0,
+   "y1": 36.0
+  },
+  "battery_zc_mm": -8.509,
+  "retention": "fwd tape hinge + 2 aft snap-latches (positive)",
+  "desc": "battery hatch: bottom-skin aperture + printed tray + Depron lid"
+ }
+}

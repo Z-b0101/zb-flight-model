@@ -1,0 +1,150 @@
+{
+ "wing_upper": {
+  "parts": [
+   "wing_structure/skin_top"
+  ],
+  "triangles": 2840,
+  "vertices": 1422,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 1067.44,
+  "mean": 9.25,
+  "pct_gt_10": 3.94
+ },
+ "wing_lower": {
+  "parts": [
+   "wing_structure/skin_bottom"
+  ],
+  "triangles": 3264,
+  "vertices": 1632,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 248.39,
+  "mean": 10.15,
+  "pct_gt_10": 15.04
+ },
+ "elevon_R": {
+  "parts": [
+   "wing_structure/elevon_right"
+  ],
+  "triangles": 332,
+  "vertices": 168,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 3059.78,
+  "mean": 109.36,
+  "pct_gt_10": 83.13
+ },
+ "elevon_L": {
+  "parts": [
+   "wing_structure/elevon_left"
+  ],
+  "triangles": 332,
+  "vertices": 168,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 3059.78,
+  "mean": 109.36,
+  "pct_gt_10": 83.13
+ },
+ "structure": {
+  "parts": [
+   "wing_structure/rib",
+   "wing_structure/spar",
+   "wing_structure/te_centre"
+  ],
+  "triangles": 5088,
+  "vertices": 2545,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 1412.66,
+  "mean": 27.41,
+  "pct_gt_10": 82.0
+ },
+ "propulsion": {
+  "parts": [
+   "propulsion/motor",
+   "propulsion/prop",
+   "propulsion/motor_mount",
+   "propulsion/esc"
+  ],
+  "triangles": 1600,
+  "vertices": 808,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 288.57,
+  "mean": 41.04,
+  "pct_gt_10": 56.38
+ },
+ "avionics": {
+  "parts": [
+   "avionics/fc",
+   "avionics/gps",
+   "avionics/gps_mast",
+   "avionics/servo_L",
+   "avionics/servo_R",
+   "avionics/rx",
+   "avionics/encoder"
+  ],
+  "triangles": 84,
+  "vertices": 56,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 3.89,
+  "mean": 3.08,
+  "pct_gt_10": 0.0
+ },
+ "power": {
+  "parts": [
+   "power/battery"
+  ],
+  "triangles": 12,
+  "vertices": 8,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 3.96,
+  "mean": 3.21,
+  "pct_gt_10": 0.0
+ },
+ "hatch": {
+  "parts": [
+   "hatch/tray_fwd",
+   "hatch/tray_aft",
+   "hatch/tray_port",
+   "hatch/tray_stbd",
+   "hatch/lid",
+   "hatch/latch_1",
+   "hatch/latch_2",
+   "hatch/hinge"
+  ],
+  "triangles": 96,
+  "vertices": 64,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 62.51,
+  "mean": 15.1,
+  "pct_gt_10": 29.17
+ },
+ "wiring": {
+  "parts": [
+   "wiring/w1a",
+   "wiring/w1b",
+   "wiring/w1c",
+   "wiring/w2_batt_fc",
+   "wiring/w3a_power",
+   "wiring/w3b_signal",
+   "wiring/w4_servo_L",
+   "wiring/w4_servo_R",
+   "wiring/w5_gps",
+   "wiring/w6_enc_fc",
+   "wiring/w6_rx_enc"
+  ],
+  "triangles": 2888,
+  "vertices": 1474,
+  "watertight": true,
+  "bad_edges": 0,
+  "max": 331.54,
+  "mean": 19.6,
+  "pct_gt_10": 29.43
+ }
+}
